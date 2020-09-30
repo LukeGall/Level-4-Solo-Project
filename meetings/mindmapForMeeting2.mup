@@ -1,0 +1,107 @@
+{
+  "formatVersion": 3,
+  "id": "root",
+  "ideas": {
+    "1": {
+      "title": "Virtual Turing Tumble ",
+      "id": 1,
+      "attr": {
+        "position": [
+          -79,
+          -24,
+          1
+        ]
+      },
+      "ideas": {
+        "1": {
+          "title": "Java Swing",
+          "id": 3,
+          "ideas": {
+            "1": {
+              "title": "More mature but more support",
+              "id": 20
+            },
+            "2": {
+              "title": "Large libarary of elements",
+              "id": 21
+            },
+            "3": {
+              "title": "Taught to the masters students",
+              "id": 22,
+              "ideas": {}
+            },
+            "4": {
+              "title": "If I wanted to go down the educational route it would be much easier if I knew swing myself ",
+              "id": 25
+            },
+            "5": {
+              "title": "Easy to transfer knowledge to FX in the future if needed",
+              "id": 26
+            }
+          }
+        },
+        "2": {
+          "title": "Educational Tool?",
+          "id": 6,
+          "ideas": {
+            "1": {
+              "title": "A more interactive swing tutorial using the game?",
+              "id": 27
+            },
+            "2": {
+              "title": "Could have a gear '?' icon on a gear to give more info of it's swing creation?",
+              "id": 28,
+              "ideas": {}
+            },
+            "3": {
+              "title": "Focus on giving helpful info",
+              "id": 31
+            },
+            "4": {
+              "title": "Could so like an X-ray into a class for the gears etc, side to side view with class example highlighting Swing Components ",
+              "id": 35
+            }
+          }
+        },
+        "-1": {
+          "title": "Java fx",
+          "id": 9,
+          "ideas": {
+            "1": {
+              "title": "Could be used for internal logic / UI if need be",
+              "id": 11
+            },
+            "2": {
+              "title": "Needs JDK 11 as min",
+              "id": 15
+            },
+            "1.5": {
+              "title": "Intellj plugin",
+              "id": 16
+            },
+            "1.25": {
+              "title": "Successor to swing",
+              "id": 19
+            }
+          }
+        },
+        "-2": {
+          "title": "Physical Turing Tumble ",
+          "id": 12,
+          "ideas": {
+            "1": {
+              "title": "Best way to get a feel for the game",
+              "id": 13
+            },
+            "2": {
+              "title": "Comes with tutorial on how to set up and use the different pieces",
+              "id": 14
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Virtual Turing Tumble ",
+  "links": []
+}
