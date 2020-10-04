@@ -1,0 +1,16 @@
+# Title: Summary, start upper case, don't end with a period
+# No more than 50 chars. #### 50 chars is here: #
+
+# Remember blank line between title and body.
+
+# Body: Explain *what* and *why* (not *how*).
+# Wrap at 72 chars. ################################## which is here: #
+
+
+# At the end:
+#     -  "Closes #<issue number>" if this commit closes an issue
+#     -  "Contributes to #<issue number>" if it doesn't close it
+
+
+# This gitmessage was taken from 'How to Write a Git Commit Message':
+# https://chris.beams.io/posts/git-commit/
