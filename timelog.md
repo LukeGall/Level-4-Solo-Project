@@ -32,6 +32,17 @@
 * *1.0 hour* Trying and learning some basic Turing Tumble components to work out how the game will work, including the reading of the Educator Guide 
 * *0.5 hour* Spent some time looking at React and Angular as possible web frameworks to produce the game
 * *0.5 hour* spent time looking at possible animation libaries and starting tesing an angular project
-* *0.5 hour* Installed and tested matter js
+* *0.5 hour* Installed and configured matter js
 
+## 2 Oct 2020
 
+* *1 hour* Undertook react tutorial to get a feel of the framework 
+* *1 hour* Read Research paper comparing React, Angular and Vue. And watched some videos comparing some of them
+
+## 3 Oct 2020
+* *1 hour* Built the physical Turing Tumble and went through some of the puzzles 
+
+## 4 Oct 2020
+* *0.5 hour* Went through some of the gear bit puzzles to understand the component, could do more research into it 
+* *1 hour* Experimented and researched matterjs
+* *0.5 hour* Mind map of new ideas and angular project set up 

@@ -171,17 +171,17 @@ What did other people do, and how is it relevant to what you want to do?
 
 If I wanted this to focus more for school children. I could try and either target high school or primary and if so maybe talk to the teachers there?
 
-Each puzzle in the starting book has a start set up and a list of avaiable parts they could use, soultions are also given, so puzzles and the right output could be tracked in an app?
+Each puzzle in the starting book has a start set up and a list of available parts they could use, solutions are also given, so puzzles and the right output could be tracked in an app?
 
 
 % This is where I should put any notes when researching the turing tumble or any virtual comterparts
-Turing Tmble is a marble game that can build mechanical computers using vaious components and gears
+Turing Tumble is a marble game that can build mechanical computers using various components and gears
 Can help teach people how simple switches work which act as the building block to computers. Can teach logic gates, truth tables, conditionals, binary etc
 
-The online version they recommended is very much just the game, could look at making it more of an edu tool by having the puzzles avaiable online and maybe making my own?
+The online version they recommended is very much just the game, could look at making it more of an edu tool by having the puzzles available online and maybe making my own?
 Depends if I want it to be used in class rooms for school children in schools where they won't want to get the physical boards due to practice
 
-The balls act as the electricty going through the board
+The balls act as the electricity going through the board
 
 The game board has two flippers, one that releases the blue ball and one that releases the red ones
 6 different parts
@@ -190,16 +190,27 @@ Crossover lets ball paths cross over, so can cross paths that some balls may hav
 bit, points left or right storing logic. These act as switches which allow the balls to change the course of the next set of electricity 
 
 Interceptor stops any more balls being released, if the ball stops, 'electricity' stops meaning it no longer runs
-Gears and gear bits are the componets that help make the board turing complete, the bit part stores logic 
+Gears and gear bits are the components that help make the board turing complete, the bit part stores logic 
+
+Gears and gear bits let other gear bits to turn each other. Can turn gear bits above, side or below them. Needs to be used in combination with gears as they aren't weighted correctly overwise
+By using gears we can send info back up the board, so we could send up to the top that a register is above a certain number i.e. for loops
+Different combinations of gear bits and bits made different logical pieces, like the latch which lets one blue left and the rest right (2 gear bits top left and bottom with a gear)
+Set switch lets you make all bits point in a certain direction, lets you test the direction (bit value) without changing it
+Can make a flip flop using gear and gear bits to remember info about it before it drops
+
+This switch can be used to check overflow etc. The combinations that gears and gear bit could be made to do could be explored?
+
 
 Features that can be improved upon with virtual one online, no save Elements, no login etc. Could be useful? Could encourage people to make puzzles online? 
 % Notes on Java Swing
-For java swing, intellij has a swing Ui designer which can be used to automatiically add different components to the app without needing to code from stratch
+For java swing, intellij has a swing Ui designer which can be used to automatically add different components to the app without needing to code from scratch
 Has a main JFrame which will seems to act as the main desktop app panel that buttons, etc can be placed in. 
 Hovering over the components in Intellj doesn't give too much information into what they actually do are why we need them. Could be someone to focus on improving.
 
 The Java swing API has it's main super class as a Component (Object is above this like every java class). It can then be a Container or JComponent. Where a container is either a window or a panel, and the 
 components are labels, lists, tables etc. 
+
+Swing isn't really designed for animations, java fx is recommended instead
 
 
 %  Angular vs React 
@@ -211,6 +222,70 @@ React uses a virtual DOM so would be quicker to re-write elements of HTML Doc (C
 Angular uses a real DOM so it needs to update the entire HTML tree even for little changes
 
 React is smaller and therefore faster to load up
+
+I already have a bit of knowledge of angular so it might be easier to start with
+
+matter js could be used, plus also animejs and angular has it's own animation library
+
+% React notes
+These notes were taken while undertaking the official react tutorial
+
+Mainly about composing complex UIs from lots of components which are smaller and more singular pieces of code
+React will re update and render the components if the data changes.
+
+Reach component class takes in prop and returns a react Element
+Can put any JS expressions inside the JSX, so could be a different react class (say a component for the turing tumble)
+
+Parent components can pass data down to child Elements using props, don't think it can go the other way 
+Components have state. State can be considered private 
+
+Children props can pass state to each other using shared state stored in the parent component. Parent component can pass the state back down to the children by using props
+Keeps the child components in sync
+
+In the tutorial we push state up from the lower down child component so it gets state from it's parent and uses the function provided by it. Making it a controlled component
+The tutorial recommends always keeping state immutable and replacing this with new objects instead of changing the existing state for error handling and the ability to check changes more easily in the future
+Helps the react engine know when it should update it's rendering 
+
+% Angular vs React vs Vue 
+Frameworks don't equal library's. Libs are pre written code with classes, functions etc, can download these from npm or github
+Frameworks include a large stack of functions and help the dev use the various features that would otherwise need to be made before the real site can be done, i.e. routing etc
+
+React is only the UI library would need other technologies to handle any backend (if needed) for example
+Vue can let you use JS or Typescipt, but Angular's documentation is all in Typescript but can use normal JS or Dart if needed. 
+This makes it good for devs form OO background tho. Angular forces the three file approach to a component while react and vue don't
+React is one way binding only which may be an issue. 
+
+% Angular notes 
+
+I know a little bit of angular already so it wouldn't be a complete deep dive into web dev and could probably help save some hours.
+It is fully component based, the components are the main building tools for the framework, each component consists of Typescript, html and css files 
+Components are organised hierarchy, this will help force a good layout for my code and will help encourage good practices 
+Can support data flow from component to the template - property
+    template to the component - event
+Can two way bind using these, using a fairly complex background of watchers
+Got a slightly steeper learning curve by all accounts 
+Typescript is pretty similar to Java or C
+
+% p5
+
+p5 could be used as a drawing library but I would need to spend some more time looking at it
+
+% Matter js notes (https://brm.io/matter-js/)
+It is a 2D physics engine for shapes and objects, that could be useful to model the marbles going down the slope of the game board
+Matter js has an internal engine that updates the animations for us
+
+engine has a timescale object which will slow down animations, which could be useful
+x, y starts from top left.
+This is a very powerful library with some very interesting examples on their site, this could be a very powerful tool to use to make the envo but it may be differnt to apply the logic of the balls and components, may be easier to 
+focus on the logic then add some animation?
+
+Engine is the module for creating and maintains the physics engine while render is the module that visualizes the objects moving
+World module is used to provide methods and props to create and manipulate the world, i.e. gravity
+Bodies is circles rectangles and other common solid Bodies
+body is used to manipulate properties of bodies ie density, velocity etc
+Composites allow a quick creation of multiple bodies like a stack of rectangles 
+
+It would definitely be possible to create turing tumble using this library it might just be too powerful for what we need 
 
 %==================================================================================================================================
 \chapter{Analysis/Requirements}

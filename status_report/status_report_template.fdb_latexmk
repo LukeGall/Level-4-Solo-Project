@@ -1,0 +1,19 @@
+# Fdb version 3
+["pdflatex"] 1601648683 "/home/luke/Level-4-Solo-Project/status_report/status_report_template.tex" "/home/luke/Level-4-Solo-Project/status_report/status_report_template.pdf" "status_report_template" 1601648683
+  "/etc/texmf/web2c/texmf.cnf" 1594895357 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/luke/Level-4-Solo-Project/status_report/fullpage.sty" 0 -1 0 ""
+  "/home/luke/Level-4-Solo-Project/status_report/status_report_template.aux" 1601648683 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/luke/Level-4-Solo-Project/status_report/status_report_template.tex" 1601648682 2044 76b2d6cc41b3b344ed06aacadc6996dc ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1580683321 20023 e427dd9e17e239bf926ef3aab67fe35e ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo" 1580683321 8462 61fdf79debfc3dc4dab35ec6cf83fbf7 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty" 1156702453 857 6c716f26c5eadfb81029fcd6ce2d45e6 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1594896623 4791332 f238319d87b814ccd70d45210b48e777 ""
+  "fullpage.sty" 0 -1 0 ""
+  "status_report_template.tex" 1601648682 2044 76b2d6cc41b3b344ed06aacadc6996dc ""
+  (generated)
+  "/home/luke/Level-4-Solo-Project/status_report/status_report_template.pdf"
+  "status_report_template.log"
+  "/home/luke/Level-4-Solo-Project/status_report/status_report_template.log"
