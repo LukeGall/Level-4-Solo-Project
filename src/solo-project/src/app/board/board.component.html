@@ -1,0 +1,9 @@
+<p>This is the board</p>
+<div class="container">
+  <div class="row" *ngFor="let row of board.slots">
+    <div class = "col-sm" *ngFor="let slot of row"> 
+    <app-pin *ngIf="checkPin(slot.partName)"></app-pin>
+    <app-comp-slot *ngIf="checkCompSlot(slot.partName)"></app-comp-slot>
+  </div>
+  </div>
+</div>

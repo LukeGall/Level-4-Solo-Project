@@ -10,8 +10,8 @@ Week-by-week plan for the whole project. Update this as you go along.
 ## Winter semester
 
 * **Week 1** Establish design ideas, Write short concise timeline, Set up environment, Learn and research more about different frameworks including Swing, and some web ones, Learn more about the Turing Tumble and any virtual counterparts online until physical one arrives. 
-* **Week 2** Spend time getting to know turing tumble including a write up of all components and the logic it should include. Plan components that will represent the board pieces. Start simple and build up
-* **Week 3** Create basic board interaction and then Focus on getting marbles to 'drop' and follow logic of the board. 
+* **Week 2** Spend time getting to know turing tumble including a write up of all components and the logic it should include. Plan components that will represent the board pieces. Get a basic board on screen that allows clicks to place 'components'. Start simple and build up
+* **Week 3** Create basic board interaction and then Focus on getting marbles to 'drop' and follow logic of the board. Lit review of other online games
 * **Week 4** Add more components and start basic animation
 * **Week 5** Organise gear and gear bits as well as adding loop of marbles running 
 * **Week 6** Either focus on logic of the board and maybe look at modeling the running of the game using modeling languages or focus on creating an online puzzle community for the game 

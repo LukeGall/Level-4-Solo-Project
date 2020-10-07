@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BoardComponent } from './board/board.component';
+import { PinComponent } from './pin/pin.component';
+import { CompSlotComponent } from './comp-slot/comp-slot.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BoardComponent,
+    PinComponent,
+    CompSlotComponent
   ],
   imports: [
     BrowserModule,

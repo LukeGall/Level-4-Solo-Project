@@ -290,6 +290,47 @@ It would definitely be possible to create turing tumble using this library it mi
 %==================================================================================================================================
 \chapter{Analysis/Requirements}
 What is the problem that you want to solve, and how did you arrive at it?
+
+% Write up of Turing Tumble Pieces
+
+\emph{Ramp} 
+The Ramp component is the simplest component and acts as a 'wire' in the computer metaphor that persists throughout the components. 
+The Ramp sends a ball either right or left depending on the direction the curved end is facing, the ramp doesn't care which way the ball enters
+the component, it will send right / left for a ball entering from the top right or left of the component. This piece is reversible in order to change the direction
+it faces. As the balls aren't allowed to drop freely until they reach the end, the ramp is the most common way to direct the balls to the desired location.
+This components representation in code should store the direction it is facing which will be the direction it sends the ball or 'electricity' down.
+
+\emph{Crossover}
+The Crossover is a non reversible piece that continues the direction a ball is travelling into the component but allows the balls to enter from either side.
+If a ball enters from the top left, travelling to the bottom right, it will leave the bottom right side of the crossover continuing it's direction. As this is a 
+static piece, the crossover can't be reversed and will always act the same way. This piece is metaphorically equivalent to wires crossing over in chips, it allows paths created 
+using ramps and other components to cross over each other.
+
+\emph{Bit}
+The Bit component acts as a metaphorical switch that will change the direction the next ball will travel based on if it is on (pointing to the right) or off (pointing to the left).
+If the bit is pointing to the right (on) send the balls to the left no matter which direction they enter from. Send the balls to the right if the switch is pointing to the left (off).
+However when a ball passes through a bit it changes the direction it is facing so it isn't a perfect analogy when comparing them to switches inside circuits. These components can be used to represent registers
+that store bit values which can then be used to represent values in binary representation.
+This component will need to store the direction it's facing as it's only main property.
+
+\emph{Interceptor}
+This component catches a ball and stops the execution of the turing tumble as the marble will no longer be able to reach the end of the board and release another marble. 
+By using the metaphor of electricity this component stops the electricity from flowing through the computer meaning it will stop execution.
+This component is similar to a shutoff switch inside a regular computer. It will not store any properties but should be able to change the position of the ball to static and 
+stop the run time of the board.
+
+\emph{Gear}
+Gears are the only components that can be placed on pegs instead of slots on the board and act as connections between a number of gear bits. They turn either 90 left or right. They will need a turn function.
+
+\emph{Gear Bit}
+This component is a like a bit in that it stores state by pointing left or right and will send a ball in the opposite direction it is facing and then change direction.
+A Gear Bit not connected to a Gear will act and behave exactly like a normal Bit component. When a gear bit changes direction it will also turn any connecting gears this direction which can 
+then in turn change other gears and gear bits. The combination of this component and the gear makes the game Turing Complete. 
+Information can only be sent down the board unless using these components which can then be used to affect components above the gear bit that gets switched.
+This component like the bit will need to be able to store it's direction (state) and then turn itself and any connecting gears.
+
+Using a combination of gear and gear bits we can make new logical components like latches, fixed position switches, set switches and flip flops. The logic of these
+new composite components could be explored plus the creation of new components that provide different logic.
 \section{Guidance}
 Make it clear how you derived the constrained form of your problem via a clear and logical process. 
 
