@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Pin } from '../boardParts/pin';
 
 @Component({
   selector: 'app-pin',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pin.component.scss']
 })
 export class PinComponent implements OnInit {
+  pin: Pin = new Pin();
 
   constructor() { }
 

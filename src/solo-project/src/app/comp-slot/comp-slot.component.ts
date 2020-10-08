@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comp-slot.component.scss']
 })
 export class CompSlotComponent implements OnInit {
-text:String= "compSlot";
+text:String= "CS";
 
   constructor() { }
 
@@ -14,11 +14,10 @@ text:String= "compSlot";
   }
 
   clicked(){
-    if (this.text == "compSlot"){
-      this.text = "clicked";
+    if (this.text == "CS"){
+      this.text = "click";
     } else {
-      this.text = "compSlot";
+      this.text = "CS";
     }
   }
-
 }
