@@ -52,3 +52,6 @@
 * *0.5 hour* Meeting prep
 * *0.5 hour* Meeting plus write up
 * *1 hour* Continuation of set up of components and classes, now have a generated checker board pattern thing
+
+## 8 Oct 2020
+* *2 hours* Creation of basic board layout with the different type of slot components
