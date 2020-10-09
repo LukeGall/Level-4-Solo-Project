@@ -55,3 +55,9 @@
 
 ## 8 Oct 2020
 * *2 hours* Creation of basic board layout with the different type of slot components
+* *2 hours* Creation of side bar and re arranging of component data so components can be placed on slot while still being part of the boardService board
+* *1 hour* Updated boardService to allow pin components to now have gears added
+
+## 9 Oct 2020
+* *1 hour* Allow compSlots to have ramps and crossovers added to each other, also did testing to ensure the board object gets updated and ensures each component has it's own unique part in it
+* *2 hour* Added all components that can now be added to the Pin and CompSlots, made a angular component for every possible TT component and ensured that the classes and passed correctly to each individual class while still be accessed by the board service

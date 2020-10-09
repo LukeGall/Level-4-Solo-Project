@@ -1,3 +1,6 @@
-<div>
-    <h6>{{pin.partName}}</h6>
+<div (click)="click()">
+    <div *ngIf="pin.piece; else pinOut">
+        <p>{{pin.piece.getName()}}</p>
+    </div>
+    <ng-template #pinOut>{{pin.partName}}</ng-template>
 </div>

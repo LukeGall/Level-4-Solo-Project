@@ -13,7 +13,9 @@ export class BoardComponent implements OnInit {
   constructor(public boardService: BoardService) { }
 
   ngOnInit(): void {
-    this.board = this.boardService.getBoard();
+    this.boardService.getBoard().subscribe(board =>
+      {this.board = board}
+    );
   }
 
   checkPin(name: String): Boolean{

@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row justify-content-md-center" *ngFor="let row of board.slots">
       <div class="col-sm" *ngFor="let slot of row">
-        <app-pin *ngIf="slot && checkPin(slot.partName)"></app-pin>
-        <app-comp-slot *ngIf="slot && checkCompSlot(slot.partName)"></app-comp-slot>
+        <app-pin *ngIf="slot && checkPin(slot.partName)" [pin]="slot"></app-pin>
+        <app-comp-slot *ngIf="slot && checkCompSlot(slot.partName)" [compSlot]="slot"></app-comp-slot>
       </div>
     </div>
   </div>

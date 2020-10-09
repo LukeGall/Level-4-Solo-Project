@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Pin } from '../boardParts/pin';
+import { BoardService } from '../board.service';
+import { BoardPiece } from '../boardPieces/board-piece';
+import { Gear } from '../boardPieces/gear';
 
 @Component({
   selector: 'app-pin',
@@ -7,11 +10,18 @@ import { Pin } from '../boardParts/pin';
   styleUrls: ['./pin.component.scss']
 })
 export class PinComponent implements OnInit {
-  pin: Pin = new Pin();
+  @Input() pin: Pin;
 
-  constructor() { }
+  constructor(public boardService: BoardService) { }
 
   ngOnInit(): void {
   }
 
+  click(){
+    var heldPiece: BoardPiece;
+    this.boardService.getHeldPiece().subscribe(piece => heldPiece=piece);
+    if(heldPiece instanceof Gear){
+      this.pin.piece = heldPiece;
+    }
+  }
 }

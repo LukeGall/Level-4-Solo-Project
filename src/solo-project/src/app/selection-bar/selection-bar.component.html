@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <nav id ="sidebar">
+        <div class="sidebar-header">
+            <h4>Component Selection</h4>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>Select a component</p>
+
+            <li *ngFor="let part of partList">
+                <button (click)="clicked(part)">{{part}}</button>
+            </li>
+        </ul>
+        <!-- Testing Purposes -->
+        <p *ngIf="heldPart">{{heldPart.getName()}}</p>
+        <button (click)="checkBoard()">Check board</button>
+    </nav>
+</div>

@@ -1,7 +1,8 @@
 import { BoardPiece } from './board-piece';
 
-export class Gear implements BoardPiece{
+export class Crossover implements BoardPiece{
     getName(): String {
-        return "Gear";
+        return "CO";
     }
+
 }

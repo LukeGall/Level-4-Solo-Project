@@ -1,7 +1,7 @@
 import { BoardPiece } from './board-piece';
 
-export class Gear implements BoardPiece{
+export class GearBit implements BoardPiece{
     getName(): String {
-        return "Gear";
+        return "Gear Bit";
     }
 }
