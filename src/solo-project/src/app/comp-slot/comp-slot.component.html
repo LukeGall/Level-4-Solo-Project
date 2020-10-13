@@ -1,6 +1,6 @@
 <div (click)="click()">
     <div *ngIf="compSlot.piece; else compSlotDef">
-        <app-ramp *ngIf="checkRamp()" [piece]="compSlot.piece"></app-ramp>
+        <app-ramp *ngIf="checkRamp()" [ramp]="compSlot.piece"></app-ramp>
         <app-crossover *ngIf="checkCrossover()" [piece]="compSlot.piece"></app-crossover>
         <app-bit *ngIf="checkBit()" [piece]="compSlot.piece"></app-bit>
         <app-interceptor *ngIf="checkInterceptor()" [piece]="compSlot.piece"></app-interceptor>

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BoardPiece } from 'src/app/boardPieces/board-piece';
+import { Ramp } from 'src/app/boardPieces/ramp';
 
 @Component({
   selector: 'app-ramp',
@@ -7,10 +8,14 @@ import { BoardPiece } from 'src/app/boardPieces/board-piece';
   styleUrls: ['./ramp.component.scss']
 })
 export class RampComponent implements OnInit {
-  @Input() piece: BoardPiece;
+  @Input() ramp: Ramp;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  clickRamp(){
+    this.ramp.changeDirection();
   }
 }

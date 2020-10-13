@@ -12,6 +12,8 @@ import { CrossoverComponent } from './boardPieceComponents/crossover/crossover.c
 import { BitComponent } from './boardPieceComponents/bit/bit.component';
 import { GearBitComponent } from './boardPieceComponents/gear-bit/gear-bit.component';
 import { InterceptorComponent } from './boardPieceComponents/interceptor/interceptor.component';
+import { DispenserComponent } from './boardPieceComponents/dispensor/dispenser.component';
+import { FlipperComponent } from './boardPieceComponents/flipper/flipper.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { InterceptorComponent } from './boardPieceComponents/interceptor/interce
     CrossoverComponent,
     BitComponent,
     GearBitComponent,
-    InterceptorComponent
+    InterceptorComponent,
+    DispenserComponent,
+    FlipperComponent
   ],
   imports: [
     BrowserModule,

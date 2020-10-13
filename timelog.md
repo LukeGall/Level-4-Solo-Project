@@ -61,3 +61,17 @@
 ## 9 Oct 2020
 * *1 hour* Allow compSlots to have ramps and crossovers added to each other, also did testing to ensure the board object gets updated and ensures each component has it's own unique part in it
 * *2 hour* Added all components that can now be added to the Pin and CompSlots, made a angular component for every possible TT component and ensured that the classes and passed correctly to each individual class while still be accessed by the board service
+
+## 11 Oct 2020
+* *1 hour* Plan of marble class and how it will interact with the board and components placed on the board, quick creation of new classes and functions that will be fleshed out later.
+
+### Week 4
+
+## 12 Oct 2020
+* *1 hour* Google scholar search and reading of possible papers on educational games and online board games, not too many relevant papers found
+
+## 13 Oct 2020
+* *1 hour* Research online board games and take some notes of what the most popular versions are like
+* *2 hour* Starting the implementation of marble logic for the board, got dispenser and flipper logic with a bit of the board function
+* *1 hour* Got marble dropping logic implemented, ramp component works
+
