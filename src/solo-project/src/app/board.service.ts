@@ -23,38 +23,17 @@ export class BoardService {
 
   // Board slots is an array of 11 by 11 
   board: Board = new Board(6);
-  heldPiece: BehaviorSubject<BoardPiece> = new BehaviorSubject<BoardPiece>(null);
+  heldPiece: BehaviorSubject<String> = new BehaviorSubject<String>(null);
 
   getBoard(): Observable<Board> {
     return of(this.board);
   }
 
   setHolding(type: String) {
-    switch (type) {
-      case "Gear":
-        this.heldPiece.next(new Gear());
-        break;
-      case "Ramp":
-        this.heldPiece.next(new Ramp(Direction.left));
-        break;
-      case "Crossover":
-        this.heldPiece.next(new Crossover());
-        break;
-      case "GearBit":
-        this.heldPiece.next(new GearBit());
-        break;
-      case "Interceptor":
-        this.heldPiece.next(new Interceptor());
-        break;
-      case "Bit":
-        this.heldPiece.next(new Bit());
-        break;
-      default:
-        this.heldPiece.next(null);
-    }
+    this.heldPiece.next(type);
   }
 
-  getHeldPiece(): BehaviorSubject<BoardPiece> {
+  getHeldPiece(): BehaviorSubject<String> {
     return this.heldPiece;
   }
 

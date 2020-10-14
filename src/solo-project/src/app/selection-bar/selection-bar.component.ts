@@ -9,7 +9,7 @@ import { BoardPiece } from '../boardPieces/board-piece';
 })
 export class SelectionBarComponent implements OnInit {
   partList: String[] = ["Ramp","Gear","Bit","Crossover", "GearBit", "Interceptor"];
-  heldPart: BoardPiece = null;
+  heldPart: String = null;
   
   constructor(public boardService: BoardService) { }
 

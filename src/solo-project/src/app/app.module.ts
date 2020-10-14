@@ -14,6 +14,7 @@ import { GearBitComponent } from './boardPieceComponents/gear-bit/gear-bit.compo
 import { InterceptorComponent } from './boardPieceComponents/interceptor/interceptor.component';
 import { DispenserComponent } from './boardPieceComponents/dispensor/dispenser.component';
 import { FlipperComponent } from './boardPieceComponents/flipper/flipper.component';
+import { GearComponent } from './boardPieceComponents/gear/gear.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FlipperComponent } from './boardPieceComponents/flipper/flipper.compone
     GearBitComponent,
     InterceptorComponent,
     DispenserComponent,
-    FlipperComponent
+    FlipperComponent,
+    GearComponent
   ],
   imports: [
     BrowserModule,

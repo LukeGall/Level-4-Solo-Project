@@ -18,10 +18,10 @@ export class PinComponent implements OnInit {
   }
 
   click(){
-    var heldPiece: BoardPiece;
+    var heldPiece: String;
     this.boardService.getHeldPiece().subscribe(piece => heldPiece=piece);
-    if(heldPiece instanceof Gear){
-      this.pin.piece = heldPiece;
-    }
+    if(heldPiece == 'Gear' && this.pin.piece == null){
+      this.pin.piece = new Gear();
+    } 
   }
 }

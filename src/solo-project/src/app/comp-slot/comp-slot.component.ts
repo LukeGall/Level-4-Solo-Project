@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BoardService } from '../board.service';
 import { CompSlot } from '../boardParts/comp-slot';
+import { Direction } from '../boardParts/direction';
 import { BitComponent } from '../boardPieceComponents/bit/bit.component';
 import { Bit } from '../boardPieces/bit';
 import { BoardPiece } from '../boardPieces/board-piece';
@@ -17,38 +18,55 @@ import { Ramp } from '../boardPieces/ramp';
 })
 export class CompSlotComponent implements OnInit {
   @Input() compSlot: CompSlot;
-  
+
   constructor(public boardService: BoardService) { }
 
   ngOnInit(): void {
   }
 
   click() {
-    var heldPiece: BoardPiece;
+    var heldPiece: String;
     this.boardService.getHeldPiece().subscribe(piece => heldPiece = piece);
-    if (! (heldPiece instanceof Gear)) {
-      this.compSlot.piece = heldPiece;
-    }
-    console.log("CLicked from comp slot")
+    if(this.compSlot.piece == null || this.compSlot.piece.getName() != heldPiece){
+      this.compSlot.piece = this.createPiece(heldPiece);
+    } 
+    console.log("Clicked from comp slot")
   }
 
-  checkRamp(): boolean{
+  checkRamp(): boolean {
     return this.compSlot.piece instanceof Ramp;
   }
 
-  checkCrossover(): boolean{
+  checkCrossover(): boolean {
     return this.compSlot.piece instanceof Crossover;
   }
 
-  checkBit(): boolean{
+  checkBit(): boolean {
     return this.compSlot.piece instanceof Bit;
   }
 
-  checkInterceptor(): boolean{
+  checkInterceptor(): boolean {
     return this.compSlot.piece instanceof Interceptor;
   }
 
-  checkGearBit(): boolean{
+  checkGearBit(): boolean {
     return this.compSlot.piece instanceof GearBit;
+  }
+
+  createPiece(type: String): BoardPiece {
+    switch (type) {
+      case "Ramp":
+        return (new Ramp(Direction.left));
+      case "Crossover":
+        return (new Crossover());
+      case "GearBit":
+        return (new GearBit());
+      case "Interceptor":
+        return (new Interceptor());
+      case "Bit":
+        return (new Bit());
+      default:
+        return (null);
+    }
   }
 }
