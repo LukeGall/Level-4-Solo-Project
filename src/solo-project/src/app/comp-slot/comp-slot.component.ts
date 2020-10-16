@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BoardService } from '../board.service';
 import { CompSlot } from '../boardParts/comp-slot';
 import { Direction } from '../boardParts/direction';
-import { BitComponent } from '../boardPieceComponents/bit/bit.component';
+import { Pos } from '../boardParts/pos';
 import { Bit } from '../boardPieces/bit';
 import { BoardPiece } from '../boardPieces/board-piece';
 import { Crossover } from '../boardPieces/crossover';
@@ -18,8 +18,13 @@ import { Ramp } from '../boardPieces/ramp';
 })
 export class CompSlotComponent implements OnInit {
   @Input() compSlot: CompSlot;
+  // For the gear/ gearbit location
+  @Input()  x:number;
+  @Input()  y:number;
 
   constructor(public boardService: BoardService) { }
+
+  // Todo Allow gears to be placed on gearBit
 
   ngOnInit(): void {
   }
@@ -28,9 +33,13 @@ export class CompSlotComponent implements OnInit {
     var heldPiece: String;
     this.boardService.getHeldPiece().subscribe(piece => heldPiece = piece);
     if(this.compSlot.piece == null || this.compSlot.piece.getName() != heldPiece){
+      console.log("Created new "+heldPiece);
       this.compSlot.piece = this.createPiece(heldPiece);
+      if(heldPiece == 'GearBit'){
+        this.boardService.newGearComp(new Pos(this.x,this.y));
+      }
     } 
-    console.log("Clicked from comp slot")
+    
   }
 
   checkRamp(): boolean {
@@ -60,11 +69,11 @@ export class CompSlotComponent implements OnInit {
       case "Crossover":
         return (new Crossover());
       case "GearBit":
-        return (new GearBit());
+        return (new GearBit(Direction.left));
       case "Interceptor":
         return (new Interceptor());
       case "Bit":
-        return (new Bit());
+        return (new Bit(Direction.left));
       default:
         return (null);
     }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BoardPiece } from 'src/app/boardPieces/board-piece';
+import { Bit } from 'src/app/boardPieces/bit';
 
 @Component({
   selector: 'app-bit',
@@ -7,7 +7,7 @@ import { BoardPiece } from 'src/app/boardPieces/board-piece';
   styleUrls: ['./bit.component.scss']
 })
 export class BitComponent implements OnInit {
-  @Input() piece: BoardPiece;
+  @Input() bit: Bit;
   
   constructor() { }
 

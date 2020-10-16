@@ -1,4 +1,5 @@
 import { Direction } from './direction';
+import { Pos } from './pos';
 
 export class Marble {
     direction: Direction;
@@ -13,12 +14,3 @@ export class Marble {
 }
 
 
-class Pos{
-    x : number;
-    y: number;
-
-    constructor(x:number, y:number){
-        this.x = x;
-        this.y = y;
-    }
-}

@@ -3,6 +3,7 @@ import { Pin } from '../boardParts/pin';
 import { BoardService } from '../board.service';
 import { BoardPiece } from '../boardPieces/board-piece';
 import { Gear } from '../boardPieces/gear';
+import { Pos } from '../boardParts/pos';
 
 @Component({
   selector: 'app-pin',
@@ -11,6 +12,8 @@ import { Gear } from '../boardPieces/gear';
 })
 export class PinComponent implements OnInit {
   @Input() pin: Pin;
+  @Input() private x: number;
+  @Input() private y: number;
 
   constructor(public boardService: BoardService) { }
 
@@ -20,8 +23,11 @@ export class PinComponent implements OnInit {
   click(){
     var heldPiece: String;
     this.boardService.getHeldPiece().subscribe(piece => heldPiece=piece);
-    if(heldPiece == 'Gear' && this.pin.piece == null){
+    if((this.pin.piece == null || this.pin.piece.getName() != heldPiece) && heldPiece=="Gear"){
+      console.log("Gear created");
       this.pin.piece = new Gear();
+      console.log(this.x);
+      this.boardService.newGearComp(new Pos(this.x,this.y));
     } 
   }
 }

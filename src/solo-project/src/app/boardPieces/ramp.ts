@@ -5,9 +5,10 @@ import { BoardPiece } from './board-piece';
 export class Ramp implements BoardPiece{
     direction: Direction;
 
-    ProcessMarble(marble: Marble) {
+    processMarble(marble: Marble) {
         marble.position.x += 1;
         marble.position.y += this.direction;
+        marble.direction = this.direction;
     }
 
     getName(): String {

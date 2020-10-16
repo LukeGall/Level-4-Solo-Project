@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BoardPiece } from 'src/app/boardPieces/board-piece';
+import { BoardService } from 'src/app/board.service';
+import { Pos } from 'src/app/boardParts/pos';
+import { GearBit } from 'src/app/boardPieces/gear-bit';
 
 @Component({
   selector: 'app-gear-bit',
@@ -7,10 +9,20 @@ import { BoardPiece } from 'src/app/boardPieces/board-piece';
   styleUrls: ['./gear-bit.component.scss']
 })
 export class GearBitComponent implements OnInit {
-  @Input() piece:BoardPiece;
-  constructor() { }
+  @Input() gearBit:GearBit;
+  @Input() private x:number;
+  @Input() private y:number;
+
+  
+
+  constructor(private boardService: BoardService) { }
 
   ngOnInit(): void {
+
   }
 
+  click(){
+    this.gearBit.switchDirection();
+    this.boardService.gearSpin(new Pos(this.x,this.y));
+  }
 }

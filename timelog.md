@@ -75,3 +75,14 @@
 * *2 hour* Starting the implementation of marble logic for the board, got dispenser and flipper logic with a bit of the board function
 * *1 hour* Got marble dropping logic implemented, ramp component works
 
+## 14 Oct 2020
+* *2 hour* Fix bug with placing unique piece into the slots
+* *1 hour* Added Bit and Crossover functionality for the two components
+* *1 hour* Added interceptor logic and started working on the gear bit
+* *1.5 hour* Planning and working out how gearbits are going to switch direction if connected to other gearbits by a gear
+
+## 15 Oct 2020
+* *4.5 hour* Implementation of gearBit switching when other gearbits are connected, spent a long long time of deugging, it is almost there. 
+
+## 16 Oct 2020
+* *2 hour* Finish up the implementation of the gearBit switching when clicked and the marble passes through them

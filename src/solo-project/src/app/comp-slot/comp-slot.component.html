@@ -2,9 +2,9 @@
     <div *ngIf="compSlot.piece; else compSlotDef">
         <app-ramp *ngIf="checkRamp()" [ramp]="compSlot.piece"></app-ramp>
         <app-crossover *ngIf="checkCrossover()" [piece]="compSlot.piece"></app-crossover>
-        <app-bit *ngIf="checkBit()" [piece]="compSlot.piece"></app-bit>
+        <app-bit *ngIf="checkBit()" [bit]="compSlot.piece"></app-bit>
         <app-interceptor *ngIf="checkInterceptor()" [piece]="compSlot.piece"></app-interceptor>
-        <app-gear-bit *ngIf="checkGearBit()" [piece]="compSlot.piece"></app-gear-bit>
+        <app-gear-bit *ngIf="checkGearBit()" [gearBit]="compSlot.piece" [x]="x" [y]="y"></app-gear-bit>
     </div>
     <ng-template #compSlotDef>{{compSlot.partName}}</ng-template>
 </div>
