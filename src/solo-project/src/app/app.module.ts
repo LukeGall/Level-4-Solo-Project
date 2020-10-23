@@ -15,6 +15,8 @@ import { InterceptorComponent } from './boardPieceComponents/interceptor/interce
 import { DispenserComponent } from './boardPieceComponents/dispensor/dispenser.component';
 import { FlipperComponent } from './boardPieceComponents/flipper/flipper.component';
 import { GearComponent } from './boardPieceComponents/gear/gear.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { GearComponent } from './boardPieceComponents/gear/gear.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

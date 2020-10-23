@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <nav id ="sidebar">
+    <nav id="sidebar">
         <div class="sidebar-header">
             <h4>Component Selection</h4>
         </div>
@@ -13,6 +13,13 @@
         </ul>
         <!-- Testing Purposes -->
         <p *ngIf="heldPart">{{heldPart}}</p>
-        <button (click)="checkBoard()">Check board</button>
+        <button (click)="step()">Step Forward</button>
+        <button (click)="triggerPlay()">Toggle</button>
+        <div #SliderDiv>
+            <p>Number of ms per step = {{SpeedSliderMs.value}}</p>
+            <mat-slider #SpeedSliderMs min="200" max="3000" step="100" value="1000"
+                (input)="changeSpeed(SpeedSliderMs.value)">
+            </mat-slider>
+        </div>
     </nav>
 </div>

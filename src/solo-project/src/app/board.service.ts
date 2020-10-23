@@ -4,16 +4,10 @@ import { Board } from './boardParts/board';
 import { CompSlot } from './boardParts/comp-slot';
 import { Direction } from './boardParts/direction';
 import { Marble } from './boardParts/marble';
-import { Pin } from './boardParts/pin';
 import { Pos } from './boardParts/pos';
 import { Slot } from './boardParts/slot';
-import { Bit } from './boardPieces/bit';
-import { BoardPiece } from './boardPieces/board-piece';
-import { Crossover } from './boardPieces/crossover';
 import { Gear } from './boardPieces/gear';
 import { GearBit } from './boardPieces/gear-bit';
-import { Interceptor } from './boardPieces/interceptor';
-import { Ramp } from './boardPieces/ramp';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +19,8 @@ export class BoardService {
   // Board slots is an array of 11 by 11 
   board: Board = new Board(6);
   heldPiece: BehaviorSubject<String> = new BehaviorSubject<String>(null);
+  private inPlay: boolean = true;
+  private speedInMs: number = 1000;
 
   getBoard(): Observable<Board> {
     return of(this.board);
@@ -38,35 +34,60 @@ export class BoardService {
     return this.heldPiece;
   }
 
-  // Used to check that the board pieces stay even when the heldPart changes
-  logBoard() {
-    this.board.slots[0].forEach(slot => {
-      if (slot) {
-        if (slot.piece) {
-          console.log(slot.piece.getName());
-        }
-      }
-    }
-    );
+  startMarble(colour: String) {
+    this.releaseMarble(colour);
+
+    console.log(this.board.inPlayMarble)
+    this.inPlay = true;
+    this.play();
   }
 
-  trigger(colour: String) {
+  private releaseMarble(colour: String) {
     if (colour == "blue") {
       this.board.inPlayMarble = this.board.blueMarbles.pop()
     } else {
       this.board.inPlayMarble = this.board.redMarbles.pop()
     }
-
-    console.log(this.board.inPlayMarble)
-    this.dropMarble(this.board.inPlayMarble)
   }
 
-  private dropMarble(marble: Marble) {
+  stepForward() {
+    this.inPlay = false;
+    if (this.board.inPlayMarble) {
+      this.dropMarble()
+    }
+  }
+
+  toggle() {
+    if(this.inPlay){
+      this.inPlay=false;
+    } else {
+      this.inPlay = true;
+      this.play();
+    }
+  }
+
+  setSpeed(newSpeed: number) {
+    this.speedInMs = newSpeed;
+  }
+
+  private async play() {
+    while (this.board.inPlayMarble && this.inPlay) {
+      this.dropMarble();
+      await this.sleep();
+    }
+  }
+
+  private sleep() {
+    return new Promise(resolve => setTimeout(resolve, this.speedInMs));
+  }
+
+  private dropMarble() {
+    let marble = this.board.inPlayMarble;
     if (marble != undefined) {
       // marble is in play when the pos.x and y is >=0 and <= 11 it is in play
       // Then check the component in the compSlot if not compSlot then fall(). If compslot there then call that compoents process Marble and it should update the position
       // if it gets to x = 11 then decide what flipper it will trigger or if middle use that to decide trigger as well.
-      while (this.marbleInBounds(marble.position) && marble.direction != Direction.stopped) {
+      if (this.marbleInBounds(marble.position) && marble.direction != Direction.stopped) {
         let slot = this.board.slots[marble.position.x][marble.position.y];
         console.log(marble.position.x)
         console.log(marble.direction)
@@ -74,7 +95,7 @@ export class BoardService {
         if (slot instanceof CompSlot) {
           if (slot.piece != null) {
             console.log(slot.piece.getName())
-            let oldPos = new Pos(marble.position.x,marble.position.y);
+            let oldPos = new Pos(marble.position.x, marble.position.y);
             slot.piece.processMarble(marble);
             if (slot.piece instanceof GearBit) {
               console.log("Hello")
@@ -86,11 +107,12 @@ export class BoardService {
           }
         }
       }
-      if (marble.direction != Direction.stopped) {
+      else if (marble.direction != Direction.stopped) {
         this.workOutFlipperColour(marble);
       }
     }
   }
+
 
   private marbleInBounds(position: Pos): boolean {
     return (position.x >= 0 && position.x < 10 && position.y >= 0 && position.y <= 10)
@@ -98,6 +120,8 @@ export class BoardService {
 
   private marbleFall(marble: Marble) {
     // Update marble to fall on screen
+    this.board.inPlayMarble = null;
+    this.inPlay = false;
     console.log("Marble has fallen");
   }
 
@@ -110,10 +134,10 @@ export class BoardService {
     let posY = marble.position.y;
     if (posY >= 0 && posY < 5) {
       this.board.collectedMarbles.push(marble);
-      this.trigger("blue");
+      this.releaseMarble("blue");
     } else if (posY > 5 && posY <= 10) {
       this.board.collectedMarbles.push(marble);
-      this.trigger("red");
+      this.releaseMarble("red");
     } else {
       this.marbleFall(marble);
     }
@@ -194,3 +218,4 @@ export class BoardService {
   }
 }
 
+// MAKE IT MORE READABLE with variable names

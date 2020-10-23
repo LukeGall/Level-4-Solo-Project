@@ -10,8 +10,8 @@
     </div>
     <div class="row justify-content-md-center" *ngFor="let row of board.slots; index as x">
       <div class="col-sm" *ngFor="let slot of row; index as y">
-        <app-pin *ngIf="slot && checkPin(slot.partName)" [pin]="slot" [x]="x" [y]="y"></app-pin>
-        <app-comp-slot *ngIf="slot && checkCompSlot(slot.partName)" [compSlot]="slot" [x]="x" [y]="y"></app-comp-slot>
+        <app-pin class="pin" *ngIf="slot && checkPin(slot.partName)" [pin]="slot" [x]="x" [y]="y"></app-pin>
+        <app-comp-slot class="compSlot" *ngIf="slot && checkCompSlot(slot.partName)" [compSlot]="slot" [x]="x" [y]="y"></app-comp-slot>
       </div>
     </div>
     <div class="row justify-content-md-center">
@@ -22,6 +22,7 @@
         <app-flipper [colour]="'red'"></app-flipper>
       </div>
     </div>
+    <div *ngIf="board.inPlayMarble">{{board.inPlayMarble.position.x}}</div>
     <div *ngFor="let collectedMarble of board.collectedMarbles">{{collectedMarble.colour}}</div>
   </div>
 </div>

@@ -15,7 +15,7 @@ export class FlipperComponent implements OnInit {
   }
 
   trigger(){
-    this.boardService.trigger(this.colour);
+    this.boardService.startMarble(this.colour);
   }
 
 }

@@ -65,7 +65,7 @@
 ## 11 Oct 2020
 * *1 hour* Plan of marble class and how it will interact with the board and components placed on the board, quick creation of new classes and functions that will be fleshed out later.
 
-### Week 4
+### Week 3
 
 ## 12 Oct 2020
 * *1 hour* Google scholar search and reading of possible papers on educational games and online board games, not too many relevant papers found
@@ -86,3 +86,20 @@
 
 ## 16 Oct 2020
 * *2 hour* Finish up the implementation of the gearBit switching when clicked and the marble passes through them
+
+### Week 4 - Week of assessments so not as much done
+
+## 19 Oct 2020
+* *1 hour* Meeting plan, meeting and writeup of the minutes
+
+## 21 Oct 2020 - Worked on lit review for educational games mainly
+* *3 hour* Gathering research papers for background information and gain an idea of the field educational games
+* *1 hour* Read and highlight my first paper
+* *1 hour* Summary of the paper including a critical analysis of the paper 
+* *1 hour* Read and highlight of the second paper based on meta analysis of serious games
+* *1 hour* Write up of summary of the second paper
+
+## 23 Oct 2020
+* *1 hour* Started trying to add marbles to a loop system so that the speed can be updated
+* *1 hour* Basic pause/ play system for the marbles moving down
+* *1.5 hour* Fix speed of marble and added an interactive slider to change the speed of the game play

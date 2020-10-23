@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BoardService } from '../board.service';
-import { BoardPiece } from '../boardPieces/board-piece';
 
 @Component({
   selector: 'app-selection-bar',
@@ -23,7 +22,15 @@ export class SelectionBarComponent implements OnInit {
     this.boardService.setHolding(part);
   }
 
-  checkBoard(){
-    this.boardService.logBoard();
+  step(){
+    this.boardService.stepForward();
+  }
+
+  triggerPlay(){
+    this.boardService.toggle();
+  }
+
+  changeSpeed(value:number){
+    this.boardService.setSpeed(value);
   }
 }
