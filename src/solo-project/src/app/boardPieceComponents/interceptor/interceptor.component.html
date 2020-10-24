@@ -1,3 +1,4 @@
 <div *ngIf="piece">
-    IC
+    <div class="marble" *ngIf="ifMarble(); else default">B</div>
+    <ng-template #default >IR</ng-template>
 </div>

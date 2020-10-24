@@ -1,3 +1,4 @@
 <div *ngIf="bit" (click)="bit.switchDirection()">
-    {{bit.direction}}
+    <div class="marble" *ngIf="ifMarble(); else direction">B</div>
+    <ng-template #direction >{{bit.direction}}</ng-template>
 </div>

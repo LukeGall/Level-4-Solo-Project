@@ -103,3 +103,6 @@
 * *1 hour* Started trying to add marbles to a loop system so that the speed can be updated
 * *1 hour* Basic pause/ play system for the marbles moving down
 * *1.5 hour* Fix speed of marble and added an interactive slider to change the speed of the game play
+
+## 24 Oct 2020
+* *1.5 hour* Marble position sent to the components so the marbles are visible when falling 

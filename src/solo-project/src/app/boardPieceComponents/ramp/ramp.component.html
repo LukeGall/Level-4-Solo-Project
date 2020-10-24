@@ -1,3 +1,4 @@
 <div *ngIf="ramp" (click)="clickRamp()">
-    {{ramp.direction}}
+    <div class="marble" *ngIf="ifMarble(); else direction">B</div>
+    <ng-template #direction >{{ramp.direction}}</ng-template>
 </div>

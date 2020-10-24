@@ -1,12 +1,15 @@
 import { Direction } from '../boardParts/direction';
 import { Marble } from '../boardParts/marble';
+import { Pos } from '../boardParts/pos';
 import { BoardPiece } from './board-piece';
 
 export class Bit implements BoardPiece{
-    direction : Direction
+    direction : Direction;
+    position: Pos;
 
-    constructor(direction: Direction){
+    constructor(direction: Direction, position: Pos){
         this.direction  = direction;
+        this.position = position;
     }
 
     switchDirection(){

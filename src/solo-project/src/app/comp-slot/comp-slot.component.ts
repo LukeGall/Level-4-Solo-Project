@@ -65,15 +65,15 @@ export class CompSlotComponent implements OnInit {
   createPiece(type: String): BoardPiece {
     switch (type) {
       case "Ramp":
-        return (new Ramp(Direction.left));
+        return (new Ramp(Direction.left, new Pos(this.x,this.y)));
       case "Crossover":
-        return (new Crossover());
+        return (new Crossover(new Pos(this.x,this.y)));
       case "GearBit":
-        return (new GearBit(Direction.left));
+        return (new GearBit(Direction.left, new Pos(this.x,this.y)));
       case "Interceptor":
-        return (new Interceptor());
+        return (new Interceptor(new Pos(this.x,this.y)));
       case "Bit":
-        return (new Bit(Direction.left));
+        return (new Bit(Direction.left, new Pos(this.x,this.y)));
       default:
         return (null);
     }

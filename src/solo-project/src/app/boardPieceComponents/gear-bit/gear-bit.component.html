@@ -1,3 +1,4 @@
 <div *ngIf="gearBit" (click)="click()">
-    {{gearBit.direction}}
+    <div class="marble" *ngIf="ifMarble(); else direction">B</div>
+    <ng-template #direction >{{gearBit.direction}}</ng-template>
 </div>

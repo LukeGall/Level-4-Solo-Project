@@ -19,6 +19,7 @@ export class BoardService {
   // Board slots is an array of 11 by 11 
   board: Board = new Board(6);
   heldPiece: BehaviorSubject<String> = new BehaviorSubject<String>(null);
+  inPlayMarble: BehaviorSubject<Marble> = new BehaviorSubject<Marble>(null);
   private inPlay: boolean = true;
   private speedInMs: number = 1000;
 
@@ -34,9 +35,13 @@ export class BoardService {
     return this.heldPiece;
   }
 
+  getInPlayMarble(): BehaviorSubject<Marble> {
+    return this.inPlayMarble;
+  }
+
   startMarble(colour: String) {
     this.releaseMarble(colour);
-
+    
     console.log(this.board.inPlayMarble)
     this.inPlay = true;
     this.play();
@@ -48,6 +53,7 @@ export class BoardService {
     } else {
       this.board.inPlayMarble = this.board.redMarbles.pop()
     }
+    this.inPlayMarble.next(this.board.inPlayMarble);
   }
 
   stepForward() {
@@ -72,8 +78,9 @@ export class BoardService {
 
   private async play() {
     while (this.board.inPlayMarble && this.inPlay) {
-      this.dropMarble();
+      // Ensure that the first dropped marble doesn't instantly go to it's next position
       await this.sleep();
+      this.dropMarble();
     }
   }
 
@@ -121,6 +128,7 @@ export class BoardService {
   private marbleFall(marble: Marble) {
     // Update marble to fall on screen
     this.board.inPlayMarble = null;
+    this.inPlayMarble.next(this.board.inPlayMarble);
     this.inPlay = false;
     console.log("Marble has fallen");
   }
@@ -160,7 +168,7 @@ export class BoardService {
           firstEle = false;
           if (val.piece instanceof GearBit) dirForGbs = val.piece.direction;
         } else {
-          val.piece = (dirForGbs == Direction.left) ? new GearBit(Direction.left) : new GearBit(Direction.right);
+          val.piece = (dirForGbs == Direction.left) ? new GearBit(Direction.left, val.piece.position) : new GearBit(Direction.right, val.piece.position);
         }
       }
     }
@@ -182,7 +190,7 @@ export class BoardService {
         firstEle = false;
         if (val.piece instanceof GearBit) dirForGbs = val.piece.direction;
       } else {
-        val.piece = (dirForGbs == Direction.left) ? new GearBit(Direction.left) : new GearBit(Direction.right);
+        val.piece = (dirForGbs == Direction.left) ? new GearBit(Direction.left, val.piece.position) : new GearBit(Direction.right, val.piece.position);
       }
     }
     console.log(dirForGbs);
