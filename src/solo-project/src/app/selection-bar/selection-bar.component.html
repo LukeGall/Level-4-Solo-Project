@@ -1,25 +1,25 @@
 <div class="wrapper">
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h4>Component Selection</h4>
-        </div>
+    <div class="sidebar-header">
+        <h4>Component Selection</h4>
+    </div>
 
-        <ul class="list-unstyled components">
-            <p>Select a component</p>
+    <ul class="list-unstyled components">
+        <p>Select a component</p>
 
-            <li *ngFor="let part of partList">
-                <button (click)="clicked(part)">{{part}}</button>
-            </li>
-        </ul>
-        <!-- Testing Purposes -->
-        <p *ngIf="heldPart">{{heldPart}}</p>
-        <button (click)="step()">Step Forward</button>
-        <button (click)="triggerPlay()">Toggle</button>
-        <div #SliderDiv>
-            <p>Number of ms per step = {{SpeedSliderMs.value}}</p>
-            <mat-slider #SpeedSliderMs min="200" max="3000" step="100" value="1000"
-                (input)="changeSpeed(SpeedSliderMs.value)">
-            </mat-slider>
-        </div>
-    </nav>
+        <li *ngFor="let part of partList">
+            <button mat-button color="primary" (click)="clicked(part)">{{part}}</button>
+        </li>
+    </ul>
+    <!-- Testing Purposes -->
+    <p *ngIf="heldPart">{{heldPart}}</p>
+    <div class="Step and trigger">
+        <button mat-raised-button (click)="step()">Step Forward</button>
+        <button mat-raised-button (click)="triggerPlay()">Toggle</button>
+    </div>
+    <div #SliderDiv>
+        <p>Number of ms per step = {{SpeedSliderMs.value}}</p>
+        <mat-slider #SpeedSliderMs min="200" max="3000" step="100" value="1000"
+            (input)="changeSpeed(SpeedSliderMs.value)">
+        </mat-slider>
+    </div>
 </div>

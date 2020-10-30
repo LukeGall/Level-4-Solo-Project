@@ -106,3 +106,19 @@
 
 ## 24 Oct 2020
 * *1.5 hour* Marble position sent to the components so the marbles are visible when falling 
+
+### Week 5 - Very coursework heavy week so not much done
+
+## 26 Oct 2020
+* *1 hour* Supervisor meeting itself and the prep and after write up
+
+## 28 Oct 2020
+* *1 hour* Read paper for lit read and highlighted it
+
+## 29 Oct 2020
+* *1 hour* Level 2 summary of difficult for educational games
+
+## 30 Oct 2020
+* *2 hour* Read and summarised a paper for the lit review coursework that can help the background section
+* *2 hour* Read and summarised the last RMT paper
+* *1 hour* Created basic wiki layout and first pages
