@@ -122,3 +122,8 @@
 * *2 hour* Read and summarised a paper for the lit review coursework that can help the background section
 * *2 hour* Read and summarised the last RMT paper
 * *1 hour* Created basic wiki layout and first pages
+
+### Week 6 
+
+## 2 Nov 2020
+* *1.5* Wireframe making and some notes in the diary 
