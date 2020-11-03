@@ -127,3 +127,6 @@
 
 ## 2 Nov 2020
 * *1.5* Wireframe making and some notes in the diary 
+
+## 3 Nov 2020
+* *0.5* Third wireframe making
