@@ -26,4 +26,8 @@ export class BoardComponent implements OnInit {
     return name == "CompSlot";
   }
 
+  changeSpeed(value:number){
+    this.boardService.setSpeed(value);
+  }
+
 }

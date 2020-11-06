@@ -1,15 +1,25 @@
-<div class="jumbotron">
-    <h1 class="display-4">
-        Virtual Turing Tumble
-    </h1>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col">
+<mat-toolbar color="primary">
+    <button mat-icon-button class="menu-icon" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Virtual Turing Tumble</span>
+    <span class="spacer"></span>
+    <a href="https://github.com/LukeGall/Level-4-Solo-Project" target="_blank"><button mat-icon-button class>
+            <mat-icon>code</mat-icon>
+        </button></a>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav class="sidenav" mode="side">
+        <app-sidenav></app-sidenav>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <!-- Should maybe just be the router? -->
+        <div id=selectionBar>
             <app-selection-bar></app-selection-bar>
         </div>
-        <div class="col-sm-auto">
+        <div id=board>
             <app-board></app-board>
         </div>
-    </div>
-</div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

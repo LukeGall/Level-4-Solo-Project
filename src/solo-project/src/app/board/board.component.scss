@@ -1,10 +1,30 @@
 
 .board{
     position: relative;
-    // width: 80%;
+    width: 440px;
     margin:5% auto;
     align-self: center;
     background-color: ghostwhite;
     justify-self: center;
+}
+
+.blue{
+    float:left;
+    color: blue;
+    margin:2%;
+}
+
+.red{
+    margin:2%;
+    float:right;
+    color: red;
+}
+
+.clear{
+    clear: both;
+}
+
+#dispensers{
+    width:100%;
 }
 

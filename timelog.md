@@ -126,7 +126,19 @@
 ### Week 6 
 
 ## 2 Nov 2020
-* *1.5* Wireframe making and some notes in the diary 
+* *1.5 hour* Wireframe making and some notes in the diary 
 
 ## 3 Nov 2020
-* *0.5* Third wireframe making
+* *0.5 hour* Third wireframe making
+
+## 4 Nov 2020
+* *3 hour* Redraft of paper summaries
+* *2 hour* Start of Main page redesign, sidenav and header created
+
+## 5 Nov 2020
+* *5.5 hour* Sidenav, sidebar and start of board appearance
+
+## 6 Nov 2020
+* *2 hour* Board updated, speed slider fixed.
+* *1.5 hour* Fixed board and marble collection view, wireframe design reached
+* *0.5 hour* Can add and take away marbles from blue or red and clear the board of pieces

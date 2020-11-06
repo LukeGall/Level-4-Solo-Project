@@ -13,8 +13,8 @@ Week-by-week plan for the whole project. Update this as you go along.
 * **Week 4** Create basic board interaction and then Focus on getting marbles to 'drop' and follow logic of the board. Lit review of other online games
 * **Week 5** Improve appearance of board, add marbles into a next step style of loop instead of just rushing to the end. Spend time on lit review. Add marbles to the screen when falling.
 * **Week 6** Update wiki about code documentation. Continue lit review for background. More board appearance improvement. 
-* **Week 7** Board appearance and main page creation then addition of images for parts and ability to maybe open up puzzles
-* **Week 8** Allow the creation and saving of different puzzles for the board to follow that can then be uploaded online to create a puzzle community
+* **Week 7** Board appearance and main page creation then maybe addition of images for parts and ability to maybe open up puzzles
+* **Week 8** Allow the creation and saving of different puzzles for the board to follow that can then be uploaded online to create a puzzle community. Default puzzles should be made. Spend a little bit of time making images for the ball and or pieces. 
 * **Week 9** Allow ranking and comments of different puzzles as well as solution checking when submitting a puzzle
 * **Week 10** Focus on appearance of game and maybe try to introduce some animations to add polish
 * **Week 11 [PROJECT WEEK]** Clean up code, clean up appearance, work on any bugs

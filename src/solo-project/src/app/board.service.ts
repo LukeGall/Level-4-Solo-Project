@@ -4,6 +4,7 @@ import { Board } from './boardParts/board';
 import { CompSlot } from './boardParts/comp-slot';
 import { Direction } from './boardParts/direction';
 import { Marble } from './boardParts/marble';
+import { MarblePair } from './boardParts/marblePair';
 import { Pos } from './boardParts/pos';
 import { Slot } from './boardParts/slot';
 import { Gear } from './boardPieces/gear';
@@ -17,9 +18,10 @@ export class BoardService {
   constructor() { }
 
   // Board slots is an array of 11 by 11 
-  board: Board = new Board(6);
+  private board: Board = new Board(6);
   heldPiece: BehaviorSubject<String> = new BehaviorSubject<String>(null);
   inPlayMarble: BehaviorSubject<Marble> = new BehaviorSubject<Marble>(null);
+
   private inPlay: boolean = true;
   private speedInMs: number = 1000;
 
@@ -39,9 +41,29 @@ export class BoardService {
     return this.inPlayMarble;
   }
 
+  increaseMarble(colour: String) {
+    if (colour == "blue") {
+      this.board.blueMarbles.push(new Marble("blue"))
+    } else {
+      this.board.redMarbles.push(new Marble("red"))
+    }
+  }
+
+  decreaseMarble(colour: String){
+    if (colour=="blue"){
+      this.board.blueMarbles.pop();
+    } else {
+      this.board.redMarbles.pop();
+    }
+  }
+
+  resetBoard(){
+    this.board.clearOfPieces();
+  }
+
   startMarble(colour: String) {
     this.releaseMarble(colour);
-    
+
     console.log(this.board.inPlayMarble)
     this.inPlay = true;
     this.play();
@@ -64,8 +86,8 @@ export class BoardService {
   }
 
   toggle() {
-    if(this.inPlay){
-      this.inPlay=false;
+    if (this.inPlay) {
+      this.inPlay = false;
     } else {
       this.inPlay = true;
       this.play();
@@ -141,13 +163,22 @@ export class BoardService {
 
     let posY = marble.position.y;
     if (posY >= 0 && posY < 5) {
-      this.board.collectedMarbles.push(marble);
+      this.updateList(marble);
       this.releaseMarble("blue");
     } else if (posY > 5 && posY <= 10) {
-      this.board.collectedMarbles.push(marble);
+      this.updateList(marble);
       this.releaseMarble("red");
     } else {
       this.marbleFall(marble);
+    }
+  }
+
+  private updateList(marble: Marble) {
+    let len = this.board.collectedMarbles.length;
+    if (len > 0 && this.board.collectedMarbles[len - 1].colour == marble.colour) {
+      this.board.collectedMarbles[len - 1].amount += 1;
+    } else {
+      this.board.collectedMarbles.push(new MarblePair(1, marble.colour));
     }
   }
 

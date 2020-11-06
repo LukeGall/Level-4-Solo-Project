@@ -1,6 +1,7 @@
 import { CompSlot } from './comp-slot';
 import { Direction } from './direction';
 import { Marble } from './marble';
+import { MarblePair } from './marblePair';
 import { Pin } from './pin';
 import { Slot } from './slot';
 
@@ -9,14 +10,14 @@ export class Board {
     blueMarbles: Marble[];
     redMarbles: Marble[];
     inPlayMarble: Marble;
-    collectedMarbles: Marble[];
+    collectedMarbles: MarblePair[];
 
     constructor(numOfMarbles:number) {
         this.slots = new Array<Array<Slot>>();
         this.blueMarbles = new Array<Marble>();
         this.redMarbles = new Array<Marble>();
         this.inPlayMarble = null;
-        this.collectedMarbles = new Array<Marble>();
+        this.collectedMarbles = new Array<MarblePair>();
 
         this.slots[0] = new Array<Slot>();
         this.slots[1] = new Array<Slot>();
@@ -36,8 +37,18 @@ export class Board {
 
         // Add the marbles
         for (i = 0; i < numOfMarbles; i++) {
-            this.blueMarbles.push(new Marble("blue", Direction.right, 0, 3))
-            this.redMarbles.push(new Marble("red", Direction.left, 0, 7))
+            this.blueMarbles.push(new Marble("blue"))
+            this.redMarbles.push(new Marble("red"))
+        }
+    }
+
+    clearOfPieces(){
+        for(var i = 0; i <10; i++){
+            for(var j = 0; j <10; j++){
+                if(this.slots[i][j]){
+                    this.slots[i][j].piece = null;
+                }
+            }
         }
     }
 }

@@ -24,4 +24,12 @@ export class DispenserComponent implements OnInit {
     })
   }
 
+  increaseAmount(){
+    this.boardService.increaseMarble(this.marbleColour);
+  }
+
+  decreaseAmount(){
+    this.boardService.decreaseMarble(this.marbleColour);
+  }
+
 }

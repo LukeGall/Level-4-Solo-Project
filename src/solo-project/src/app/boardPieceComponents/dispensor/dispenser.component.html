@@ -1,1 +1,10 @@
-{{marbles.length}}
+<div class="dot">
+    {{marbles.length}}
+</div>
+
+<button mat-mini-fab (click)="increaseAmount()">
+    <mat-icon>add</mat-icon>
+</button>
+<button mat-mini-fab (click)="decreaseAmount()">
+    <mat-icon>remove</mat-icon>
+</button>

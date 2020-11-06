@@ -7,9 +7,9 @@ import { BoardService } from '../board.service';
   styleUrls: ['./selection-bar.component.scss']
 })
 export class SelectionBarComponent implements OnInit {
-  partList: String[] = ["Ramp","Gear","Bit","Crossover", "GearBit", "Interceptor"];
+  partList: String[] = ["Ramp", "Gear", "Bit", "Crossover", "GearBit", "Interceptor"];
   heldPart: String = null;
-  
+
   constructor(public boardService: BoardService) { }
 
   ngOnInit(): void {
@@ -17,20 +17,25 @@ export class SelectionBarComponent implements OnInit {
       .subscribe(boardPiece => this.heldPart = boardPiece);
   }
 
-  clicked(part:String){
-    // this.boardService.setHolding(part);
+  clicked(part: String) {
     this.boardService.setHolding(part);
   }
 
-  step(){
+  step() {
     this.boardService.stepForward();
   }
 
-  triggerPlay(){
+  triggerPlay() {
     this.boardService.toggle();
   }
 
-  changeSpeed(value:number){
-    this.boardService.setSpeed(value);
+  isSelected(piece: String): boolean {
+    if (this.heldPart) {
+      return this.heldPart == piece;
+    }
+  }
+
+  clearBoard() {
+    this.boardService.resetBoard();
   }
 }

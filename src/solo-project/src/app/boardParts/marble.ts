@@ -6,10 +6,15 @@ export class Marble {
     colour: String;
     position: Pos;
 
-    constructor(colour:String, direction: Direction, x:number, y:number){
+    constructor(colour:String){
         this.colour = colour;
-        this.direction = direction;
-        this.position = new Pos(x,y);
+        if(colour == "blue"){
+            this.direction = Direction.right;
+            this.position = new Pos(0,3);
+        } else {
+            this.direction = Direction.left;
+            this.position = new Pos(0,7);
+        }
     }
 }
 
