@@ -142,3 +142,6 @@
 * *2 hour* Board updated, speed slider fixed.
 * *1.5 hour* Fixed board and marble collection view, wireframe design reached
 * *0.5 hour* Can add and take away marbles from blue or red and clear the board of pieces
+
+## 8 Nov 2020
+* *1.5 hour* Finishing of lit review
