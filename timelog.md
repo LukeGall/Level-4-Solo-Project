@@ -144,6 +144,8 @@
 * *0.5 hour* Can add and take away marbles from blue or red and clear the board of pieces
 
 ### Week 7
+## 8 Nov 2020
+* *1.5 hour* Finishing of lit review
 
 ## 9 Nov 2020
 * *0.5 hour* Re-reading of project marking and a strong dissertation
@@ -161,3 +163,4 @@
 
 ## 12 Nov 2020
 * *0.5 hour* e2e testing
+
