@@ -163,4 +163,4 @@
 
 ## 12 Nov 2020
 * *0.5 hour* e2e testing
-
+* *5.5 hours* Refactoring
