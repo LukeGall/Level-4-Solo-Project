@@ -42,7 +42,7 @@ export class Board {
         }
     }
 
-    clearOfPieces(){
+    clearPieces(){
         for(var i = 0; i <10; i++){
             for(var j = 0; j <10; j++){
                 if(this.slots[i][j]){

@@ -58,7 +58,7 @@ export class BoardService {
   }
 
   resetBoard(){
-    this.board.clearOfPieces();
+    this.board.clearPieces();
   }
 
   startMarble(colour: String) {
@@ -127,11 +127,10 @@ export class BoardService {
             let oldPos = new Pos(marble.position.x, marble.position.y);
             slot.piece.processMarble(marble);
             if (slot.piece instanceof GearBit) {
-              console.log("Hello")
               this.gearSpin(oldPos);
             }
           } else {
-            this.marbleFall(marble);
+            this.marbleFall();
             return;
           }
         }
@@ -147,7 +146,7 @@ export class BoardService {
     return (position.x >= 0 && position.x < 10 && position.y >= 0 && position.y <= 10)
   }
 
-  private marbleFall(marble: Marble) {
+  private marbleFall() {
     // Update marble to fall on screen
     this.board.inPlayMarble = null;
     this.inPlayMarble.next(this.board.inPlayMarble);
@@ -169,7 +168,7 @@ export class BoardService {
       this.updateList(marble);
       this.releaseMarble("red");
     } else {
-      this.marbleFall(marble);
+      this.marbleFall();
     }
   }
 

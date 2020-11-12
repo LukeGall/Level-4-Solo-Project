@@ -1,12 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
+import { MatSidenav } from '@angular/material/sidenav';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { By } from '@angular/platform-browser';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
       ],
       declarations: [
         AppComponent
@@ -26,10 +28,28 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('solo-project');
   });
 
-  it('should render title', () => {
+
+  it('should render turing tumble title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('solo-project app is running!');
+    expect(compiled.querySelector('span').textContent).toContain("Virtual Turing Tumble")
   });
+
+  it('should display a link to the github', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    const aElement: HTMLElement = compiled.querySelector('a');
+    expect(aElement.getAttribute('href')).toContain("LukeGall");
+  })
+
+  it('The sidebar buttons shouldnt be displayed by default', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+
+    let sidenav: NodeList = fixture.nativeElement.querySelectorAll('button');
+    // Only have 2 buttons, menu and code
+    expect(sidenav.length).toEqual(2);
+  })
 });

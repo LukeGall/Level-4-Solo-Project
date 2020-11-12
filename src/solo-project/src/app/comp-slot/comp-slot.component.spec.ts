@@ -1,10 +1,11 @@
+import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CompSlotComponent } from './comp-slot.component';
 
 describe('CompSlotComponent', () => {
-  let component: CompSlotComponent;
-  let fixture: ComponentFixture<CompSlotComponent>;
+  let component: TestCompSlot;
+  let fixture: ComponentFixture<TestCompSlot>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -14,7 +15,7 @@ describe('CompSlotComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CompSlotComponent);
+    fixture = TestBed.createComponent(TestCompSlot);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,4 +23,10 @@ describe('CompSlotComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  @Component({
+    selector: `app-comp-slot`,
+    template: `<app-comp-slot [compSlot]="null" [x]="5" [y]="6">`
+  })
+  class TestCompSlot{}
 });

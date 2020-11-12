@@ -1,11 +1,13 @@
 <div class="wrapper">
-    <div class="piece" *ngFor="let part of partList">
-        <button class="pieceButtons" mat-raised-button color="accent"  (click)="clicked(part)">
-            {{part}}
-        </button>
+    <div class="pieces">
+        <div class="piece" *ngFor="let part of partList">
+            <button class="pieceButtons" mat-raised-button color="accent" (click)="clicked(part)">
+                {{part}}
+            </button>
+        </div>
     </div>
     <!-- Testing Purposes -->
-    <div *ngIf="heldPart">{{heldPart}}</div>
+    <div *ngIf="heldPart" id="heldPart">{{heldPart}}</div>
     <mat-divider></mat-divider>
     <div>
         <button mat-raised-button color="warn" (click)="step()">Step Forward</button>

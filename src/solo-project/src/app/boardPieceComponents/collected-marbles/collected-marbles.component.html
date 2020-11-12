@@ -1,4 +1,6 @@
-<div [ngClass]="whatColour(pair) ? 'numCircle blue' : 'numCircle red'" *ngFor="let pair of marbles">
+<div class="pairs">
+    <div [ngClass]="whatColour(pair) ? 'numCircle blue' : 'numCircle red'" *ngFor="let pair of marbles">
         {{pair.amount}}
+    </div>
 </div>
 <div id="clear"></div>

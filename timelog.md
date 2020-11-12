@@ -142,3 +142,22 @@
 * *2 hour* Board updated, speed slider fixed.
 * *1.5 hour* Fixed board and marble collection view, wireframe design reached
 * *0.5 hour* Can add and take away marbles from blue or red and clear the board of pieces
+
+### Week 7
+
+## 9 Nov 2020
+* *0.5 hour* Re-reading of project marking and a strong dissertation
+* *1.5 hour* Creation of boardService UML diagram to plan refactoring
+* *1 hour* Look at the diagram and try to plan how to refactor the issues that can be seen from it, quite hard
+* *0.5 hour* Meeting with advisor and write up of the minutes 
+* *1 hour* UML diagram of object classes plus a small write up of avenues to refactor down. 
+
+## 10 Nov 2020
+* *2.5 hour* Initial testing done 
+
+## 11 Nov 2020
+* *3 hour* Unit Test making
+* *1 hour* e2e testing, errors at start 
+
+## 12 Nov 2020
+* *0.5 hour* e2e testing
