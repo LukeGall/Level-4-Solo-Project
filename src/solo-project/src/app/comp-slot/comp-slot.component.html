@@ -1,7 +1,7 @@
 <div (click)="click()">
     <div *ngIf="compSlot.piece; else compSlotDef">
-        <app-non-gb-piece *ngIf="!checkGearBit()" [piece]="compSlot.piece"></app-non-gb-piece>
-        <app-gear-bit *ngIf="checkGearBit()" [gearBit]="compSlot.piece" [x]="x" [y]="y"></app-gear-bit>
+        <app-non-gb-piece *ngIf="!checkGearBit()" [piece]="compSlot.piece" [marble]="marble"></app-non-gb-piece>
+        <app-gear-bit *ngIf="checkGearBit()" [gearBit]="compSlot.piece" [marble]="marble" [x]="x" [y]="y"></app-gear-bit>
     </div>
     <ng-template #compSlotDef>CS</ng-template>
 </div>

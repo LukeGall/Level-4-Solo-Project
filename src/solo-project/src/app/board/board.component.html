@@ -16,7 +16,7 @@
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <app-pin class="pin" *ngIf="slot && checkPin(slot.partName)" [pin]="slot" [x]="x" [y]="y"></app-pin>
           <app-comp-slot class="compSlot" *ngIf="slot && checkCompSlot(slot.partName)" [compSlot]="slot" [x]="x"
-            [y]="y">
+            [y]="y" [marble]="board.inPlayMarble">
           </app-comp-slot>
         </mat-grid-tile>
       </div>

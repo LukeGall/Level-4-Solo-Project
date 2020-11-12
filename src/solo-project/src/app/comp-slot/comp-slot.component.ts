@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BoardService } from '../board.service';
 import { CompSlot } from '../boardParts/comp-slot';
 import { Direction } from '../boardParts/direction';
+import { Marble } from '../boardParts/marble';
 import { Pos } from '../boardParts/pos';
 import { Bit } from '../boardPieces/bit';
 import { BoardPiece } from '../boardPieces/board-piece';
@@ -21,6 +22,7 @@ export class CompSlotComponent implements OnInit {
   // For the gear/ gearbit location
   @Input()  x:number;
   @Input()  y:number;
+  @Input() marble: Marble;
 
   constructor(public boardService: BoardService) { }
 
@@ -31,9 +33,9 @@ export class CompSlotComponent implements OnInit {
 
   click() {
     let newPiece = this.boardService.createPiece(new Pos(this.x,this.y));
-    if (this.compSlot.piece == null || !(typeof(this.compSlot.piece) == typeof(newPiece))){
+    if (this.compSlot.piece == null || !((this.compSlot.piece.type) == (newPiece.type))){
       this.compSlot.piece = newPiece;
-      if(this.compSlot.piece instanceof GearBit){
+      if(newPiece instanceof GearBit || newPiece instanceof Gear){
         this.boardService.newGearComp(new Pos(this.x,this.y));
       }
     }

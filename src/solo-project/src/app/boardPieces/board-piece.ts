@@ -27,4 +27,6 @@ export class BoardPiece {
 
     imgLink: String;
     position: Pos;
+    type:String;
+
 }

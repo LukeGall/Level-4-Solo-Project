@@ -7,7 +7,7 @@ export class GearBit extends BoardPiece{
     direction : Direction;
     position: Pos;
     imgLink: String;
-
+    type="GearBit"
     switchDirection(){
         this.direction = (this.direction == Direction.left) ? Direction.right : Direction.left;
     }

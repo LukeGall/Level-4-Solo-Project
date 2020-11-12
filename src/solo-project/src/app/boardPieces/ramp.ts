@@ -7,6 +7,7 @@ export class Ramp extends BoardPiece {
     direction: Direction;
     imgLink: String;
     position: Pos;
+    type="Ramp";
 
     processMarble(marble: Marble) {
         marble.position.x += 1;

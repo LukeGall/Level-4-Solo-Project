@@ -13,16 +13,15 @@ export class GearBitComponent implements OnInit {
   @Input() gearBit:GearBit;
   @Input() private x:number;
   @Input() private y:number;
-  inPlayMarble: Marble;
+  @Input() marble: Marble;
 
   constructor(private boardService: BoardService) { }
 
   ngOnInit(): void {
-    this.boardService.getInPlayMarble().subscribe(marble => this.inPlayMarble = marble);
   }
 
   click(){
-    this.gearBit.switchDirection();
+    this.gearBit.click();
     this.boardService.gearSpin(new Pos(this.x,this.y));
   }
 }

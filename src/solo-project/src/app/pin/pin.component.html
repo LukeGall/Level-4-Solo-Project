@@ -1,6 +1,6 @@
 <div (click)="click()">
     <div *ngIf="pin.piece; else pinOut">
-        <app-gear [gear]="pin.piece"></app-gear>
+        <app-non-gb-piece [piece]="pin.piece"></app-non-gb-piece>
     </div>
     <ng-template #pinOut>P</ng-template>
 </div>

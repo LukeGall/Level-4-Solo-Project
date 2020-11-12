@@ -5,6 +5,7 @@ import { BoardPiece } from './board-piece';
 
 export class Interceptor extends BoardPiece{
     imgLink: String;
+    type="Interceptor"
 
     processMarble(marble: Marble) {
         marble.direction = Direction.stopped;

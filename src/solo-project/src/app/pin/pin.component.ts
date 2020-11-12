@@ -21,12 +21,9 @@ export class PinComponent implements OnInit {
   }
 
   click(){
-    var heldPiece: String;
-    this.boardService.getHeldPiece().subscribe(piece => heldPiece=piece);
-    if(this.pin.piece == null && heldPiece=="Gear"){
-      console.log("Gear created");
-      this.pin.piece = new Gear(new Pos(this.x,this.y));
-      console.log(this.x);
+    let newPiece = this.boardService.createPiece(new Pos(this.x,this.y));
+    if(this.pin.piece == null && newPiece instanceof Gear) {
+      this.pin.piece = newPiece;
       this.boardService.newGearComp(new Pos(this.x,this.y));
     } 
   }

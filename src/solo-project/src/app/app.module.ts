@@ -10,7 +10,6 @@ import { SelectionBarComponent } from './selection-bar/selection-bar.component';
 import { GearBitComponent } from './boardPieceComponents/gear-bit/gear-bit.component';
 import { DispenserComponent } from './boardPieceComponents/dispensor/dispenser.component';
 import { FlipperComponent } from './boardPieceComponents/flipper/flipper.component';
-import { GearComponent } from './boardPieceComponents/gear/gear.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
@@ -33,7 +32,6 @@ import { NonGbPieceComponent } from './boardPieceComponents/non-gb-piece/non-gb-
     GearBitComponent,
     DispenserComponent,
     FlipperComponent,
-    GearComponent,
     SidenavComponent,
     CollectedMarblesComponent,
     NonGbPieceComponent

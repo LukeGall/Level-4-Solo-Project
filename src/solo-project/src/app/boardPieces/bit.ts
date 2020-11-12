@@ -8,6 +8,7 @@ export class Bit extends BoardPiece{
     imgLink: String = "Not set yet";
     inPlayMarble: Marble;
     position: Pos;
+    type="Bit";
 
     constructor(direction: Direction, position: Pos){
         super(position);

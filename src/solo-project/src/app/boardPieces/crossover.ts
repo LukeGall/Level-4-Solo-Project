@@ -6,7 +6,8 @@ export class Crossover extends BoardPiece {
     imgLink: String = "Not set";
     inPlayMarble: Marble;
     position: Pos;
-
+    type ="Crossover";
+    
     processMarble(marble: Marble) {
         marble.position.x += 1;
         marble.position.y += marble.direction;
