@@ -5,7 +5,7 @@ import { Ramp } from './ramp';
 
 describe('Ramp', () => {
   it('should create an instance', () => {
-    expect(new Ramp(Direction.left,new Pos(0,0))).toBeTruthy();
+    expect(new Ramp(Direction.left, new Pos(0,0))).toBeTruthy();
   });
 
   it('Should send marbles in the ramps direction',()=>{

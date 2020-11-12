@@ -1,0 +1,4 @@
+<div *ngIf="piece" (click)="piece.click()">
+    <div class="marble" *ngIf="piece.ifMarble(inPlayMarble); else txtDisplay">B</div>
+    <ng-template #txtDisplay >{{piece.getTxtDisplay()}}</ng-template>
+</div>

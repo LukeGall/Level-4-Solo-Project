@@ -3,17 +3,25 @@ import { Marble } from '../boardParts/marble';
 import { Pos } from '../boardParts/pos';
 import { BoardPiece } from './board-piece';
 
-export class Interceptor implements BoardPiece{
-    position: Pos;
+export class Interceptor extends BoardPiece{
+    imgLink: String;
+
     processMarble(marble: Marble) {
         marble.direction = Direction.stopped;
     }
 
-    getName(): String {
-        return "Interceptor";
+    constructor(pos: Pos){
+        super(pos);
+    }
+    
+    position: Pos;
+
+    getTxtDisplay(): String {
+        return("IR");
     }
 
-    constructor(position: Pos){
-        this.position=position;
+    click() {
+        console.log("Interceptor clicked");
     }
+
 }

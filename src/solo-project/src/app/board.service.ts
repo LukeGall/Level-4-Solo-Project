@@ -7,8 +7,13 @@ import { Marble } from './boardParts/marble';
 import { MarblePair } from './boardParts/marblePair';
 import { Pos } from './boardParts/pos';
 import { Slot } from './boardParts/slot';
+import { Bit } from './boardPieces/bit';
+import { BoardPiece } from './boardPieces/board-piece';
+import { Crossover } from './boardPieces/crossover';
 import { Gear } from './boardPieces/gear';
 import { GearBit } from './boardPieces/gear-bit';
+import { Interceptor } from './boardPieces/interceptor';
+import { Ramp } from './boardPieces/ramp';
 
 @Injectable({
   providedIn: 'root'
@@ -123,7 +128,6 @@ export class BoardService {
 
         if (slot instanceof CompSlot) {
           if (slot.piece != null) {
-            console.log(slot.piece.getName())
             let oldPos = new Pos(marble.position.x, marble.position.y);
             slot.piece.processMarble(marble);
             if (slot.piece instanceof GearBit) {
@@ -170,6 +174,24 @@ export class BoardService {
     } else {
       this.marbleFall();
     }
+  }
+
+  createPiece(pos: Pos): BoardPiece{
+      switch (this.heldPiece.getValue()) {
+        case "Ramp":
+          return (new Ramp(Direction.left, pos));
+        case "Crossover":
+          return (new Crossover(pos));
+        case "GearBit":
+          return (new GearBit(Direction.left, pos));
+        case "Interceptor":
+          return (new Interceptor(pos));
+        case "Bit":
+          return (new Bit(Direction.left, pos));
+        default:
+          return (null);
+      }
+      
   }
 
   private updateList(marble: Marble) {

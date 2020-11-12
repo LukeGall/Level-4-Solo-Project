@@ -30,52 +30,16 @@ export class CompSlotComponent implements OnInit {
   }
 
   click() {
-    var heldPiece: String;
-    this.boardService.getHeldPiece().subscribe(piece => heldPiece = piece);
-    if(this.compSlot.piece == null || this.compSlot.piece.getName() != heldPiece){
-      console.log("Created new "+heldPiece);
-      this.compSlot.piece = this.createPiece(heldPiece);
-      if(heldPiece == 'GearBit'){
+    let newPiece = this.boardService.createPiece(new Pos(this.x,this.y));
+    if (this.compSlot.piece == null || !(typeof(this.compSlot.piece) == typeof(newPiece))){
+      this.compSlot.piece = newPiece;
+      if(this.compSlot.piece instanceof GearBit){
         this.boardService.newGearComp(new Pos(this.x,this.y));
       }
-    } 
-    
-  }
-
-  checkRamp(): boolean {
-    return this.compSlot.piece instanceof Ramp;
-  }
-
-  checkCrossover(): boolean {
-    return this.compSlot.piece instanceof Crossover;
-  }
-
-  checkBit(): boolean {
-    return this.compSlot.piece instanceof Bit;
-  }
-
-  checkInterceptor(): boolean {
-    return this.compSlot.piece instanceof Interceptor;
+    }
   }
 
   checkGearBit(): boolean {
     return this.compSlot.piece instanceof GearBit;
-  }
-
-  createPiece(type: String): BoardPiece {
-    switch (type) {
-      case "Ramp":
-        return (new Ramp(Direction.left, new Pos(this.x,this.y)));
-      case "Crossover":
-        return (new Crossover(new Pos(this.x,this.y)));
-      case "GearBit":
-        return (new GearBit(Direction.left, new Pos(this.x,this.y)));
-      case "Interceptor":
-        return (new Interceptor(new Pos(this.x,this.y)));
-      case "Bit":
-        return (new Bit(Direction.left, new Pos(this.x,this.y)));
-      default:
-        return (null);
-    }
   }
 }

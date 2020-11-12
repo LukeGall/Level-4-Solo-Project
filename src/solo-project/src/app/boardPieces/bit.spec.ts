@@ -7,7 +7,7 @@ describe('Bit', () => {
   let bit:Bit;
 
   beforeEach(() => {
-    bit = new Bit(Direction.right,new Pos(0,0));
+    bit = new Bit(Direction.right, new Pos(0,0));
   });
 
   it('should create an instance', () => {
@@ -15,7 +15,7 @@ describe('Bit', () => {
   });
 
   it('should change direction',()=>{
-    bit.switchDirection();
+    bit.click();
     expect(bit.direction).toEqual(Direction.left);
   })
 

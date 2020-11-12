@@ -1,6 +1,6 @@
 ## Notes
 
-This diary style note file is an idea that was suggested by my research methods and techniques course. It will mainly just be a place to write notes and put any ideas I have on a page somewhere.
+This diary style note file is an idea that was suggested by my research methods and techniques course. It will mainly just be a place to write notes and put any ideas I have on a page.
 
 ## 2 Nov 2020
 
@@ -52,11 +52,11 @@ Need to look at boardService and see what methods can be pulled out, if done the
 
 # Refactor plan
 
-* Send the child component the marble in play from the board component
-* One component for all the pieces, that just uses the piece functions for any clicking or SVG icons
+* Send the child component the marble in play from the board component - doesn't work
+* One component for all the pieces, that just uses the piece functions for any clicking or SVG icons - implemented
 * For gearBits it may still need to be a separate component as it will need to access the board service
 * Pin and comp slot component could maybe be moved together, but might be difficult to ensure that pins don't get pieces
-* boardPiece should have an image and a click function, this will act as a changeDirection for some pieces. 
+* boardPiece should have an image and a click function, this will act as a changeDirection for some pieces - done
 * General improvements in the board service, maybe put it in a module so it is only created when accessing a page and it's board?
 * Maybe have a look at @Output as a way to send data up from components to its parent (so compSlots up?)
 
@@ -72,4 +72,4 @@ Had some errors with e2e tests at the start, but should be easy to get some more
 
 ## 12 Nov 2020
 
-Plan to get a few more e2e tests in but maybe not spend too much time on it as the refactoring is the most important part of it all.
+Plan to get a few more e2e tests in but maybe not spend too much time on it as the refactoring is the most important part of it all. Implemented the start of the refactor plan which involved getting rid of board piece components and making a general one which is nice. Tried having the marble as an input property but it didn't work as I don't think it was updating the component on a change. 

@@ -7,11 +7,7 @@ import { BoardComponent } from './board/board.component';
 import { PinComponent } from './pin/pin.component';
 import { CompSlotComponent } from './comp-slot/comp-slot.component';
 import { SelectionBarComponent } from './selection-bar/selection-bar.component';
-import { RampComponent } from './boardPieceComponents/ramp/ramp.component';
-import { CrossoverComponent } from './boardPieceComponents/crossover/crossover.component';
-import { BitComponent } from './boardPieceComponents/bit/bit.component';
 import { GearBitComponent } from './boardPieceComponents/gear-bit/gear-bit.component';
-import { InterceptorComponent } from './boardPieceComponents/interceptor/interceptor.component';
 import { DispenserComponent } from './boardPieceComponents/dispensor/dispenser.component';
 import { FlipperComponent } from './boardPieceComponents/flipper/flipper.component';
 import { GearComponent } from './boardPieceComponents/gear/gear.component';
@@ -25,6 +21,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import { CollectedMarblesComponent } from './boardPieceComponents/collected-marbles/collected-marbles.component';
+import { NonGbPieceComponent } from './boardPieceComponents/non-gb-piece/non-gb-piece.component';
 
 @NgModule({
   declarations: [
@@ -33,16 +30,13 @@ import { CollectedMarblesComponent } from './boardPieceComponents/collected-marb
     PinComponent,
     CompSlotComponent,
     SelectionBarComponent,
-    RampComponent,
-    CrossoverComponent,
-    BitComponent,
     GearBitComponent,
-    InterceptorComponent,
     DispenserComponent,
     FlipperComponent,
     GearComponent,
     SidenavComponent,
-    CollectedMarblesComponent
+    CollectedMarblesComponent,
+    NonGbPieceComponent
   ],
   imports: [
     BrowserModule,

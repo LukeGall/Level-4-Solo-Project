@@ -3,8 +3,9 @@ import { Marble } from '../boardParts/marble';
 import { Pos } from '../boardParts/pos';
 import { BoardPiece } from './board-piece';
 
-export class Ramp implements BoardPiece{
+export class Ramp extends BoardPiece {
     direction: Direction;
+    imgLink: String;
     position: Pos;
 
     processMarble(marble: Marble) {
@@ -13,16 +14,22 @@ export class Ramp implements BoardPiece{
         marble.direction = this.direction;
     }
 
-    getName(): String {
-        return "Ramp";
-    }
-
-    constructor(direction: Direction, position: Pos){
+    constructor(direction: Direction, position: Pos) {
+        super(position);
         this.direction = direction;
-        this.position = position;
     }
 
-    changeDirection(){
+
+    getTxtDisplay(): String {
+        return "" + this.direction;
+    }
+
+    click() {
+        this.changeDirection();
+    }
+
+
+    private changeDirection() {
         this.direction = (this.direction == Direction.left) ? Direction.right : Direction.left;
     }
 }

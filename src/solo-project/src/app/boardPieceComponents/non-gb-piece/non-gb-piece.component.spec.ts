@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RampComponent } from './ramp.component';
+import { NonGbPieceComponent } from './non-gb-piece.component';
 
-describe('RampComponent', () => {
-  let component: RampComponent;
-  let fixture: ComponentFixture<RampComponent>;
+describe('NonGbPieceComponent', () => {
+  let component: NonGbPieceComponent;
+  let fixture: ComponentFixture<NonGbPieceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RampComponent ]
+      declarations: [ NonGbPieceComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RampComponent);
+    fixture = TestBed.createComponent(NonGbPieceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

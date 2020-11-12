@@ -3,9 +3,10 @@ import { Marble } from '../boardParts/marble';
 import { Pos } from '../boardParts/pos';
 import { BoardPiece } from './board-piece';
 
-export class GearBit implements BoardPiece{
+export class GearBit extends BoardPiece{
     direction : Direction;
     position: Pos;
+    imgLink: String;
 
     switchDirection(){
         this.direction = (this.direction == Direction.left) ? Direction.right : Direction.left;
@@ -20,13 +21,17 @@ export class GearBit implements BoardPiece{
 
     }
     
-    getName(): String {
-        return "GearBit";
+    getTxtDisplay(): String {
+        return ""+this.direction;
     }
 
     constructor(direction: Direction, position:Pos){
+        super(position);
         this.direction  = direction;
-        this.position = position;
     }
-   
+        
+    click() {
+        this.switchDirection();
+        console.log("GearBit clicked");
+    }   
 }

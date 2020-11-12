@@ -70,8 +70,8 @@ describe('BoardServiceService', () => {
     board.slots[2][3].piece = new GearBit(Direction.left, positions[1]);
     board.slots[2][5].piece = new GearBit(Direction.right, positions[2]);
 
-    board.slots[2][2].piece = new Gear();
-    board.slots[2][4].piece = new Gear();
+    board.slots[2][2].piece = new Gear(new Pos(2,2));
+    board.slots[2][4].piece = new Gear(new Pos(2,4));
     service.newGearComp(new Pos(2,2));
     service.newGearComp(new Pos(2,4));
 
@@ -105,8 +105,8 @@ describe('BoardServiceService', () => {
     board.slots[2][3].piece = new GearBit(Direction.left, positions[1]);
     board.slots[2][5].piece = new GearBit(Direction.right, positions[2]);
 
-    board.slots[2][2].piece = new Gear();
-    board.slots[2][4].piece = new Gear();
+    board.slots[2][2].piece = new Gear(new Pos(2,2));
+    board.slots[2][4].piece = new Gear(new Pos(2,4));
     service.newGearComp(new Pos(2,2));
     service.newGearComp(new Pos(2,4));
 

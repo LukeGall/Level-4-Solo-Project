@@ -2,16 +2,24 @@ import { Marble } from '../boardParts/marble';
 import { Pos } from '../boardParts/pos';
 import { BoardPiece } from './board-piece';
 
-export class Gear implements BoardPiece{
+export class Gear extends BoardPiece{
     position: Pos;
+    imgLink: String;
+
     processMarble(marble: Marble) {
         throw new Error('Gear cant process a marble');
     }
     
-    getName(): String {
-        return "Gear";
+    constructor(position: Pos){
+        super(position);
     }
 
-    constructor(){
+    getTxtDisplay(): String {
+        return "G";
     }
+
+    click() {
+        console.log("Gear clicked");
+    }
+
 }
