@@ -6,7 +6,7 @@ import { BoardPiece } from './board-piece';
 export class GearBit extends BoardPiece{
     direction : Direction;
     position: Pos;
-    imgLink: String;
+    imgLink: String = "../../../assets/gear-bit.svg";
     type="GearBit"
     switchDirection(){
         this.direction = (this.direction == Direction.left) ? Direction.right : Direction.left;

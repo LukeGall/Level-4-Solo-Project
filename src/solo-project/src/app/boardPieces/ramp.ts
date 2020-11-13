@@ -5,8 +5,8 @@ import { BoardPiece } from './board-piece';
 
 export class Ramp extends BoardPiece {
     direction: Direction;
-    imgLink: String;
     position: Pos;
+    imgLink: String = "../../../assets/ramp.svg";
     type="Ramp";
 
     processMarble(marble: Marble) {

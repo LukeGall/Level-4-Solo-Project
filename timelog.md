@@ -164,3 +164,6 @@
 ## 12 Nov 2020
 * *0.5 hour* e2e testing
 * *5.5 hours* Refactoring
+
+## 13 Nov 2020
+* *3.5 hour* SVG image creation plus image flipping 

@@ -4,7 +4,7 @@ import { BoardPiece } from './board-piece';
 
 export class Gear extends BoardPiece{
     position: Pos;
-    imgLink: String;
+    imgLink: String = "../../../assets/gear.svg";;
     type="Gear"
     processMarble(marble: Marble) {
         throw new Error('Gear cant process a marble');

@@ -4,7 +4,7 @@ import { Pos } from '../boardParts/pos';
 import { BoardPiece } from './board-piece';
 
 export class Interceptor extends BoardPiece{
-    imgLink: String;
+    imgLink: String = "../../../assets/interceptor.svg";;
     type="Interceptor"
 
     processMarble(marble: Marble) {

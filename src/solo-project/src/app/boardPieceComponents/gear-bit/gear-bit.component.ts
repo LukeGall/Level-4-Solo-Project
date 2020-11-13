@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BoardService } from 'src/app/board.service';
+import { Direction } from 'src/app/boardParts/direction';
 import { Marble } from 'src/app/boardParts/marble';
 import { Pos } from 'src/app/boardParts/pos';
 import { GearBit } from 'src/app/boardPieces/gear-bit';
@@ -10,9 +11,9 @@ import { GearBit } from 'src/app/boardPieces/gear-bit';
   styleUrls: ['./gear-bit.component.scss']
 })
 export class GearBitComponent implements OnInit {
-  @Input() gearBit:GearBit;
-  @Input() private x:number;
-  @Input() private y:number;
+  @Input() gearBit: GearBit;
+  @Input() private x: number;
+  @Input() private y: number;
   @Input() marble: Marble;
 
   constructor(private boardService: BoardService) { }
@@ -20,8 +21,16 @@ export class GearBitComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  click(){
+  click() {
     this.gearBit.click();
-    this.boardService.gearSpin(new Pos(this.x,this.y));
+    this.boardService.gearSpin(new Pos(this.x, this.y));
+  }
+
+  needsFlip() {
+    let gb = this.gearBit;
+    if (gb.direction == Direction.left) {
+      return true;
+    }
+    return false;
   }
 }

@@ -27,17 +27,6 @@ describe('workspace-project App', () => {
     expect(element(by.id('heldPart')).getText()).toEqual('Ramp');
   })
 
-  it('should let us change direction of a ramp',()=>{
-    page.navigateTo();
-    element(by.buttonText('Ramp')).click();
-
-    element(by.css('.compSlot')).click();
-    expect(element(by.css('.compSlot')).getText()).toEqual('-1');
-
-    element(by.css('.compSlot')).click();
-    expect(element(by.css('.compSlot')).getText()).toEqual('1');
-  })
-
   // Later on when more pages are active could try and navigate to them but good for now
 
   afterEach(async () => {

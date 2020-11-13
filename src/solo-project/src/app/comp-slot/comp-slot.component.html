@@ -3,5 +3,5 @@
         <app-non-gb-piece *ngIf="!checkGearBit()" [piece]="compSlot.piece" [marble]="marble"></app-non-gb-piece>
         <app-gear-bit *ngIf="checkGearBit()" [gearBit]="compSlot.piece" [marble]="marble" [x]="x" [y]="y"></app-gear-bit>
     </div>
-    <ng-template #compSlotDef>CS</ng-template>
+    <ng-template #compSlotDef><img width="100%" height="100%" src="../../assets/compslot.svg"></ng-template>
 </div>

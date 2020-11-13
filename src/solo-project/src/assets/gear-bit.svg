@@ -1,0 +1,29 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="402" y="-1" x="-1"/>
+  <g display="none" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" id="svg_2"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <g id="svg_3">
+   <path id="svg_5" d="m333.58818,192.03367" opacity="0.5" stroke-opacity="null" stroke-width="2" stroke="#000" fill="#56aaff"/>
+   <g id="svg_28" transform="matrix(1.23454, 0, 0, 1.23454, -616.815, -700.343)">
+    <title>Layer 1</title>
+    <ellipse fill="#2a51ed" stroke="#000" stroke-width="2" cx="661.63228" cy="729.29144" id="svg_22" rx="35" ry="35"/>
+    <ellipse ry="105.75" rx="105.75" id="svg_21" cy="729.29143" cx="661.63228" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#5f00bf"/>
+    <ellipse ry="88" rx="88" id="svg_20" cy="729.29143" cx="661.63228" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ffffff"/>
+    <rect id="svg_19" height="236" width="26" y="611.29144" x="648.63228" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#5f00bf"/>
+    <rect transform="rotate(45, 661.632, 729.292)" id="svg_18" height="236" width="26" y="611.29144" x="648.63228" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#5f00bf"/>
+    <rect transform="rotate(90, 661.632, 729.292)" id="svg_17" height="236" width="26" y="611.29144" x="648.63228" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#5f00bf"/>
+    <rect transform="rotate(-45, 661.632, 729.292)" id="svg_16" height="236" width="26" y="611.29144" x="648.63228" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#5f00bf"/>
+   </g>
+   <path id="svg_8" d="m331.84856,57.51555l-93.36744,-2.19095l44.45008,42.68948l-65.55695,68.97245c0.35244,0.95081 -56.83403,21.96932 -81.92267,-84.44556l-6.56002,11.02101c15.42646,65.3969 25.39577,69.32433 81.85358,100.90759c13.21661,35.72962 35.97477,75.40052 89.57487,80.22582l14.43855,-11.9401c-72.94582,7.35725 -88.22604,-56.86847 -78.56386,-80.07445l66.53004,-68.68718c0.35244,0.95081 36.8046,34.94299 36.45215,33.99218l-7.32835,-90.47031l0,0.00002l0.00003,0.00001z" stroke-width="2" stroke="#000000" fill="#5f00bf"/>
+  </g>
+ </g>
+</svg>

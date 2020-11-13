@@ -5,7 +5,7 @@ import { BoardPiece } from './board-piece';
 
 export class Bit extends BoardPiece{
     direction : Direction;
-    imgLink: String = "Not set yet";
+    imgLink: String = "../../../assets/bit.svg";;
     inPlayMarble: Marble;
     position: Pos;
     type="Bit";

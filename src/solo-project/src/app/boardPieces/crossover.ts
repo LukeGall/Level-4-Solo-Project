@@ -3,7 +3,7 @@ import { Pos } from '../boardParts/pos';
 import { BoardPiece } from './board-piece';
 
 export class Crossover extends BoardPiece {
-    imgLink: String = "Not set";
+    imgLink: String = "../../../assets/crossover.svg";;
     inPlayMarble: Marble;
     position: Pos;
     type ="Crossover";

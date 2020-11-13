@@ -72,4 +72,8 @@ Had some errors with e2e tests at the start, but should be easy to get some more
 
 ## 12 Nov 2020
 
-Plan to get a few more e2e tests in but maybe not spend too much time on it as the refactoring is the most important part of it all. Implemented the start of the refactor plan which involved getting rid of board piece components and making a general one which is nice. Tried having the marble as an constructor property but it didn't work. Change it to an input property of the board component and that worked, meaning the components of pieces don't need to use the board service. All board service logic has been moved to the board class, this is as it's that objects data and if we need a different type of board down the line it means the board service can still use it. 
+Plan to get a few more e2e tests in but maybe not spend too much time on it as the refactoring is the most important part of it all. Implemented the start of the refactor plan which involved getting rid of board piece components and making a general one which is nice. Tried having the marble as an constructor property but it didn't work. Change it to an input property of the board component and that worked, meaning the components of pieces don't need to use the board service. All board service logic has been moved to the board class, this is as it's that objects data and if we need a different type of board down the line it means the board service can still use it.
+
+## 13 Nov 2020
+
+Going to have a more chill day today and focus on getting the images to appear on the board, this might take some time as I'm rubbish at drawing but the code isn't too bad. All the SVGs have been finished, just need to sort the marble being visible when falling. All the SVGs are up, one way to improve the board in it's current state is to have the images instead of names (or both) on the selection bar, should also include some sort of tutorial for the pieces. 
