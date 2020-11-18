@@ -6,6 +6,7 @@ import { Direction } from './Classes/boardParts/direction';
 import { Pos } from './Classes/boardParts/pos';
 import { Gear } from './Classes/boardPieces/gear';
 import { GearBit } from './Classes/boardPieces/gear-bit';
+import { Piece } from './Classes/piece.enum';
 
 
 describe('BoardServiceService', () => {
@@ -33,8 +34,8 @@ describe('BoardServiceService', () => {
     service.getHeldPiece().subscribe(
       piece => {heldPiece = piece}
     );
-    service.setHolding("test");
-    expect(heldPiece == "test").toBeTruthy();
+    service.setHolding(Piece.Ramp);
+    expect(heldPiece == Piece.Ramp).toBeTruthy();
   })
 
   it('Should allow the marbles to increase and decrease',()=>{

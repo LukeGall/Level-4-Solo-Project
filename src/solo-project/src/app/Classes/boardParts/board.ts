@@ -1,5 +1,12 @@
+import { BehaviorSubject } from 'rxjs';
+import { Bit } from '../boardPieces/bit';
+import { BoardPiece } from '../boardPieces/board-piece';
+import { Crossover } from '../boardPieces/crossover';
 import { Gear } from '../boardPieces/gear';
 import { GearBit } from '../boardPieces/gear-bit';
+import { Interceptor } from '../boardPieces/interceptor';
+import { Ramp } from '../boardPieces/ramp';
+import { Piece } from '../piece.enum';
 import { CompSlot } from './comp-slot';
 import { Direction } from './direction';
 import { Marble } from './marble';
@@ -14,6 +21,8 @@ export class Board {
     redMarbles: Marble[];
     inPlayMarble: Marble;
     collectedMarbles: MarblePair[];
+    boardPiecesOb: BehaviorSubject<Map<Piece, number>>;
+    private boardPieces: Map<Piece, number>;
     private inPlay: boolean = true;
     private speedInMs: number = 1000;
 
@@ -23,6 +32,15 @@ export class Board {
         this.redMarbles = new Array<Marble>();
         this.inPlayMarble = null;
         this.collectedMarbles = new Array<MarblePair>();
+        this.boardPieces = new Map([[Piece.Bit, -1],
+        [Piece.Crossover, -1],
+        [Piece.Gear, -1],
+        [Piece.GearBit, -1],
+        [Piece.Interceptor, -1],
+        [Piece.Ramp, -1]
+        ])
+        this.boardPiecesOb = new BehaviorSubject<Map<Piece, number>>(null);
+        this.boardPiecesOb.next(this.boardPieces);
 
         this.slots[0] = new Array<Slot>();
         this.slots[1] = new Array<Slot>();
@@ -236,6 +254,47 @@ export class Board {
                 }
             }
         }
+    }
+
+    createPiece(pos: Pos, piece: Piece) {
+        let newPiece: BoardPiece;
+        switch (piece) {
+            case Piece.Ramp:
+                newPiece = (new Ramp(Direction.left, pos));
+                break;
+            case Piece.Crossover:
+                newPiece = (new Crossover(pos));
+                break;
+            case Piece.GearBit:
+                newPiece = (new GearBit(Direction.left, pos));
+                break;
+            case Piece.Interceptor:
+                newPiece = (new Interceptor(pos));
+                break;
+            case Piece.Bit:
+                newPiece = (new Bit(Direction.left, pos));
+                break;
+            case Piece.Gear:
+                newPiece = (new Gear(pos));
+                break;
+            default:
+                newPiece = (null);
+        }
+        let slot = this.slots[pos.x][pos.y];
+        if (slot instanceof Pin) {
+            if(slot.piece == null && newPiece instanceof Gear) {
+                slot.piece = newPiece;
+                this.newGearComp(new Pos(pos.x,pos.y));
+              } 
+        } else {
+            if (slot.piece == null || !((slot.piece.type) == (newPiece.type))) {
+                slot.piece = newPiece;
+                if (newPiece instanceof GearBit || newPiece instanceof Gear) {
+                    this.newGearComp(new Pos(pos.x, pos.y));
+                }
+            }
+        }
+        // return newPiece;
     }
 
     gearSpin(position: Pos) {

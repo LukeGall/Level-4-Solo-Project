@@ -20,10 +20,6 @@ export class PinComponent implements OnInit {
   }
 
   click(){
-    let newPiece = this.boardService.createPiece(new Pos(this.x,this.y));
-    if(this.pin.piece == null && newPiece instanceof Gear) {
-      this.pin.piece = newPiece;
-      this.boardService.newGearComp(new Pos(this.x,this.y));
-    } 
+    this.boardService.createPiece(new Pos(this.x,this.y));
   }
 }

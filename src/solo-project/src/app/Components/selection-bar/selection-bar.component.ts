@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BoardService } from 'src/app/board.service';
+import { Piece } from 'src/app/Classes/piece.enum';
 
 @Component({
   selector: 'app-selection-bar',
@@ -7,7 +8,7 @@ import { BoardService } from 'src/app/board.service';
   styleUrls: ['./selection-bar.component.scss']
 })
 export class SelectionBarComponent implements OnInit {
-  partList: string[] = ["Ramp", "Gear", "Bit", "Crossover", "GearBit", "Interceptor"];
+  partList: Piece[] = [Piece.Ramp, Piece.Gear, Piece.Bit, Piece.Crossover, Piece.GearBit, Piece.Interceptor];
   heldPart: string = null;
 
   constructor(public boardService: BoardService) { }
@@ -17,7 +18,8 @@ export class SelectionBarComponent implements OnInit {
       .subscribe(boardPiece => this.heldPart = boardPiece);
   }
 
-  clicked(part: string) {
+  clicked(part: Piece) {
+    console.log(part);
     this.boardService.setHolding(part);
   }
 

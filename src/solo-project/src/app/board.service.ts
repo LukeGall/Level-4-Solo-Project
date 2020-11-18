@@ -10,6 +10,7 @@ import { Gear } from './Classes/boardPieces/gear';
 import { GearBit } from './Classes/boardPieces/gear-bit';
 import { Interceptor } from './Classes/boardPieces/interceptor';
 import { Ramp } from './Classes/boardPieces/ramp';
+import { Piece } from './Classes/piece.enum';
 
 
 @Injectable({
@@ -21,13 +22,14 @@ export class BoardService {
 
   // Board slots is an array of 11 by 11 
   private board: Board = new Board(6);
-  heldPiece: BehaviorSubject<string> = new BehaviorSubject<string>(null);
+  heldPiece: BehaviorSubject<Piece> = new BehaviorSubject<Piece>(null);
 
   getBoard(): Observable<Board> {
     return of(this.board);
   }
 
-  setHolding(type: string) {
+  setHolding(type: Piece) {
+    console.log(type);
     this.heldPiece.next(type);
   }
 
@@ -66,24 +68,8 @@ export class BoardService {
   }
 
 
-  createPiece(pos: Pos): BoardPiece {
-    switch (this.heldPiece.getValue()) {
-      case "Ramp":
-        return (new Ramp(Direction.left, pos));
-      case "Crossover":
-        return (new Crossover(pos));
-      case "GearBit":
-        return (new GearBit(Direction.left, pos));
-      case "Interceptor":
-        return (new Interceptor(pos));
-      case "Bit":
-        return (new Bit(Direction.left, pos));
-      case "Gear":
-        return (new Gear(pos));
-      default:
-        return (null);
-    }
-
+  createPiece(pos: Pos) {
+    this.board.createPiece(pos, this.heldPiece.getValue());
   }
 
 

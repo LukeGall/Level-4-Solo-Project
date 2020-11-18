@@ -26,13 +26,7 @@ export class CompSlotComponent implements OnInit {
   }
 
   click() {
-    let newPiece = this.boardService.createPiece(new Pos(this.x,this.y));
-    if (this.compSlot.piece == null || !((this.compSlot.piece.type) == (newPiece.type))){
-      this.compSlot.piece = newPiece;
-      if(newPiece instanceof GearBit || newPiece instanceof Gear){
-        this.boardService.newGearComp(new Pos(this.x,this.y));
-      }
-    }
+    this.boardService.createPiece(new Pos(this.x,this.y));
   }
 
   checkGearBit(): boolean {
