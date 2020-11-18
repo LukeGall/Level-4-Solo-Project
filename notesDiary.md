@@ -77,3 +77,47 @@ Plan to get a few more e2e tests in but maybe not spend too much time on it as t
 ## 13 Nov 2020
 
 Going to have a more chill day today and focus on getting the images to appear on the board, this might take some time as I'm rubbish at drawing but the code isn't too bad. All the SVGs have been finished, just need to sort the marble being visible when falling. All the SVGs are up, one way to improve the board in it's current state is to have the images instead of names (or both) on the selection bar, should also include some sort of tutorial for the pieces. 
+
+
+## 16 Nov 2020
+Don't have too much time to get a ton of project stuff done today but can certainty write up my plan for the next section of the project - puzzle creation. Most of the ideas seem good so far, just need to implement them this week and hopefully there isn't too many issues with it.
+
+Rough Puzzle creation plan (not in order)
+* MakePuzzle component
+* Make confirmation component
+* Make puzzle board.ts 
+* Add set of pieces to board object and make pieces enum
+* Move create piece to board.ts
+* set up delete piece function
+* Set up locked var on piece to determine if it can be clicked and deleted
+* Create createPuzzle service
+Board service needs to set board instead of just having a base one, meaning the functionality of the service can be used for different board, in our case a puzzle board. 
+* Make sure pieces doesn't use click in it's process marble
+
+Make puzzle component
+* Will include board plus selection bar and buttons for lock in
+* Will need a prompt box to give instructions when creating
+* Confirmation component will have a form in it so use a service for this
+
+Puzzle board will extend the current board
+* Two new slot arrays for starting setup and final set up
+* Will have a set of pieces that are allowed
+* Board object should have the set of pieces then selection component can use this 
+
+Puzzle board.ts
+* startingSlots[][] -> used when resetting the board and will make these pieces locked
+* pieces: record type 
+* solutionSlots[][] -> used if someone is stuck
+* needs a finial marble pair solution that is used to check it later on
+* update updateList to check if current pair equals the output needed
+
+Create puzzle service
+* sets the starting, final and marbles
+* then can create a puzzle object which has a puzzle board plus name description etc
+
+The makePuzzle service will create a puzzle object which will get saved to a firebase server that can then be accessed using either the default puzzles page or the online puzzles page but there will need to be a new page to access and play a puzzle which may get done this week. 
+
+
+Should first reorganise the app folders, to make it more readable 
+All components should be in a component folder, and objects should be in an object folder, services can also be placed in their folder as well.
+

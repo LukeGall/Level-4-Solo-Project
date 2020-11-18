@@ -1,11 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
 import { BoardService } from './board.service';
-import { Board } from './boardParts/board';
-import { Direction } from './boardParts/direction';
-import { Pos } from './boardParts/pos';
-import { Gear } from './boardPieces/gear';
-import { GearBit } from './boardPieces/gear-bit';
+import { Board } from './Classes/boardParts/board';
+import { Direction } from './Classes/boardParts/direction';
+import { Pos } from './Classes/boardParts/pos';
+import { Gear } from './Classes/boardPieces/gear';
+import { GearBit } from './Classes/boardPieces/gear-bit';
+
 
 describe('BoardServiceService', () => {
   let service: BoardService;
@@ -28,7 +29,7 @@ describe('BoardServiceService', () => {
   })
 
   it('Should let me set the piece thats being held',()=>{
-    let heldPiece:String;
+    let heldPiece:string;
     service.getHeldPiece().subscribe(
       piece => {heldPiece = piece}
     );

@@ -167,3 +167,7 @@
 
 ## 13 Nov 2020
 * *3.5 hour* SVG image creation plus image flipping 
+
+### Week 8
+* *0.5 hour* Meeting plan and rough planning of puzzle creation
+* *0.5 hour* Meeting, the writeup and folder reorganization

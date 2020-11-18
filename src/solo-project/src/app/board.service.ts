@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { Board } from './boardParts/board';
-import { CompSlot } from './boardParts/comp-slot';
-import { Direction } from './boardParts/direction';
-import { Marble } from './boardParts/marble';
-import { MarblePair } from './boardParts/marblePair';
-import { Pos } from './boardParts/pos';
-import { Slot } from './boardParts/slot';
-import { Bit } from './boardPieces/bit';
-import { BoardPiece } from './boardPieces/board-piece';
-import { Crossover } from './boardPieces/crossover';
-import { Gear } from './boardPieces/gear';
-import { GearBit } from './boardPieces/gear-bit';
-import { Interceptor } from './boardPieces/interceptor';
-import { Ramp } from './boardPieces/ramp';
+import { Board } from './Classes/boardParts/board';
+import { Direction } from './Classes/boardParts/direction';
+import { Pos } from './Classes/boardParts/pos';
+import { Bit } from './Classes/boardPieces/bit';
+import { BoardPiece } from './Classes/boardPieces/board-piece';
+import { Crossover } from './Classes/boardPieces/crossover';
+import { Gear } from './Classes/boardPieces/gear';
+import { GearBit } from './Classes/boardPieces/gear-bit';
+import { Interceptor } from './Classes/boardPieces/interceptor';
+import { Ramp } from './Classes/boardPieces/ramp';
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,25 +21,25 @@ export class BoardService {
 
   // Board slots is an array of 11 by 11 
   private board: Board = new Board(6);
-  heldPiece: BehaviorSubject<String> = new BehaviorSubject<String>(null);
+  heldPiece: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
   getBoard(): Observable<Board> {
     return of(this.board);
   }
 
-  setHolding(type: String) {
+  setHolding(type: string) {
     this.heldPiece.next(type);
   }
 
-  getHeldPiece(): BehaviorSubject<String> {
+  getHeldPiece(): BehaviorSubject<string> {
     return this.heldPiece;
   }
 
-  increaseMarble(colour: String) {
+  increaseMarble(colour: string) {
     this.board.increaseMarble(colour);
   }
 
-  decreaseMarble(colour: String) {
+  decreaseMarble(colour: string) {
     this.board.decreaseMarble(colour);
   }
 
@@ -50,7 +47,7 @@ export class BoardService {
     this.board.clearPieces();
   }
 
-  startMarble(colour: String) {
+  startMarble(colour: string) {
     this.board.startMarble(colour);
   }
 
