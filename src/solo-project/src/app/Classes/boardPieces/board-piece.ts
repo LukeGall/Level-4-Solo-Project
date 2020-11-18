@@ -24,8 +24,13 @@ export class BoardPiece {
             throw new TypeError('This is an abstract class, can not instantiate directly.');
         }
     }
+    
+    lock(){
+        this.locked = true;
+    }
 
     imgLink: string;
     position: Pos;
     type:string;
+    locked: boolean=false;
 }

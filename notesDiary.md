@@ -86,10 +86,10 @@ Rough Puzzle creation plan (not in order)
 * MakePuzzle component
 * Make confirmation component
 * Make puzzle board.ts 
-* Add set of pieces to board object and make pieces enum
-* Move create piece to board.ts
+* Add set of pieces to board object and make pieces enum - done
+* Move create piece to board.ts - done
 * set up delete piece function
-* Set up locked var on piece to determine if it can be clicked and deleted
+* Set up locked var on piece to determine if it can be clicked and deleted - done;
 * Create createPuzzle service
 Board service needs to set board instead of just having a base one, meaning the functionality of the service can be used for different board, in our case a puzzle board. 
 * Make sure pieces doesn't use click in it's process marble

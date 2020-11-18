@@ -169,5 +169,10 @@
 * *3.5 hour* SVG image creation plus image flipping 
 
 ### Week 8
+## 16 Nov 2020
 * *0.5 hour* Meeting plan and rough planning of puzzle creation
 * *0.5 hour* Meeting, the writeup and folder reorganization
+
+## 18 Nov 2020
+* *4 hour* Made new components, fixed map issue I had with pieces and numbers, but now selection pieces gets pieces from the board
+

@@ -1,3 +1,4 @@
+import { promise } from 'protractor';
 import { BehaviorSubject } from 'rxjs';
 import { Bit } from '../boardPieces/bit';
 import { BoardPiece } from '../boardPieces/board-piece';
@@ -21,8 +22,8 @@ export class Board {
     redMarbles: Marble[];
     inPlayMarble: Marble;
     collectedMarbles: MarblePair[];
-    boardPiecesOb: BehaviorSubject<Map<Piece, number>>;
-    private boardPieces: Map<Piece, number>;
+    boardPieces: Map<Piece, number>;
+    heldPiece: Piece = null;
     private inPlay: boolean = true;
     private speedInMs: number = 1000;
 
@@ -32,15 +33,9 @@ export class Board {
         this.redMarbles = new Array<Marble>();
         this.inPlayMarble = null;
         this.collectedMarbles = new Array<MarblePair>();
-        this.boardPieces = new Map([[Piece.Bit, -1],
-        [Piece.Crossover, -1],
-        [Piece.Gear, -1],
-        [Piece.GearBit, -1],
-        [Piece.Interceptor, -1],
-        [Piece.Ramp, -1]
-        ])
-        this.boardPiecesOb = new BehaviorSubject<Map<Piece, number>>(null);
-        this.boardPiecesOb.next(this.boardPieces);
+        this.boardPieces = new Map([[Piece.Ramp, -1], [Piece.Gear, -1], [Piece.Bit, -1], [Piece.Crossover, -1], [Piece.GearBit, -1], [Piece.Interceptor, -1]]);
+
+
 
         this.slots[0] = new Array<Slot>();
         this.slots[1] = new Array<Slot>();
@@ -74,6 +69,11 @@ export class Board {
             }
         }
     }
+
+    setHeldPiece(piece: Piece) {
+        this.heldPiece = (piece);
+    }
+
 
     increaseMarble(colour: string) {
         if (colour == "blue") {
@@ -256,9 +256,9 @@ export class Board {
         }
     }
 
-    createPiece(pos: Pos, piece: Piece) {
+    createPiece(pos: Pos) {
         let newPiece: BoardPiece;
-        switch (piece) {
+        switch (this.heldPiece) {
             case Piece.Ramp:
                 newPiece = (new Ramp(Direction.left, pos));
                 break;
@@ -282,10 +282,10 @@ export class Board {
         }
         let slot = this.slots[pos.x][pos.y];
         if (slot instanceof Pin) {
-            if(slot.piece == null && newPiece instanceof Gear) {
+            if (slot.piece == null && newPiece instanceof Gear) {
                 slot.piece = newPiece;
-                this.newGearComp(new Pos(pos.x,pos.y));
-              } 
+                this.newGearComp(new Pos(pos.x, pos.y));
+            }
         } else {
             if (slot.piece == null || !((slot.piece.type) == (newPiece.type))) {
                 slot.piece = newPiece;

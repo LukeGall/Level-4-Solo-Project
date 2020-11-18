@@ -1,8 +1,11 @@
 <div class="wrapper">
     <div class="pieces">
-        <div class="piece" *ngFor="let part of partList">
-            <button class="pieceButtons" mat-raised-button color="accent" (click)="clicked(part)">
-                {{part}}
+        <div class="piece" *ngFor="let part of partList | keyvalue">
+            <button class="pieceButtons" mat-raised-button color="accent" (click)="clicked(part.key)">
+                {{part.key}} 
+                <span *ngIf="hasAmount()">
+                    {{part.value}} 
+                </span>
             </button>
         </div>
     </div>

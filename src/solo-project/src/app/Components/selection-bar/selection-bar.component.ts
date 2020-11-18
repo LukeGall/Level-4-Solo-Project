@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BoardService } from 'src/app/board.service';
 import { Piece } from 'src/app/Classes/piece.enum';
 
@@ -8,14 +8,12 @@ import { Piece } from 'src/app/Classes/piece.enum';
   styleUrls: ['./selection-bar.component.scss']
 })
 export class SelectionBarComponent implements OnInit {
-  partList: Piece[] = [Piece.Ramp, Piece.Gear, Piece.Bit, Piece.Crossover, Piece.GearBit, Piece.Interceptor];
-  heldPart: string = null;
+  @Input() partList: Map<Piece,number>;
+  @Input() heldPart: string = null;
 
   constructor(public boardService: BoardService) { }
 
   ngOnInit(): void {
-    this.boardService.getHeldPiece()
-      .subscribe(boardPiece => this.heldPart = boardPiece);
   }
 
   clicked(part: Piece) {
@@ -35,6 +33,10 @@ export class SelectionBarComponent implements OnInit {
     if (this.heldPart) {
       return this.heldPart == piece;
     }
+  }
+
+  hasAmount(){
+    return this.partList.get(Piece.Ramp) != -1; 
   }
 
   clearBoard() {

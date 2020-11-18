@@ -22,20 +22,14 @@ export class BoardService {
 
   // Board slots is an array of 11 by 11 
   private board: Board = new Board(6);
-  heldPiece: BehaviorSubject<Piece> = new BehaviorSubject<Piece>(null);
 
   getBoard(): Observable<Board> {
     return of(this.board);
   }
 
   setHolding(type: Piece) {
-    console.log(type);
-    this.heldPiece.next(type);
-  }
-
-  getHeldPiece(): BehaviorSubject<string> {
-    return this.heldPiece;
-  }
+    this.board.setHeldPiece(type);
+    }
 
   increaseMarble(colour: string) {
     this.board.increaseMarble(colour);
@@ -69,7 +63,7 @@ export class BoardService {
 
 
   createPiece(pos: Pos) {
-    this.board.createPiece(pos, this.heldPiece.getValue());
+    this.board.createPiece(pos);
   }
 
 

@@ -29,15 +29,6 @@ describe('BoardServiceService', () => {
     expect(board).toBeTruthy();
   })
 
-  it('Should let me set the piece thats being held',()=>{
-    let heldPiece:string;
-    service.getHeldPiece().subscribe(
-      piece => {heldPiece = piece}
-    );
-    service.setHolding(Piece.Ramp);
-    expect(heldPiece == Piece.Ramp).toBeTruthy();
-  })
-
   it('Should allow the marbles to increase and decrease',()=>{
     let board: Board;
     service.getBoard().subscribe(
