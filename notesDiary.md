@@ -121,3 +121,9 @@ The makePuzzle service will create a puzzle object which will get saved to a fir
 Should first reorganise the app folders, to make it more readable 
 All components should be in a component folder, and objects should be in an object folder, services can also be placed in their folder as well.
 
+## 19 Nov 2020
+
+Forgot to make an entry yesterday. The day went okay got a good amount of progress but had a really frustrating error to do with passing the Map object of pieces to numbers down to the selection nav bar that was rather frustrating tbh. Got it eventually after using an angular pipe but before hand it was throwing errors about a child component changing the parents data, which goes against angular practices and would lead to more errors down the line. Will be spending the day contining with the checklist of things to do with the make puzzle, hopefully not too many issue arise. 
+
+Delete functionality is in now, can either make a new delete Piece or just send the heldPiece as null, meaning it will delete. Think it's better to make an explict delete piece, to reduce sending nulls around.  
+

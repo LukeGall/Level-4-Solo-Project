@@ -4,5 +4,6 @@ export enum Piece {
     Bit = "Bit",
     Crossover = "Crossover",
     GearBit = "GearBit",
-    Interceptor = "Interceptor"
+    Interceptor = "Interceptor",
+    Delete = "DeletePiece"
 }

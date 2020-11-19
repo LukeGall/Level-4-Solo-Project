@@ -2,17 +2,21 @@
     <div class="pieces">
         <div class="piece" *ngFor="let part of partList | keyvalue">
             <button class="pieceButtons" mat-raised-button color="accent" (click)="clicked(part.key)">
-                {{part.key}} 
+                {{part.key}}
                 <span *ngIf="hasAmount()">
-                    {{part.value}} 
+                    {{part.value}}
                 </span>
             </button>
         </div>
+
     </div>
     <!-- Testing Purposes -->
     <div *ngIf="heldPart" id="heldPart">{{heldPart}}</div>
     <mat-divider></mat-divider>
     <div>
+        <button class="pieceButtons" mat-raised-button color="warn" (click)="delete()">
+            Delete
+        </button>
         <button mat-raised-button color="warn" (click)="step()">Step Forward</button>
         <button mat-raised-button color="warn" (click)="triggerPlay()">Toggle</button>
         <button mat-raised-button color="warn" (click)="clearBoard()">Reset Board</button>

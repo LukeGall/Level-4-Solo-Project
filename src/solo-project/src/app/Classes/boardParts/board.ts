@@ -277,11 +277,14 @@ export class Board {
             case Piece.Gear:
                 newPiece = (new Gear(pos));
                 break;
-            default:
-                newPiece = (null);
+            case Piece.Delete:
+                newPiece = null;
         }
         let slot = this.slots[pos.x][pos.y];
-        if (slot instanceof Pin) {
+        if(!newPiece){
+            slot.piece = null;
+        }
+        else if (slot instanceof Pin) {
             if (slot.piece == null && newPiece instanceof Gear) {
                 slot.piece = newPiece;
                 this.newGearComp(new Pos(pos.x, pos.y));

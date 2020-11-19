@@ -21,6 +21,10 @@ export class SelectionBarComponent implements OnInit {
     this.boardService.setHolding(part);
   }
 
+  delete(){
+    this.clicked(Piece.Delete);
+  }
+
   step() {
     this.boardService.stepForward();
   }
