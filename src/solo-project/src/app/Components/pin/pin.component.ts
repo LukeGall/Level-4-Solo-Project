@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BoardService } from 'src/app/board.service';
 import { Pin } from 'src/app/Classes/boardParts/pin';
 import { Pos } from 'src/app/Classes/boardParts/pos';
 
@@ -15,7 +14,7 @@ export class PinComponent implements OnInit {
   @Output() slotClicked: EventEmitter<Pos> = new EventEmitter<Pos>();
 
 
-  constructor(public boardService: BoardService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

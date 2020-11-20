@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { BoardService } from 'src/app/board.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Marble } from 'src/app/Classes/boardParts/marble';
 
 
@@ -9,27 +8,21 @@ import { Marble } from 'src/app/Classes/boardParts/marble';
   styleUrls: ['./dispenser.component.scss']
 })
 export class DispenserComponent implements OnInit {
-  @Input() marbleColour: string
-  marbles: Marble[] 
+  @Input() marbleColour: string;
+  @Input() marbles: Marble[]
+  @Output() increaseMarble = new EventEmitter<string>(); 
+  @Output() decreaseMarble = new EventEmitter<String>();
 
-  constructor(private boardService: BoardService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.boardService.getBoard().subscribe(board => {
-      if(this.marbleColour == "red"){
-        this.marbles = board.redMarbles;
-      } else {
-        this.marbles = board.blueMarbles;
-      }
-    })
   }
 
   increaseAmount(){
-    this.boardService.increaseMarble(this.marbleColour);
+    this.increaseMarble.emit(this.marbleColour);
   }
 
   decreaseAmount(){
-    this.boardService.decreaseMarble(this.marbleColour);
+    this.decreaseMarble.emit(this.marbleColour);
   }
-
 }

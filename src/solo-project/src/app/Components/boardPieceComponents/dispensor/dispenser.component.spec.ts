@@ -1,11 +1,12 @@
+import { Component, OnInit } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Marble } from 'src/app/Classes/boardParts/marble';
 
 import { DispenserComponent } from './dispenser.component';
 
 describe('DispenserComponent', () => {
-  let component: DispenserComponent;
-  let fixture: ComponentFixture<DispenserComponent>;
+  let component: TestDispenser;
+  let fixture: ComponentFixture<TestDispenser>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -15,7 +16,7 @@ describe('DispenserComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DispenserComponent);
+    fixture = TestBed.createComponent(TestDispenser);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -24,10 +25,11 @@ describe('DispenserComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display marble length',()=>{
-    component.marbles = new Array<Marble>(new Marble("blue"), new Marble("blue"));
-    fixture.detectChanges();
-    const div =fixture.nativeElement.querySelector("div");
-    expect(div.textContent).toContain(component.marbles.length);
+
+  @Component({
+    selector: 'app-dispenser',
+    template: '<app-dispenser [marbles]="null" [marbleColour]="red">'
   })
+  class TestDispenser {
+}
 });

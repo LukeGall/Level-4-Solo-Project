@@ -1,13 +1,13 @@
 <div id=selectionBar>
-  <app-selection-bar [heldPart]="board.heldPiece" [partList]="board.boardPieces"></app-selection-bar>
+  <app-selection-bar [heldPart]="board.heldPiece" [partList]="board.boardPieces" (clickHolding)="setHolding($event)" (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()" (reset)="clearBoard()"></app-selection-bar>
 </div>
 <div id="boardSide">
   <div id="dispensers">
     <div class="blue">
-      <app-dispenser [marbleColour]="'blue'"></app-dispenser>
+      <app-dispenser [marbles]="board.blueMarbles" [marbleColour]="'blue'" (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
     </div>
     <div class="red">
-      <app-dispenser [marbleColour]="'red'"></app-dispenser>
+      <app-dispenser [marbles]="board.redMarbles" [marbleColour]="'red'" (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
     </div>
   </div>
   <div class="clear"></div>
@@ -19,10 +19,10 @@
 
   <div id="triggers">
     <div class="blue">
-      <app-flipper [colour]="'blue'"></app-flipper>
+      <app-flipper [colour]="'blue'" (clickedFlipper)="clickedFlipper($event)"></app-flipper>
     </div>
     <div class="red">
-      <app-flipper [colour]="'red'"></app-flipper>
+      <app-flipper [colour]="'red'" (clickedFlipper)="clickedFlipper($event)"></app-flipper>
     </div>
   </div>
 

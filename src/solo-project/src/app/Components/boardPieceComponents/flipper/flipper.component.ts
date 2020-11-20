@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { BoardService } from 'src/app/board.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-flipper',
@@ -8,14 +7,15 @@ import { BoardService } from 'src/app/board.service';
 })
 export class FlipperComponent implements OnInit {
   @Input() colour: string;
+  @Output() clickedFlipper = new EventEmitter<string>();
 
-  constructor(private boardService: BoardService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   trigger(){
-    this.boardService.startMarble(this.colour);
+    this.clickedFlipper.emit(this.colour);
   }
 
 }
