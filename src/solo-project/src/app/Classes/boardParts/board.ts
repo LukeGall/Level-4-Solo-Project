@@ -257,7 +257,6 @@ export class Board {
     }
 
     clickPiece(pos: Pos): boolean {
-        console.log("Create piece - normal board");
         let changed = false;
         let newPiece: BoardPiece;
 
@@ -285,18 +284,22 @@ export class Board {
         }
 
         let slot = this.slots[pos.x][pos.y];
+        // Delete piece
         if (!newPiece) {
-            slot.piece = null;
-            changed = true;
+            if (slot.piece && !slot.piece.locked) {
+                slot.piece = null;
+                changed = true;
+            }
         }
-        else if (slot instanceof Pin) {
-            if (slot.piece == null && newPiece instanceof Gear) {
+        // Pin
+        else if (slot instanceof Pin && newPiece instanceof Gear) {
+            if (!slot.piece || !slot.piece.locked) {
                 slot.piece = newPiece;
                 this.newGearComp(new Pos(pos.x, pos.y));
                 changed = true;
             }
-        } else {
-            if (slot.piece == null || !((slot.piece.type) == (newPiece.type))) {
+        } else if (slot instanceof CompSlot) {
+            if (!slot.piece || ((slot.piece.type != newPiece.type) && !slot.piece.locked)) {
                 changed = true;
                 slot.piece = newPiece;
                 if (newPiece instanceof GearBit || newPiece instanceof Gear) {
@@ -305,7 +308,7 @@ export class Board {
             }
         }
         // If just clicked
-        if (!changed) {
+        if (!changed && slot.piece) {
             slot.piece.click()
             if (slot.piece instanceof Gear || slot.piece instanceof GearBit) {
                 this.gearSpin(pos);

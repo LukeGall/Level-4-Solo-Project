@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Piece } from 'src/app/Classes/piece.enum';
+import { boardState } from 'src/app/Classes/puzzle-board';
 
 @Component({
   selector: 'app-selection-bar',
@@ -7,12 +8,17 @@ import { Piece } from 'src/app/Classes/piece.enum';
   styleUrls: ['./selection-bar.component.scss']
 })
 export class SelectionBarComponent implements OnInit {
-  @Input() partList: Map<Piece,number>;
+  @Input() partList: Map<Piece, number>;
   @Input() heldPart: string = null;
+  @Input() isPuzzleBoard: boolean = false;
+  @Input() boardState : boardState;
+
   @Output() clickHolding = new EventEmitter<Piece>();
   @Output() stepBoard = new EventEmitter();
   @Output() triggerPlay = new EventEmitter();
   @Output() reset = new EventEmitter();
+  @Output() confStartingPieces = new EventEmitter();
+  @Output() confPuzzleOutput = new EventEmitter();
 
   constructor() { }
 
@@ -24,7 +30,7 @@ export class SelectionBarComponent implements OnInit {
     this.clickHolding.emit(part);
   }
 
-  delete(){
+  delete() {
     this.clicked(Piece.Delete);
   }
 
@@ -42,11 +48,26 @@ export class SelectionBarComponent implements OnInit {
     }
   }
 
-  hasAmount(){
-    return this.partList.get(Piece.Ramp) != -1; 
+  hasAmount() {
+    return this.partList.get(Piece.Ramp) != -1;
   }
 
   clearBoard() {
     this.reset.emit();
+  }
+
+  confirmStarting() {
+    this.confStartingPieces.emit();
+  }
+
+  confirmOutput(){
+    this.confPuzzleOutput.emit();
+  }
+
+  notStarting(){
+    if(this.boardState){
+      return this.boardState != boardState.starting;
+    }
+    return true;
   }
 }

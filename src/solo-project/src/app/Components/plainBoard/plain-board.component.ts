@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BoardService } from 'src/app/board.service';
 import { Board } from 'src/app/Classes/boardParts/board';
 import { Piece } from 'src/app/Classes/piece.enum';
 
@@ -11,16 +10,15 @@ import { Piece } from 'src/app/Classes/piece.enum';
 export class PlainBoardComponent implements OnInit {
   board: Board;
 
-  constructor(public boardService: BoardService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.board = new Board(6);
-    this.boardService.setBoard(this.board);
   }
 
 
   changeSpeed(value: number) {
-    this.boardService.setSpeed(value);
+    this.board.setSpeed(value);
   }
 
   increaseMarble(colour: string){

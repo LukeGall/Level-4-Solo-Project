@@ -23,6 +23,8 @@ import { PieceComponent } from './Components/boardPieceComponents/piece/piece.co
 import { MakePuzzleComponent } from './Components/make-puzzle/make-puzzle.component';
 import { ConfirmationComponent } from './Components/confirmation/confirmation.component';
 import { BoardComponent } from './Components/board/board.component';
+import {MatCardModule} from '@angular/material/card';
+import { PromptCardComponent } from './Components/prompt-card/prompt-card.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { BoardComponent } from './Components/board/board.component';
     PieceComponent,
     MakePuzzleComponent,
     ConfirmationComponent,
-    BoardComponent
+    BoardComponent,
+    PromptCardComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { BoardComponent } from './Components/board/board.component';
     MatIconModule,
     MatGridListModule,
     MatDividerModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

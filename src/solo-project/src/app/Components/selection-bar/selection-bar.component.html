@@ -1,4 +1,4 @@
-<div class="wrapper">
+<mat-card class="wrapper">
     <div class="pieces">
         <div class="piece" *ngFor="let part of partList | keyvalue">
             <button class="pieceButtons" mat-raised-button color="accent" (click)="clicked(part.key)">
@@ -17,8 +17,14 @@
         <button class="pieceButtons" mat-raised-button color="warn" (click)="delete()">
             Delete
         </button>
-        <button mat-raised-button color="warn" (click)="step()">Step Forward</button>
-        <button mat-raised-button color="warn" (click)="trigger()">Toggle</button>
-        <button mat-raised-button color="warn" (click)="clearBoard()">Reset Board</button>
+        <div *ngIf="notStarting()">
+            <button mat-raised-button color="warn" (click)="step()">Step Forward</button>
+            <button mat-raised-button color="warn" (click)="trigger()">Toggle</button>
+            <button mat-raised-button color="warn" (click)="clearBoard()">Reset Board</button>
+        </div>
+        <div *ngIf="isPuzzleBoard">
+            <button *ngIf="!notStarting()" mat-raised-button color="warn" (click)="confirmStarting()">Confirm set up</button>
+            <button *ngIf="notStarting()" mat-raised-button color="warn" (click)="confirmOutput()">Confirm output</button>
+        </div>
     </div>
-</div>
+</mat-card>

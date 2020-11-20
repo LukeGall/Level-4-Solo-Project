@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Observable, of } from 'rxjs';
-import { BoardService } from './board.service';
-import { PuzzleBoard } from './Classes/puzzle-board';
+import { PuzzleBoard } from '../Classes/puzzle-board';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MakePuzzleService extends BoardService {
+export class MakePuzzleService{
   private puzzleBoard: PuzzleBoard = new PuzzleBoard();
 
   constructor() {
-    super()
-    super.setBoard(this.puzzleBoard);
+  }
+
+  setBoard(board: PuzzleBoard){
+    this.puzzleBoard = board;
   }
 
   confirmStarting() {

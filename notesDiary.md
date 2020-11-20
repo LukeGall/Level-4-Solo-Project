@@ -83,7 +83,7 @@ Going to have a more chill day today and focus on getting the images to appear o
 Don't have too much time to get a ton of project stuff done today but can certainty write up my plan for the next section of the project - puzzle creation. Most of the ideas seem good so far, just need to implement them this week and hopefully there isn't too many issues with it.
 
 Rough Puzzle creation plan (not in order)
-* MakePuzzle component
+* MakePuzzle component - done
 * Make confirmation component
 * Make puzzle board.ts - done
 * Add set of pieces to board object and make pieces enum - done
@@ -100,8 +100,8 @@ Make puzzle component
 * Confirmation component will have a form in it so use a service for this
 
 Puzzle board will extend the current board
-* Two new slot arrays for starting setup and final set up
-* Will have a set of pieces that are allowed
+* Two new slot arrays for starting setup and final set up -done
+* Will have a set of pieces that are allowed - done
 * Board object should have the set of pieces then selection component can use this - done
 
 Puzzle board.ts
@@ -117,7 +117,7 @@ Create puzzle service
 
 The makePuzzle service will create a puzzle object which will get saved to a firebase server that can then be accessed using either the default puzzles page or the online puzzles page but there will need to be a new page to access and play a puzzle which may get done this week. 
  
-* Change a lot of the components to using Output() instead of board service. Will help lead to more reusability later on. 
+* Change a lot of the components to using Output() instead of board service. Will help lead to more reusability later on. - done
 
 Should first reorganise the app folders, to make it more readable 
 All components should be in a component folder, and objects should be in an object folder, services can also be placed in their folder as well.
@@ -133,4 +133,4 @@ Got a large amount ticked off the list for the make puzzle, think there may be a
 ## 20 Nov 2020
 Plan to continue with the puzzle board making today focusing on getting the components up and running and reducing the need for components to use the board services if possible.
 
-* NEED TO REMEMBER INTERCEPTOR GETTING MARBLE
+The board service was deleted as all data that is used by classes comes from their parent component. This is better practice and was a good way to reactor it down. Can now make a puzzle successfully so will focus on focus on making a confirmation component that will get the details of the puzzle so it can then be saved on firebase server. Very happy with progress.

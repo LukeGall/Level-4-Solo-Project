@@ -178,7 +178,9 @@
 
 ## 19 Nov 2020
 * *0.5 hour* Delete function for pieces
-* *3.5 hou* Puzzle board, service and other items off the main list
+* *3.5 hour* Puzzle board, service and other items off the main list
 
 ## 20 Nov 2020
+
+* *5.5 hour* Refactoring to remove reliance on board service, puzzle page can now confirm pieces to stop them from being clicked, any peice placed after edit is forced by amount avaliable. Can now create a puzzle using the make puzzle page which include prompts in how to make it.
 

@@ -30,4 +30,8 @@ export class PieceComponent implements OnInit {
     }
     return false;
   }
+
+  isLocked() {
+    return this.piece.locked;
+  }
 }
