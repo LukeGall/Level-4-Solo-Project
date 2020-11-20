@@ -1,5 +1,6 @@
 import { Marble } from '../boardParts/marble';
 import { Pos } from '../boardParts/pos';
+import { Piece } from '../piece.enum';
 
 export class BoardPiece {
     getTxtDisplay(): string {
@@ -31,6 +32,6 @@ export class BoardPiece {
 
     imgLink: string;
     position: Pos;
-    type:string;
+    type:Piece;
     locked: boolean=false;
 }

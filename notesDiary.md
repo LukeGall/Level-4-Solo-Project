@@ -85,14 +85,14 @@ Don't have too much time to get a ton of project stuff done today but can certai
 Rough Puzzle creation plan (not in order)
 * MakePuzzle component
 * Make confirmation component
-* Make puzzle board.ts 
+* Make puzzle board.ts - done
 * Add set of pieces to board object and make pieces enum - done
 * Move create piece to board.ts - done
-* set up delete piece function
+* set up delete piece function - done
 * Set up locked var on piece to determine if it can be clicked and deleted - done;
 * Create createPuzzle service
-Board service needs to set board instead of just having a base one, meaning the functionality of the service can be used for different board, in our case a puzzle board. 
-* Make sure pieces doesn't use click in it's process marble
+Board service needs to set board instead of just having a base one, meaning the functionality of the service can be used for different board, in our case a puzzle board. - done
+* Make sure pieces doesn't use click in it's process marble - done
 
 Make puzzle component
 * Will include board plus selection bar and buttons for lock in
@@ -102,28 +102,35 @@ Make puzzle component
 Puzzle board will extend the current board
 * Two new slot arrays for starting setup and final set up
 * Will have a set of pieces that are allowed
-* Board object should have the set of pieces then selection component can use this 
+* Board object should have the set of pieces then selection component can use this - done
 
 Puzzle board.ts
-* startingSlots[][] -> used when resetting the board and will make these pieces locked
-* pieces: record type 
-* solutionSlots[][] -> used if someone is stuck
-* needs a finial marble pair solution that is used to check it later on
-* update updateList to check if current pair equals the output needed
+* startingSlots[][] -> used when resetting the board and will make these pieces locked - done
+* pieces: record type - done
+* solutionSlots[][] -> used if someone is stuck -done
+* needs a finial marble pair solution that is used to check it later on -done
+* update updateList to check if current pair equals the output needed - done
 
 Create puzzle service
-* sets the starting, final and marbles
-* then can create a puzzle object which has a puzzle board plus name description etc
+* sets the starting, final and marbles- done
+* then can create a puzzle object which has a puzzle board plus name description etc - done
 
 The makePuzzle service will create a puzzle object which will get saved to a firebase server that can then be accessed using either the default puzzles page or the online puzzles page but there will need to be a new page to access and play a puzzle which may get done this week. 
-
+ 
+* Change a lot of the components to using Output() instead of board service. Will help lead to more reusability later on. 
 
 Should first reorganise the app folders, to make it more readable 
 All components should be in a component folder, and objects should be in an object folder, services can also be placed in their folder as well.
 
 ## 19 Nov 2020
 
-Forgot to make an entry yesterday. The day went okay got a good amount of progress but had a really frustrating error to do with passing the Map object of pieces to numbers down to the selection nav bar that was rather frustrating tbh. Got it eventually after using an angular pipe but before hand it was throwing errors about a child component changing the parents data, which goes against angular practices and would lead to more errors down the line. Will be spending the day contining with the checklist of things to do with the make puzzle, hopefully not too many issue arise. 
+Forgot to make an entry yesterday. The day went okay got a good amount of progress but had a really frustrating error to do with passing the Map object of pieces to numbers down to the selection nav bar that was rather frustrating tbh. Got it eventually after using an angular pipe but before hand it was throwing errors about a child component changing the parents data, which goes against angular practices and would lead to more errors down the line. Will be spending the day continuing with the checklist of things to do with the make puzzle, hopefully not too many issue arise. 
 
-Delete functionality is in now, can either make a new delete Piece or just send the heldPiece as null, meaning it will delete. Think it's better to make an explict delete piece, to reduce sending nulls around.  
+Delete functionality is in now, can either make a new delete Piece or just send the heldPiece as null, meaning it will delete. Think it's better to make an explicit delete piece, to reduce sending nulls around.  
 
+Got a large amount ticked off the list for the make puzzle, think there may be an issue with the general lay out of the app as components such as comp slot and pin are using the board service but they should really be using output so that the parent component which may be the using the make puzzle component, as if I put a puzzle board into the new section but then comp slots will use the board service click instead of the new puzzle service click, so focus on that tomorrow. 
+
+## 20 Nov 2020
+Plan to continue with the puzzle board making today focusing on getting the components up and running and reducing the need for components to use the board services if possible.
+
+* NEED TO REMEMBER INTERCEPTOR GETTING MARBLE

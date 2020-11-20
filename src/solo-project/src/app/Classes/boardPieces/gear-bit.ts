@@ -1,13 +1,15 @@
 import { Direction } from '../boardParts/direction';
 import { Marble } from '../boardParts/marble';
 import { Pos } from '../boardParts/pos';
+import { Piece } from '../piece.enum';
 import { BoardPiece } from './board-piece';
 
 export class GearBit extends BoardPiece{
     direction : Direction;
     position: Pos;
     imgLink: string = "../../../assets/gear-bit.svg";
-    type="GearBit"
+    type=Piece.GearBit;
+
     switchDirection(){
         this.direction = (this.direction == Direction.left) ? Direction.right : Direction.left;
     }

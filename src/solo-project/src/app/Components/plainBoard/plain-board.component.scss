@@ -1,0 +1,44 @@
+
+.board{
+    position: relative;
+    width: 500px;
+    margin:5% auto;
+    align-self: center;
+    background-color: ghostwhite;
+    justify-self: center;
+}
+
+.blue{
+    float:left;
+    color: blue;
+    margin:2%;
+}
+
+.red{
+    margin:2%;
+    float:right;
+    color: red;
+}
+
+.clear{
+    clear: both;
+}
+
+#dispensers{
+    width:100%;
+}
+
+#selectionBar{
+    margin-top: 2%;
+    margin-left: 2%;
+    width:25%;
+    overflow: hidden;
+    float: left;
+}
+
+#boardSide{
+        margin-top: 2%;
+        width:60%;
+        overflow: hidden;
+}
+

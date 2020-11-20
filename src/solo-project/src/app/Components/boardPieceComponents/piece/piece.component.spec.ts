@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GearBitComponent } from './gear-bit.component';
+import { PieceComponent } from './piece.component';
 
-describe('GearBitComponent', () => {
-  let component: GearBitComponent;
-  let fixture: ComponentFixture<GearBitComponent>;
+describe('NonGbPieceComponent', () => {
+  let component: PieceComponent;
+  let fixture: ComponentFixture<PieceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GearBitComponent ]
+      declarations: [ PieceComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GearBitComponent);
+    fixture = TestBed.createComponent(PieceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

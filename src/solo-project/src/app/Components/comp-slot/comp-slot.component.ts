@@ -1,9 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { BoardService } from 'src/app/board.service';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CompSlot } from 'src/app/Classes/boardParts/comp-slot';
 import { Marble } from 'src/app/Classes/boardParts/marble';
 import { Pos } from 'src/app/Classes/boardParts/pos';
-import { Gear } from 'src/app/Classes/boardPieces/gear';
 import { GearBit } from 'src/app/Classes/boardPieces/gear-bit';
 
 @Component({
@@ -13,20 +11,17 @@ import { GearBit } from 'src/app/Classes/boardPieces/gear-bit';
 })
 export class CompSlotComponent implements OnInit {
   @Input() compSlot: CompSlot;
-  // For the gear/ gearbit location
   @Input()  x:number;
   @Input()  y:number;
   @Input() marble: Marble;
+  @Output() slotClicked: EventEmitter<Pos> = new EventEmitter<Pos>();
 
-  constructor(public boardService: BoardService) { }
-
-  // Todo Allow gears to be placed on gearBit
-
-  ngOnInit(): void {
+  constructor() { }
+  ngOnInit(): void { 
   }
 
   click() {
-    this.boardService.createPiece(new Pos(this.x,this.y));
+    this.slotClicked.emit(new Pos(this.x,this.y));
   }
 
   checkGearBit(): boolean {

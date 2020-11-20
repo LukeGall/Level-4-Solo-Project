@@ -1,4 +1,0 @@
-<div *ngIf="gearBit" (click)="click()" class="centre">
-    <div *ngIf="gearBit.ifMarble(marble)"><img class="marble" src="{{marble.imgLink}}"></div>
-    <div #txtDisplay ><img [ngClass]="needsFlip() ? 'flip' : 'def'" src="{{gearBit.imgLink}}"></div>
-</div>

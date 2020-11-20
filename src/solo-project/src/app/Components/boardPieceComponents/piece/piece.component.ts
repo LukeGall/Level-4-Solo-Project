@@ -3,15 +3,16 @@ import { Direction } from 'src/app/Classes/boardParts/direction';
 import { Marble } from 'src/app/Classes/boardParts/marble';
 import { Bit } from 'src/app/Classes/boardPieces/bit';
 import { BoardPiece } from 'src/app/Classes/boardPieces/board-piece';
+import { GearBit } from 'src/app/Classes/boardPieces/gear-bit';
 import { Ramp } from 'src/app/Classes/boardPieces/ramp';
 
 
 @Component({
-  selector: 'app-non-gb-piece',
-  templateUrl: './non-gb-piece.component.html',
-  styleUrls: ['./non-gb-piece.component.scss']
+  selector: 'app-piece',
+  templateUrl: './piece.component.html',
+  styleUrls: ['./piece.component.scss']
 })
-export class NonGbPieceComponent implements OnInit {
+export class PieceComponent implements OnInit {
   @Input() piece: BoardPiece;
   @Input() marble: Marble;
 
@@ -22,7 +23,7 @@ export class NonGbPieceComponent implements OnInit {
 
   needsFlip(){
     let p = this.piece;
-    if(p instanceof Ramp || p instanceof Bit){
+    if(p instanceof Ramp || p instanceof Bit || p instanceof GearBit){
       if(p.direction == Direction.left){
         return true;
       }

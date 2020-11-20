@@ -1,9 +1,12 @@
+import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { Board } from 'src/app/Classes/boardParts/board';
 
 import { BoardComponent } from './board.component';
 
 describe('BoardComponent', () => {
+  
   let component: BoardComponent;
   let fixture: ComponentFixture<BoardComponent>;
 
@@ -25,13 +28,8 @@ describe('BoardComponent', () => {
   });
 
   it('should create all the grid-icons',()=>{
-    const debug= fixture.debugElement.query(By.css('.board'));
+    const debug= fixture.debugElement;
     const gridList: NodeList = debug.nativeElement.querySelectorAll('mat-grid-tile')
     expect(gridList.length).toEqual(11*11);
-  })
-
-  it('should display a speed slider',()=>{
-    const slider = fixture.nativeElement.querySelector('mat-slider')
-    expect(slider).toBeTruthy();
   })
 });

@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BoardService } from 'src/app/board.service';
 import { Pin } from 'src/app/Classes/boardParts/pin';
 import { Pos } from 'src/app/Classes/boardParts/pos';
-import { Gear } from 'src/app/Classes/boardPieces/gear';
 
 @Component({
   selector: 'app-pin',
@@ -13,6 +12,8 @@ export class PinComponent implements OnInit {
   @Input() pin: Pin;
   @Input() private x: number;
   @Input() private y: number;
+  @Output() slotClicked: EventEmitter<Pos> = new EventEmitter<Pos>();
+
 
   constructor(public boardService: BoardService) { }
 
@@ -20,6 +21,6 @@ export class PinComponent implements OnInit {
   }
 
   click(){
-    this.boardService.createPiece(new Pos(this.x,this.y));
+    this.slotClicked.emit(new Pos(this.x,this.y));
   }
 }

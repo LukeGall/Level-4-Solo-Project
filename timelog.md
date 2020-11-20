@@ -176,3 +176,9 @@
 ## 18 Nov 2020
 * *4 hour* Made new components, fixed map issue I had with pieces and numbers, but now selection pieces gets pieces from the board
 
+## 19 Nov 2020
+* *0.5 hour* Delete function for pieces
+* *3.5 hou* Puzzle board, service and other items off the main list
+
+## 20 Nov 2020
+

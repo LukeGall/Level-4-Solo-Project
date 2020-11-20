@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { BoardService } from 'src/app/board.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { Board } from 'src/app/Classes/boardParts/board';
+import { Pos } from 'src/app/Classes/boardParts/pos';
 
 @Component({
   selector: 'app-board',
@@ -8,26 +8,26 @@ import { Board } from 'src/app/Classes/boardParts/board';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  board: Board;
+  @Input() board: Board;
 
-  constructor(public boardService: BoardService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.boardService.getBoard().subscribe(board =>
-      {this.board = board}
-    );
+    if(!this.board){
+      this.board = new Board(6);
+    }
   }
 
-  checkPin(name: string): Boolean{
+  checkPin(name: string): Boolean {
     return name == "Pin";
   }
 
-  checkCompSlot(name: string): Boolean{
+  checkCompSlot(name: string): Boolean {
     return name == "CompSlot";
   }
 
-  changeSpeed(value:number){
-    this.boardService.setSpeed(value);
+  slotClicked(pos: Pos){
+    this.board.clickPiece(pos);
   }
 
 }

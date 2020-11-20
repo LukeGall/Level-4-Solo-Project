@@ -27,6 +27,10 @@ export class BoardService {
     return of(this.board);
   }
 
+  setBoard(board: Board){
+    this.board = board;
+  } 
+
   setHolding(type: Piece) {
     this.board.setHeldPiece(type);
     }
@@ -63,7 +67,7 @@ export class BoardService {
 
 
   createPiece(pos: Pos) {
-    this.board.createPiece(pos);
+    this.board.clickPiece(pos);
   }
 
 

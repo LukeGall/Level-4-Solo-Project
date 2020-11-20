@@ -1,0 +1,45 @@
+<div id=selectionBar>
+  <app-selection-bar [heldPart]="board.heldPiece" [partList]="board.boardPieces"></app-selection-bar>
+</div>
+<div id="boardSide">
+  <div id="dispensers">
+    <div class="blue">
+      <app-dispenser [marbleColour]="'blue'"></app-dispenser>
+    </div>
+    <div class="red">
+      <app-dispenser [marbleColour]="'red'"></app-dispenser>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="board">
+
+    <app-board [board] ="board"></app-board>
+
+  </div>
+
+  <div id="triggers">
+    <div class="blue">
+      <app-flipper [colour]="'blue'"></app-flipper>
+    </div>
+    <div class="red">
+      <app-flipper [colour]="'red'"></app-flipper>
+    </div>
+  </div>
+
+
+  <div class="clear"></div>
+  <!-- for testing -->
+  <div *ngIf="board.inPlayMarble">{{board.inPlayMarble.position.x}}</div>
+
+
+  <div id="SliderDiv">
+    <mat-grid-list cols="1" rowHeight="25px">
+      <mat-grid-tile>Speed</mat-grid-tile>
+      <mat-grid-tile>
+        <mat-slider #SpeedSliderMs invert min="200" max="3000" step="100" value="1000"
+          (input)="changeSpeed(SpeedSliderMs.value)" color="primary">
+        </mat-slider>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

@@ -1,13 +1,14 @@
 import { Direction } from '../boardParts/direction';
 import { Marble } from '../boardParts/marble';
 import { Pos } from '../boardParts/pos';
+import { Piece } from '../piece.enum';
 import { BoardPiece } from './board-piece';
 
 export class Ramp extends BoardPiece {
     direction: Direction;
     position: Pos;
     imgLink: string = "../../../assets/ramp.svg";
-    type="Ramp";
+    type=Piece.Ramp;
 
     processMarble(marble: Marble) {
         marble.position.x += 1;

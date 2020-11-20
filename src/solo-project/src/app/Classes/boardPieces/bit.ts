@@ -1,6 +1,7 @@
 import { Direction } from '../boardParts/direction';
 import { Marble } from '../boardParts/marble';
 import { Pos } from '../boardParts/pos';
+import { Piece } from '../piece.enum';
 import { BoardPiece } from './board-piece';
 
 export class Bit extends BoardPiece{
@@ -8,7 +9,7 @@ export class Bit extends BoardPiece{
     imgLink: string = "../../../assets/bit.svg";;
     inPlayMarble: Marble;
     position: Pos;
-    type="Bit";
+    type=Piece.Bit;
 
     constructor(direction: Direction, position: Pos){
         super(position);

@@ -197,7 +197,7 @@ export class Board {
         }
     }
 
-    private updateList(marble: Marble) {
+    protected updateList(marble: Marble) {
         let len = this.collectedMarbles.length;
         if (len > 0 && this.collectedMarbles[len - 1].colour == marble.colour) {
             this.collectedMarbles[len - 1].amount += 1;
@@ -256,8 +256,11 @@ export class Board {
         }
     }
 
-    createPiece(pos: Pos) {
+    clickPiece(pos: Pos): boolean {
+        console.log("Create piece - normal board");
+        let changed = false;
         let newPiece: BoardPiece;
+
         switch (this.heldPiece) {
             case Piece.Ramp:
                 newPiece = (new Ramp(Direction.left, pos));
@@ -280,24 +283,36 @@ export class Board {
             case Piece.Delete:
                 newPiece = null;
         }
+
         let slot = this.slots[pos.x][pos.y];
-        if(!newPiece){
+        if (!newPiece) {
             slot.piece = null;
+            changed = true;
         }
         else if (slot instanceof Pin) {
             if (slot.piece == null && newPiece instanceof Gear) {
                 slot.piece = newPiece;
                 this.newGearComp(new Pos(pos.x, pos.y));
+                changed = true;
             }
         } else {
             if (slot.piece == null || !((slot.piece.type) == (newPiece.type))) {
+                changed = true;
                 slot.piece = newPiece;
                 if (newPiece instanceof GearBit || newPiece instanceof Gear) {
                     this.newGearComp(new Pos(pos.x, pos.y));
                 }
             }
         }
-        // return newPiece;
+        // If just clicked
+        if (!changed) {
+            slot.piece.click()
+            if (slot.piece instanceof Gear || slot.piece instanceof GearBit) {
+                this.gearSpin(pos);
+            }
+        }
+
+        return changed;
     }
 
     gearSpin(position: Pos) {

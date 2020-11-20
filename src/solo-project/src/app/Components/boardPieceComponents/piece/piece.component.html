@@ -1,4 +1,4 @@
-<div *ngIf="piece" (click)="piece.click()" class="centre">
+<div *ngIf="piece" class="centre">
     <div *ngIf="piece.ifMarble(marble)"><img class="marble" src="{{marble.imgLink}}"></div>
     <div><img [ngClass]="needsFlip() ? 'flip' : 'def'" src="{{piece.imgLink}}"></div>
 </div>
