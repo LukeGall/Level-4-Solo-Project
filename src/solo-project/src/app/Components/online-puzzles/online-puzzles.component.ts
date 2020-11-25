@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Puzzle } from 'src/app/Classes/puzzle';
 import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
 
@@ -12,10 +11,12 @@ export class OnlinePuzzlesComponent implements OnInit {
   puzzles: Puzzle[] = null;
   puzzleId : number;
 
-  constructor(private puzzleService: MakePuzzleService, private router: Router) { }
+  constructor(private puzzleService: MakePuzzleService) { 
+    
+  }
 
   ngOnInit(): void {
-    this.puzzleService.getPuzzles().subscribe(puzzles => this.puzzles = puzzles);
+    this.puzzles = this.puzzleService.getPuzzles('puzzles');
   }
 
   setPuzzleTo(x: number){

@@ -3,7 +3,7 @@ import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from
 import { Observable, of } from 'rxjs';
 import { Puzzle } from '../Classes/puzzle';
 import { boardState, PuzzleBoard } from '../Classes/puzzle-board';
-import { cloneDeep, reject } from 'lodash';
+import { cloneDeep } from 'lodash';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Marble } from '../Classes/boardParts/marble';
 import { Piece } from '../Classes/piece.enum';
@@ -26,17 +26,20 @@ import { MarblePair } from '../Classes/boardParts/marblePair';
 })
 export class MakePuzzleService {
   private puzzleBoard: PuzzleBoard = new PuzzleBoard();
-  puzzles: Array<Puzzle> = new Array<Puzzle>();
   curPuzzle: Puzzle = new Puzzle;
   curAmount: number = 0;
 
-  constructor(private db: AngularFireDatabase) {
-    let test = db.list('puzzles').valueChanges();
+  constructor(private db: AngularFireDatabase) {}
+
+  getPuzzles(location: string): Puzzle[]{
+    let puzzles = new Array<Puzzle>();
+    let test = this.db.list(location).valueChanges();
     test.subscribe(obj => {
       obj.forEach(ele => {
-        this.puzzles.push(this.toPuzzle(JSON.parse(ele as string) as Puzzle))
+        puzzles.push(this.toPuzzle(JSON.parse(ele as string) as Puzzle))
       })
     });
+    return puzzles;
   }
 
   private toPuzzle(ele: Puzzle): Puzzle {
@@ -116,7 +119,7 @@ export class MakePuzzleService {
     newPBoard.expectedResults = Object.assign(new Array<MarblePair>(), newPBoard.expectedResults);
     newPBoard.collectedMarbles = Object.assign(new Array<MarblePair>(), newPBoard.collectedMarbles);
 
-    newPBoard.inPlayMarble = Object.assign(new Marble(), newPBoard.inPlayMarble);
+    newPBoard.inPlayMarble = null;
 
     newPBoard.boardPieces = new Map(newPBoard.boardPieces);
     newPBoard.startingPieces = new Map(newPBoard.startingPieces);
@@ -153,11 +156,7 @@ export class MakePuzzleService {
     this.curPuzzle.puzzleBoard.boardPieces = [...this.curPuzzle.puzzleBoard.boardPieces];
     this.curPuzzle.puzzleBoard.startingPieces = [...this.curPuzzle.puzzleBoard.startingPieces];
 
-    this.db.list('puzzles').push(JSON.stringify(this.curPuzzle));
-  }
-
-  getPuzzles(): Observable<Puzzle[]> {
-    return of(this.puzzles);
+    this.db.list('default-puzzles').push(JSON.stringify(this.curPuzzle));
   }
 
   form = new FormGroup({

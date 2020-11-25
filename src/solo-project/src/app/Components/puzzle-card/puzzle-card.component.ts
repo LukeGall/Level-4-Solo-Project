@@ -7,7 +7,7 @@ import { Puzzle } from 'src/app/Classes/puzzle';
   styleUrls: ['./puzzle-card.component.scss']
 })
 export class PuzzleCardComponent implements OnInit {
-  @Input() puzzle: Puzzle;
+  @Input() puzzle: Puzzle = new Puzzle();
   @Input() index: number;
   @Output() puzzleClicked : EventEmitter<number> = new EventEmitter<number>();
 

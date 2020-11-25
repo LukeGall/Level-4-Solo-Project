@@ -34,8 +34,9 @@ import { OnlinePuzzlesComponent } from './Components/online-puzzles/online-puzzl
 import { PlayPuzzleComponent } from './Components/play-puzzle/play-puzzle.component';
 import { PuzzleCardComponent } from './Components/puzzle-card/puzzle-card.component';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database'
+import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database'
 import { environment } from '../environments/environment';
+import { DefaultPuzzlesComponent } from './Components/default-puzzles/default-puzzles.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { environment } from '../environments/environment';
     PromptCardComponent,
     OnlinePuzzlesComponent,
     PlayPuzzleComponent,
-    PuzzleCardComponent
+    PuzzleCardComponent,
+    DefaultPuzzlesComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +80,7 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
   ],
-  providers: [],
+  providers: [AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

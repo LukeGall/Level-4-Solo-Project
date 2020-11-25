@@ -155,3 +155,7 @@ Got the database connected and can successfully upload the data. Have an issue w
 
 ## 25 Nov 2020
 Changed it so that the data is sent up as a JSON string, meaning the representation of the data doesn't need to change. Only issue is that when the data is sent up the type information is lost so need to parse the data back it's it's type when it gets downloaded. 
+
+Data can now be uploaded and downloaded correctly. I should spend the rest of the day making sure it is easy and fun to play a puzzle and flesh out the component responsible for playing it.
+
+15 puzzles have been uploaded 

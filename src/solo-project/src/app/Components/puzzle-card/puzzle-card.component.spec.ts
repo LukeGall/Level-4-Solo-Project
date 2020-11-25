@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 import { PuzzleCardComponent } from './puzzle-card.component';
 
@@ -8,7 +9,7 @@ describe('PuzzleCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PuzzleCardComponent ]
+      declarations: [ PuzzleCardComponent ],
     })
     .compileComponents();
   }));

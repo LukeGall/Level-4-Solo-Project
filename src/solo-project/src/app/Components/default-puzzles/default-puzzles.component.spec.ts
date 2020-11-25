@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MakePuzzleComponent } from './make-puzzle.component';
+import { DefaultPuzzlesComponent } from './default-puzzles.component';
 
-describe('MakePuzzleComponent', () => {
-  let component: MakePuzzleComponent;
-  let fixture: ComponentFixture<MakePuzzleComponent>;
+describe('DefaultPuzzlesComponent', () => {
+  let component: DefaultPuzzlesComponent;
+  let fixture: ComponentFixture<DefaultPuzzlesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MakePuzzleComponent ],
+      declarations: [ DefaultPuzzlesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MakePuzzleComponent);
+    fixture = TestBed.createComponent(DefaultPuzzlesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -197,5 +197,6 @@
 * *3 hour* Set up of firebase storage and dealing with errors of sending and downloading objects 
 
 ## 25 Nov 2020
-
+* *1.5 hour* Parsing function to turn the downloaded data back into the correct types
+* *2.5 hour* uploading and downloading done. 15 default puzzles have been created and uploaded 
 
