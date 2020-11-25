@@ -184,3 +184,18 @@
 
 * *5.5 hour* Refactoring to remove reliance on board service, puzzle page can now confirm pieces to stop them from being clicked, any peice placed after edit is forced by amount avaliable. Can now create a puzzle using the make puzzle page which include prompts in how to make it.
 
+## 21 Nov 2020
+* *1 hour* Fixed error with shallow copies and started the confirmation form part of the make puzzle page 
+
+### Week 9
+## 23 Nov 2020
+* *3 hour* Set up and error fixing for the puzzle making then finished on the confirmation form plus sending data to a page that will display the puzzles
+* 0.5 hour* Meeting with supervisor
+* *1.5 hour* Puzzle can now be played after selection
+
+## 24 Nov 2020
+* *3 hour* Set up of firebase storage and dealing with errors of sending and downloading objects 
+
+## 25 Nov 2020
+
+

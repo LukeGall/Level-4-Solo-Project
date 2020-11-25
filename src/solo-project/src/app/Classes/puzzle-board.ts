@@ -5,13 +5,18 @@ import { Pos } from './boardParts/pos';
 import { Slot } from './boardParts/slot';
 import { BoardPiece } from './boardPieces/board-piece';
 import { Piece } from './piece.enum';
+import { cloneDeep } from 'lodash';
 
 export class PuzzleBoard extends Board {
-    private startingSlots: Slot[][];
-    private solutionSlot: Slot[][];
-    private expectedResults: MarblePair[];
+    startingSlots: Slot[][] = new Array<Slot[]>();
+    solutionSlot: Slot[][] = new Array<Slot[]>();
+    expectedResults: MarblePair[] = new Array<MarblePair>();
     boardState: boardState = boardState.starting;
     correctResults: boolean = false;
+    startingBlueMarbles: Marble[] = new Array<Marble>();
+    startingRedMarbles: Marble[] = new Array<Marble>();
+    startingPieces: any = new Map<Piece, number>();
+
 
     constructor() {
         super(0);
@@ -21,22 +26,31 @@ export class PuzzleBoard extends Board {
     }
 
     increaseMarble(colour: string) {
-        if (this.boardState != boardState.done) {
+        if (this.boardState != boardState.playing) {
             super.increaseMarble(colour);
+            this.cloneMarbles(colour);
+        }
+    }
+
+    private cloneMarbles(colour: string) {
+        if (colour == "blue") {
+            this.startingBlueMarbles = cloneDeep(this.blueMarbles);
+        } else {
+            this.startingRedMarbles = cloneDeep(this.redMarbles);
         }
     }
 
     decreaseMarble(colour: string) {
-        if (this.boardState != boardState.done) {
+        if (this.boardState != boardState.playing) {
             super.decreaseMarble(colour);
+            this.cloneMarbles(colour);
         }
     }
 
     confirmedStartingSlots() {
         if (this.boardState == boardState.starting) {
-            this.startingSlots = [...this.slots];
-            for (var i = 0; i < this.startingSlots.length; i++) {
-                var rowOfSlots: Slot[] = this.startingSlots[i];
+            for (var i = 0; i < this.slots.length; i++) {
+                var rowOfSlots: Slot[] = this.slots[i];
                 for (var j = 0; j < rowOfSlots.length; j++) {
                     let slot = rowOfSlots[j];
                     if (slot && slot.piece) {
@@ -45,26 +59,48 @@ export class PuzzleBoard extends Board {
                 }
             }
         }
+        this.startingSlots = cloneDeep(this.slots);
         this.boardState = boardState.solutionMaking;
     }
 
     confirmBoard() {
         if (this.boardState == boardState.solutionMaking) {
             this.boardState = boardState.done;
-            this.solutionSlot = [...this.slots];
-            this.expectedResults = [...this.collectedMarbles];
+
+            this.solutionSlot = cloneDeep(this.slots);
+            this.slots = cloneDeep(this.startingSlots);
+
+            this.startingPieces = cloneDeep(this.boardPieces);
+
+            this.expectedResults = cloneDeep(this.collectedMarbles);
             this.collectedMarbles = new Array<MarblePair>();
+            this.blueMarbles = cloneDeep(this.startingBlueMarbles);
+            this.redMarbles = cloneDeep(this.startingRedMarbles);
+
+            this.heldPiece = Piece.Delete;
             console.log(this);
         }
     }
 
     showAnswer() {
-        this.slots = [...this.solutionSlot];
+        this.slots = cloneDeep(this.solutionSlot);
     }
 
     clearPieces() {
-        if (this.boardState != boardState.starting)
-            this.slots = [...this.startingSlots];
+        this.inPlayMarble = null;
+        this.collectedMarbles = new Array<MarblePair>();
+        if (this.boardState != boardState.starting) {
+            this.slots = cloneDeep(this.startingSlots);
+            if (this.boardState == boardState.solutionMaking) {
+                for (const pair of this.boardPieces) {
+                    this.boardPieces.set(pair[0], 0);
+                }
+            } else if (this.boardState == boardState.playing) {
+                this.boardPieces = cloneDeep(this.startingPieces);
+                this.blueMarbles = cloneDeep(this.startingBlueMarbles);
+                this.redMarbles = cloneDeep(this.startingRedMarbles)
+            }
+        }
     }
 
     clickPiece(pos: Pos): boolean {
@@ -82,20 +118,25 @@ export class PuzzleBoard extends Board {
                 }
                 if (orgPiece) {
                     this.changePieceAmount(orgPiece.type, -1);
+                    this.collectedMarbles = new Array<MarblePair>();
                 }
             }
         } else {
             // Playing board will need to deal with the option of slo
             const slot = this.slots[pos.x][pos.y];
-            if (this.heldPiece == Piece.Delete && slot.piece && !slot.piece.locked) {
-                this.changePieceAmount(slot.piece.type, 1);
-                slot.piece = null;
-                changed = true;
-            }
-            else if (this.boardPieces.get(this.heldPiece) != 0 && !slot.piece.locked) {
-                if (super.clickPiece(pos)) {
-                    this.changePieceAmount(this.heldPiece, -1);
-                    changed = true;
+            let orgPiece: BoardPiece = slot.piece;
+            changed = super.clickPiece(pos);
+            if (changed) {
+                if (this.heldPiece != Piece.Delete) {
+                    if (this.boardPieces.get(this.heldPiece) == 0) {
+                        slot.piece = null;
+                        changed = false;
+                    } else {
+                        this.changePieceAmount(this.heldPiece, -1);
+                    }
+                }
+                if (orgPiece) {
+                    this.changePieceAmount(orgPiece.type, 1);
                 }
             }
         }
@@ -125,5 +166,6 @@ export class PuzzleBoard extends Board {
 export enum boardState {
     starting = "Place Starting Pieces",
     solutionMaking = "Create and play Solution",
-    done = "Finished puzzle"
+    done = "Set title, description, and difficulty",
+    playing = "Playing the puzzle"
 };

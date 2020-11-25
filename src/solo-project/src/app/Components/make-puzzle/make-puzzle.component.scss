@@ -20,11 +20,17 @@
     color: red;
 }
 
+#confirm{
+    width: 50%;
+    margin: auto;
+    margin-top: 2%;
+}
+
 .clear{
     clear: both;
 }
 
-#prompt{
+.prompt{
     width: 80%;
     margin: auto;
 }
@@ -45,5 +51,23 @@
         margin-top: 2%;
         width:60%;
         overflow: hidden;
+}
+
+#form{
+    width:80%;
+    margin:auto;
+}
+
+mat-form-field{
+    width:100%;
+    margin:auto;
+}
+
+mat-radio-button{
+    margin:5px;
+}
+
+#radioLabel{
+    font-size: medium;
 }
 

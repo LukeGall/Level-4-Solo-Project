@@ -84,20 +84,20 @@ Don't have too much time to get a ton of project stuff done today but can certai
 
 Rough Puzzle creation plan (not in order)
 * MakePuzzle component - done
-* Make confirmation component
+* Make confirmation part - done
 * Make puzzle board.ts - done
 * Add set of pieces to board object and make pieces enum - done
 * Move create piece to board.ts - done
 * set up delete piece function - done
 * Set up locked var on piece to determine if it can be clicked and deleted - done;
-* Create createPuzzle service
+* Create createPuzzle service - done
 Board service needs to set board instead of just having a base one, meaning the functionality of the service can be used for different board, in our case a puzzle board. - done
 * Make sure pieces doesn't use click in it's process marble - done
 
 Make puzzle component
-* Will include board plus selection bar and buttons for lock in
-* Will need a prompt box to give instructions when creating
-* Confirmation component will have a form in it so use a service for this
+* Will include board plus selection bar and buttons for lock in - done
+* Will need a prompt box to give instructions when creating - done
+* Confirmation component will have a form in it so use a service for this - done
 
 Puzzle board will extend the current board
 * Two new slot arrays for starting setup and final set up -done
@@ -134,3 +134,24 @@ Got a large amount ticked off the list for the make puzzle, think there may be a
 Plan to continue with the puzzle board making today focusing on getting the components up and running and reducing the need for components to use the board services if possible.
 
 The board service was deleted as all data that is used by classes comes from their parent component. This is better practice and was a good way to reactor it down. Can now make a puzzle successfully so will focus on focus on making a confirmation component that will get the details of the puzzle so it can then be saved on firebase server. Very happy with progress.
+
+
+## 23 Nov 2020
+Very happy where the project is currently, will continue the pieces needed to make a puzzle, might start the process of getting a firebase connected to the app and then having the puzzles saved in JSON format or another way.
+
+Didn't get on too making the puzzle saved to firebase but will work on that later on this week. Got puzzles saved correctly and can now play them.
+
+* Need to make playPuzzle component that removes somethings from the make puzzle component like the prompt maybe
+* DIsplay the expected output maybe in the prompt?
+* Just display marble amount don't bother making it with buttons
+
+* Get firebase installed first so then I don't need to make a puzzle every time I want to check something  
+
+
+## 24 Nov 2020
+First and only main focus of today is getting the firebase set up, anything else is a bonus, once that is done. It'll be much easier to make it easier to access puzzles etc and make sure nothing breaks. 
+
+Got the database connected and can successfully upload the data. Have an issue where map data doesn't get sent up so need to change that to Arrays and then re convert them when I download the board. When the board is downloaded all it's type information is lost so need to cast everything back into it's correct type otherwise the board breaks.
+
+## 25 Nov 2020
+Changed it so that the data is sent up as a JSON string, meaning the representation of the data doesn't need to change. Only issue is that when the data is sent up the type information is lost so need to parse the data back it's it's type when it gets downloaded. 

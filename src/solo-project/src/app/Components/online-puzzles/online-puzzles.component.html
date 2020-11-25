@@ -1,0 +1,8 @@
+<div *ngIf="!checkPuzzleId(); else showPuzzle">
+    <div *ngFor="let puzzle of puzzles; index as i">
+        <app-puzzle-card [puzzle]="puzzle" [index] = i (puzzleClicked)="setPuzzleTo($event)"></app-puzzle-card> 
+    </div>
+</div>
+<ng-template #showPuzzle>
+    <app-make-puzzle [puzzleBoard]="this.puzzles[puzzleId].puzzleBoard"></app-make-puzzle>
+</ng-template>

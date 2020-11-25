@@ -1,23 +1,22 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Board } from 'src/app/Classes/boardParts/board';
 import { Piece } from 'src/app/Classes/piece.enum';
+import { PuzzleBoard } from 'src/app/Classes/puzzle-board';
 
 @Component({
-  selector: 'app-plain-board',
-  templateUrl: './plain-board.component.html',
-  styleUrls: ['./plain-board.component.scss']
+  selector: 'app-play-puzzle',
+  templateUrl: './play-puzzle.component.html',
+  styleUrls: ['./play-puzzle.component.scss']
 })
-export class PlainBoardComponent implements OnInit {
-  @Input() board: Board = null;
+export class PlayPuzzleComponent implements OnInit {
+  @Input() board: PuzzleBoard = null;
 
   constructor() { }
 
   ngOnInit(): void {
-    if (!this.board) {
-      this.board = new Board(6);
+    if(!this.board){
+      this.board = new PuzzleBoard();
     }
   }
-
 
   changeSpeed(value: number) {
     this.board.setSpeed(value);

@@ -1,19 +1,22 @@
 <div id=selectionBar>
-  <app-selection-bar [heldPart]="board.heldPiece" [partList]="board.boardPieces" (clickHolding)="setHolding($event)" (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()" (reset)="clearBoard()"></app-selection-bar>
+  <app-selection-bar [heldPart]="board.heldPiece" [partList]="board.boardPieces" (clickHolding)="setHolding($event)"
+    (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()" (reset)="clearBoard()"></app-selection-bar>
 </div>
 <div id="boardSide">
   <div id="dispensers">
     <div class="blue">
-      <app-dispenser [marbles]="board.blueMarbles" [marbleColour]="'blue'" (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
+      <app-dispenser [marbles]="board.blueMarbles" [marbleColour]="'blue'" (increaseMarble)="increaseMarble($event)"
+        (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
     </div>
     <div class="red">
-      <app-dispenser [marbles]="board.redMarbles" [marbleColour]="'red'" (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
+      <app-dispenser [marbles]="board.redMarbles" [marbleColour]="'red'" (increaseMarble)="increaseMarble($event)"
+        (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
     </div>
   </div>
   <div class="clear"></div>
   <div class="board">
 
-    <app-board [board] ="board"></app-board>
+    <app-board [board]="board"></app-board>
 
   </div>
 
@@ -28,9 +31,6 @@
 
 
   <div class="clear"></div>
-  <!-- for testing -->
-  <div *ngIf="board.inPlayMarble">{{board.inPlayMarble.position.x}}</div>
-
 
   <div id="SliderDiv">
     <mat-grid-list cols="1" rowHeight="25px">

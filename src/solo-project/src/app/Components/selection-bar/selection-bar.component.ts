@@ -70,4 +70,10 @@ export class SelectionBarComponent implements OnInit {
     }
     return true;
   }
+
+  isPlaying(){
+    if(this.boardState){
+      return this.boardState == boardState.playing;
+    }
+  }
 }

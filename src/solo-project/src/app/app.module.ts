@@ -13,18 +13,30 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 import { SidenavComponent } from './Components/sidenav/sidenav.component';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
 import { CollectedMarblesComponent } from './Components/boardPieceComponents/collected-marbles/collected-marbles.component';
 import { PieceComponent } from './Components/boardPieceComponents/piece/piece.component';
 import { MakePuzzleComponent } from './Components/make-puzzle/make-puzzle.component';
 import { ConfirmationComponent } from './Components/confirmation/confirmation.component';
 import { BoardComponent } from './Components/board/board.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { PromptCardComponent } from './Components/prompt-card/prompt-card.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
+import { OnlinePuzzlesComponent } from './Components/online-puzzles/online-puzzles.component';
+import { PlayPuzzleComponent } from './Components/play-puzzle/play-puzzle.component';
+import { PuzzleCardComponent } from './Components/puzzle-card/puzzle-card.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database'
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +53,10 @@ import { PromptCardComponent } from './Components/prompt-card/prompt-card.compon
     MakePuzzleComponent,
     ConfirmationComponent,
     BoardComponent,
-    PromptCardComponent
+    PromptCardComponent,
+    OnlinePuzzlesComponent,
+    PlayPuzzleComponent,
+    PuzzleCardComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +70,13 @@ import { PromptCardComponent } from './Components/prompt-card/prompt-card.compon
     MatGridListModule,
     MatDividerModule,
     MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatInputModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

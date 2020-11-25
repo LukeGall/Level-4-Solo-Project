@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Piece } from 'src/app/Classes/piece.enum';
-import { PuzzleBoard } from 'src/app/Classes/puzzle-board';
+import { boardState, PuzzleBoard } from 'src/app/Classes/puzzle-board';
 import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
+import { PlainBoardComponent } from '../plainBoard/plain-board.component';
 
 @Component({
   selector: 'app-make-puzzle',
@@ -9,10 +11,10 @@ import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
   styleUrls: ['./make-puzzle.component.scss']
 })
 export class MakePuzzleComponent implements OnInit {
-  puzzleBoard: PuzzleBoard;
+  @Input() puzzleBoard: PuzzleBoard;
 
-  constructor(private puzzleService: MakePuzzleService) { 
-    this.puzzleBoard = new PuzzleBoard();
+  constructor(public puzzleService: MakePuzzleService, private router: Router) { 
+    if(!this.puzzleBoard) this.puzzleBoard = new PuzzleBoard();
     this.puzzleService.setBoard(this.puzzleBoard);
   }
 
@@ -56,7 +58,20 @@ export class MakePuzzleComponent implements OnInit {
   }
 
   confirmBoard(){
-    this.puzzleBoard.confirmBoard();
+    this.puzzleService.setBoard(this.puzzleBoard);
+    this.puzzleService.confirmBoard();
   }
 
+  isDone(){
+    if(this.puzzleBoard.boardState){
+      return this.puzzleBoard.boardState == boardState.done;
+    }
+    return false;
+  }
+
+  onSubmit(){
+    this.puzzleService.confirmForm()
+    this.puzzleService.form.reset()
+    this.router.navigateByUrl('');
+  }
 }

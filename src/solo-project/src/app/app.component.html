@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" id="toolbar">
     <button mat-icon-button class="menu-icon" (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
@@ -14,7 +14,6 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <!-- Should maybe just be the router? -->
         <div id=router>
             <router-outlet></router-outlet>
         </div>

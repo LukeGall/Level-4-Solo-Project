@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "virtual-turing-tumble": {
+      "hosting": {
+        "solo-project": [
+          "virtual-turing-tumble"
+        ]
+      }
+    }
+  }
+}

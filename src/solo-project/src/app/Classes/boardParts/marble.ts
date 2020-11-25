@@ -7,7 +7,7 @@ export class Marble {
     position: Pos;
     imgLink:string;
 
-    constructor(colour:string){
+    constructor(colour?:string){
         this.colour = colour;
         if(colour == "blue"){
             this.direction = Direction.right;
@@ -19,6 +19,7 @@ export class Marble {
             this.imgLink = "../../../assets/red-marble.svg";
         }
     }
+    
 }
 
 

@@ -1,5 +1,5 @@
 import { promise } from 'protractor';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, EmptyError } from 'rxjs';
 import { Bit } from '../boardPieces/bit';
 import { BoardPiece } from '../boardPieces/board-piece';
 import { Crossover } from '../boardPieces/crossover';
@@ -17,30 +17,21 @@ import { Pos } from './pos';
 import { Slot } from './slot';
 
 export class Board {
-    slots: Slot[][];
-    blueMarbles: Marble[];
-    redMarbles: Marble[];
-    inPlayMarble: Marble;
-    collectedMarbles: MarblePair[];
-    boardPieces: Map<Piece, number>;
+    slots: Slot[][] = new Array<Array<Slot>>();
+    blueMarbles: Marble[] = new Array<Marble>();
+    redMarbles: Marble[] = new Array<Marble>();
+    inPlayMarble: Marble = null;
+    collectedMarbles: MarblePair[] = new Array<MarblePair>();
+    boardPieces: any = new Map([[Piece.Ramp, -1], [Piece.Gear, -1], [Piece.Bit, -1], [Piece.Crossover, -1], [Piece.GearBit, -1], [Piece.Interceptor, -1]]);;
     heldPiece: Piece = null;
     private inPlay: boolean = true;
     private speedInMs: number = 1000;
 
     constructor(numOfMarbles: number) {
-        this.slots = new Array<Array<Slot>>();
-        this.blueMarbles = new Array<Marble>();
-        this.redMarbles = new Array<Marble>();
-        this.inPlayMarble = null;
-        this.collectedMarbles = new Array<MarblePair>();
-        this.boardPieces = new Map([[Piece.Ramp, -1], [Piece.Gear, -1], [Piece.Bit, -1], [Piece.Crossover, -1], [Piece.GearBit, -1], [Piece.Interceptor, -1]]);
-
-
-
         this.slots[0] = new Array<Slot>();
         this.slots[1] = new Array<Slot>();
 
-        this.slots[0].push(null, null, new Pin(), new CompSlot(), new Pin(), null, new Pin(), new CompSlot(), new Pin(), null, null);
+        this.slots[0].push(null , null, new Pin(), new CompSlot(), new Pin(), null, new Pin(), new CompSlot(), new Pin(), null, null);
         this.slots[1].push(null, new Pin(), new CompSlot(), new Pin(), new CompSlot(), new Pin(), new CompSlot(), new Pin(), new CompSlot(), new Pin(), null);
 
         for (var i = 2; i < 10; i++) {
@@ -61,6 +52,8 @@ export class Board {
     }
 
     clearPieces() {
+        this.inPlayMarble = null;
+        this.collectedMarbles = new Array<MarblePair>();
         for (var i = 0; i < 10; i++) {
             for (var j = 0; j < 10; j++) {
                 if (this.slots[i][j]) {
@@ -152,7 +145,7 @@ export class Board {
                 console.log(marble.direction)
 
                 if (slot instanceof CompSlot) {
-                    if (slot.piece != null) {
+                    if (slot.piece) {
                         let oldPos = new Pos(marble.position.x, marble.position.y);
                         slot.piece.processMarble(marble);
                         if (slot.piece instanceof GearBit) {
@@ -280,14 +273,14 @@ export class Board {
                 newPiece = (new Gear(pos));
                 break;
             case Piece.Delete:
-                newPiece = null;
+                newPiece = null
         }
 
         let slot = this.slots[pos.x][pos.y];
         // Delete piece
-        if (!newPiece) {
+        if (newPiece == null) {
             if (slot.piece && !slot.piece.locked) {
-                slot.piece = null;
+                slot.piece = newPiece;
                 changed = true;
             }
         }
