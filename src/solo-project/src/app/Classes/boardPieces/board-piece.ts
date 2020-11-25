@@ -31,7 +31,7 @@ export class BoardPiece {
     }
 
     imgLink: string;
-    position: Pos;
-    type:Piece;
+    position: Pos = new Pos(-1,-1);
+    type:Piece = Piece.Empty;
     locked: boolean=false;
 }
