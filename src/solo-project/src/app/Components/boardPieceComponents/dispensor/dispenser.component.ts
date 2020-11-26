@@ -9,7 +9,8 @@ import { Marble } from 'src/app/Classes/boardParts/marble';
 })
 export class DispenserComponent implements OnInit {
   @Input() marbleColour: string;
-  @Input() marbles: Marble[]
+  @Input() marbles: Marble[];
+  @Input() buttons:boolean = true;
   @Output() increaseMarble = new EventEmitter<string>(); 
   @Output() decreaseMarble = new EventEmitter<String>();
 
@@ -24,5 +25,9 @@ export class DispenserComponent implements OnInit {
 
   decreaseAmount(){
     this.decreaseMarble.emit(this.marbleColour);
+  }
+
+  whatColour():boolean{
+    return (this.marbleColour == "blue") ? true : false;
   }
 }

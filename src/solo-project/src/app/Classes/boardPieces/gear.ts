@@ -5,8 +5,10 @@ import { BoardPiece } from './board-piece';
 
 export class Gear extends BoardPiece{
     position: Pos;
-    imgLink: string = "../../../assets/gear.svg";;
+    imgLink: string = "../../../assets/gear.svg";
     type=Piece.Gear;
+    info="Flip the direction of any connected GearBits";
+
     processMarble(marble: Marble) {
         throw new Error('Gear cant process a marble');
     }

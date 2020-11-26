@@ -1,0 +1,79 @@
+
+.board{
+    position: relative;
+    width: 70%;
+    margin:5% auto;
+    align-self: center;
+    background-color: ghostwhite;
+    justify-self: center;
+}
+
+.blue{
+    float:left;
+    color: blue;
+    margin:2%;
+}
+
+.red{
+    margin:2%;
+    float:right;
+    color: red;
+}
+
+
+#confirm{
+    width: 50%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+h4{
+    // float: left;
+    width: 30%;
+    margin: 3%;
+}
+.clear{
+    clear: both;
+}
+
+.prompt{
+    width: 80%;
+    margin: auto;
+}
+
+#dispensers{
+    width:100%;
+}
+
+#selectionBar{
+    margin-top: 2%;
+    margin-left: 2%;
+    width:25%;
+    overflow: hidden;
+    float: left;
+}
+
+#boardSide{
+        margin-top: 2%;
+        width:60%;
+        overflow: hidden;
+}
+
+#form{
+    width:80%;
+    margin:auto;
+}
+
+mat-form-field{
+    width:100%;
+    margin:auto;
+}
+
+mat-radio-button{
+    margin:5px;
+}
+
+#radioLabel{
+    font-size: medium;
+}
+

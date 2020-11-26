@@ -37,7 +37,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database'
 import { environment } from '../environments/environment';
 import { DefaultPuzzlesComponent } from './Components/default-puzzles/default-puzzles.component';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -79,6 +79,7 @@ import { DefaultPuzzlesComponent } from './Components/default-puzzles/default-pu
     MatInputModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    MatTooltipModule,
   ],
   providers: [AngularFireDatabase],
   bootstrap: [AppComponent]

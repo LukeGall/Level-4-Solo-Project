@@ -9,6 +9,7 @@ export class GearBit extends BoardPiece{
     position: Pos;
     imgLink: string = "../../../assets/gear-bit.svg";
     type=Piece.GearBit;
+    info="Send marble in opposite direction, then flip direction and spin any connected Gears"
 
     switchDirection(){
         this.direction = (this.direction == Direction.left) ? Direction.right : Direction.left;

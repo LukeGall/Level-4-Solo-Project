@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Piece } from 'src/app/Classes/piece.enum';
+import { Puzzle } from 'src/app/Classes/puzzle';
 import { PuzzleBoard } from 'src/app/Classes/puzzle-board';
 
 @Component({
@@ -8,18 +9,22 @@ import { PuzzleBoard } from 'src/app/Classes/puzzle-board';
   styleUrls: ['./play-puzzle.component.scss']
 })
 export class PlayPuzzleComponent implements OnInit {
-  @Input() board: PuzzleBoard = null;
+  @Input() puzzle: Puzzle;
+  board: PuzzleBoard = null;
+  @Output() home = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
-    if(!this.board){
-      this.board = new PuzzleBoard();
-    }
+    this.board = this.puzzle.puzzleBoard;
   }
 
   changeSpeed(value: number) {
     this.board.setSpeed(value);
+  }
+
+  goHome(){
+    this.home.emit();
   }
 
   increaseMarble(colour: string) {
@@ -48,6 +53,10 @@ export class PlayPuzzleComponent implements OnInit {
 
   clearBoard() {
     this.board.clearPieces();
+  }
+
+  wonPuzzle(): boolean{
+    return this.board.correctResults;
   }
 
 }

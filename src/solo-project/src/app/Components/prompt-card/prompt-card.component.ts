@@ -22,6 +22,8 @@ export class PromptCardComponent implements OnInit {
         return "Now place the pieces that would act as a solution to your puzzle and then release the marbles! Click confirm output once you are happy with the collected marbles. This will be the target output for your puzzle!"
       case (boardState.done):
         return "Now add a title, a difficulty rating, and a brief description describing what the puzzle is all about!"
+      case (boardState.playing):
+        return "Add pieces from the restricted amount to get the desired result shown below!"
       default:
         return "Default case"
     }

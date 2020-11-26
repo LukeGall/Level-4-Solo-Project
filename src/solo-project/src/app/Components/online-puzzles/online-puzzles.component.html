@@ -4,5 +4,5 @@
     </div>
 </div>
 <ng-template #showPuzzle>
-    <app-make-puzzle [puzzleBoard]="this.puzzles[puzzleId].puzzleBoard"></app-make-puzzle>
+    <app-play-puzzle [puzzle]="this.puzzles[puzzleId]" (home)="goHome()"></app-play-puzzle>
 </ng-template>

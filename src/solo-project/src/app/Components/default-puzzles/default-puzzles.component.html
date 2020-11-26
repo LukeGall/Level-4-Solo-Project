@@ -1,8 +1,10 @@
 <div *ngIf="!checkPuzzleId(); else showPuzzle">
+    <!-- Look at possibility using expansion tiles -->
     <div *ngFor="let puzzle of puzzles; index as i">
         <app-puzzle-card [puzzle]="puzzle" [index] = i (puzzleClicked)="setPuzzleTo($event)"></app-puzzle-card> 
     </div>
 </div>
 <ng-template #showPuzzle>
-    <app-make-puzzle [puzzleBoard]="this.puzzles[puzzleId].puzzleBoard"></app-make-puzzle>
+    <app-play-puzzle [puzzle]="this.puzzles[puzzleId]" (home)="goHome()"></app-play-puzzle>
 </ng-template>
+

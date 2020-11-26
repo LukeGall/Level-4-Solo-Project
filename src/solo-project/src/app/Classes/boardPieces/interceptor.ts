@@ -7,6 +7,7 @@ import { BoardPiece } from './board-piece';
 export class Interceptor extends BoardPiece{
     imgLink: string = "../../../assets/interceptor.svg";;
     type=Piece.Interceptor;
+    info="Stop and catch the marble"
 
     processMarble(marble: Marble) {
         marble.direction = Direction.stopped;

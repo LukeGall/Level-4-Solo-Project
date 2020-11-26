@@ -1,45 +1,67 @@
 <div id=selectionBar>
-    <app-selection-bar [heldPart]="board.heldPiece" [partList]="board.boardPieces" (clickHolding)="setHolding($event)"
-      (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()" (reset)="clearBoard()" [isPuzzleBoard]="true"></app-selection-bar>
+  <button mat-raised-button style="margin:2%;" color="primary" (click)="goHome()">Back to puzzle list</button>
+  <app-selection-bar [heldPart]="board.heldPiece" [partList]="board.boardPieces" (clickHolding)="setHolding($event)"
+    (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()" (reset)="clearBoard()" [isPuzzleBoard]="true">
+  </app-selection-bar>
+</div>
+<div id="boardSide">
+  <div class="prompt">
+    <mat-card>
+      <mat-card-title>{{puzzle.title}}</mat-card-title>
+      <mat-card-subtitle>{{puzzle.difficulty}} stars</mat-card-subtitle>
+      <mat-card-content>
+        <div *ngIf="!wonPuzzle(); else won">
+          {{puzzle.description}}
+        </div>
+        <ng-template #won>
+          Congrats! Onto the next puzzle!
+        </ng-template>
+      </mat-card-content>
+
+      <mat-card-footer>
+        <h4>
+          Expected Results
+        </h4>
+        <mat-divider></mat-divider>
+        <app-collected-marbles [marbles]="board.expectedResults"></app-collected-marbles>
+      </mat-card-footer>
+    </mat-card>
   </div>
-  <div id="boardSide">
-    <div id="dispensers">
-      <div class="blue">
-        <app-dispenser [marbles]="board.blueMarbles" [marbleColour]="'blue'" (increaseMarble)="increaseMarble($event)"
-          (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
-      </div>
-      <div class="red">
-        <app-dispenser [marbles]="board.redMarbles" [marbleColour]="'red'" (increaseMarble)="increaseMarble($event)"
-          (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
-      </div>
+  <div id="dispensers">
+    <div class="blue">
+      <app-dispenser [marbles]="board.blueMarbles" [marbleColour]="'blue'" [buttons]="false"></app-dispenser>
     </div>
-    <div class="clear"></div>
-    <div class="board">
-  
-      <app-board [board]="board"></app-board>
-  
-    </div>
-  
-    <div id="triggers">
-      <div class="blue">
-        <app-flipper [colour]="'blue'" (clickedFlipper)="clickedFlipper($event)"></app-flipper>
-      </div>
-      <div class="red">
-        <app-flipper [colour]="'red'" (clickedFlipper)="clickedFlipper($event)"></app-flipper>
-      </div>
-    </div>
-  
-  
-    <div class="clear"></div>
-  
-    <div id="SliderDiv">
-      <mat-grid-list cols="1" rowHeight="25px">
-        <mat-grid-tile>Speed</mat-grid-tile>
-        <mat-grid-tile>
-          <mat-slider #SpeedSliderMs invert min="200" max="3000" step="100" value="1000"
-            (input)="changeSpeed(SpeedSliderMs.value)" color="primary">
-          </mat-slider>
-        </mat-grid-tile>
-      </mat-grid-list>
+    <div class="red">
+      <app-dispenser [marbles]="board.redMarbles" [marbleColour]="'red'" [buttons]="false"></app-dispenser>
     </div>
   </div>
+  <div class="clear"></div>
+  <div class="board">
+
+    <app-board [board]="board"></app-board>
+
+  </div>
+
+  <div id="triggers">
+    <div class="blue">
+      <app-flipper [colour]="'blue'" (clickedFlipper)="clickedFlipper($event)"></app-flipper>
+    </div>
+    <div class="red">
+      <app-flipper [colour]="'red'" (clickedFlipper)="clickedFlipper($event)"></app-flipper>
+    </div>
+  </div>
+
+
+  <div class="clear"></div>
+
+  <div id="SliderDiv">
+    <mat-grid-list cols="1" rowHeight="25px">
+      <mat-grid-tile>Speed</mat-grid-tile>
+      <mat-grid-tile>
+        <mat-slider #SpeedSliderMs invert min="200" max="3000" step="100" value="1000"
+          (input)="changeSpeed(SpeedSliderMs.value)" color="primary">
+        </mat-slider>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

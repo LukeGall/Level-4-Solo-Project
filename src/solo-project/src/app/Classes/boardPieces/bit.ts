@@ -10,6 +10,7 @@ export class Bit extends BoardPiece{
     inPlayMarble: Marble;
     position: Pos;
     type=Piece.Bit;
+    info="Send marble in opposite direction then flip direction"
 
     constructor(direction: Direction, position: Pos){
         super(position);

@@ -34,4 +34,5 @@ export class BoardPiece {
     position: Pos = null;
     type:Piece = null;
     locked: boolean=false;
+    info:string;
 }

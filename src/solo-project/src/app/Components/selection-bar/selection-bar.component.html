@@ -1,20 +1,22 @@
 <mat-card class="wrapper">
     <div class="pieces">
         <div class="piece" *ngFor="let part of partList | keyvalue">
-            <button class="pieceButtons" mat-raised-button color="accent" (click)="clicked(part.key)">
+            <button class="pieceButtons" mat-raised-button [color]="isSelected(part.key) ? 'primary' : 'accent'"
+                (click)="clicked(part.key)" [matTooltip]="getInfo(part.key)" [matTooltipPosition]="'right'"
+                aria-label="Piece button">
                 {{part.key}}
                 <span *ngIf="isPuzzleBoard && notStarting()">
                     {{part.value}}
                 </span>
+                <img style="width: 28%; float:right" [src]="getPic(part.key)">
             </button>
         </div>
 
     </div>
-    <!-- Testing Purposes -->
-    <div *ngIf="heldPart" id="heldPart">{{heldPart}}</div>
     <mat-divider></mat-divider>
     <div>
-        <button class="pieceButtons" mat-raised-button color="warn" (click)="delete()">
+        <button class="pieceButtons" mat-raised-button [color]="isSelected('DeletePiece') ? 'primary' : 'warn'"
+            (click)="delete()">
             Delete Piece
         </button>
         <div *ngIf="notStarting()">
@@ -23,8 +25,10 @@
             <button mat-raised-button color="warn" (click)="clearBoard()">Reset Board</button>
         </div>
         <div *ngIf="isPuzzleBoard && !isPlaying()">
-            <button *ngIf="!notStarting()" mat-raised-button color="warn" (click)="confirmStarting()">Confirm set up</button>
-            <button *ngIf="notStarting()" mat-raised-button color="warn" (click)="confirmOutput()">Confirm output</button>
+            <button *ngIf="!notStarting()" mat-raised-button color="warn" (click)="confirmStarting()">Confirm set
+                up</button>
+            <button *ngIf="notStarting()" mat-raised-button color="warn" (click)="confirmOutput()">Confirm
+                output</button>
         </div>
     </div>
 </mat-card>

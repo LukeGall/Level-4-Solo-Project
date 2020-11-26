@@ -30,4 +30,8 @@ export class OnlinePuzzlesComponent implements OnInit {
     } 
     return true;
   }
+
+  goHome(){
+    this.puzzleId = null;
+  }
 }

@@ -9,6 +9,7 @@ export class Crossover extends BoardPiece {
     inPlayMarble: Marble;
     position: Pos;
     type =Piece.Crossover;
+    info="Send marble in the position it is already going"
     
     processMarble(marble: Marble) {
         marble.position.x += 1;

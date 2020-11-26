@@ -9,6 +9,7 @@ export class Ramp extends BoardPiece {
     position: Pos;
     imgLink: string = "../../../assets/ramp.svg";
     type=Piece.Ramp;
+    info="Send the marble in the direction of the Ramp"
 
     processMarble(marble: Marble) {
         marble.position.x += 1;

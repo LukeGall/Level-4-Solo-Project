@@ -32,5 +32,9 @@ export class DefaultPuzzlesComponent implements OnInit {
     return true;
   }
 
+  goHome(){
+    this.puzzleId = null;
+  }
+
 
 }
