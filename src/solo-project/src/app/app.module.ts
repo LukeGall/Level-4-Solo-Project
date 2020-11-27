@@ -27,7 +27,6 @@ import { MatCardModule } from '@angular/material/card';
 import { PromptCardComponent } from './Components/prompt-card/prompt-card.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from "@angular/forms";
-import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { OnlinePuzzlesComponent } from './Components/online-puzzles/online-puzzles.component';
@@ -38,6 +37,9 @@ import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/da
 import { environment } from '../environments/environment';
 import { DefaultPuzzlesComponent } from './Components/default-puzzles/default-puzzles.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatListModule} from '@angular/material/list'; 
 
 @NgModule({
   declarations: [
@@ -74,12 +76,14 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatCardModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatSelectModule,
     MatRadioModule,
     MatInputModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     MatTooltipModule,
+    MatExpansionModule,
+    MatTabsModule,
+    MatListModule,
   ],
   providers: [AngularFireDatabase],
   bootstrap: [AppComponent]

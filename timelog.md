@@ -190,7 +190,7 @@
 ### Week 9
 ## 23 Nov 2020
 * *3 hour* Set up and error fixing for the puzzle making then finished on the confirmation form plus sending data to a page that will display the puzzles
-* 0.5 hour* Meeting with supervisor
+* *0.5 hour* Meeting with supervisor
 * *1.5 hour* Puzzle can now be played after selection
 
 ## 24 Nov 2020
@@ -199,4 +199,10 @@
 ## 25 Nov 2020
 * *1.5 hour* Parsing function to turn the downloaded data back into the correct types
 * *2.5 hour* uploading and downloading done. 15 default puzzles have been created and uploaded 
+
+## 26 Nov 2020
+* *3.0 hour* Play puzzle component plus general theming improvements 
+
+## 27 Nov 2020
+
 

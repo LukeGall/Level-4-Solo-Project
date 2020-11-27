@@ -1,14 +1,37 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>{{puzzle.title}}</mat-card-title>
-        <mat-card-subtitle>{{puzzle.difficulty}} star difficulty</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        {{puzzle.description}}
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button (click)="click()">
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{puzzle.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Difficulty - {{puzzle.difficulty}} stars
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-tab-group dynamicHeight>
+            <mat-tab label="Puzzle Description">
+                <p>{{puzzle.description}}</p>
+            </mat-tab>
+            <mat-tab label="Starting Setup">
+                <ng-template matTabContent>
+                    <mat-list style="float:left">
+                        <mat-list-item class="piece" *ngFor="let part of puzzle.puzzleBoard.startingPieces | keyvalue">
+                            {{part.key}} - {{part.value}}
+                        </mat-list-item>
+                    </mat-list>
+                    <div style="width: 300px; margin:auto;">
+                        <app-board [board]="puzzle.puzzleBoard"></app-board>
+                    </div>
+                </ng-template>
+            </mat-tab>
+            <mat-tab label="Expected Output">
+                <ng-template matTabContent>
+                    <app-collected-marbles [marbles]="puzzle.puzzleBoard.expectedResults"></app-collected-marbles>
+                </ng-template>
+            </mat-tab>
+        </mat-tab-group>
+        <button mat-raised-button color="primary" (click)="click()">
             Play
         </button>
-    </mat-card-actions>
-</mat-card>
+    </mat-expansion-panel>
+</mat-accordion>

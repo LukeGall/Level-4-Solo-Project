@@ -159,3 +159,6 @@ Changed it so that the data is sent up as a JSON string, meaning the representat
 Data can now be uploaded and downloaded correctly. I should spend the rest of the day making sure it is easy and fun to play a puzzle and flesh out the component responsible for playing it.
 
 15 puzzles have been uploaded 
+
+# 26 Nov 2020
+Theming has been overhauled plus the play puzzle component has all been finished, I like the current look of the app quite a lot. Will move on to making the list of puzzles nice tomorrow then maybe some auth after that 
