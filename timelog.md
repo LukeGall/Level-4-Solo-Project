@@ -204,5 +204,5 @@
 * *3.0 hour* Play puzzle component plus general theming improvements 
 
 ## 27 Nov 2020
-
+* *4.0 hour* Improvements to puzzle presentation plus some paginator stuff 
 

@@ -8,20 +8,29 @@ import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
   styleUrls: ['./online-puzzles.component.scss']
 })
 export class OnlinePuzzlesComponent implements OnInit {
-  puzzles: Puzzle[] = null;
-  puzzleId : number;
+  puzzles: Puzzle[] = new Array<Puzzle>();
+  puzzleId: number;
+  puzzleList: Puzzle[] = [];
+  pageSize = 5;
 
   constructor(private puzzleService: MakePuzzleService) { 
     
   }
 
   ngOnInit(): void {
-    this.puzzles = this.puzzleService.getPuzzles('puzzles');
+    this.puzzleService.getPuzzles('puzzles').subscribe(
+      list => {
+        this.puzzles = new Array<Puzzle>();
+        list.forEach(puzzle => {
+          this.puzzles.push(this.puzzleService.toPuzzle(JSON.parse(puzzle as string)))
+        })
+        this.puzzleList = this.puzzles.slice(0,this.pageSize);
+      }
+    );
   }
 
   setPuzzleTo(x: number){
     this.puzzleId = x;
-    console.log(this.puzzleId);
   }
 
   checkPuzzleId(): boolean{
@@ -33,5 +42,11 @@ export class OnlinePuzzlesComponent implements OnInit {
 
   goHome(){
     this.puzzleId = null;
+    this.puzzleList = this.puzzles.slice(0,this.pageSize);
+  }
+
+  changePage(index: any) {
+    let changeAmount = index.pageIndex * this.pageSize;
+    this.puzzleList = this.puzzles.slice(0 + changeAmount, this.pageSize + changeAmount);
   }
 }

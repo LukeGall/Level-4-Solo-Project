@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { Observable, of } from 'rxjs';
+import {  Observable, of } from 'rxjs';
 import { Puzzle } from '../Classes/puzzle';
 import { boardState, PuzzleBoard } from '../Classes/puzzle-board';
 import { cloneDeep } from 'lodash';
@@ -29,20 +29,13 @@ export class MakePuzzleService {
   curPuzzle: Puzzle = new Puzzle;
   curAmount: number = 0;
 
-  constructor(private db: AngularFireDatabase) {}
+  constructor(private db: AngularFireDatabase) { }
 
-  getPuzzles(location: string): Puzzle[]{
-    let puzzles = new Array<Puzzle>();
-    let test = this.db.list(location).valueChanges();
-    test.subscribe(obj => {
-      obj.forEach(ele => {
-        puzzles.push(this.toPuzzle(JSON.parse(ele as string) as Puzzle))
-      })
-    });
-    return puzzles;
+  getPuzzles(location: string):Observable<unknown[]> {
+    return this.db.list(location).valueChanges()
   }
 
-  private toPuzzle(ele: Puzzle): Puzzle {
+  toPuzzle(ele: any): Puzzle {
     let newPuzzle = Object.assign(new Puzzle(), ele);
 
     newPuzzle.puzzleBoard = this.convertPuzzleBoard(newPuzzle.puzzleBoard);
@@ -50,14 +43,14 @@ export class MakePuzzleService {
   }
 
   private convertMarArray(arr: Marble[]) {
-    for(let i = 0; i < arr.length; i++){
+    for (let i = 0; i < arr.length; i++) {
       arr[i] = Object.assign(new Marble(), arr[i]);
     };
   }
 
   private convertSlots(arr: Slot[][]) {
-    for(let i = 0; i < arr.length; i++){
-      for(let j=0; j<arr[0].length; j++) {
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr[0].length; j++) {
         if (arr[i][j]) {
           if (arr[i][j].partName == "CompSlot") {
             arr[i][j] = Object.assign(new CompSlot(), arr[i][j]);

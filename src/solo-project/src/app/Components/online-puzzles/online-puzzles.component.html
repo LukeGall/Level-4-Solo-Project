@@ -1,6 +1,11 @@
 <div *ngIf="!checkPuzzleId(); else showPuzzle">
-    <div *ngFor="let puzzle of puzzles; index as i">
+    <div class="card" *ngFor="let puzzle of puzzleList; index as i">
         <app-puzzle-card [puzzle]="puzzle" [index] = i (puzzleClicked)="setPuzzleTo($event)"></app-puzzle-card> 
+    </div>
+
+    <div class="footer">
+        <mat-paginator [length]="puzzles.length" [pageSize]="5" (page)="changePage($event)">
+        </mat-paginator>
     </div>
 </div>
 <ng-template #showPuzzle>

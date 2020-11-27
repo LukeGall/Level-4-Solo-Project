@@ -162,3 +162,8 @@ Data can now be uploaded and downloaded correctly. I should spend the rest of th
 
 # 26 Nov 2020
 Theming has been overhauled plus the play puzzle component has all been finished, I like the current look of the app quite a lot. Will move on to making the list of puzzles nice tomorrow then maybe some auth after that 
+
+# 27 Nov 2020
+The list of puzzles has been made to look really nice and it allows people to see the description, starting slots and expected results.
+
+Will move onto making more puzzles this weekend then move onto the tutorial page next week. But the project feels mostly done now. 

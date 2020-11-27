@@ -1,7 +1,17 @@
-app-puzzle-card{
-    width:25%;
-    margin:5%;
-    float: left;
+
+.card{
+    width: 80%;
+    margin:auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.footer{
+    position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 
 button{
