@@ -1,6 +1,6 @@
 <mat-card class="wrapper">
     <div class="pieces">
-        <div class="piece" *ngFor="let part of partList | keyvalue">
+        <div class="piece" *ngFor="let part of partList | keyvalue : sortByDiff">
             <button class="pieceButtons" mat-raised-button [color]="isSelected(part.key) ? 'primary' : 'accent'"
                 (click)="clicked(part.key)" [matTooltip]="getInfo(part.key)" [matTooltipPosition]="'right'"
                 aria-label="Piece button">
@@ -13,7 +13,6 @@
         </div>
 
     </div>
-    <mat-divider></mat-divider>
     <div>
         <button class="pieceButtons" mat-raised-button [color]="isSelected('DeletePiece') ? 'primary' : 'warn'"
             (click)="delete()">

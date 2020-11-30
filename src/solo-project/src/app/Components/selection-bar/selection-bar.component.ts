@@ -116,4 +116,31 @@ export class SelectionBarComponent implements OnInit {
       return this.boardState == boardState.playing;
     }
   }
+
+  private getDiff(piece:any): number{
+    switch(piece){
+      case Piece.Ramp:
+        return 1;
+      case Piece.Gear:
+        return 5;
+      case Piece.Crossover:
+        return 2;
+      case Piece.Bit:
+        return 3;
+      case Piece.GearBit:
+        return 6;
+      case Piece.Interceptor:
+        return 4;
+    }
+  }
+
+  sortByDiff = (fst, snd) => {
+    let fstDiff = this.getDiff(fst.key);
+    let sndDiff = this.getDiff(snd.key);
+    if(fstDiff > sndDiff){
+      return 1;
+    } else {
+      return -1;
+    }
+  }
 }

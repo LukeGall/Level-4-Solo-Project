@@ -1,5 +1,3 @@
-import { promise } from 'protractor';
-import { BehaviorSubject, EmptyError } from 'rxjs';
 import { Bit } from '../boardPieces/bit';
 import { BoardPiece } from '../boardPieces/board-piece';
 import { Crossover } from '../boardPieces/crossover';

@@ -12,6 +12,7 @@ export class OnlinePuzzlesComponent implements OnInit {
   puzzleId: number;
   puzzleList: Puzzle[] = [];
   pageSize = 5;
+  curIndex = 0;
 
   constructor(private puzzleService: MakePuzzleService) { 
     
@@ -30,7 +31,7 @@ export class OnlinePuzzlesComponent implements OnInit {
   }
 
   setPuzzleTo(x: number){
-    this.puzzleId = x;
+    this.puzzleId = x + this.pageSize*this.curIndex;
   }
 
   checkPuzzleId(): boolean{
@@ -43,9 +44,11 @@ export class OnlinePuzzlesComponent implements OnInit {
   goHome(){
     this.puzzleId = null;
     this.puzzleList = this.puzzles.slice(0,this.pageSize);
+    this.curIndex = 0;
   }
 
   changePage(index: any) {
+    this.curIndex = index.pageIndex;
     let changeAmount = index.pageIndex * this.pageSize;
     this.puzzleList = this.puzzles.slice(0 + changeAmount, this.pageSize + changeAmount);
   }

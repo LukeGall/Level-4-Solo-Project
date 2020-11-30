@@ -206,3 +206,6 @@
 ## 27 Nov 2020
 * *4.0 hour* Improvements to puzzle presentation plus some paginator stuff 
 
+### Week 10
+## 30 Nov 2020
+<!-- Add 20 ish mins to timer -->

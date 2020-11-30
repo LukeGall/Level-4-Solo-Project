@@ -16,7 +16,7 @@ Week-by-week plan for the whole project. Update this as you go along.
 * **Week 7** Board appearance and main page creation then maybe addition of images for parts and ability to maybe open up puzzles.
 * **Week 8** Create of unit and e2e tests that will allow some basic refactoring before new features get added, work on some icons for the pieces. 
 * **Week 9** Allow the creation and saving of different puzzles for the board to follow that can then be uploaded online to create a puzzle community. Default puzzles should be made. 
-* **Week 10** Allow ranking and comments of different puzzles. 
+* **Week 10** Finish up authentication and Tutorial page. 
 * **Week 11 [PROJECT WEEK]** Clean up code, clean up appearance, work on any bugs
 * **Week 12 [PROJECT WEEK]** Ensure code is easy to use, run, and is in a clean state. Status report submitted.
 

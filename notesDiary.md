@@ -167,3 +167,27 @@ Theming has been overhauled plus the play puzzle component has all been finished
 The list of puzzles has been made to look really nice and it allows people to see the description, starting slots and expected results.
 
 Will move onto making more puzzles this weekend then move onto the tutorial page next week. But the project feels mostly done now. 
+
+Move pieces in order of difficulty 
+
+Make a list of things that can be improved with the app
+
+* Make SVGs have a white outline to improve visibility
+* Make tutorial page
+* Make more SVGs for marble position for a piece
+* Look at possible animation
+* More tests and possible refactorings (Not too important)
+* Add authentication  
+* Loading bar for default and online puzzles
+* Make plain board have a cool puzzle to start with
+* Home page
+* Potential colour scheme change 
+* Dark theme button - done
+* theme change
+* Make possible tick svgs?
+* Split bottom bar into two colours
+* Github io
+* Flesh out issues I found from notes
+* Add filters to puzzles (difficulty etc)
+* Add the rest of the default puzzles
+

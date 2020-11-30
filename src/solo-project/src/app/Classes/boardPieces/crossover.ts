@@ -1,4 +1,3 @@
-import { type } from 'os';
 import { Marble } from '../boardParts/marble';
 import { Pos } from '../boardParts/pos';
 import { Piece } from '../piece.enum';
