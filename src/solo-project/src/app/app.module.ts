@@ -36,11 +36,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database'
 import { environment } from '../environments/environment';
 import { DefaultPuzzlesComponent } from './Components/default-puzzles/default-puzzles.component';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatListModule} from '@angular/material/list'; 
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatListModule } from '@angular/material/list';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTabsModule,
     MatListModule,
     MatPaginatorModule,
+    AngularFireAuthModule,
   ],
   providers: [AngularFireDatabase],
   bootstrap: [AppComponent]

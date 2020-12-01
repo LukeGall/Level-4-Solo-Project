@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Piece } from 'src/app/Classes/piece.enum';
 import { boardState, PuzzleBoard } from 'src/app/Classes/puzzle-board';
@@ -13,7 +14,7 @@ import { PlainBoardComponent } from '../plainBoard/plain-board.component';
 export class MakePuzzleComponent implements OnInit {
   @Input() puzzleBoard: PuzzleBoard;
 
-  constructor(public puzzleService: MakePuzzleService, private router: Router) { 
+  constructor(public puzzleService: MakePuzzleService, private router: Router, public auth: AngularFireAuth) { 
     if(!this.puzzleBoard) this.puzzleBoard = new PuzzleBoard();
     this.puzzleService.setBoard(this.puzzleBoard);
   }
@@ -57,9 +58,9 @@ export class MakePuzzleComponent implements OnInit {
     this.puzzleBoard.confirmedStartingSlots();
   }
 
-  confirmBoard(){
+  confirmBoard(userName: string){
     this.puzzleService.setBoard(this.puzzleBoard);
-    this.puzzleService.confirmBoard();
+    this.puzzleService.confirmBoard(userName);
   }
 
   isDone(){
@@ -70,7 +71,7 @@ export class MakePuzzleComponent implements OnInit {
   }
 
   onSubmit(){
-    this.puzzleService.confirmForm()
+    this.puzzleService.confirmForm();
     this.puzzleService.form.reset()
     this.router.navigateByUrl('');
   }

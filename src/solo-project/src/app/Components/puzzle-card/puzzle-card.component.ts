@@ -19,4 +19,13 @@ export class PuzzleCardComponent implements OnInit {
   click(){
     this.puzzleClicked.emit(this.index);
   }
+
+  hasUserName(): boolean{
+    if(this.puzzle.author){
+      if(this.puzzle.author != "default"){
+        return true;
+      }
+    }
+    return false;
+  }
 }

@@ -1,13 +1,20 @@
-<div *ngIf="!checkPuzzleId(); else showPuzzle">
-    <div class="card" *ngFor="let puzzle of puzzleList; index as i">
-        <app-puzzle-card [puzzle]="puzzle" [index] = i (puzzleClicked)="setPuzzleTo($event)"></app-puzzle-card> 
+<div *ngIf="auth.user | async as user; else login">
+    <div *ngIf="!checkPuzzleId(); else showPuzzle">
+        <div class="card" *ngFor="let puzzle of puzzleList; index as i">
+            <app-puzzle-card [puzzle]="puzzle" [index] = i (puzzleClicked)="setPuzzleTo($event)"></app-puzzle-card> 
+        </div>
+        
+        <div class="footer">
+            <mat-paginator [length]="puzzles.length" [pageSize]="5" (page)="changePage($event)">
+            </mat-paginator>
+        </div>
     </div>
-
-    <div class="footer">
-        <mat-paginator [length]="puzzles.length" [pageSize]="5" (page)="changePage($event)">
-        </mat-paginator>
-    </div>
+    <ng-template #showPuzzle>
+        <app-play-puzzle [puzzle]="this.puzzles[puzzleId]" (home)="goHome()"></app-play-puzzle>
+    </ng-template>
 </div>
-<ng-template #showPuzzle>
-    <app-play-puzzle [puzzle]="this.puzzles[puzzleId]" (home)="goHome()"></app-play-puzzle>
+<ng-template #login>
+    <p>
+        Please login to view the puzzles
+    </p>
 </ng-template>

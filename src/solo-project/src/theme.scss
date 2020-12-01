@@ -16,7 +16,8 @@ $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
     $dark-warn:    mat-palette($mat-deep-orange);
     $dark-theme:   mat-dark-theme($dark-primary,$dark-accent,$dark-warn);
 
-  @include angular-material-theme($dark-theme);
+    @include angular-material-theme($dark-theme);
 }
+
 
 

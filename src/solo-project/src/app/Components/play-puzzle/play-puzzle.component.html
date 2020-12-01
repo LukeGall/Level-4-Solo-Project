@@ -1,29 +1,36 @@
 <div id=selectionBar>
   <button mat-raised-button style="margin:2%;" color="primary" (click)="goHome()">Back to puzzle list</button>
-  <app-selection-bar [heldPart]="board.heldPiece" [partList]="board.boardPieces" (clickHolding)="setHolding($event)"
-    (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()" (reset)="clearBoard()" [isPuzzleBoard]="true">
+  <app-selection-bar [heldPart]="board.heldPiece" [boardState]="this.board.boardState" [partList]="board.boardPieces"
+    (clickHolding)="setHolding($event)" (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()" (reset)="clearBoard()"
+    [isPuzzleBoard]="true" (displayAnswer)="showAnswer()" (clearMarbles)="clearMarbles()">
   </app-selection-bar>
 </div>
 <div id="boardSide">
   <div class="prompt">
     <mat-card>
-      <mat-card-title>{{puzzle.title}}</mat-card-title>
+      <mat-card-title *ngIf="!hasUserName(); else userName">{{puzzle.title}}</mat-card-title>
+      <ng-template #userName>
+        <mat-card-title>{{puzzle.title}} by {{puzzle.author}}</mat-card-title>
+      </ng-template>
       <mat-card-subtitle>{{puzzle.difficulty}} stars</mat-card-subtitle>
       <mat-card-content>
-        <div *ngIf="!wonPuzzle(); else won">
+        <div>
           {{puzzle.description}}
         </div>
-        <ng-template #won>
-          Congrats! Onto the next puzzle!
-        </ng-template>
+
       </mat-card-content>
 
       <mat-card-footer>
-        <h4>
+        <h4 *ngIf="this.board.expectedResults.length !=0">
           Expected Results
         </h4>
         <mat-divider></mat-divider>
         <app-collected-marbles [marbles]="board.expectedResults"></app-collected-marbles>
+        <div *ngIf="wonPuzzle()">
+          <mat-card-content style="margin-left: 2%;">
+            Congrats! Onto the next puzzle!
+          </mat-card-content>
+        </div>
       </mat-card-footer>
     </mat-card>
   </div>

@@ -22,6 +22,10 @@
             <button mat-raised-button color="warn" (click)="step()">Step Forward</button>
             <button mat-raised-button color="warn" (click)="trigger()">Toggle</button>
             <button mat-raised-button color="warn" (click)="clearBoard()">Reset Board</button>
+            <div *ngIf="isPlaying()">
+                <button mat-raised-button color="warn" (click)="resetMarbles()">Reset Marbles</button>
+                <button mat-raised-button color="warn" (click)="showAnswer()">Show Answer</button>
+            </div>
         </div>
         <div *ngIf="isPuzzleBoard && !isPlaying()">
             <button *ngIf="!notStarting()" mat-raised-button color="warn" (click)="confirmStarting()">Confirm set

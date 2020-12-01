@@ -177,17 +177,20 @@ Make a list of things that can be improved with the app
 * Make more SVGs for marble position for a piece
 * Look at possible animation
 * More tests and possible refactorings (Not too important)
-* Add authentication  
+* Add authentication - done
 * Loading bar for default and online puzzles
 * Make plain board have a cool puzzle to start with
 * Home page
 * Potential colour scheme change 
 * Dark theme button - done
-* theme change
+* theme change (maybe)
 * Make possible tick svgs?
 * Split bottom bar into two colours
 * Github io
 * Flesh out issues I found from notes
 * Add filters to puzzles (difficulty etc)
-* Add the rest of the default puzzles
+* Add the rest of the default puzzles - done
+* Show solution button for play puzzle - done
+* Reset marbles button for puzzle board- done
+* User page? Maybe ability to save user data
 

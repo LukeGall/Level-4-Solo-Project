@@ -103,6 +103,13 @@ export class PuzzleBoard extends Board {
         }
     }
 
+    clearMarbles() {
+        this.inPlayMarble = null;
+        this.collectedMarbles = new Array<MarblePair>();
+        this.blueMarbles = cloneDeep(this.startingBlueMarbles);
+        this.redMarbles = cloneDeep(this.startingRedMarbles)
+    }
+
     clickPiece(pos: Pos): boolean {
         let changed = false;
         if (this.boardState == boardState.starting) {

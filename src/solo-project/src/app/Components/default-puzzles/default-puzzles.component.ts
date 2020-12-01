@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Puzzle } from 'src/app/Classes/puzzle';
 import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
 import { slice } from 'lodash';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-default-puzzles',
@@ -16,7 +17,7 @@ export class DefaultPuzzlesComponent implements OnInit {
   pageSize = 5;
   curIndex = 0;
 
-  constructor(private puzzleService: MakePuzzleService) {
+  constructor(private puzzleService: MakePuzzleService, public auth: AngularFireAuth) {
 
   }
 
@@ -45,8 +46,6 @@ export class DefaultPuzzlesComponent implements OnInit {
 
   goHome() {
     this.puzzleId = null;
-    this.puzzleList = this.puzzles.slice(0,this.pageSize);
-    this.curIndex = 0;
   }
 
   changePage(index: any) {

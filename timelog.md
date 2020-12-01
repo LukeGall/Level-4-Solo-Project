@@ -208,4 +208,10 @@
 
 ### Week 10
 ## 30 Nov 2020
-<!-- Add 20 ish mins to timer -->
+* *2 hour* Error fixing, meeting and theme updates
+
+## 1 Dec 2020
+* *1.5 hour* Rest of default puzzles added
+* *0.5 hour* Show answer and reset marble buttons added
+* *2 hour* Google Authentication added, puzzles have author name 
+

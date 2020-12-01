@@ -1,6 +1,11 @@
 <div id=profileOptions>
-    <button mat-raised-button color="accent">Log in</button>
-    <button mat-raised-button color="accent">New profile</button>
+    <div *ngIf="auth.user | async as user; else showLogin">
+        <button mat-raised-button color="accent" (click)="logout()">Logout</button>
+    </div>
+    <ng-template #showLogin>
+        <button (click)="login()" mat-raised-button color="accent">Log in with Google</button>
+        <!-- <button mat-raised-button color="accent">New profile</button> -->
+    </ng-template>
 </div>
 <mat-divider></mat-divider>
 <div id=plainBoard>
@@ -8,19 +13,21 @@
         <button mat-stroked-button color="accent">Plain Board</button>
     </a>
 </div>
-<div id=puzzles>
-    <a routerLink="/default-puzzles" routerLinkActive="active">
-        <button mat-stroked-button color="accent">Original Puzzles</button>
-    </a>
-</div>
-<div id=onlinePuzzles>
-    <a routerLink="/online-puzzle" routerLinkActive="active">
-        <button mat-stroked-button color="accent">Online Puzzles</button>
-    </a>
-</div>
-<div id=makePuzzle>
-    <a routerLink="/make-puzzle" routerLinkActive="active">
-        <button mat-stroked-button color="accent">Create Puzzle</button>
-    </a>
+<div *ngIf="auth.user | async as user">
+    <div id=puzzles>
+        <a routerLink="/default-puzzles" routerLinkActive="active">
+            <button mat-stroked-button color="accent">Original Puzzles</button>
+        </a>
+    </div>
+    <div id=onlinePuzzles>
+        <a routerLink="/online-puzzle" routerLinkActive="active">
+            <button mat-stroked-button color="accent">Online Puzzles</button>
+        </a>
+    </div>
+    <div id=makePuzzle>
+        <a routerLink="/make-puzzle" routerLinkActive="active">
+            <button mat-stroked-button color="accent">Create Puzzle</button>
+        </a>
+    </div>
 </div>
 <mat-divider></mat-divider>

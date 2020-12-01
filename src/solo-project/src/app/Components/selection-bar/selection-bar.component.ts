@@ -25,6 +25,8 @@ export class SelectionBarComponent implements OnInit {
   @Output() reset = new EventEmitter();
   @Output() confStartingPieces = new EventEmitter();
   @Output() confPuzzleOutput = new EventEmitter();
+  @Output() displayAnswer = new EventEmitter();
+  @Output() clearMarbles = new EventEmitter();
 
   constructor() { }
 
@@ -142,5 +144,13 @@ export class SelectionBarComponent implements OnInit {
     } else {
       return -1;
     }
+  }
+
+  showAnswer(){
+    this.displayAnswer.emit();
+  }
+
+  resetMarbles(){
+    this.clearMarbles.emit();
   }
 }

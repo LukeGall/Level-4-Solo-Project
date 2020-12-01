@@ -1,88 +1,97 @@
-<div *ngIf="!isDone(); else confirmation">
-    <div id=selectionBar>
-        <app-selection-bar [heldPart]="puzzleBoard.heldPiece" [partList]="puzzleBoard.boardPieces"
-            (clickHolding)="setHolding($event)" (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()"
-            (reset)="clearBoard()" [isPuzzleBoard]="true" (confStartingPieces)="confirmStarting()"
-            [boardState]="puzzleBoard.boardState" (confPuzzleOutput)="confirmBoard()"></app-selection-bar>
+<div *ngIf="auth.user | async as user; else login">
+    <div *ngIf="!isDone(); else confirmation">
+        <div id=selectionBar>
+            <app-selection-bar [heldPart]="puzzleBoard.heldPiece" [partList]="puzzleBoard.boardPieces"
+                (clickHolding)="setHolding($event)" (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()"
+                (reset)="clearBoard()" [isPuzzleBoard]="true" (confStartingPieces)="confirmStarting()"
+                [boardState]="puzzleBoard.boardState" (confPuzzleOutput)="confirmBoard(user.displayName)"></app-selection-bar>
 
+        </div>
+        <div id="boardSide">
+            <div class="prompt">
+                <app-prompt-card [boardState]="puzzleBoard.boardState"></app-prompt-card>
+            </div>
+            <div class="clear"></div>
+            <div id="dispensers">
+                <div class="blue">
+                    <app-dispenser [marbles]="puzzleBoard.blueMarbles" [marbleColour]="'blue'"
+                        (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)">
+                    </app-dispenser>
+                </div>
+                <div class="red">
+                    <app-dispenser [marbles]="puzzleBoard.redMarbles" [marbleColour]="'red'"
+                        (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)">
+                    </app-dispenser>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="board">
+
+                <app-board [board]="puzzleBoard"></app-board>
+
+            </div>
+
+            <div id="triggers">
+                <div class="blue">
+                    <app-flipper [colour]="'blue'" (clickedFlipper)="clickedFlipper($event)"></app-flipper>
+                </div>
+                <div class="red">
+                    <app-flipper [colour]="'red'" (clickedFlipper)="clickedFlipper($event)"></app-flipper>
+                </div>
+            </div>
+
+
+            <div class="clear"></div>
+
+            <div id="SliderDiv">
+                <mat-grid-list cols="1" rowHeight="25px">
+                    <mat-grid-tile>Speed</mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-slider #SpeedSliderMs invert min="200" max="3000" step="100" value="1000"
+                            (input)="changeSpeed(SpeedSliderMs.value)" color="primary">
+                        </mat-slider>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </div>
+        </div>
     </div>
-    <div id="boardSide">
-        <div class="prompt">
-            <app-prompt-card [boardState]="puzzleBoard.boardState"></app-prompt-card>
-        </div>
-        <div class="clear"></div>
-        <div id="dispensers">
-            <div class="blue">
-                <app-dispenser [marbles]="puzzleBoard.blueMarbles" [marbleColour]="'blue'"
-                    (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
+
+    <ng-template #confirmation>
+        <div id="confirm">
+            <app-prompt-card class="prompt" [boardState]="this.puzzleBoard.boardState"></app-prompt-card>
+            <div id="form">
+                <form [formGroup]="this.puzzleService.form" (ngSubmit)="onSubmit()">
+                    <br>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Title</mat-label>
+                        <input matInput formControlName="Name" type="text" required>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput formControlName="Description" required></textarea>
+                    </mat-form-field>
+                    <br>
+                    <label id="radioLabel">Difficulty</label>
+                    <br>
+                    <mat-radio-group aria-labelledby="radioLabel" matInput formControlName="Difficulty" required>
+                        <mat-radio-button value=1>1</mat-radio-button>
+                        <mat-radio-button value=2>2</mat-radio-button>
+                        <mat-radio-button value=3>3</mat-radio-button>
+                        <mat-radio-button value=4>4</mat-radio-button>
+                        <mat-radio-button value=5>5</mat-radio-button>
+                    </mat-radio-group>
+                    <br>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="!this.puzzleService.form.valid">
+                        Submit Puzzle
+                    </button>
+                </form>
             </div>
-            <div class="red">
-                <app-dispenser [marbles]="puzzleBoard.redMarbles" [marbleColour]="'red'"
-                    (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
-            </div>
         </div>
-        <div class="clear"></div>
-        <div class="board">
-
-            <app-board [board]="puzzleBoard"></app-board>
-
-        </div>
-
-        <div id="triggers">
-            <div class="blue">
-                <app-flipper [colour]="'blue'" (clickedFlipper)="clickedFlipper($event)"></app-flipper>
-            </div>
-            <div class="red">
-                <app-flipper [colour]="'red'" (clickedFlipper)="clickedFlipper($event)"></app-flipper>
-            </div>
-        </div>
-
-
-        <div class="clear"></div>
-        
-        <div id="SliderDiv">
-            <mat-grid-list cols="1" rowHeight="25px">
-                <mat-grid-tile>Speed</mat-grid-tile>
-                <mat-grid-tile>
-                    <mat-slider #SpeedSliderMs invert min="200" max="3000" step="100" value="1000"
-                        (input)="changeSpeed(SpeedSliderMs.value)" color="primary">
-                    </mat-slider>
-                </mat-grid-tile>
-            </mat-grid-list>
-        </div>
-    </div>
+    </ng-template>
 </div>
-
-<ng-template #confirmation>
-    <div id="confirm">
-        <app-prompt-card class="prompt" [boardState]="this.puzzleBoard.boardState"></app-prompt-card>
-        <div id="form">
-            <form [formGroup]="this.puzzleService.form" (ngSubmit)="onSubmit()">
-                <br>
-                <mat-form-field appearance="standard">
-                    <mat-label>Title</mat-label>
-                    <input matInput formControlName="Name" type="text" required>
-                </mat-form-field>
-                <br>
-                <mat-form-field appearance="fill">
-                    <mat-label>Description</mat-label>
-                    <textarea matInput formControlName="Description" required></textarea>
-                </mat-form-field>
-                <br>
-                <label id="radioLabel">Difficulty</label>
-                <br>
-                <mat-radio-group aria-labelledby="radioLabel" matInput formControlName="Difficulty" required>
-                    <mat-radio-button value=1>1</mat-radio-button>
-                    <mat-radio-button value=2>2</mat-radio-button>
-                    <mat-radio-button value=3>3</mat-radio-button>
-                    <mat-radio-button value=4>4</mat-radio-button>
-                    <mat-radio-button value=5>5</mat-radio-button>
-                </mat-radio-group>
-                <br>
-                <button mat-raised-button color="primary" type="submit" [disabled]="!this.puzzleService.form.valid">
-                    Submit Puzzle
-                </button>
-            </form>
-        </div>
-    </div>
+<ng-template #login>
+    <p>
+        Please login to make a puzzle
+    </p>
 </ng-template>

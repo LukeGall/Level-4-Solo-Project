@@ -132,7 +132,8 @@ export class MakePuzzleService {
     return of(this.puzzleBoard);
   }
 
-  confirmBoard() {
+  confirmBoard(userName: string) {
+    this.curPuzzle.author = userName;
     this.puzzleBoard.confirmBoard();
     this.curPuzzle.puzzleBoard = cloneDeep(this.puzzleBoard);
   }
@@ -141,7 +142,7 @@ export class MakePuzzleService {
     this.puzzleBoard.showAnswer();
   }
 
-  confirmForm() {
+  confirmForm() {    
     this.curPuzzle.title = this.form.get('Name').value;
     this.curPuzzle.description = this.form.get('Description').value;
     this.curPuzzle.difficulty = this.form.get('Difficulty').value;
@@ -149,7 +150,7 @@ export class MakePuzzleService {
     this.curPuzzle.puzzleBoard.boardPieces = [...this.curPuzzle.puzzleBoard.boardPieces];
     this.curPuzzle.puzzleBoard.startingPieces = [...this.curPuzzle.puzzleBoard.startingPieces];
 
-    this.db.list('default-puzzles').push(JSON.stringify(this.curPuzzle));
+    this.db.list('puzzles').push(JSON.stringify(this.curPuzzle));
   }
 
   form = new FormGroup({

@@ -5,4 +5,5 @@ export class Puzzle {
     description: string;
     difficulty: string;
     puzzleBoard: PuzzleBoard;
+    author: string = "default";
 }

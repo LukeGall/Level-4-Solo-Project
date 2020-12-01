@@ -59,4 +59,20 @@ export class PlayPuzzleComponent implements OnInit {
     return this.board.correctResults;
   }
 
+  showAnswer(){
+    this.puzzle.puzzleBoard.showAnswer();
+  }
+
+  clearMarbles(){
+    this.puzzle.puzzleBoard.clearMarbles();
+  }
+
+  hasUserName(): boolean{
+    if(this.puzzle.author){
+      if(this.puzzle.author != "default"){
+        return true;
+      }
+    }
+    return false;
+  }
 }
