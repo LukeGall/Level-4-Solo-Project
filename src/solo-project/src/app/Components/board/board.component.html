@@ -12,5 +12,13 @@
             </div>
         </div>
     </mat-grid-list>
+    <mat-grid-list cols="12" rowHeight="8:1" [gutterSize]="'0px'" style="margin-bottom: 1%;">
+        <div *ngFor="let blue of [1,2,3,4,5,6]">
+            <mat-grid-tile [colspan]="1" style="background-color: rgb(44, 117, 253);"></mat-grid-tile>
+        </div>
+        <div *ngFor="let red of [1,2,3,4,5,6]">
+            <mat-grid-tile [colspan]="1" style="background-color:  rgb(248, 83, 83);"></mat-grid-tile>
+        </div>
+    </mat-grid-list>
     <app-collected-marbles [marbles]="this.board.collectedMarbles"></app-collected-marbles>
 </div>
