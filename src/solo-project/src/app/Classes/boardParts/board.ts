@@ -241,7 +241,11 @@ export class Board {
                     firstEle = false;
                     if (val.piece instanceof GearBit) dirForGbs = val.piece.direction;
                 } else {
+                    let orgLocked = val.piece.locked;
                     val.piece = (dirForGbs == Direction.left) ? new GearBit(Direction.left, val.piece.position) : new GearBit(Direction.right, val.piece.position);
+                    if(val.piece.locked != orgLocked){
+                        val.piece.lock();
+                    }
                 }
             }
         }
@@ -325,9 +329,18 @@ export class Board {
                 firstEle = false;
                 if (val.piece instanceof GearBit) dirForGbs = val.piece.direction;
             } else {
+                let orgLocked = val.piece.locked;
                 val.piece = (dirForGbs == Direction.left) ? new GearBit(Direction.left, val.piece.position) : new GearBit(Direction.right, val.piece.position);
+                if(val.piece.locked != orgLocked){
+                    val.piece.lock();
+                }
             }
         }
         console.log(dirForGbs);
+    }
+
+    clearMarbles() {
+        this.inPlayMarble = null;
+        this.collectedMarbles = new Array<MarblePair>();
     }
 }

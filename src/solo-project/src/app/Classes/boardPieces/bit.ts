@@ -6,7 +6,10 @@ import { BoardPiece } from './board-piece';
 
 export class Bit extends BoardPiece{
     direction : Direction;
-    imgLink: string = "../../../assets/bit.svg";;
+    imgLink: string = "../../../assets/bit.svg";
+    imgBlueMarble = "../../../assets/bit-blue.svg"
+    imgRedMarble = "../../../assets/bit-red.svg"
+
     inPlayMarble: Marble;
     position: Pos;
     type=Piece.Bit;

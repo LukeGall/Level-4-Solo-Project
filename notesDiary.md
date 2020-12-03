@@ -172,13 +172,13 @@ Move pieces in order of difficulty
 
 Make a list of things that can be improved with the app
 
-* Make SVGs have a white outline to improve visibility
+* Make SVGs have a white outline to improve visibility - done
 * Make tutorial page
-* Make more SVGs for marble position for a piece
+* Make more SVGs for marble position for a piece - done
 * Look at possible animation
 * More tests and possible refactorings (Not too important)
 * Add authentication - done
-* Loading bar for default and online puzzles
+* Loading bar for default and online puzzles - done
 * Make plain board have a cool puzzle to start with
 * Home page
 * Potential colour scheme change 
@@ -188,9 +188,14 @@ Make a list of things that can be improved with the app
 * Split bottom bar into two colours
 * Github io
 * Flesh out issues I found from notes
-* Add filters to puzzles (difficulty etc)
+* Add difficulty filter to puzzles - done 
 * Add the rest of the default puzzles - done
 * Show solution button for play puzzle - done
 * Reset marbles button for puzzle board- done
 * User page? Maybe ability to save user data
 
+Using a mat 'chip' system to allow users to select between one or multiple different difficulties, hopefully works out well tomorrow. A bit of a process atm tho
+
+# 3 Dec 2020
+
+Last couple of days has been plain sailing with the list of improvements, will focus on making more notes the coming days. The difficulty filter has been completed using a mat-chip system and some functions to make sure it only adds the values allowed. No major issues, just focused on catching the changes at the removal and addition of items, could have changed the functions to be more efficient in removal but I don't think it would be worth it.

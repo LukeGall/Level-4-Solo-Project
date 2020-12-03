@@ -215,3 +215,9 @@
 * *0.5 hour* Show answer and reset marble buttons added
 * *2 hour* Google Authentication added, puzzles have author name 
 
+## 2 Dec 2020
+* *1.5 hour* SVGs improved plus loading bars
+* *1.5 hour* Started adding the difficulty filter but got distracted by christmas tree 
+
+## 3 Dec 2020
+* *1.5 hour* Error fixing and difficulty filter 

@@ -8,6 +8,9 @@ export class Ramp extends BoardPiece {
     direction: Direction;
     position: Pos;
     imgLink: string = "../../../assets/ramp.svg";
+    imgBlueMarble = "../../../assets/ramp-blue.svg"
+    imgRedMarble = "../../../assets/ramp-red.svg"
+
     type=Piece.Ramp;
     info="Send the marble in the direction of the Ramp"
 

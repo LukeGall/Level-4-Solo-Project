@@ -23,5 +23,21 @@
    <rect id="svg_20" height="79.66405" width="21.24373" y="61.71878" x="191.75169" stroke-opacity="null" stroke-width="3" stroke="#000" fill="#ff7f00"/>
    <rect id="svg_23" height="16.4639" width="80.19515" y="136.603" x="162.27599" stroke-width="3" stroke="#000" fill="#ff7f00"/>
   </g>
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <g id="svg_65">
+   <g transform="matrix(0.995025, 0, 0, 0.995025, -397.015, -396.015)" id="svg_63">
+    <title>background</title>
+    <rect fill="none" id="svg_61" height="402" width="402" y="433.17065" x="401.01064"/>
+    <g display="none" id="svg_59">
+     <rect fill="url(#gridpattern)" stroke-width="0" y="434.17065" x="402.01064" height="400" width="400" id="svg_60"/>
+    </g>
+   </g>
+   <g transform="matrix(0.995025, 0, 0, 0.995025, -397.015, -396.015)" id="svg_64">
+    <title>Layer 1</title>
+    <ellipse ry="48.5" rx="48.5" id="svg_58" cy="634.17066" cx="602.01064" stroke-width="2" stroke="#000" fill="#ff0000"/>
+   </g>
+  </g>
  </g>
 </svg>

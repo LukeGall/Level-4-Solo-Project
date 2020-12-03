@@ -1,0 +1,34 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="402" height="402" id="canvas_background" fill="none"/>
+  <g id="canvasGrid" display="none">
+   <rect id="svg_2" width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_6">
+   <rect id="svg_3" height="32.73846" width="266.00001" y="223.29489" x="68" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+   <rect id="svg_4" height="58.65641" width="28.64615" y="193.96665" x="68" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+   <rect id="svg_5" height="58.65641" width="28.64615" y="193.96669" x="305.1265" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+  </g>
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <g id="svg_45">
+   <g transform="matrix(0.992537, 0, 0, 0.990049, -395.023, -395.03)" id="svg_43">
+    <title>background</title>
+    <rect fill="none" id="svg_41" height="402" width="402" y="370.71922" x="399.00064"/>
+    <g display="none" id="svg_39">
+     <rect fill="url(#gridpattern)" stroke-width="0" y="371.71922" x="400.00064" height="400" width="400" id="svg_40"/>
+    </g>
+   </g>
+   <g transform="matrix(0.992537, 0, 0, 0.990049, -395.023, -395.03)" id="svg_44">
+    <title>Layer 1</title>
+    <ellipse ry="48.5" rx="48.5" id="svg_38" cy="571.71923" cx="600.00064" stroke-width="2" stroke="#000" fill="#ff0000"/>
+   </g>
+  </g>
+ </g>
+</svg>

@@ -3,16 +3,16 @@
 
  <g>
   <title>background</title>
-  <rect x="-1" y="-1" width="402" height="402" id="canvas_background" fill="none"/>
-  <g id="canvasGrid" display="none">
-   <rect id="svg_2" width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)"/>
+  <rect fill="none" id="canvas_background" height="402" width="402" y="-1" x="-1"/>
+  <g display="none" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" id="svg_2"/>
   </g>
  </g>
  <g>
   <title>Layer 1</title>
   <g id="svg_3">
-   <ellipse fill="#cccccc" stroke="#000" cx="200.54482" cy="162.94971" id="svg_1" rx="40.90899" ry="40.90899"/>
-   <path fill="#b2b2b2" stroke="#000" stroke-width="null" stroke-opacity="null" fill-opacity="null" d="m74.54499,241.48729c139.09048,82.12305 250.90862,0 250.36317,-0.73453l1.0906,-30.8507c0.54545,0.73453 -129.81778,89.49024 -251.99923,-4.40726l0.54545,35.99248l0.00002,0z" id="svg_4"/>
+   <ellipse stroke-width="3" ry="40.90899" rx="40.90899" id="svg_1" cy="162.94971" cx="200.54482" stroke="#000" fill="#e5e5e5"/>
+   <path id="svg_4" d="m74.54499,241.48729c139.09048,82.12305 250.90862,0 250.36317,-0.73453l1.0906,-30.8507c0.54545,0.73453 -129.81778,89.49024 -251.99923,-4.40726l0.54545,35.99248l0.00002,0l-0.00001,0.00001z" stroke-width="3" stroke="#000" fill="#e5e5e5"/>
   </g>
  </g>
 </svg>

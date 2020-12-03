@@ -31,6 +31,9 @@ export class BoardPiece {
     }
 
     imgLink: string;
+    imgBlueMarble: string;
+    imgRedMarble: string;
+    
     position: Pos = null;
     type:Piece = null;
     locked: boolean=false;

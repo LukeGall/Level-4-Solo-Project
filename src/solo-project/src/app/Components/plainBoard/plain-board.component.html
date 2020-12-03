@@ -1,6 +1,6 @@
 <div id=selectionBar>
   <app-selection-bar [heldPart]="board.heldPiece" [partList]="board.boardPieces" (clickHolding)="setHolding($event)"
-    (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()" (reset)="clearBoard()"></app-selection-bar>
+    (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()" (reset)="clearBoard()" (clearMarbles)="this.board.clearMarbles()"></app-selection-bar>
 </div>
 <div id="boardSide">
   <div id="dispensers">

@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Puzzle } from 'src/app/Classes/puzzle';
 import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
-import { slice } from 'lodash';
+import { cloneDeep, cloneWith } from 'lodash';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { FormControl } from '@angular/forms';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatChipInputEvent } from '@angular/material/chips';
 
 @Component({
   selector: 'app-default-puzzles',
@@ -13,9 +17,17 @@ export class DefaultPuzzlesComponent implements OnInit {
 
   puzzles: Puzzle[] = new Array<Puzzle>();
   puzzleId: number;
-  puzzleList: Puzzle[] = [];
+  puzzlePage: Puzzle[] = [];
+  fullPuzzles: Puzzle[] = [];
   pageSize = 5;
   curIndex = 0;
+  fullDiffList = ["1", "2", "3", "4", "5"];
+  difficultyList: string[] = [];
+  frmControl = new FormControl();
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  @ViewChild('diffInput') diffInput: ElementRef<HTMLInputElement>;
 
   constructor(private puzzleService: MakePuzzleService, public auth: AngularFireAuth) {
 
@@ -28,7 +40,8 @@ export class DefaultPuzzlesComponent implements OnInit {
         list.forEach(puzzle => {
           this.puzzles.push(this.puzzleService.toPuzzle(JSON.parse(puzzle as string)))
         })
-        this.puzzleList = this.puzzles.slice(0,this.pageSize);
+        this.fullPuzzles = cloneDeep(this.puzzles);
+        this.puzzlePage = this.puzzles.slice(0, this.pageSize);
       }
     );
   }
@@ -48,11 +61,62 @@ export class DefaultPuzzlesComponent implements OnInit {
     this.puzzleId = null;
   }
 
-  changePage(index: any) {
-    this.curIndex = index.pageIndex;
-    let changeAmount = index.pageIndex * this.pageSize;
-    this.puzzleList = this.puzzles.slice(0 + changeAmount, this.pageSize + changeAmount);
+  changePage(index: number) {
+    this.curIndex = index;
+    let changeAmount = index * this.pageSize;
+    this.puzzlePage = this.puzzles.slice(0 + changeAmount, this.pageSize + changeAmount);
   }
 
+  private changeDif() {
+    this.difficultyList.sort();
+    this.puzzles = [];
+    this.fullPuzzles.forEach(puzzle => {
+      if (this.difficultyList.includes(puzzle.difficulty)) {
+        this.puzzles.push(cloneDeep(puzzle));
+      }
+    })
+    this.puzzlePage = this.puzzles.slice(0, 5);
+  }
 
+  resetDif() {
+    this.puzzles = cloneWith(this.fullPuzzles);
+    this.changePage(0);
+  }
+
+  remove(diff: string) {
+    const index = this.difficultyList.indexOf(diff);
+
+    if (index >= 0) {
+      this.difficultyList.splice(index, 1);
+      if (this.difficultyList.length == 0) {
+        this.resetDif();
+      } else {
+        this.changeDif();
+      }
+    }
+  }
+
+  addDiff(event: MatChipInputEvent) {
+    const value = event.value;
+    if (this.fullDiffList.includes(value)) {
+      if (!this.difficultyList.includes(value)) {
+        this.difficultyList.push(value);
+        this.changeDif();
+      }
+    }
+    event.input.value = '';
+    this.frmControl.setValue(null);
+  }
+
+  addAutoCmpt(event: MatAutocompleteSelectedEvent) {
+    const val = event.option.viewValue;
+    this.diffInput.nativeElement.value = '';
+    this.frmControl.setValue(null);
+
+    console.log(val);
+    if (!(this.difficultyList.includes(val))) {
+      this.difficultyList.push(val);
+      this.changeDif();
+    }
+  }
 }
