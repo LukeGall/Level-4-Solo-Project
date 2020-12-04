@@ -30,6 +30,6 @@ describe('BoardComponent', () => {
   it('should create all the grid-icons',()=>{
     const debug= fixture.debugElement;
     const gridList: NodeList = debug.nativeElement.querySelectorAll('mat-grid-tile')
-    expect(gridList.length).toEqual(11*11);
+    expect(gridList.length).toEqual(137);
   })
 });

@@ -44,12 +44,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatTableModule} from '@angular/material/table';
 
 // Firebase imports
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database'
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { TutorialComponent } from './Components/tutorial/tutorial.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +73,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     OnlinePuzzlesComponent,
     PlayPuzzleComponent,
     PuzzleCardComponent,
-    DefaultPuzzlesComponent
+    DefaultPuzzlesComponent,
+    TutorialComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -99,6 +104,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     MatProgressSpinnerModule,
     MatChipsModule,
     MatAutocompleteModule,
+    MatTableModule,
   ],
   providers: [AngularFireDatabase],
   bootstrap: [AppComponent]

@@ -1,0 +1,171 @@
+<section id="wrapper" class="mat-typography">
+    <h3 class="mat-display-3">Tutorial</h3>
+    <mat-tab-group dynamicHeight>
+        <mat-tab label="General Instructions">
+            <div class="instructions">
+                <P>
+                    This virtual turing tumble runs in the browser and there is nothing for you to install. Find the
+                    <b>sidenav</b> to the left of the screen to go to the different pages of the site. These
+                    include
+                    <li>
+                        <b>Home</b> which gives a brief introduction to the site and why it was made.
+                    </li>
+                    <li>
+                        The <b>Plain Board</b> page will give a plain board which will allow you to play with a Turing
+                        Tumble simulation.
+                    </li>
+                    <li>
+                        The <b>Original Puzzles</b> page will give a list of puzzles to play
+                        which will be explained in a different tab.
+                    </li>
+                    <li>
+                        <b>Online Puzzles</b> will require you to log in via a Google account to access and play other
+                        users created puzzles.
+                    </li>
+                    <li>
+                        Finally the <b>Create Puzzle</b> page will let you make your on puzzles for other users to play.
+                    </li>
+                </P>
+                <br>
+                <p>
+                    The site has two themes, light and dark, which can be changed on the fly using the button on the top
+                    header bar.
+                </p>
+                <br>
+                <p>
+                    A Turing Tumble board involves blue and red marbles, shown at the top left and right corner of the
+                    board
+                    respectively. These marbles travel down the board interacting with various <b>pieces</b> which mimic
+                    parts of a computer circuit. There are 2 triggers at the bottom of the board which start the marble
+                    down the board. The marble can only travel down the board along routes of pieces, if not it will
+                    'fall'. When a marble gets to the
+                    bottom of the board it will release another blue or red marble depending on the side the marble gets
+                    to. It will also be 'collected' in which the board will store the marbles that have reached the
+                    bottom. An example is shown below in which 2 blue marbles where collected, then 3 red and finally 5
+                    blues.
+                </p>
+                <div id="collected-marbles">
+                    <app-collected-marbles [marbles]="exampleMarbles"></app-collected-marbles>
+                </div>
+                <br>
+                <p>
+                    The number of coloured marbles can be found in the top left and right of the board, the amount of
+                    marbles can be increased / decreased using the 'plus' or 'negative' buttons. The blue marbles drop
+                    in
+                    from the blue arrow at the top of the board while the red marbles drop in from the red arrow. In the
+                    board below you'll see different 'slots' on the board, Component Slots
+                    and
+                    Pins.
+                    Component slots allows all 6 components to be placed, while Pins only allow <b>Gears</b> to be
+                    placed.
+                </p>
+            </div>
+            <div class="instructions">
+                <mat-divider></mat-divider>
+                <h1 style="margin-top: 2%;">Board Options</h1>
+                <table mat-table [dataSource]="optionData" class="mat-elevation-z8">
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef>Options</th>
+                        <td mat-cell *matCellDef="let element"><button mat-raised-button color="warn"
+                                [disableRipple]="true">{{element.name}}</button></td>
+                    </ng-container>
+
+                    <mat-text-column name="description"></mat-text-column>
+
+                    <tr mat-header-row *matHeaderRowDef="['name','description']"></tr>
+                    <tr mat-row *matRowDef="let row; columns: ['name','description'];"></tr>
+                </table>
+
+            </div>
+            <div class="instructions">
+                <mat-divider></mat-divider>
+                <h1 style="margin-top: 2%;">A plain board with no pieces</h1>
+                <div class="board">
+                    <app-board></app-board>
+                </div>
+                <mat-divider></mat-divider>
+                <h1 style="margin-top: 2%;">Component Slots and Pins</h1>
+                <mat-grid-list cols="2" [rowHeight]="'6:1'" style="width: 50%; margin: auto;">
+                    <mat-grid-tile [colspan]="1">Component Slot</mat-grid-tile>
+                    <mat-grid-tile [colspan]="1">Pin</mat-grid-tile>
+                    <mat-grid-tile [colspan]="1"><img src="../../assets/compslot.svg">
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="1"><img src="../../assets/pin.svg"></mat-grid-tile>
+                </mat-grid-list>
+            </div>
+
+        </mat-tab>
+
+        <mat-tab label="Component information">
+            <p>All pieces can be fitted to the Component Slots but only Gears can be attached to the Pins. The Pieces
+                are required to transport the marble to the bottom of the board and each have different uses. The
+                currently held piece will be shown by the colour change on the selection sidebar when clicked. You can
+                also hold 'Delete Piece' to remove any pieces from the board.</p>
+                <br>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <mat-text-column name="name"></mat-text-column>
+
+                <ng-container matColumnDef="image">
+                    <th mat-header-cell *matHeaderCellDef>Image</th>
+                    <td mat-cell *matCellDef="let element"><img src="{{element.imgLink}}"></td>
+                </ng-container>
+
+                <mat-text-column name="description"></mat-text-column>
+
+                <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+            </table>
+        </mat-tab>
+
+        <mat-tab label="Puzzles">
+            <div class="instructions">
+                <p>
+                    A puzzle in Virtual Turing Tumble will come with a
+                    <li>
+                        <b>Title</b>
+                    </li>
+                    <li>
+                        <b>Description (objective)</b> that will give an overview of the puzzle and describe how to win,
+                        this can sometimes entail an objective about the board itself not the marble output e.g.
+                        intercept a ball.
+                    </li>
+                    <li>
+                        <b>Starting Board</b> set up are the initial pieces on the board that help give hints towards the puzzle. These pieces can't be replaced. 
+                    </li>
+                    <li>
+                        <b>Required Output</b> this the output needed to 'win' the puzzle. Some puzzles won't have a required output as it will be focused more on the board state e.g. move 2 bits.
+                    </li>
+                    <li>
+                        <b>Available parts</b> there parts are the only ones that can be used to meet the objective, no more can be used and it is likely that all will be needed.
+                    </li>
+                </p>
+                <br>
+                <p>
+                    To play a puzzle, go to either the <b>Original Puzzles</b> page which contain puzzles created using
+                    the puzzle book from the physical Turing Tumble or visit <b>Online Puzzles</b> to play puzzles made
+                    by other users of the site. On both pages you will see a list of puzzles that you can filter by
+                    difficulty and when selecting a puzzle drop down arrow which gives details about the puzzle,
+                    including it's description the starting board set up and the output required to complete the puzzle.
+                </p>
+                <mat-divider></mat-divider>
+                <h1 style="margin-top: 2%;">Making a puzzle</h1>
+                <p>
+                    A puzzle can be made from the <b>Create Puzzle</b> page an involves three steps
+                    <li>
+                        First, make the starting set up for your board and confirm the set up once it is finished. Use the 'Confirm set up' button when ready.
+                    </li>
+                    <li>
+                        Second, add pieces to the board which will act as the solution to your puzzle, increase the necessary marbles and play the puzzle until the collected marbles at the bottom equals your <b>required output</b>, it is okay to leave this blank if your puzzle doesn't have one. When ready click the 'Confirm set up' button.
+                    </li>
+                    <li>
+                        Lastly, after confirming the solution and final output you will be taken to a form to fill out the title, description and difficulty of your puzzle.
+                    </li>
+                </p>
+            </div>
+            <mat-divider></mat-divider>
+                <h1 style="margin-top: 2%;">Example puzzle card</h1>
+                <app-puzzle-card [puzzle]="examplePuzzle" [index]="0"></app-puzzle-card>
+        </mat-tab>
+
+    </mat-tab-group>
+</section>

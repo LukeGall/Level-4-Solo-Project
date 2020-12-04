@@ -143,7 +143,7 @@ export class Board {
                 console.log(marble.direction)
 
                 if (slot instanceof CompSlot) {
-                    if (slot.piece) {
+                    if (slot.piece && !(slot.piece instanceof Gear)) {
                         let oldPos = new Pos(marble.position.x, marble.position.y);
                         slot.piece.processMarble(marble);
                         if (slot.piece instanceof GearBit) {

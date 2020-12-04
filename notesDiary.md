@@ -178,11 +178,11 @@ Make a list of things that can be improved with the app
 * More tests and possible refactorings (Not too important)
 * Make plain board have a cool puzzle to start with
 * Home page
-* Potential colour scheme change 
-* Split bottom bar into two colours
 * Github io
-* Flesh out issues I found from notes
+* Flesh out issues I found from notes - important
 * User page? Maybe ability to save user data
+* Maybe save boards with JSON?
+* Marble details component for boards
 
 Completed 
 * Make SVGs have a white outline to improve visibility - done
@@ -194,6 +194,7 @@ Completed
 * Add the rest of the default puzzles - done
 * Show solution button for play puzzle - done
 * Reset marbles button for puzzle board- done
+* Split bottom bar into two colours- done
 
 # 2 Dec 2020
 
@@ -202,3 +203,20 @@ Using a mat 'chip' system to allow users to select between one or multiple diffe
 # 3 Dec 2020
 
 Last couple of days has been plain sailing with the list of improvements, will focus on making more notes the coming days. The difficulty filter has been completed using a mat-chip system and some functions to make sure it only adds the values allowed. No major issues, just focused on catching the changes at the removal and addition of items, could have changed the functions to be more efficient in removal but I don't think it would be worth it.
+
+Having a look at the main Turing Tumble page, the examples should be copied and viewable on the home or plain board page.
+
+Change the sidenav to let non logged in people use default puzzles
+
+# Tutorial page notes 
+Use a tab style system, general instructions, components, making puzzles
+
+General instructions should talk about the selection bar with the components being 1 colour and the options being another, these components (other than the gear) can be placed on a comp slot etc. Talk about deleting a piece, if the ball falls off the ball will stop etc, Go through a list of the options. 
+
+The Component tab should have a table of the pieces, what they look like and a short description of what it does. 
+
+# 4 Dec 2020
+
+Board should have some sort of marble details panel which can say when a marble has fallen, what position it is in etc. 
+
+The tutorial page has been created, I'm happy with it's output and think it focusing on the important elements of information without it being too fancy or anything.

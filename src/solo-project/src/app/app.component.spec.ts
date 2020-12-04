@@ -50,6 +50,6 @@ describe('AppComponent', () => {
 
     let sidenav: NodeList = fixture.nativeElement.querySelectorAll('button');
     // Only have 2 buttons, menu and code
-    expect(sidenav.length).toEqual(2);
+    expect(sidenav.length).toEqual(3);
   })
 });

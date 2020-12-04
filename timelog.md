@@ -221,3 +221,7 @@
 
 ## 3 Dec 2020
 * *1.5 hour* Error fixing and difficulty filter 
+* *4 hour* Tutorial and Home page making
+
+## 4 Dec 2020
+
