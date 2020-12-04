@@ -224,4 +224,4 @@
 * *4 hour* Tutorial and Home page making
 
 ## 4 Dec 2020
-
+* *5.5 hour* Finishing of tutorial page, home page and github io upload
