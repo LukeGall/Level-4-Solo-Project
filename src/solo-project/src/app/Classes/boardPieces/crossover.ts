@@ -4,9 +4,9 @@ import { Piece } from '../piece.enum';
 import { BoardPiece } from './board-piece';
 
 export class Crossover extends BoardPiece {
-    imgLink: string = "../../../assets/crossover.svg";
-    imgBlueMarble = "../../../assets/crossover-blue.svg";
-    imgRedMarble = "../../../assets/crossover-red.svg";
+    imgLink: string = "assets/crossover.svg";
+    imgBlueMarble = "assets/crossover-blue.svg";
+    imgRedMarble = "assets/crossover-red.svg";
 
     inPlayMarble: Marble;
     position: Pos;

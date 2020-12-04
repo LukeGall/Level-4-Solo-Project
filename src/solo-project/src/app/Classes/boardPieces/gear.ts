@@ -6,7 +6,7 @@ import { BoardPiece } from './board-piece';
 
 export class Gear extends BoardPiece{
     position: Pos;
-    imgLink: string = "../../../assets/gear.svg";
+    imgLink: string = "assets/gear.svg";
     imgBlueMarble = this.imgLink;
     imgRedMarble = this.imgLink;
     type=Piece.Gear;

@@ -5,9 +5,9 @@ import { Piece } from '../piece.enum';
 import { BoardPiece } from './board-piece';
 
 export class Interceptor extends BoardPiece{
-    imgLink: string = "../../../assets/interceptor.svg";
-    imgBlueMarble = "../../../assets/interceptor-blue.svg"
-    imgRedMarble = "../../../assets/interceptor-red.svg"
+    imgLink: string = "assets/interceptor.svg";
+    imgBlueMarble = "assets/interceptor-blue.svg"
+    imgRedMarble = "assets/interceptor-red.svg"
 
     type=Piece.Interceptor;
     info="Stop and catch the marble"
