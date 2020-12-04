@@ -1,0 +1,28 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="402" y="-1" x="-1"/>
+  <g display="none" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" id="svg_2"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <g id="svg_25">
+   <g id="svg_22" transform="rotate(-5.11937, 200, 200) matrix(0.333333, 0, 0, 0.333333, 0, 0)">
+    <title stroke-width="3">background</title>
+    <rect stroke-width="3" x="399.00064" y="399.00064" width="402" height="402" id="svg_17" fill="none"/>
+    <g id="svg_15" display="none">
+     <rect id="svg_16" width="400" height="400" x="400.00064" y="400.00064" stroke-width="3" fill="url(#gridpattern)"/>
+    </g>
+   </g>
+   <g id="svg_24" transform="matrix(1.2807, 0, 0, 1.2807, -532.422, -604.422)">
+    <title stroke-width="3">Layer 1</title>
+    <ellipse fill="#2a51ed" stroke="#000" stroke-width="3" cx="571.89199" cy="628.11118" id="svg_12" rx="35" ry="35"/>
+   </g>
+  </g>
+ </g>
+</svg>

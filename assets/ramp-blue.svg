@@ -1,0 +1,42 @@
+<svg width="399.99999999999994" height="399.99999999999994" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="402" y="-1" x="-1"/>
+  <g display="none" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" id="svg_2"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_7" d="m74.1186,132.42108c6.37135,-3.22649 138.79719,109.06257 176.63009,105.09033c37.8329,-3.97224 77.78874,-67.32963 78.5225,-55.39681c0.73376,11.93282 3.96518,37.27122 -2.98797,44.22141c-6.95315,6.95019 -44.9951,38.01883 -74.2964,41.23548c-29.30131,3.21667 -172.06968,-97.14208 -178.11413,-102.60867c-6.04444,-5.46659 -6.12545,-29.31526 0.24589,-32.54175l0.00003,0.00001l-0.00001,0z" stroke-opacity="null" stroke-width="2" stroke="#000" fill="#00bf00"/>
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <g transform="rotate(-0.443162, 248.5, 183.5)" id="svg_28">
+   <g transform="matrix(0.98993, 0, 0, 1.00006, -393.982, -398.025)" id="svg_26">
+    <title>background</title>
+    <rect fill="none" id="svg_24" height="402" width="402" y="380.48944" x="448.01834"/>
+    <g display="none" id="svg_22">
+     <rect fill="url(#gridpattern)" stroke-width="0" y="381.48944" x="449.01834" height="400" width="400" id="svg_23"/>
+    </g>
+   </g>
+   <g transform="matrix(0.98993, 0, 0, 1.00006, -393.982, -398.025)" id="svg_27">
+    <title>Layer 1</title>
+    <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+    <g id="svg_15">
+     <g id="svg_18" transform="rotate(-5.11937, 649.018, 581.489) matrix(0.333333, 0, 0, 0.333333, 0, 0)">
+      <title>background</title>
+      <rect x="1746.05707" y="1543.47015" width="402" height="402" id="svg_21" fill="none"/>
+      <g id="svg_19" display="none">
+       <rect id="svg_20" width="400" height="400" x="1747.05707" y="1544.47015" stroke-width="0" fill="url(#gridpattern)"/>
+      </g>
+     </g>
+     <g id="svg_16" transform="matrix(1.2807, 0, 0, 1.2807, -532.422, -604.422)">
+      <title>Layer 1</title>
+      <ellipse fill="#2a51ed" stroke="#000" stroke-width="2" cx="922.49585" cy="925.98695" id="svg_17" rx="35" ry="35"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

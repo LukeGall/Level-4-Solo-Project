@@ -1,0 +1,27 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="402" y="-1" x="-1"/>
+  <g display="none" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" id="svg_2"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_1">
+   <path id="svg_8" d="m106.42216,314.96064l189.06836,-1.41625l-13.4543,24.43018c-52.51899,-1.06219 -108.93264,1.06219 -161.45164,0l-14.16242,-23.01394l0,0.00001z" stroke-opacity="null" stroke-width="3" stroke="#000" fill="#ff7f00"/>
+   <g id="svg_18">
+    <rect transform="matrix(0.890825, -0.578508, 0.578508, 0.890825, -31.0787, 184.137)" id="svg_13" height="87.99959" width="20.9999" y="98.58571" x="289.85272" stroke-opacity="null" stroke-width="3" stroke="#000" fill="#ff7f00"/>
+    <rect transform="matrix(0.593967, 0.880593, -0.880593, 0.593967, 317.451, -218.041)" id="svg_14" height="52.54686" width="19.00466" y="176.07483" x="317.48645" stroke-opacity="null" stroke-width="3" stroke="#000" fill="#ff7f00"/>
+   </g>
+   <g id="svg_19">
+    <rect transform="matrix(0.890825, 0.578508, -0.578508, 0.890825, 92.8811, -47.5242)" id="svg_9" height="87.99959" width="20.9999" y="106.82771" x="74.14735" stroke-opacity="null" stroke-width="3" stroke="#000" fill="#ff7f00"/>
+    <rect transform="matrix(0.593967, -0.880593, 0.880593, 0.593967, -134.477, 133.367)" id="svg_10" height="52.54686" width="19.00466" y="159.47116" x="53.5075" stroke-opacity="null" stroke-width="3" stroke="#000" fill="#ff7f00"/>
+   </g>
+   <rect id="svg_20" height="79.66405" width="21.24373" y="61.71878" x="191.75169" stroke-opacity="null" stroke-width="3" stroke="#000" fill="#ff7f00"/>
+   <rect id="svg_23" height="16.4639" width="80.19515" y="136.603" x="162.27599" stroke-width="3" stroke="#000" fill="#ff7f00"/>
+  </g>
+ </g>
+</svg>
