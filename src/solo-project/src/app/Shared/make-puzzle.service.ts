@@ -69,24 +69,31 @@ export class MakePuzzleService {
     let ret: BoardPiece;
     switch (piece.type) {
       case Piece.Ramp:
-        ret = Object.assign(new Ramp(Direction.stopped, new Pos(0, 0)), piece);
+        ret = new Ramp(Direction.stopped, new Pos(0, 0))
         break;
       case Piece.Gear:
-        ret = Object.assign(new Gear(new Pos(0, 0)), piece);
+        ret = new Gear(new Pos(0,0))
         break;
       case Piece.Crossover:
-        ret = Object.assign(new Crossover(new Pos(0, 0)), piece);
+        ret = new Crossover(new Pos(0, 0))
         break;
       case Piece.Bit:
-        ret = Object.assign(new Bit(Direction.stopped, new Pos(0, 0)), piece);
+        ret = new Bit(Direction.stopped, new Pos(0, 0))
         break;
       case Piece.GearBit:
-        ret = Object.assign(new GearBit(Direction.stopped, new Pos(0, 0)), piece);
+        ret = new GearBit(Direction.stopped, new Pos(0, 0));
         break;
       case Piece.Interceptor:
-        ret = Object.assign(new Interceptor(new Pos(0, 0)), piece);
+        ret = new Interceptor(new Pos(0, 0));
         break;
     }
+    
+    // Make sure puzzles with incorrect asset path get the correct path
+    piece.imgBlueMarble = ret.imgBlueMarble;
+    piece.imgRedMarble = ret.imgRedMarble;
+    piece.imgLink = ret.imgLink;
+    ret = Object.assign(ret, piece);
+
     return ret;
   }
 

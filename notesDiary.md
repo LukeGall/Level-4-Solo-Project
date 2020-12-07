@@ -225,20 +225,22 @@ The tutorial page has been created, I'm happy with it's output and think it focu
 The list of possible features has been updated for the last 2 weeks of the project, I will spend most of these two weeks focusing on making the best code I can, but will want to spend some time near the end doing documentation and getting it all ready for the dissertation next semester. One of my friends was kind enough to play about with the app over the weekend and gave a few suggestions that I will add below
 
 * Fix double scroll bar - done
-* Can Toggle to say play / pause
+* Can Toggle to say play / pause - done
 * Make title a little bit further away from the hamburger icon - done
 * Fix typos - done
 * Possible re design of homepage
 
 Bugs
 * Reset board doesn't reset last row of components - done
-* Toggle spam 
+* Toggle spam - done 
 * Fix interceptor stuff
 * Footer on puzzle pages - done
-* Icons still not all there on web
+* Icons still not all there on web - done
 * Auth not working on web
 
 Improvements 
 * Could maybe make a step backwards button
 * Maybe interactive tutorial but not high priority 
+
+Mostly dealing with bug fixes today, happy with how it progressed and what I got done. The Auth issue with github pages is a strange one that I'll hopefully get done tomorrow. 
 
