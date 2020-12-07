@@ -18,6 +18,7 @@ export class SelectionBarComponent implements OnInit {
   @Input() heldPart: string = null;
   @Input() isPuzzleBoard: boolean = false;
   @Input() boardState : boardState;
+  @Input() inPlay: boolean = false;
 
   @Output() clickHolding = new EventEmitter<Piece>();
   @Output() stepBoard = new EventEmitter();

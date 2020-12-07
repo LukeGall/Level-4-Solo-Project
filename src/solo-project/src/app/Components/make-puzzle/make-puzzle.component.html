@@ -4,7 +4,7 @@
             <app-selection-bar [heldPart]="puzzleBoard.heldPiece" [partList]="puzzleBoard.boardPieces"
                 (clickHolding)="setHolding($event)" (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()"
                 (reset)="clearBoard()" [isPuzzleBoard]="true" (confStartingPieces)="confirmStarting()"
-                [boardState]="puzzleBoard.boardState" (confPuzzleOutput)="confirmBoard(user.displayName)"></app-selection-bar>
+                [boardState]="puzzleBoard.boardState" (confPuzzleOutput)="confirmBoard(user.displayName)" [inPlay]="puzzleBoard.inPlay"></app-selection-bar>
 
         </div>
         <div id="boardSide">

@@ -22,7 +22,8 @@ export class Board {
     collectedMarbles: MarblePair[] = new Array<MarblePair>();
     boardPieces: any = new Map([[Piece.Ramp, -1], [Piece.Gear, -1], [Piece.Bit, -1], [Piece.Crossover, -1], [Piece.GearBit, -1], [Piece.Interceptor, -1]]);;
     heldPiece: Piece = null;
-    private inPlay: boolean = true;
+    inPlay: boolean = true;
+    private playLock:boolean = true;
     private speedInMs: number = 1000;
 
     constructor(numOfMarbles: number) {
@@ -120,10 +121,15 @@ export class Board {
     }
 
     private async play() {
-        while (this.inPlayMarble && this.inPlay) {
-            // Ensure that the first dropped marble doesn't instantly go to it's next position
+        if(this.playLock){
+            this.playLock = false;
             await this.sleep();
-            this.dropMarble();
+            while (this.inPlayMarble && this.inPlay) {
+                // Ensure that the first dropped marble doesn't instantly go to it's next position
+                this.dropMarble();
+                await this.sleep();
+            }
+            this.playLock = true;
         }
     }
 

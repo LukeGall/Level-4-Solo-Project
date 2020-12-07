@@ -90,7 +90,7 @@ const OPTION_DATA: any[] = [
       one level, following it's path.`
   },
   {
-    name: "Toggle",
+    name: "Play / Pause",
     description: "Will pause / play the movement of the in play marble"
   },
   {

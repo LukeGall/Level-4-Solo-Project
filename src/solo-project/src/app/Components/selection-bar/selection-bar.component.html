@@ -20,7 +20,7 @@
         </button>
         <div *ngIf="notStarting()">
             <button mat-raised-button color="warn" (click)="step()">Step Forward</button>
-            <button mat-raised-button color="warn" (click)="trigger()">Toggle</button>
+            <button mat-raised-button color="warn" (click)="trigger()">{{ inPlay ? 'Pause' : 'Play'}}</button>
             <button mat-raised-button color="warn" (click)="clearBoard()">Reset Board</button>
             <button *ngIf="!isPuzzleBoard" mat-raised-button color="warn" (click)="resetMarbles()">Reset Marbles</button>
             <div *ngIf="isPlaying()">
