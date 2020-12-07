@@ -1,21 +1,20 @@
 
 .board{
     position: relative;
-    width: 70%;
-    margin:5% auto;
+    width: 60vh;
+    margin:1vh auto;
     align-self: center;
-    background-color: ghostwhite;
     justify-self: center;
 }
 
 .blue{
     float:left;
     color: blue;
-    margin:2%;
+    margin:1vh;
 }
 
 .red{
-    margin:2%;
+    margin:1vh;
     float:right;
     color: red;
 }
@@ -29,16 +28,15 @@
 }
 
 #selectionBar{
-    margin-top: 2%;
-    margin-left: 2%;
+    margin-top: 2vh;
+    margin-left: 2vh;
     width:25%;
     overflow: hidden;
     float: left;
 }
 
 #boardSide{
-        margin-top: 2%;
-        width:60%;
-        overflow: hidden;
+    width:60%;
+    overflow: hidden;
 }
 

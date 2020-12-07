@@ -1,21 +1,20 @@
 
 .board{
     position: relative;
-    width: 70%;
-    margin:5% auto;
+    width: 50vh;
+    margin:1vh auto;
     align-self: center;
-    background-color: ghostwhite;
     justify-self: center;
 }
 
 .blue{
     float:left;
     color: blue;
-    margin:2%;
+    margin:1vh;
 }
 
 .red{
-    margin:2%;
+    margin:1vh;
     float:right;
     color: red;
 }
@@ -48,7 +47,6 @@
 }
 
 #boardSide{
-        margin-top: 2%;
         width:60%;
         overflow: hidden;
 }

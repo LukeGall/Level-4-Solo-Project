@@ -52,8 +52,8 @@ export class Board {
     clearPieces() {
         this.inPlayMarble = null;
         this.collectedMarbles = new Array<MarblePair>();
-        for (var i = 0; i < 10; i++) {
-            for (var j = 0; j < 10; j++) {
+        for (var i = 0; i < this.slots.length; i++) {
+            for (var j = 0; j < this.slots[0].length; j++) {
                 if (this.slots[i][j]) {
                     this.slots[i][j].piece = null;
                 }

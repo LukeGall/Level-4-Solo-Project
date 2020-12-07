@@ -172,16 +172,12 @@ Move pieces in order of difficulty
 
 Make a list of things that can be improved with the app
 
-
-* Make tutorial page
-* Look at possible animation
+* Look at possible animation - not feasible
 * More tests and possible refactorings (Not too important)
 * Make plain board have a cool puzzle to start with
-* Home page
-* Github io
 * Flesh out issues I found from notes - important
-* User page? Maybe ability to save user data
-* Maybe save boards with JSON?
+* User page? Maybe ability to save user data (Not important)
+* Maybe save boards with JSON? 
 * Marble details component for boards
 
 Completed 
@@ -194,6 +190,9 @@ Completed
 * Add the rest of the default puzzles - done
 * Show solution button for play puzzle - done
 * Reset marbles button for puzzle board- done
+* Make tutorial page - done
+* Home page - done
+* Github io - done
 * Split bottom bar into two colours- done
 
 # 2 Dec 2020
@@ -220,3 +219,26 @@ The Component tab should have a table of the pieces, what they look like and a s
 Board should have some sort of marble details panel which can say when a marble has fallen, what position it is in etc. 
 
 The tutorial page has been created, I'm happy with it's output and think it focusing on the important elements of information without it being too fancy or anything.
+
+# 7 Dec 2020
+
+The list of possible features has been updated for the last 2 weeks of the project, I will spend most of these two weeks focusing on making the best code I can, but will want to spend some time near the end doing documentation and getting it all ready for the dissertation next semester. One of my friends was kind enough to play about with the app over the weekend and gave a few suggestions that I will add below
+
+* Fix double scroll bar - done
+* Can Toggle to say play / pause
+* Make title a little bit further away from the hamburger icon - done
+* Fix typos - done
+* Possible re design of homepage
+
+Bugs
+* Reset board doesn't reset last row of components - done
+* Toggle spam 
+* Fix interceptor stuff
+* Footer on puzzle pages - done
+* Icons still not all there on web
+* Auth not working on web
+
+Improvements 
+* Could maybe make a step backwards button
+* Maybe interactive tutorial but not high priority 
+

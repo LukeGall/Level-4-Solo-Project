@@ -1,24 +1,26 @@
 <span [ngClass]="this.darkTheme ? 'unicorn-dark-theme' : 'defTheme'">
-    <mat-toolbar color="primary" id="toolbar">
-        <button mat-icon-button class="menu-icon" (click)="sidenav.toggle()">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <span id="title">Virtual Turing Tumble</span>
-        <span class="spacer"></span>
-        <button mat-button (click)="this.darkTheme = !this.darkTheme">Change theme</button>
-        <a href="https://github.com/LukeGall/Level-4-Solo-Project" target="_blank"><button mat-icon-button class>
-            <mat-icon>code</mat-icon>
-        </button></a>
-    </mat-toolbar>
-    <mat-sidenav-container class="sidenav-container">
-        <mat-sidenav #sidenav class="sidenav" mode="side">
-            <app-sidenav></app-sidenav>
-        </mat-sidenav>
-        
-        <mat-sidenav-content>
-            <div id=router>
-                <router-outlet></router-outlet>
-            </div>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+    <div class="container">
+        <mat-toolbar color="primary" id="toolbar">
+            <button mat-icon-button class="menu-icon" (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span id="title">Virtual Turing Tumble</span>
+            <span class="spacer"></span>
+            <button mat-button (click)="this.darkTheme = !this.darkTheme">Change theme</button>
+            <a href="https://github.com/LukeGall/Level-4-Solo-Project" target="_blank"><button mat-icon-button class>
+                    <mat-icon>code</mat-icon>
+                </button></a>
+        </mat-toolbar>
+        <mat-sidenav-container class="sidenav-container" [hasBackdrop]="false">
+            <mat-sidenav #sidenav class="sidenav" mode="side">
+                <app-sidenav></app-sidenav>
+            </mat-sidenav>
+
+            <mat-sidenav-content>
+                <div id=router>
+                    <router-outlet></router-outlet>
+                </div>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </div>
 </span>
