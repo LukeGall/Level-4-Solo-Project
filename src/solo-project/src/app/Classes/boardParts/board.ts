@@ -20,17 +20,19 @@ export class Board {
     redMarbles: Marble[] = new Array<Marble>();
     inPlayMarble: Marble = null;
     collectedMarbles: MarblePair[] = new Array<MarblePair>();
-    boardPieces: any = new Map([[Piece.Ramp, -1], [Piece.Gear, -1], [Piece.Bit, -1], [Piece.Crossover, -1], [Piece.GearBit, -1], [Piece.Interceptor, -1]]);;
+    boardPieces: any = new Map([[Piece.Ramp, -1], [Piece.Gear, -1], [Piece.Bit, -1], [Piece.Crossover, -1], [Piece.GearBit, -1], [Piece.Interceptor, -1]]);
+    private intercepted: boolean = false;
+
     heldPiece: Piece = null;
-    inPlay: boolean = true;
-    private playLock:boolean = true;
+    inPlay: boolean = false;
+    private playLock: boolean = true;
     private speedInMs: number = 1000;
 
     constructor(numOfMarbles: number) {
         this.slots[0] = new Array<Slot>();
         this.slots[1] = new Array<Slot>();
 
-        this.slots[0].push(null , null, new Pin(), new CompSlot(), new Pin(), null, new Pin(), new CompSlot(), new Pin(), null, null);
+        this.slots[0].push(null, null, new Pin(), new CompSlot(), new Pin(), null, new Pin(), new CompSlot(), new Pin(), null, null);
         this.slots[1].push(null, new Pin(), new CompSlot(), new Pin(), new CompSlot(), new Pin(), new CompSlot(), new Pin(), new CompSlot(), new Pin(), null);
 
         for (var i = 2; i < 10; i++) {
@@ -84,7 +86,8 @@ export class Board {
     }
 
     startMarble(colour: string) {
-        if (this.inPlayMarble == null) {
+        if(!this.inPlay){
+        // if (this.inPlayMarble == null) {
             this.releaseMarble(colour);
 
             this.inPlay = true;
@@ -121,7 +124,7 @@ export class Board {
     }
 
     private async play() {
-        if(this.playLock){
+        if (this.playLock) {
             this.playLock = false;
             await this.sleep();
             while (this.inPlayMarble && this.inPlay) {
@@ -163,6 +166,10 @@ export class Board {
             }
             else if (marble.direction != Direction.stopped) {
                 this.workOutFlipperColour(marble);
+            } else {
+                this.intercepted = true;
+                this.inPlay = false;
+                console.log("intercepted")
             }
         }
     }
@@ -249,7 +256,7 @@ export class Board {
                 } else {
                     let orgLocked = val.piece.locked;
                     val.piece = (dirForGbs == Direction.left) ? new GearBit(Direction.left, val.piece.position) : new GearBit(Direction.right, val.piece.position);
-                    if(val.piece.locked != orgLocked){
+                    if (val.piece.locked != orgLocked) {
                         val.piece.lock();
                     }
                 }
@@ -260,6 +267,10 @@ export class Board {
     clickPiece(pos: Pos): boolean {
         let changed = false;
         let newPiece: BoardPiece;
+        if(this.intercepted){
+            this.intercepted = false;
+            this.inPlayMarble = null;
+        }
 
         switch (this.heldPiece) {
             case Piece.Ramp:
@@ -337,7 +348,7 @@ export class Board {
             } else {
                 let orgLocked = val.piece.locked;
                 val.piece = (dirForGbs == Direction.left) ? new GearBit(Direction.left, val.piece.position) : new GearBit(Direction.right, val.piece.position);
-                if(val.piece.locked != orgLocked){
+                if (val.piece.locked != orgLocked) {
                     val.piece.lock();
                 }
             }

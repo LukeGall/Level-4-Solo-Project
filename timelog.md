@@ -225,3 +225,9 @@
 
 ## 4 Dec 2020
 * *5.5 hour* Finishing of tutorial page, home page and github io upload
+
+## 7 Dec 2020
+* *5.5 hour* Bug fixes, appearance changes, meeting and general improvements to app
+
+## 8 Dec 2020
+* *2 hour* Project lecture

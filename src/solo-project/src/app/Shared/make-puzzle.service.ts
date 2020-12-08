@@ -120,6 +120,7 @@ export class MakePuzzleService {
     newPBoard.collectedMarbles = Object.assign(new Array<MarblePair>(), newPBoard.collectedMarbles);
 
     newPBoard.inPlayMarble = null;
+    newPBoard.inPlay = false;
 
     newPBoard.boardPieces = new Map(newPBoard.boardPieces);
     newPBoard.startingPieces = new Map(newPBoard.startingPieces);

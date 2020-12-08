@@ -172,9 +172,8 @@ Move pieces in order of difficulty
 
 Make a list of things that can be improved with the app
 
-* Look at possible animation - not feasible
-* More tests and possible refactorings (Not too important)
-* Make plain board have a cool puzzle to start with
+* More tests and possible refactorings 
+* Make plain board have a cool puzzles examples
 * Flesh out issues I found from notes - important
 * User page? Maybe ability to save user data (Not important)
 * Maybe save boards with JSON? 
@@ -233,14 +232,22 @@ The list of possible features has been updated for the last 2 weeks of the proje
 Bugs
 * Reset board doesn't reset last row of components - done
 * Toggle spam - done 
-* Fix interceptor stuff
+* Fix interceptor stuff - done
 * Footer on puzzle pages - done
 * Icons still not all there on web - done
-* Auth not working on web
+* Auth not working on web, just had to add domain to firebase - done
 
 Improvements 
-* Could maybe make a step backwards button
+* Could maybe make a step backwards button (think focusing on the write up and objectives of the project are more important than adding cool features)
 * Maybe interactive tutorial but not high priority 
 
 Mostly dealing with bug fixes today, happy with how it progressed and what I got done. The Auth issue with github pages is a strange one that I'll hopefully get done tomorrow. 
+
+One problem involves data saved for the original puzzles, when downloading them, they keep the data they were sent up with, so assests, inPlay etc that when fixed later, can't easily be updated again without re - updating all of them. So need to ad hoc fix them when they are pulled down, which is rather annoying. The readonly var modifier should work on typescript when using object assign but it doesn't.   
+
+# 8 Dec 2020
+
+Authentication was fixed, I forgot to add the correct domain to the firebase authentication section, so it didn't allow login from that domain. 
+
+Trigger buttons are now disabled when they can't be clicked, i.e. the ball is in play and not paused. 
 

@@ -7,6 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class FlipperComponent implements OnInit {
   @Input() colour: string;
+  @Input() inPlay: boolean = false;
+
   @Output() clickedFlipper = new EventEmitter<string>();
 
   constructor() { }
