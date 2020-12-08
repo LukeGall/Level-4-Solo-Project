@@ -34,15 +34,18 @@
       </mat-card-footer>
     </mat-card>
   </div>
-  <div id="dispensers">
-    <div class="blue">
+
+  <mat-grid-list cols="3" id="dispensers" [rowHeight]="'60px'">
+    <mat-grid-tile [colspan]="1">
       <app-dispenser [marbles]="board.blueMarbles" [marbleColour]="'blue'" [buttons]="false"></app-dispenser>
-    </div>
-    <div class="red">
+    </mat-grid-tile>
+    <mat-grid-tile>
+      placeholder
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1">
       <app-dispenser [marbles]="board.redMarbles" [marbleColour]="'red'" [buttons]="false"></app-dispenser>
-    </div>
-  </div>
-  <div class="clear"></div>
+    </mat-grid-tile>
+  </mat-grid-list>
   <div class="board">
 
     <app-board [board]="board"></app-board>

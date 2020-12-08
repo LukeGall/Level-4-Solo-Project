@@ -1,24 +1,11 @@
 
 .board{
     position: relative;
-    width: 50vh;
+    width: 55vh;
     margin:1vh auto;
     align-self: center;
     justify-self: center;
 }
-
-.blue{
-    float:left;
-    color: blue;
-    margin:1vh;
-}
-
-.red{
-    margin:1vh;
-    float:right;
-    color: red;
-}
-
 
 #confirm{
     width: 50%;
@@ -29,10 +16,6 @@
 h4{
     width: 30%;
     margin: 1vh;
-}
-
-.clear{
-    clear: both;
 }
 
 .prompt{
@@ -46,7 +29,7 @@ h4{
 
 #selectionBar{
     margin-top: 2vh;
-    margin-left: 2vh;
+    margin-left: 2vw;
     width:25%;
     overflow: hidden;
     float: left;

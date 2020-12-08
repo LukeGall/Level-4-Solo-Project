@@ -13,18 +13,19 @@
                 <app-prompt-card [boardState]="puzzleBoard.boardState"></app-prompt-card>
             </div>
             <div class="clear"></div>
-            <div id="dispensers">
-                <div class="blue">
-                    <app-dispenser [marbles]="puzzleBoard.blueMarbles" [marbleColour]="'blue'"
-                        (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)">
-                    </app-dispenser>
-                </div>
-                <div class="red">
-                    <app-dispenser [marbles]="puzzleBoard.redMarbles" [marbleColour]="'red'"
-                        (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)">
-                    </app-dispenser>
-                </div>
-            </div>
+            <mat-grid-list cols="3" id="dispensers" [rowHeight]="'80px'">
+                <mat-grid-tile [colspan]="1">
+                  <app-dispenser [marbles]="puzzleBoard.blueMarbles" [marbleColour]="'blue'" (increaseMarble)="increaseMarble($event)"
+                    (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  placeholder
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1">
+                  <app-dispenser [marbles]="puzzleBoard.redMarbles" [marbleColour]="'red'" (increaseMarble)="increaseMarble($event)"
+                    (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
+                </mat-grid-tile>
+              </mat-grid-list>
             <div class="clear"></div>
             <div class="board">
 

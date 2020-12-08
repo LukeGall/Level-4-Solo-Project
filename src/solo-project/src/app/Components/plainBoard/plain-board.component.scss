@@ -1,26 +1,10 @@
 
 .board{
     position: relative;
-    width: 60vh;
+    width: 65vh;
     margin:1vh auto;
     align-self: center;
     justify-self: center;
-}
-
-.blue{
-    float:left;
-    color: blue;
-    margin:1vh;
-}
-
-.red{
-    float:right;
-    color: red;
-    margin:1vh;
-}
-
-.clear{
-    clear: both;
 }
 
 #dispensers{
@@ -34,7 +18,7 @@
 
 #selectionBar{
     margin-top: 2vh;
-    margin-left: 2vh;
+    margin-left: 2vw;
     width:25%;
     overflow: hidden;
     float: left;

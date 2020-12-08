@@ -4,17 +4,19 @@
     (clearMarbles)="this.board.clearMarbles()" [inPlay]="board.inPlay"></app-selection-bar>
 </div>
 <div id="boardSide">
-  <div id="dispensers">
-    <div class="blue">
+  <mat-grid-list cols="3" id="dispensers" [rowHeight]="'80px'">
+    <mat-grid-tile [colspan]="1">
       <app-dispenser [marbles]="board.blueMarbles" [marbleColour]="'blue'" (increaseMarble)="increaseMarble($event)"
         (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
-    </div>
-    <div class="red">
+    </mat-grid-tile>
+    <mat-grid-tile>
+      placeholder
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1">
       <app-dispenser [marbles]="board.redMarbles" [marbleColour]="'red'" (increaseMarble)="increaseMarble($event)"
         (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
-    </div>
-  </div>
-  <div class="clear"></div>
+    </mat-grid-tile>
+  </mat-grid-list>
   <div class="board">
 
     <app-board [board]="board"></app-board>
