@@ -231,3 +231,7 @@
 
 ## 8 Dec 2020
 * *2 hour* Project lecture
+* *5 hour* Major bug fixes, appearance changes and home page redesign 
+
+## 9 Dec 2020
+* *3 hour* Adding complex board examples plus home page finished

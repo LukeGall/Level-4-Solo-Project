@@ -18,9 +18,7 @@
                   <app-dispenser [marbles]="puzzleBoard.blueMarbles" [marbleColour]="'blue'" (increaseMarble)="increaseMarble($event)"
                     (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
                 </mat-grid-tile>
-                <mat-grid-tile>
-                  placeholder
-                </mat-grid-tile>
+                <mat-grid-tile></mat-grid-tile>
                 <mat-grid-tile [colspan]="1">
                   <app-dispenser [marbles]="puzzleBoard.redMarbles" [marbleColour]="'red'" (increaseMarble)="increaseMarble($event)"
                     (decreaseMarble)="decreaseMarble($event)"></app-dispenser>

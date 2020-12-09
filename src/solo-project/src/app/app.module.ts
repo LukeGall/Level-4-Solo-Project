@@ -75,7 +75,7 @@ import { HomeComponent } from './Components/home/home.component';
     PuzzleCardComponent,
     DefaultPuzzlesComponent,
     TutorialComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

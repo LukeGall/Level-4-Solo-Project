@@ -1,5 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { cloneDeep } from 'lodash';
 import { Board } from 'src/app/Classes/boardParts/board';
+import { Slot } from 'src/app/Classes/boardParts/slot';
+import { Example1 } from 'src/app/Classes/exampleBoards/example1';
+import { Example2 } from 'src/app/Classes/exampleBoards/example2';
+import { Example3 } from 'src/app/Classes/exampleBoards/example3';
+import { Example4 } from 'src/app/Classes/exampleBoards/example4';
 import { Piece } from 'src/app/Classes/piece.enum';
 
 @Component({
@@ -8,14 +14,16 @@ import { Piece } from 'src/app/Classes/piece.enum';
   styleUrls: ['./plain-board.component.scss']
 })
 export class PlainBoardComponent implements OnInit {
-  @Input() board: Board = null;
+  board: Board = null;
 
   constructor() { }
 
   ngOnInit(): void {
-    if (!this.board) {
-      this.board = new Board(6);
-    }
+    this.board = new Board(18);
+  }
+
+  setExample(examNumber: number){
+    this.board.setExample(examNumber);
   }
 
 

@@ -28,6 +28,7 @@ export class SelectionBarComponent implements OnInit {
   @Output() confPuzzleOutput = new EventEmitter();
   @Output() displayAnswer = new EventEmitter();
   @Output() clearMarbles = new EventEmitter();
+  @Output() exampleEmitter = new EventEmitter<number>();
 
   constructor() { }
 
@@ -43,14 +44,6 @@ export class SelectionBarComponent implements OnInit {
     this.clicked(Piece.Delete);
   }
 
-  step() {
-    this.stepBoard.emit();
-  }
-
-  trigger() {
-    this.triggerPlay.emit();
-  }
-
   isSelected(piece: string): boolean {
     if (this.heldPart) {
       return this.heldPart == piece;
@@ -61,17 +54,6 @@ export class SelectionBarComponent implements OnInit {
     return this.partList.get(Piece.Ramp) != -1;
   }
 
-  clearBoard() {
-    this.reset.emit();
-  }
-
-  confirmStarting() {
-    this.confStartingPieces.emit();
-  }
-
-  confirmOutput(){
-    this.confPuzzleOutput.emit();
-  }
 
   notStarting(){
     if(this.boardState){
@@ -145,13 +127,5 @@ export class SelectionBarComponent implements OnInit {
     } else {
       return -1;
     }
-  }
-
-  showAnswer(){
-    this.displayAnswer.emit();
-  }
-
-  resetMarbles(){
-    this.clearMarbles.emit();
   }
 }

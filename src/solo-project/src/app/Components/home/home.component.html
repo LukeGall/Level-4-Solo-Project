@@ -1,26 +1,84 @@
 <div class="wrapper">
-    <mat-card>
-        <mat-card-title>
-            <h1>Home Page</h1>
-        </mat-card-title>
-        <mat-card-content>
-            <p>Welcome to the Virtual Turing Tumble site!</p>
-            <p>
-                This site was created as part of my 4th year individual project at Glasgow University. The code icon in
-                the
-                top right will take you to the Github for this project with all the code and notes taken during the
-                project.
-                If you have any questions or suggestions please find my email in the Github. This site will be
-                maintained
-                for the duration of my time at Uni and hope people have fun with it. It may be rough around the edges in
-                a
-                few sections but I hope you can still enjoy the main content and features.
-            </p>
-            <p>
-                The main feature of this site is the ability to simulate a <a href="https://www.turingtumble.com/"
-                    style="color: inherit;">Turing Tumble board game</a> but also includes puzzle making and sharing.
-            </p>
-        </mat-card-content>
-    </mat-card>
+    <div id="InfoContent">
+        <mat-grid-list [cols]="3" [rowHeight]="'46vh'" [gutterSize]="'4vw'">
+            <mat-grid-tile>
+                <div>
+                    <h2>About this App</h2>
+                    <p>
+                        This site was created as part of my 4th year honours project at Glasgow University.
+                        It may be rough around the
+                        edges in
+                        a
+                        few sections but I hope you can still enjoy the main content and features.
+                    </p>
+                    <p>
+                        The main feature of this site is the ability to simulate a <a
+                            href="https://www.turingtumble.com/" style="color: inherit;">Turing Tumble board game</a>
+                        but also includes puzzle making and sharing.
+                    </p>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div>
+                    <h2>Tutorial</h2>
+                    <p>
+                        This app runs entirely in the browser, so requires no install. Use the side navigation bar to
+                        the left to navigate to other parts of the app.
+                    </p>
+                    <p>
+                        If you are unfamiliar with the app and the
+                        Turing Tumble board game visit the tutorial section <a routerLink="/tutorial">here</a>!
+                    </p>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div>
+                    <h2>Plain Board</h2>
+                    <p>The first place to start if you've read the tutorial is with a <a routerLink="/plain-board">plain
+                            board</a> which will have a few
+                        examples of more complicated Turing Tumble boards, plus the ability to make your own board!
+                    </p>
+                    <p>
+                        Make a board from your imagination or visit some of the featured boards below for inspiration.
+                    </p>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <mat-divider></mat-divider>
+    <div id="FeaturedPuzzles">
+        <h2 style="margin-top: 2vh;">Featured Puzzles</h2>
+        <mat-grid-list [cols]="4" [rowHeight]="'35vh'" [gutterSize]="'2vw'">
+            <mat-grid-tile>
+                <div class="board">
+                    <a routerLink="/plain-board">
+                        <app-board [board]="example1"></app-board>
+                    </a>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="board">
+                    <a routerLink="/plain-board">
+                        <app-board [board]="example2"></app-board>
+                    </a>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="board">
+                    <a routerLink="/plain-board">
+                        <app-board [board]="example3"></app-board>
+                    </a>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="board">
+                    <a routerLink="/plain-board">
+                        <app-board [board]="example4"></app-board>
+                    </a>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+
 
 </div>

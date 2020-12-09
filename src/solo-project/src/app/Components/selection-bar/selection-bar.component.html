@@ -19,20 +19,27 @@
             Delete Piece
         </button>
         <div *ngIf="notStarting()">
-            <button mat-raised-button color="warn" (click)="step()">Step Forward</button>
-            <button mat-raised-button color="warn" (click)="trigger()">{{ inPlay ? 'Pause' : 'Play'}}</button>
-            <button mat-raised-button color="warn" (click)="clearBoard()">Reset Board</button>
-            <button *ngIf="!isPuzzleBoard" mat-raised-button color="warn" (click)="resetMarbles()">Reset Marbles</button>
+            <button mat-raised-button color="warn" (click)="stepBoard.emit();">Step Forward</button>
+            <button mat-raised-button color="warn" (click)="triggerPlay.emit();">{{ inPlay ? 'Pause' : 'Play'}}</button>
+            <button mat-raised-button color="warn" (click)="reset.emit();">Reset Board</button>
+            <button *ngIf="!isPuzzleBoard" mat-raised-button color="warn" (click)="clearMarbles.emit();">Reset
+                Marbles</button>
             <div *ngIf="isPlaying()">
-                <button mat-raised-button color="warn" (click)="resetMarbles()">Reset Marbles</button>
-                <button mat-raised-button color="warn" (click)="showAnswer()">Show Answer</button>
+                <button mat-raised-button color="warn" (click)="clearMarbles.emit();">Reset Marbles</button>
+                <button mat-raised-button color="warn" (click)="displayAnswer.emit();">Show Answer</button>
             </div>
         </div>
         <div *ngIf="isPuzzleBoard && !isPlaying()">
-            <button *ngIf="!notStarting()" mat-raised-button color="warn" (click)="confirmStarting()">Confirm set
+            <button *ngIf="!notStarting()" mat-raised-button color="warn" (click)="confStartingPieces.emit();">Confirm set
                 up</button>
-            <button *ngIf="notStarting()" mat-raised-button color="warn" (click)="confirmOutput()">Confirm
+            <button *ngIf="notStarting()" mat-raised-button color="warn" (click)="confPuzzleOutput.emit();">Confirm
                 output</button>
+        </div>
+        <div *ngIf="!isPuzzleBoard">
+            <button mat-raised-button color="primary" (click)="exampleEmitter.emit(1)">Example 1 - Pattern</button>
+            <button mat-raised-button color="primary" (click)="exampleEmitter.emit(2)">Example 2 - Counting</button>
+            <button mat-raised-button color="primary" (click)="exampleEmitter.emit(3)">Example 3 - Addition</button>
+            <button mat-raised-button color="primary" (click)="exampleEmitter.emit(4)">Example 4 - Pattern</button>
         </div>
     </div>
 </mat-card>

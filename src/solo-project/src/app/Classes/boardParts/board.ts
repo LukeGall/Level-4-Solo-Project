@@ -1,3 +1,4 @@
+import { cloneDeep } from 'lodash';
 import { Bit } from '../boardPieces/bit';
 import { BoardPiece } from '../boardPieces/board-piece';
 import { Crossover } from '../boardPieces/crossover';
@@ -5,6 +6,10 @@ import { Gear } from '../boardPieces/gear';
 import { GearBit } from '../boardPieces/gear-bit';
 import { Interceptor } from '../boardPieces/interceptor';
 import { Ramp } from '../boardPieces/ramp';
+import { Example1 } from '../exampleBoards/example1';
+import { Example2 } from '../exampleBoards/example2';
+import { Example3 } from '../exampleBoards/example3';
+import { Example4 } from '../exampleBoards/example4';
 import { Piece } from '../piece.enum';
 import { CompSlot } from './comp-slot';
 import { Direction } from './direction';
@@ -86,8 +91,8 @@ export class Board {
     }
 
     startMarble(colour: string) {
-        if(!this.inPlay){
-        // if (this.inPlayMarble == null) {
+        if (!this.inPlay) {
+            // if (this.inPlayMarble == null) {
             this.releaseMarble(colour);
 
             this.inPlay = true;
@@ -267,7 +272,7 @@ export class Board {
     clickPiece(pos: Pos): boolean {
         let changed = false;
         let newPiece: BoardPiece;
-        if(this.intercepted){
+        if (this.intercepted) {
             this.intercepted = false;
             this.inPlayMarble = null;
         }
@@ -359,5 +364,24 @@ export class Board {
     clearMarbles() {
         this.inPlayMarble = null;
         this.collectedMarbles = new Array<MarblePair>();
+    }
+
+    setExample(examNumber: number) {
+        let example: Slot[][];
+        switch (examNumber) {
+            case 1:
+                example = Example1.getSlots();
+                break;
+            case 2:
+                example = Example2.getSlots();
+                break;
+            case 3:
+                example = Example3.getSlots();
+                break;
+            case 4:
+                example = Example4.getSlots();
+                break;
+        }
+        this.slots = cloneDeep(example)
     }
 }

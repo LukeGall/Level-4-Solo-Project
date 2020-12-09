@@ -34,6 +34,7 @@ export class MakePuzzleService {
   getPuzzles(location: string):Observable<unknown[]> {
     return this.db.list(location).valueChanges()
   }
+  
 
   toPuzzle(ele: any): Puzzle {
     let newPuzzle = Object.assign(new Puzzle(), ele);
@@ -131,7 +132,7 @@ export class MakePuzzleService {
   setBoard(board: PuzzleBoard) {
     this.puzzleBoard = board;
   }
-
+  
   confirmStarting() {
     this.puzzleBoard.confirmedStartingSlots();
   }
@@ -158,7 +159,7 @@ export class MakePuzzleService {
     this.curPuzzle.puzzleBoard.boardPieces = [...this.curPuzzle.puzzleBoard.boardPieces];
     this.curPuzzle.puzzleBoard.startingPieces = [...this.curPuzzle.puzzleBoard.startingPieces];
 
-    this.db.list('puzzles').push(JSON.stringify(this.curPuzzle));
+    this.db.list('puzzles').push(this.curPuzzle);
   }
 
   form = new FormGroup({
