@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { cloneDeep } from 'lodash';
 import { Board } from 'src/app/Classes/boardParts/board';
-import { Slot } from 'src/app/Classes/boardParts/slot';
-import { Example1 } from 'src/app/Classes/exampleBoards/example1';
-import { Example2 } from 'src/app/Classes/exampleBoards/example2';
-import { Example3 } from 'src/app/Classes/exampleBoards/example3';
-import { Example4 } from 'src/app/Classes/exampleBoards/example4';
 import { Piece } from 'src/app/Classes/piece.enum';
+import { saveAs } from 'file-saver';
+import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
 
 @Component({
   selector: 'app-plain-board',
@@ -15,8 +11,9 @@ import { Piece } from 'src/app/Classes/piece.enum';
 })
 export class PlainBoardComponent implements OnInit {
   board: Board = null;
+  uploadedBoard: File = null;
 
-  constructor() { }
+  constructor(private convertService: MakePuzzleService) { }
 
   ngOnInit(): void {
     this.board = new Board(18);
@@ -24,6 +21,30 @@ export class PlainBoardComponent implements OnInit {
 
   setExample(examNumber: number){
     this.board.setExample(examNumber);
+  }
+
+  saveBoard(){
+    var blob = new Blob([JSON.stringify(this.board.slots)], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, "TuringTumbleBoard.txt");
+  }
+
+  uploadBoard(files: FileList){
+    let input = files.item(0);
+    if(input.type == "text/plain"){
+      let reader = new FileReader();
+      reader.onload = () => {
+        var text = reader.result;
+        try {
+          this.board.slots = JSON.parse(text as string);
+          this.convertService.convertSlots(this.board.slots);
+        } catch (error) {
+          alert("Error loading file");
+        }
+      }
+      reader.readAsText(input);
+    } else {
+      alert("Wrong file type");
+    }
   }
 
 

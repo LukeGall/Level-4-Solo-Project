@@ -54,6 +54,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { TutorialComponent } from './Components/tutorial/tutorial.component';
 import { HomeComponent } from './Components/home/home.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

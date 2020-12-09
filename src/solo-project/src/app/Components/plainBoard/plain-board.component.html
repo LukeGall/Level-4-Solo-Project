@@ -1,26 +1,33 @@
 <div id=selectionBar>
   <app-selection-bar [heldPart]="board.heldPiece" [partList]="board.boardPieces" (clickHolding)="setHolding($event)"
     (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()" (reset)="clearBoard()"
-    (clearMarbles)="this.board.clearMarbles()" [inPlay]="board.inPlay" (exampleEmitter)="setExample($event)"></app-selection-bar>
+    (clearMarbles)="this.board.clearMarbles()" [inPlay]="board.inPlay" (exampleEmitter)="setExample($event)">
+  </app-selection-bar>
 </div>
 <div id="boardSide">
-  <mat-grid-list cols="3" id="dispensers" [rowHeight]="'80px'">
+  <mat-grid-list cols="4" id="dispensers" [rowHeight]="'80px'">
     <mat-grid-tile [colspan]="1">
       <app-dispenser [marbles]="board.blueMarbles" [marbleColour]="'blue'" (increaseMarble)="increaseMarble($event)"
         (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
     </mat-grid-tile>
-    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-raised-button color="primary"  (click)="saveBoard()">Save Board</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-raised-button color="primary"  (click)="fileUpload.click()">Upload Board</button>
+    </mat-grid-tile>
     <mat-grid-tile [colspan]="1">
       <app-dispenser [marbles]="board.redMarbles" [marbleColour]="'red'" (increaseMarble)="increaseMarble($event)"
         (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
     </mat-grid-tile>
   </mat-grid-list>
+  <input hidden="true" #fileUpload type="file" class="file-button" id="file" accept="text/plain"
+    (change)="uploadBoard($event.target.files)">
   <div class="board">
 
     <app-board [board]="board"></app-board>
 
   </div>
-
   <div id="triggers" style="width: 100%; margin: auto;">
     <mat-grid-list cols="3" rowHeight="25px">
       <mat-grid-tile [colspan]="1" [rowspan]="2">

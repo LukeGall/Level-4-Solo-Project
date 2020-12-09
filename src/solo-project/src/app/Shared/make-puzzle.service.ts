@@ -49,7 +49,7 @@ export class MakePuzzleService {
     };
   }
 
-  private convertSlots(arr: Slot[][]) {
+  convertSlots(arr: Slot[][]) {
     for (let i = 0; i < arr.length; i++) {
       for (let j = 0; j < arr[0].length; j++) {
         if (arr[i][j]) {

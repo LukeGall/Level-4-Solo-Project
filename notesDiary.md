@@ -261,3 +261,7 @@ Home redesign is going well, think I'll change the featured puzzles to featured 
 The home redesign is currently going well, this morning will be spent making the featured examples.
 
 Example boards took much longer to make than expected, pretty long work to get all the pieces in the right place and working, but that's done so i'll add them to the home page
+
+Uploading and saving a board of JSON works nicely, has some error handling so people won't be able to upload anything but text files that the JSON can parse.
+
+The plain board page has been updated with buttons to save and upload a board. 
