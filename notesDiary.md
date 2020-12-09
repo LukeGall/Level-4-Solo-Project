@@ -173,12 +173,12 @@ Move pieces in order of difficulty
 Make a list of things that can be improved with the app
 
 * More tests and possible refactorings 
-* Make plain board have a cool puzzles examples
 * Flesh out issues I found from notes - important
 * User page? Maybe ability to save user data (Not important)
-* Maybe save boards with JSON? 
 
 Completed 
+* Maybe save boards with JSON? - done
+* Make plain board have a cool puzzles examples - done
 * Make SVGs have a white outline to improve visibility - done
 * Make more SVGs for marble position for a piece - done
 * Add authentication - done
@@ -226,7 +226,7 @@ The list of possible features has been updated for the last 2 weeks of the proje
 * Can Toggle to say play / pause - done
 * Make title a little bit further away from the hamburger icon - done
 * Fix typos - done
-* Possible re design of homepage
+* Possible re design of homepage - done
 
 Bugs
 * Reset board doesn't reset last row of components - done
