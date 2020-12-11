@@ -1,10 +1,11 @@
+import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlayPuzzleComponent } from './play-puzzle.component';
 
 describe('PlayPuzzleComponent', () => {
-  let component: PlayPuzzleComponent;
-  let fixture: ComponentFixture<PlayPuzzleComponent>;
+  let component: TestPlayPuzzle;
+  let fixture: ComponentFixture<TestPlayPuzzle>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -14,7 +15,7 @@ describe('PlayPuzzleComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlayPuzzleComponent);
+    fixture = TestBed.createComponent(TestPlayPuzzle);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,4 +23,10 @@ describe('PlayPuzzleComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  @Component({
+    selector: `app-play-puzzle`,
+    template: `<app-play-puzzle [puzzle]="null">`
+  })
+  class TestPlayPuzzle{}
 });

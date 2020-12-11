@@ -236,3 +236,6 @@
 ## 9 Dec 2020
 * *3 hour* Adding complex board examples plus home page finished
 * *2 hour* File uploading system and github pages re upload
+
+## 11 Dec 2020
+* *2 hour* Fixing broken tests :(

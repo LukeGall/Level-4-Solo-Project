@@ -1,14 +1,26 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { BehaviorSubject } from 'rxjs';
 
 import { PlainBoardComponent } from './plain-board.component';
 
 describe('PlainBoardComponent', () => {
   let component: PlainBoardComponent;
   let fixture: ComponentFixture<PlainBoardComponent>;
+  const stub = {
+    collection: (name: string) => {
+      doc: (_id: string) => ({
+        valueChanges: () => new BehaviorSubject({foo: 'bar'}),
+        set: (_d: any) => new Promise((resolve, _reject) => resolve()),
+      })
+    }
+  }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers: [
+        {provide: AngularFireDatabase, useValue: stub},
+      ],
       declarations: [ PlainBoardComponent ]
     })
     .compileComponents();

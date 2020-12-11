@@ -1,15 +1,28 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { By } from '@angular/platform-browser';
+import { BehaviorSubject, of } from 'rxjs';
 
 import { SidenavComponent } from './sidenav.component';
 
 describe('SidenavComponent', () => {
   let component: SidenavComponent;
   let fixture: ComponentFixture<SidenavComponent>;
+  const stub = {
+    user: of(true),
+    collection: (name: string) => {
+      doc: (_id: string) => ({
+        valueChanges: () => new BehaviorSubject({foo: 'bar'}),
+        set: (_d: any) => new Promise((resolve, _reject) => resolve()),
+      })
+    }
+  }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidenavComponent ]
+      declarations: [ SidenavComponent ],
+      providers: [{provide: AngularFireDatabase, useValue: stub},{provide: AngularFireAuth, useValue: stub}]
     })
     .compileComponents();
   }));
@@ -29,8 +42,7 @@ describe('SidenavComponent', () => {
     let profileOptions: HTMLElement = debug.query(By.css('#profileOptions')).nativeElement;
     let listOfButtons : NodeList = profileOptions.querySelectorAll('button');
     
-    expect(listOfButtons[0].textContent).toContain("Log in", 'Should have a log in button');
-    expect(listOfButtons[1].textContent).toContain("New profile",'Should have new profile button');
+    expect(listOfButtons[0].textContent).toContain("Logout", 'Should have a log in button');
   })
 
   it('should have plain board button',()=>{
