@@ -15,15 +15,17 @@
             <div class="clear"></div>
             <mat-grid-list cols="3" id="dispensers" [rowHeight]="'80px'">
                 <mat-grid-tile [colspan]="1">
-                  <app-dispenser [marbles]="puzzleBoard.blueMarbles" [marbleColour]="'blue'" (increaseMarble)="increaseMarble($event)"
-                    (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
+                    <app-dispenser [marbles]="puzzleBoard.blueMarbles" [marbleColour]="'blue'"
+                        (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)">
+                    </app-dispenser>
                 </mat-grid-tile>
                 <mat-grid-tile></mat-grid-tile>
                 <mat-grid-tile [colspan]="1">
-                  <app-dispenser [marbles]="puzzleBoard.redMarbles" [marbleColour]="'red'" (increaseMarble)="increaseMarble($event)"
-                    (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
+                    <app-dispenser [marbles]="puzzleBoard.redMarbles" [marbleColour]="'red'"
+                        (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)">
+                    </app-dispenser>
                 </mat-grid-tile>
-              </mat-grid-list>
+            </mat-grid-list>
             <div class="clear"></div>
             <div class="board">
 
@@ -39,11 +41,12 @@
                     </mat-grid-tile>
                     <mat-grid-tile>Speed</mat-grid-tile>
                     <mat-grid-tile [colspan]="1" [rowspan]="2">
-                        <app-flipper [colour]="'red'" (clickedFlipper)="clickedFlipper($event)" [inPlay]="puzzleBoard.inPlay">
+                        <app-flipper [colour]="'red'" (clickedFlipper)="clickedFlipper($event)"
+                            [inPlay]="puzzleBoard.inPlay">
                         </app-flipper>
                     </mat-grid-tile>
                     <mat-grid-tile>
-                        <mat-slider #SpeedSliderMs invert min="200" max="3000" step="100" value="1000"
+                        <mat-slider #SpeedSliderMs invert min="100" max="3100" step="100" value="1500" id="mat-slider"
                             (input)="changeSpeed(SpeedSliderMs.value)" color="primary">
                         </mat-slider>
                     </mat-grid-tile>

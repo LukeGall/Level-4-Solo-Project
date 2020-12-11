@@ -92,7 +92,6 @@ export class Board {
 
     startMarble(colour: string) {
         if (!this.inPlay) {
-            // if (this.inPlayMarble == null) {
             this.releaseMarble(colour);
 
             this.inPlay = true;
@@ -138,6 +137,7 @@ export class Board {
                 await this.sleep();
             }
             this.playLock = true;
+            this.inPlay = false;
         }
     }
 
@@ -176,6 +176,8 @@ export class Board {
                 this.inPlay = false;
                 console.log("intercepted")
             }
+        } else {
+            this.inPlay = false;
         }
     }
 
@@ -189,7 +191,7 @@ export class Board {
         console.log("Marble has fallen");
     }
 
-    private workOutFlipperColour(marble: Marble) {
+    workOutFlipperColour(marble: Marble) {
         if (marble.position.x == 10 && marble.position.y == 5 && this.slots[10][5].piece) {
             this.slots[10][5].piece.processMarble(marble);
         }

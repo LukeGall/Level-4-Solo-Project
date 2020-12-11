@@ -239,3 +239,4 @@
 
 ## 11 Dec 2020
 * *2 hour* Fixing broken tests :(
+* *1 hour* More board tests

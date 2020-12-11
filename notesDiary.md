@@ -265,3 +265,8 @@ Example boards took much longer to make than expected, pretty long work to get a
 Uploading and saving a board of JSON works nicely, has some error handling so people won't be able to upload anything but text files that the JSON can parse.
 
 The plain board page has been updated with buttons to save and upload a board. 
+
+# 11 Dec 2020
+
+After a fairly slow morning fixing all the broken tests, trying to get all the import stuff working, the rest of the day will be spent working on more tests, focusing on the classes over the components.
+
