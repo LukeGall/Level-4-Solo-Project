@@ -276,3 +276,5 @@ All the classes now have a good set of tests, will focus on some component and e
 # 14 Dec 2020
 
 After some play testing by my family over the weekend a few extra bugs were found and then fixed. Other suggestions have been taken on board and will be worked on today, including some more points in the tutorial page
+
+Additions to tutorial page has been made plus some bug fixing

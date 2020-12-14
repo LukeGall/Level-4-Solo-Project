@@ -33,14 +33,12 @@
             </mat-grid-tile>
             <mat-grid-tile>
                 <div>
-                    <h2>Plain Board</h2>
-                    <p>The first place to start if you've read the tutorial is with a <a routerLink="/plain-board">plain
-                            board</a> which will have a few
-                        examples of more complicated Turing Tumble boards, plus the ability to make your own board!
+                    <h2>About the Turing Tumble</h2>
+                    <p>The Turing Tumble board game was designed to teach people how to code by teaching them the simple
+                        yet powerful components that make up the computers we use everyday.
                     </p>
-                    <p>
-                        Make a board from your imagination or visit some of the featured boards below for inspiration.
-                    </p>
+                    <p>By playing the puzzles, hopefully you'll get a better idea of how your computer works on the
+                        small scale and develop the logic needed to improve your coding skills!</p>
                 </div>
             </mat-grid-tile>
         </mat-grid-list>
@@ -52,28 +50,28 @@
             <mat-grid-tile>
                 <div class="board">
                     <a routerLink="/plain-board">
-                        <app-board [board]="example1"></app-board>
+                        <app-board [board]="example1" [gapAtBottom]="false"></app-board>
                     </a>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile>
                 <div class="board">
                     <a routerLink="/plain-board">
-                        <app-board [board]="example2"></app-board>
+                        <app-board [board]="example2" [gapAtBottom]="false"></app-board>
                     </a>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile>
                 <div class="board">
                     <a routerLink="/plain-board">
-                        <app-board [board]="example3"></app-board>
+                        <app-board [board]="example3" [gapAtBottom]="false"></app-board>
                     </a>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile>
                 <div class="board">
                     <a routerLink="/plain-board">
-                        <app-board [board]="example4"></app-board>
+                        <app-board [board]="example4" [gapAtBottom]="false"></app-board>
                     </a>
                 </div>
             </mat-grid-tile>

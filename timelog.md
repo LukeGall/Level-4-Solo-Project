@@ -245,3 +245,4 @@
 
 ## 14 Dec 2020
 * *1 hour* Basic user evals and bug fixes 
+* *2.5 hour* More bug fixes, appearance changes and more tutorial information

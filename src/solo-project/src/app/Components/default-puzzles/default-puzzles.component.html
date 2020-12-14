@@ -39,7 +39,7 @@
         </div>
 
         <ng-template #showPuzzle>
-            <app-play-puzzle [puzzle]="this.puzzles[puzzleId]" (home)="goHome()"></app-play-puzzle>
+            <app-play-puzzle [puzzle]="this.puzzles[puzzleId]" (home)="goHome()" [id] = "puzzleId" (changePuzzle)="setPuzzleTo($event)"></app-play-puzzle>
         </ng-template>
     </ng-template>
 </div>

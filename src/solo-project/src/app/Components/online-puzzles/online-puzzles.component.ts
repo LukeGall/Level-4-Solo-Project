@@ -74,6 +74,7 @@ export class OnlinePuzzlesComponent implements OnInit {
         this.puzzles.push(cloneDeep(puzzle));
       }
     })
+    this.curIndex = 0;
     this.puzzlePage = this.puzzles.slice(0, 5);
   }
 

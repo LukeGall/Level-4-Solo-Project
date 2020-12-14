@@ -41,7 +41,7 @@
                     'fall'. When a marble gets to the
                     bottom of the board it will release another blue or red marble depending on the side the marble gets
                     to. It will also be 'collected' in which the board will store the marbles that have reached the
-                    bottom. An example is shown below in which 2 blue marbles where collected, then 3 red and finally 5
+                    bottom. An example is shown below in which 2 blue marbles were collected, then 3 red and finally 5
                     blues.
                 </p>
                 <div id="collected-marbles">
@@ -83,6 +83,9 @@
                 <div class="board">
                     <app-board></app-board>
                 </div>
+                        <p>
+                            Pieces on the bottom 2 rows will drop marbles into the blue or red section, once dropped into this section it will release the next marble based on the colour it lands in.
+                        </p>
                 <mat-divider></mat-divider>
                 <h1 style="margin-top: 2%;">Component Slots and Pins</h1>
                 <mat-grid-list cols="2" [rowHeight]="'6:1'" style="width: 50%; margin: auto;">
@@ -111,6 +114,7 @@
                 </ng-container>
 
                 <mat-text-column name="description"></mat-text-column>
+                <mat-text-column name="isLike"></mat-text-column>
 
                 <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>

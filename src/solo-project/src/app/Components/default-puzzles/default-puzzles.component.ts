@@ -48,7 +48,6 @@ export class DefaultPuzzlesComponent implements OnInit {
 
   setPuzzleTo(x: number) {
     this.puzzleId = x + this.pageSize * this.curIndex;
-    console.log(this.puzzleId);
   }
 
   checkPuzzleId(): boolean {

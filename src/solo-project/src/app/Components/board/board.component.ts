@@ -9,6 +9,7 @@ import { Pos } from 'src/app/Classes/boardParts/pos';
 })
 export class BoardComponent implements OnInit {
   @Input() board: Board;
+  @Input() gapAtBottom: boolean = true;
 
   constructor() { }
 
