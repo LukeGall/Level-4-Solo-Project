@@ -159,7 +159,7 @@ export class MakePuzzleService {
     this.curPuzzle.puzzleBoard.boardPieces = [...this.curPuzzle.puzzleBoard.boardPieces];
     this.curPuzzle.puzzleBoard.startingPieces = [...this.curPuzzle.puzzleBoard.startingPieces];
 
-    this.db.list('puzzles').push(this.curPuzzle);
+    this.db.list('puzzles').push(JSON.stringify(this.curPuzzle));
   }
 
   form = new FormGroup({

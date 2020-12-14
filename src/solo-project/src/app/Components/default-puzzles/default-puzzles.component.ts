@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Puzzle } from 'src/app/Classes/puzzle';
 import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
-import { cloneDeep, cloneWith } from 'lodash';
+import { cloneDeep } from 'lodash';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormControl } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
@@ -48,6 +48,7 @@ export class DefaultPuzzlesComponent implements OnInit {
 
   setPuzzleTo(x: number) {
     this.puzzleId = x + this.pageSize * this.curIndex;
+    console.log(this.puzzleId);
   }
 
   checkPuzzleId(): boolean {
@@ -75,11 +76,12 @@ export class DefaultPuzzlesComponent implements OnInit {
         this.puzzles.push(cloneDeep(puzzle));
       }
     })
+    this.curIndex = 0;
     this.puzzlePage = this.puzzles.slice(0, 5);
   }
 
   resetDif() {
-    this.puzzles = cloneWith(this.fullPuzzles);
+    this.puzzles = cloneDeep(this.fullPuzzles);
     this.changePage(0);
   }
 

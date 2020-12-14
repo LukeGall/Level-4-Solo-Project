@@ -270,3 +270,9 @@ The plain board page has been updated with buttons to save and upload a board.
 
 After a fairly slow morning fixing all the broken tests, trying to get all the import stuff working, the rest of the day will be spent working on more tests, focusing on the classes over the components.
 
+All the classes now have a good set of tests, will focus on some component and end to end tests next week or this weekend, then spend a little bit of time cleaning up the code
+
+
+# 14 Dec 2020
+
+After some play testing by my family over the weekend a few extra bugs were found and then fixed. Other suggestions have been taken on board and will be worked on today, including some more points in the tutorial page
