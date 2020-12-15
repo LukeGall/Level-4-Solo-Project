@@ -10,9 +10,13 @@ export class Ramp extends BoardPiece {
     imgLink: string = "assets/ramp.svg";
     imgBlueMarble = "assets/ramp-blue.svg"
     imgRedMarble = "assets/ramp-red.svg"
+    type = Piece.Ramp;
+    info = "Send the marble in the direction of the Ramp"
 
-    type=Piece.Ramp;
-    info="Send the marble in the direction of the Ramp"
+    constructor(direction: Direction, position: Pos) {
+        super(position);
+        this.direction = direction;
+    }
 
     processMarble(marble: Marble) {
         marble.position.x += 1;
@@ -20,15 +24,7 @@ export class Ramp extends BoardPiece {
         marble.direction = this.direction;
     }
 
-    constructor(direction: Direction, position: Pos) {
-        super(position);
-        this.direction = direction;
-    }
 
-
-    getTxtDisplay(): string {
-        return "" + this.direction;
-    }
 
     click() {
         this.changeDirection();

@@ -28,18 +28,4 @@ describe('MakePuzzleService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
-  it('should convert example board pieces', () => {
-    const slots = Example1.slots;
-    service.convertSlots(slots);
-    slots.forEach(slotArr => {
-      slotArr.forEach(slot => {
-        if (slot) {
-          if(slot.piece){
-            expect(slot instanceof BoardPiece).toBeTruthy();
-          }
-        }
-      })
-    })
-  })
 });

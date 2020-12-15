@@ -4,28 +4,26 @@ import { Pos } from '../boardParts/pos';
 import { Piece } from '../piece.enum';
 import { BoardPiece } from './board-piece';
 
-export class Bit extends BoardPiece{
-    direction : Direction;
+export class Bit extends BoardPiece {
+    direction: Direction;
     imgLink: string = "assets/bit.svg";
     imgBlueMarble = "assets/bit-blue.svg"
     imgRedMarble = "assets/bit-red.svg"
-
-    inPlayMarble: Marble;
     position: Pos;
-    type=Piece.Bit;
-    info="Send marble in opposite direction then flip direction"
+    type = Piece.Bit;
+    info = "Send marble in opposite direction then flip direction"
 
-    constructor(direction: Direction, position: Pos){
+    constructor(direction: Direction, position: Pos) {
         super(position);
-        this.direction  = direction;
+        this.direction = direction;
     }
-   
+
 
     click() {
         this.switchDirection();
     }
-    
-    private switchDirection(){
+
+    private switchDirection() {
         this.direction = (this.direction == Direction.left) ? Direction.right : Direction.left;
     }
 
@@ -34,10 +32,5 @@ export class Bit extends BoardPiece{
         marble.position.y -= this.direction;
         this.switchDirection();
         marble.direction = this.direction;
-
-    }
-
-    getTxtDisplay(): string {
-        return ""+this.direction;
     }
 }

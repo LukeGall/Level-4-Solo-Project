@@ -77,7 +77,7 @@ export class PlainBoardComponent implements OnInit {
   }
 
   clearBoard() {
-    this.board.clearPieces();
+    this.board.resetBoard();
   }
 
 }

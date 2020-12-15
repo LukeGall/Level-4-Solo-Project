@@ -51,7 +51,7 @@ export class MakePuzzleComponent implements OnInit {
   }
 
   clearBoard(){
-    this.puzzleBoard.clearPieces();
+    this.puzzleBoard.resetBoard();
   }
 
   confirmStarting(){

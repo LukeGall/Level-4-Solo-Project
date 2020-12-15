@@ -122,6 +122,7 @@ export class MakePuzzleService {
 
     newPBoard.inPlayMarble = null;
     newPBoard.inPlay = false;
+    newPBoard.setSpeed(1500);
 
     newPBoard.boardPieces = new Map(newPBoard.boardPieces);
     newPBoard.startingPieces = new Map(newPBoard.startingPieces);

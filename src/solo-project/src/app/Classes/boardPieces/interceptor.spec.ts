@@ -6,12 +6,12 @@ import { Interceptor } from './interceptor';
 
 describe('Interceptor', () => {
   it('should create an instance', () => {
-    expect(new Interceptor(new Pos(0,0))).toBeTruthy();
+    expect(new Interceptor(new Pos(0, 0))).toBeTruthy();
   });
 
-  it('should stop marbles',()=>{
+  it('should stop marbles', () => {
     const marble: Marble = new Marble("blue");
-    const interceptor : Interceptor = new Interceptor(new Pos(0,0));
+    const interceptor: Interceptor = new Interceptor(new Pos(0, 0));
     interceptor.processMarble(marble);
     expect(marble.direction).toEqual(Direction.stopped);
   })

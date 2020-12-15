@@ -52,7 +52,7 @@ export class PlayPuzzleComponent implements OnInit {
   }
 
   clearBoard() {
-    this.board.clearPieces();
+    this.board.resetBoard();
   }
 
   wonPuzzle(): boolean{

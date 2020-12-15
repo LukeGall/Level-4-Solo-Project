@@ -1,6 +1,6 @@
 import { BoardPiece } from '../boardPieces/board-piece';
 
 export interface Slot {
-    partName:string;
+    partName: string;
     piece: BoardPiece;
 }

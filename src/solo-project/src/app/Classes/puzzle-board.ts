@@ -48,6 +48,7 @@ export class PuzzleBoard extends Board {
     }
 
     confirmedStartingSlots() {
+        // Lock all the pieces so they can't be changed by a player
         if (this.boardState == boardState.starting) {
             for (var i = 0; i < this.slots.length; i++) {
                 var rowOfSlots: Slot[] = this.slots[i];
@@ -86,7 +87,8 @@ export class PuzzleBoard extends Board {
         this.slots = cloneDeep(this.solutionSlot);
     }
 
-    clearPieces() {
+    resetBoard() {
+        // If playing reset to the starting slots, otherwise reset as normal 
         this.inPlayMarble = null;
         this.collectedMarbles = new Array<MarblePair>();
         if (this.boardState != boardState.starting) {
@@ -110,6 +112,8 @@ export class PuzzleBoard extends Board {
     }
 
     clickPiece(pos: Pos): boolean {
+        // Three main states for a puzzle, starting slot placement
+        // Making solution and playing the puzzle
         let changed = false;
         if (this.boardState == boardState.starting) {
             super.clickPiece(pos);
@@ -118,6 +122,7 @@ export class PuzzleBoard extends Board {
             // After set up
             let orgPiece: BoardPiece = this.slots[pos.x][pos.y].piece;
             changed = super.clickPiece(pos);
+            // Need to update how many pieces a player will have
             if (changed) {
                 if (this.heldPiece != Piece.Delete) {
                     this.changePieceAmount(this.heldPiece, 1);
@@ -128,7 +133,7 @@ export class PuzzleBoard extends Board {
                 }
             }
         } else {
-            // Playing board will need to deal with the option of slo
+            // Playing board will need to update number of pieces the player has left
             const slot = this.slots[pos.x][pos.y];
             let orgPiece: BoardPiece = slot.piece;
             changed = super.clickPiece(pos);
@@ -151,12 +156,8 @@ export class PuzzleBoard extends Board {
     }
 
     protected updateList(marble: Marble) {
-        let len = this.collectedMarbles.length;
-        if (len > 0 && this.collectedMarbles[len - 1].colour == marble.colour) {
-            this.collectedMarbles[len - 1].amount += 1;
-        } else {
-            this.collectedMarbles.push(new MarblePair(1, marble.colour));
-        }
+        // An extra check to check solution of board
+        super.updateList(marble);
         if (JSON.stringify(this.collectedMarbles) == JSON.stringify(this.expectedResults)) {
             this.correctResults = true;
             console.log("Correct");

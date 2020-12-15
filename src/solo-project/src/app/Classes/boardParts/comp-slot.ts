@@ -1,11 +1,11 @@
 import { BoardPiece } from '../boardPieces/board-piece';
 import { Slot } from './slot';
 
-export class CompSlot implements Slot{
-    partName:string = "CompSlot";
-    piece:BoardPiece;
+export class CompSlot implements Slot {
+    partName: string = "CompSlot";
+    piece: BoardPiece;
 
-    constructor(){
+    constructor() {
         this.piece = null;
     }
 }
