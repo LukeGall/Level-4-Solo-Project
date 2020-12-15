@@ -23,8 +23,8 @@ describe('CollectedMarblesComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should list the pairs',()=>{
-        component.marbles = new Array<MarblePair>(new MarblePair(3,"blue"),new MarblePair(1,"red"));
+    it('should list the pairs', () => {
+        component.marbles = new Array<MarblePair>(new MarblePair(3, "blue"), new MarblePair(1, "red"));
         fixture.detectChanges();
         const pairs: HTMLElement = fixture.nativeElement.querySelector('div');
         const listOfPairs = pairs.querySelectorAll('div');

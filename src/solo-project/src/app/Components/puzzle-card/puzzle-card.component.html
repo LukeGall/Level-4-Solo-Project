@@ -3,7 +3,7 @@
         <mat-expansion-panel-header>
             <mat-panel-title *ngIf="!hasUserName(); else userName">{{puzzle.title}}</mat-panel-title>
             <ng-template #userName>
-              <mat-panel-title>{{puzzle.title}} by {{puzzle.author}}</mat-panel-title>
+                <mat-panel-title>{{puzzle.title}} by {{puzzle.author}}</mat-panel-title>
             </ng-template>
             <mat-panel-description>
                 Difficulty - {{puzzle.difficulty}} stars

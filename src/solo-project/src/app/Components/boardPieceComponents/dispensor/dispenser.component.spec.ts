@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DispenserComponent } from './dispenser.component';
 
 describe('DispenserComponent', () => {

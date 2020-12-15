@@ -30,7 +30,8 @@
             </div>
         </div>
         <div *ngIf="isPuzzleBoard && !isPlaying()">
-            <button *ngIf="!notStarting()" mat-raised-button color="warn" (click)="confStartingPieces.emit();">Confirm set
+            <button *ngIf="!notStarting()" mat-raised-button color="warn" (click)="confStartingPieces.emit();">Confirm
+                set
                 up</button>
             <button *ngIf="notStarting()" mat-raised-button color="warn" (click)="confPuzzleOutput.emit();">Confirm
                 output</button>

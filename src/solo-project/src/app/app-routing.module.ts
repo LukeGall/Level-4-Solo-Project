@@ -9,13 +9,13 @@ import { TutorialComponent } from './Components/tutorial/tutorial.component';
 
 
 const routes: Routes = [
-  { path:'home', component: HomeComponent},
-  { path:'tutorial',component: TutorialComponent},
-  { path:'plain-board', component: PlainBoardComponent},
-  { path: 'make-puzzle', component: MakePuzzleComponent},
-  { path: 'online-puzzle', component: OnlinePuzzlesComponent},
-  { path: 'default-puzzles', component: DefaultPuzzlesComponent},
-  { path: '', redirectTo: '/home',pathMatch:'full'},
+  { path: 'home', component: HomeComponent },
+  { path: 'tutorial', component: TutorialComponent },
+  { path: 'plain-board', component: PlainBoardComponent },
+  { path: 'make-puzzle', component: MakePuzzleComponent },
+  { path: 'online-puzzle', component: OnlinePuzzlesComponent },
+  { path: 'default-puzzles', component: DefaultPuzzlesComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({

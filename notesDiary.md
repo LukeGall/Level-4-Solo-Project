@@ -283,4 +283,17 @@ The app is all finished just a few more tests to add tomorrow then can focus on 
 
 # 15 Dec 2020
 
-A few more e2e tests should be make today then I'll focus on cleaning up the code and trying to reduce duplication and any unneeded comments or console logs
+A few more e2e tests should be make today then I'll focus on cleaning up the code and trying to reduce duplication and any unneeded comments or console logs.
+
+Clean up of code complete, it will still be a little rough around some of the edges but it's at the stage where it is not enough value from the amount of effort needed to completely refactor it all. 
+
+Online and default puzzles are now just middle men components to the puzzle list component, reducing a lot of code duplication. Should really have gotten router para to work but I couldn't get that to work in time.
+
+## List of problems I faced during Development I should expand on in wiki
+* Router parameters for puzzle list
+* Having to convert online puzzles (readonly not working)
+* Storing the data of puzzles
+* Having to make new GearBit when they connect with each other
+* Getting the pieces into a general component form instead of board service
+* Map object passing 
+* Map object sending up

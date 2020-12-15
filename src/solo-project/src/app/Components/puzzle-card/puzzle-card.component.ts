@@ -9,20 +9,20 @@ import { Puzzle } from 'src/app/Classes/puzzle';
 export class PuzzleCardComponent implements OnInit {
   @Input() puzzle: Puzzle = new Puzzle();
   @Input() index: number;
-  @Output() puzzleClicked : EventEmitter<number> = new EventEmitter<number>();
+  @Output() puzzleClicked: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  click(){
+  click() {
     this.puzzleClicked.emit(this.index);
   }
 
-  hasUserName(): boolean{
-    if(this.puzzle.author){
-      if(this.puzzle.author != "default"){
+  hasUserName(): boolean {
+    if (this.puzzle.author) {
+      if (this.puzzle.author != "default") {
         return true;
       }
     }

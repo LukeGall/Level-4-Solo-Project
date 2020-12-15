@@ -1,4 +1,4 @@
-import { Component, Input,  OnInit,  } from '@angular/core';
+import { Component, Input, OnInit, } from '@angular/core';
 import { MarblePair } from 'src/app/Classes/boardParts/marblePair';
 
 @Component({
@@ -12,12 +12,7 @@ export class CollectedMarblesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
-  }
 
-  whatColour(pair:MarblePair):boolean{
-    return (pair.colour == "blue") ? true : false;
   }
-
 }
 

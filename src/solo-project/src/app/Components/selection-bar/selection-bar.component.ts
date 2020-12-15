@@ -17,7 +17,7 @@ export class SelectionBarComponent implements OnInit {
   @Input() partList: Map<Piece, number>;
   @Input() heldPart: string = null;
   @Input() isPuzzleBoard: boolean = false;
-  @Input() boardState : boardState;
+  @Input() boardState: boardState;
   @Input() inPlay: boolean = false;
 
   @Output() clickHolding = new EventEmitter<Piece>();
@@ -55,15 +55,15 @@ export class SelectionBarComponent implements OnInit {
   }
 
 
-  notStarting(){
-    if(this.boardState){
+  notStarting() {
+    if (this.boardState) {
       return this.boardState != boardState.starting;
     }
     return true;
   }
 
-  getInfo(piece:string): string{
-    switch(piece){
+  getInfo(piece: string): string {
+    switch (piece) {
       case Piece.Ramp:
         return (new Ramp(null, null)).info;
       case Piece.Gear:
@@ -79,8 +79,8 @@ export class SelectionBarComponent implements OnInit {
     }
   }
 
-  getPic(piece: string): string{
-    switch(piece){
+  getPic(piece: string): string {
+    switch (piece) {
       case Piece.Ramp:
         return (new Ramp(null, null)).imgLink;
       case Piece.Gear:
@@ -96,14 +96,14 @@ export class SelectionBarComponent implements OnInit {
     }
   }
 
-  isPlaying(){
-    if(this.boardState){
+  isPlaying() {
+    if (this.boardState) {
       return this.boardState == boardState.playing;
     }
   }
 
-  private getDiff(piece:any): number{
-    switch(piece){
+  private getDiff(piece: any): number {
+    switch (piece) {
       case Piece.Ramp:
         return 1;
       case Piece.Gear:
@@ -122,7 +122,7 @@ export class SelectionBarComponent implements OnInit {
   sortByDiff = (fst, snd) => {
     let fstDiff = this.getDiff(fst.key);
     let sndDiff = this.getDiff(snd.key);
-    if(fstDiff > sndDiff){
+    if (fstDiff > sndDiff) {
       return 1;
     } else {
       return -1;

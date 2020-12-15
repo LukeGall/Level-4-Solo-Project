@@ -8,9 +8,9 @@ describe('PromptCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PromptCardComponent ]
+      declarations: [PromptCardComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

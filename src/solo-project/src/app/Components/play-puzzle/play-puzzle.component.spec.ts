@@ -9,9 +9,9 @@ describe('PlayPuzzleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlayPuzzleComponent ]
+      declarations: [PlayPuzzleComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -28,5 +28,5 @@ describe('PlayPuzzleComponent', () => {
     selector: `app-play-puzzle`,
     template: `<app-play-puzzle [puzzle]="null">`
   })
-  class TestPlayPuzzle{}
+  class TestPlayPuzzle { }
 });

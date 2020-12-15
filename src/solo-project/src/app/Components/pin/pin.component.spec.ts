@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 
 import { PinComponent } from './pin.component';
 
@@ -10,9 +9,9 @@ describe('PinComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PinComponent ]
+      declarations: [PinComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -24,10 +23,10 @@ describe('PinComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
+
   @Component({
-    selector:'app-pin',
+    selector: 'app-pin',
     template: '<app-pin [pin]=null [x]="2" [y]="3">'
   })
-  class TestPin{}
+  class TestPin { }
 });

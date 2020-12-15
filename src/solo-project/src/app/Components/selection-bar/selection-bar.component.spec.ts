@@ -9,9 +9,9 @@ describe('SelectionBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelectionBarComponent ]
+      declarations: [SelectionBarComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

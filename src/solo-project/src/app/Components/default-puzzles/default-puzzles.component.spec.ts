@@ -9,21 +9,12 @@ import { DefaultPuzzlesComponent } from './default-puzzles.component';
 describe('DefaultPuzzlesComponent', () => {
   let component: DefaultPuzzlesComponent;
   let fixture: ComponentFixture<DefaultPuzzlesComponent>;
-  const stub = {
-    getPuzzles: () => {return of([])},
-    collection: (name: string) => {
-      doc: (_id: string) => ({
-        set: (_d: any) => new Promise((resolve, _reject) => resolve()),
-      })
-    }
-  }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DefaultPuzzlesComponent ],
-      providers: [{provide: MakePuzzleService,useValue: stub}, {provide: AngularFireAuth, useValue: stub}, {provide: AngularFireDatabase, useValue: stub}]
+      declarations: [DefaultPuzzlesComponent],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -35,11 +26,4 @@ describe('DefaultPuzzlesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should set puzzle correctly',()=>{
-    component.pageSize = 5;
-    component.curIndex = 2;
-    component.setPuzzleTo(1);
-    expect(component.puzzleId).toEqual(11);
-  })
 });

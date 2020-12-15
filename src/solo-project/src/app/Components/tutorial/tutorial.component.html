@@ -83,9 +83,10 @@
                 <div class="board">
                     <app-board></app-board>
                 </div>
-                        <p>
-                            Pieces on the bottom 2 rows will drop marbles into the blue or red section, once dropped into this section it will release the next marble based on the colour it lands in.
-                        </p>
+                <p>
+                    Pieces on the bottom 2 rows will drop marbles into the blue or red section, once dropped into this
+                    section it will release the next marble based on the colour it lands in.
+                </p>
                 <mat-divider></mat-divider>
                 <h1 style="margin-top: 2%;">Component Slots and Pins</h1>
                 <mat-grid-list cols="2" [rowHeight]="'6:1'" style="width: 50%; margin: auto;">
@@ -104,7 +105,7 @@
                 are required to transport the marble to the bottom of the board and each have different uses. The
                 currently held piece will be shown by the colour change on the selection sidebar when clicked. You can
                 also hold 'Delete Piece' to remove any pieces from the board.</p>
-                <br>
+            <br>
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
                 <mat-text-column name="name"></mat-text-column>
 
@@ -134,13 +135,16 @@
                         intercept a ball.
                     </li>
                     <li>
-                        <b>Starting Board</b> set up are the initial pieces on the board that help give hints towards the puzzle. These pieces can't be replaced. 
+                        <b>Starting Board</b> set up are the initial pieces on the board that help give hints towards
+                        the puzzle. These pieces can't be replaced.
                     </li>
                     <li>
-                        <b>Required Output</b> this the output needed to 'win' the puzzle. Some puzzles won't have a required output as it will be focused more on the board state e.g. move 2 bits.
+                        <b>Required Output</b> this the output needed to 'win' the puzzle. Some puzzles won't have a
+                        required output as it will be focused more on the board state e.g. move 2 bits.
                     </li>
                     <li>
-                        <b>Available parts</b> there parts are the only ones that can be used to meet the objective, no more can be used and it is likely that all will be needed.
+                        <b>Available parts</b> there parts are the only ones that can be used to meet the objective, no
+                        more can be used and it is likely that all will be needed.
                     </li>
                 </p>
                 <br>
@@ -156,21 +160,26 @@
                 <p>
                     A puzzle can be made from the <b>Create Puzzle</b> page an involves three steps
                     <li>
-                        First, make the starting set up for your board and confirm the set up once it is finished. Use the 'Confirm set up' button when ready.
+                        First, make the starting set up for your board and confirm the set up once it is finished. Use
+                        the 'Confirm set up' button when ready.
                     </li>
                     <li>
-                        Second, add pieces to the board which will act as the solution to your puzzle, increase the necessary marbles and play the puzzle until the collected marbles at the bottom equals your <b>required output</b>, it is okay to leave this blank if your puzzle doesn't have one. When ready click the 'Confirm set up' button.
+                        Second, add pieces to the board which will act as the solution to your puzzle, increase the
+                        necessary marbles and play the puzzle until the collected marbles at the bottom equals your
+                        <b>required output</b>, it is okay to leave this blank if your puzzle doesn't have one. When
+                        ready click the 'Confirm set up' button.
                     </li>
                     <li>
-                        Lastly, after confirming the solution and final output you will be taken to a form to fill out the title, description and difficulty of your puzzle.
+                        Lastly, after confirming the solution and final output you will be taken to a form to fill out
+                        the title, description and difficulty of your puzzle.
                     </li>
                 </p>
             </div>
             <mat-divider></mat-divider>
-                <h1 style="margin-top: 2%;">Example puzzle card</h1>
-                <div style="margin-bottom: 5%;">
-                    <app-puzzle-card [puzzle]="examplePuzzle" [index]="0"></app-puzzle-card>
-                </div>
+            <h1 style="margin-top: 2%;">Example puzzle card</h1>
+            <div style="margin-bottom: 5%;">
+                <app-puzzle-card [puzzle]="examplePuzzle" [index]="0"></app-puzzle-card>
+            </div>
         </mat-tab>
 
     </mat-tab-group>

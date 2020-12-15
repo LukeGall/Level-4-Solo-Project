@@ -1,5 +1,4 @@
 import { TestBed, async } from '@angular/core/testing';
-import { MatSidenav } from '@angular/material/sidenav';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { By } from '@angular/platform-browser';

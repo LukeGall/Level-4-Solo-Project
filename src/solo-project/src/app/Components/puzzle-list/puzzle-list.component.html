@@ -1,0 +1,47 @@
+<div id="wrapper">
+
+    <div *ngIf="fullPuzzles.length == 0; else loaded">
+        <mat-spinner class="centre"></mat-spinner>
+    </div>
+
+    <ng-template #loaded>
+        <div *ngIf="!checkPuzzleId(); else showPuzzle">
+            <div id="list-content">
+                <div class="chip-list">
+                    <mat-form-field style="width: 100%;">
+                        <mat-chip-list #diffList aria-label="Difficulty Selection">
+                            <mat-chip *ngFor="let diff of difficultyList" (removed)="remove(diff)">
+                                {{diff}}
+                                <mat-icon matChipRemove>cancel</mat-icon>
+                            </mat-chip>
+                            <input placeholder="Difficulty filter" #diffInput [formControl]="frmControl"
+                                [matAutocomplete]="auto" [matChipInputFor]="diffList"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                (matChipInputTokenEnd)="addDiff($event)">
+                        </mat-chip-list>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="addAutoCmpt($event)">
+                            <mat-option *ngFor="let diff of fullDiffList">
+                                {{diff}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+
+                <div *ngFor="let puzzle of puzzlePage; index as i" class="card">
+                    <app-puzzle-card [puzzle]="puzzle" [index]=i (puzzleClicked)="setPuzzleTo($event)">
+                    </app-puzzle-card>
+                </div>
+            </div>
+            <footer class="footer">
+                <mat-paginator [length]="puzzles.length" [pageIndex]="curIndex" [pageSize]="5"
+                    (page)="changePage($event.pageIndex)">
+                </mat-paginator>
+            </footer>
+        </div>
+
+        <ng-template #showPuzzle>
+            <app-play-puzzle [puzzle]="this.puzzles[puzzleId]" (home)="goHome()" [id]="puzzleId"
+                (changePuzzle)="setPuzzleTo($event)"></app-play-puzzle>
+        </ng-template>
+    </ng-template>
+</div>

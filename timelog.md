@@ -251,3 +251,4 @@
 
 # 15 Dec 2020
 * *1 hour* Final e2e tests added
+* *5 hour* More tests, cleanup and refactorings 

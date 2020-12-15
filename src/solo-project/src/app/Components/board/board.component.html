@@ -9,9 +9,9 @@
         <div *ngFor="let row of board.slots; index as x">
             <div *ngFor="let slot of row; index as y">
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
-                    <app-pin class="pin" *ngIf="slot && checkPin(slot.partName)" [pin]="slot" [x]="x" [y]="y"
+                    <app-pin class="pin" *ngIf="slot && (slot.partName) == 'Pin'" [pin]="slot" [x]="x" [y]="y"
                         (slotClicked)="slotClicked($event)"></app-pin>
-                    <app-comp-slot class="compSlot" *ngIf="slot && checkCompSlot(slot.partName)" [compSlot]="slot"
+                    <app-comp-slot class="compSlot" *ngIf="slot && (slot.partName) == 'CompSlot'" [compSlot]="slot"
                         [x]="x" [y]="y" [marble]="board.inPlayMarble" (slotClicked)="slotClicked($event)">
                     </app-comp-slot>
                 </mat-grid-tile>
@@ -19,12 +19,8 @@
         </div>
     </mat-grid-list>
     <mat-grid-list cols="12" rowHeight="8:1" [gutterSize]="'0px'" style="margin-bottom: 2px;">
-        <div *ngFor="let _ of [1,2,3,4,5,6]">
-            <mat-grid-tile [colspan]="1" style="background-color: rgb(44, 117, 253);"></mat-grid-tile>
-        </div>
-        <div *ngFor="let _ of [1,2,3,4,5,6]">
-            <mat-grid-tile [colspan]="1" style="background-color:  rgb(248, 83, 83);"></mat-grid-tile>
-        </div>
+        <mat-grid-tile [colspan]="6" style="background-color: rgb(44, 117, 253);"></mat-grid-tile>
+        <mat-grid-tile [colspan]="6" style="background-color:  rgb(248, 83, 83);"></mat-grid-tile>
     </mat-grid-list>
     <div [ngClass]="gapAtBottom ? 'gap' : '' ">
         <app-collected-marbles [marbles]="this.board.collectedMarbles"></app-collected-marbles>

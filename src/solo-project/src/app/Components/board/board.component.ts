@@ -14,20 +14,12 @@ export class BoardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if(!this.board){
+    if (!this.board) {
       this.board = new Board(6);
     }
   }
 
-  checkPin(name: string): Boolean {
-    return name == "Pin";
-  }
-
-  checkCompSlot(name: string): Boolean {
-    return name == "CompSlot";
-  }
-
-  slotClicked(pos: Pos){
+  slotClicked(pos: Pos) {
     this.board.clickPiece(pos);
   }
 

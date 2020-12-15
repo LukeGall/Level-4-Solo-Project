@@ -19,18 +19,18 @@ export class PlainBoardComponent implements OnInit {
     this.board = new Board(18);
   }
 
-  setExample(examNumber: number){
+  setExample(examNumber: number) {
     this.board.setExample(examNumber);
   }
 
-  saveBoard(){
-    var blob = new Blob([JSON.stringify(this.board.slots)], {type: "text/plain;charset=utf-8"});
+  saveBoard() {
+    var blob = new Blob([JSON.stringify(this.board.slots)], { type: "text/plain;charset=utf-8" });
     saveAs(blob, "TuringTumbleBoard.txt");
   }
 
-  uploadBoard(files: FileList){
+  uploadBoard(files: FileList) {
     let input = files.item(0);
-    if(input.type == "text/plain"){
+    if (input.type == "text/plain") {
       let reader = new FileReader();
       reader.onload = () => {
         var text = reader.result;

@@ -9,9 +9,9 @@ describe('CompSlotComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CompSlotComponent ]
+      declarations: [CompSlotComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -28,5 +28,5 @@ describe('CompSlotComponent', () => {
     selector: `app-comp-slot`,
     template: `<app-comp-slot [compSlot]="null" [x]="5" [y]="6">`
   })
-  class TestCompSlot{}
+  class TestCompSlot { }
 });

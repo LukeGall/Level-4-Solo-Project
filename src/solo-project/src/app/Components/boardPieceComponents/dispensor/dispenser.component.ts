@@ -10,8 +10,8 @@ import { Marble } from 'src/app/Classes/boardParts/marble';
 export class DispenserComponent implements OnInit {
   @Input() marbleColour: string;
   @Input() marbles: Marble[];
-  @Input() buttons:boolean = true;
-  @Output() increaseMarble = new EventEmitter<string>(); 
+  @Input() buttons: boolean = true;
+  @Output() increaseMarble = new EventEmitter<string>();
   @Output() decreaseMarble = new EventEmitter<String>();
 
   constructor() { }
@@ -19,15 +19,11 @@ export class DispenserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  increaseAmount(){
+  increaseAmount() {
     this.increaseMarble.emit(this.marbleColour);
   }
 
-  decreaseAmount(){
+  decreaseAmount() {
     this.decreaseMarble.emit(this.marbleColour);
-  }
-
-  whatColour():boolean{
-    return (this.marbleColour == "blue") ? true : false;
   }
 }

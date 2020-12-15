@@ -8,12 +8,7 @@ import { MakePuzzleService } from './make-puzzle.service';
 describe('MakePuzzleService', () => {
   let service: MakePuzzleService;
   const stub = {
-    collection: (name: string) => {
-      doc: (_id: string) => ({
-        valueChanges: () => new BehaviorSubject({ foo: 'bar' }),
-        set: (_d: any) => new Promise((resolve, _reject) => resolve()),
-      })
-    }
+
   }
 
   beforeEach(() => {

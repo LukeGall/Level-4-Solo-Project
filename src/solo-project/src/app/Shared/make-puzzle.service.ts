@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import {  Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Puzzle } from '../Classes/puzzle';
 import { boardState, PuzzleBoard } from '../Classes/puzzle-board';
 import { cloneDeep } from 'lodash';
@@ -31,10 +31,10 @@ export class MakePuzzleService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getPuzzles(location: string):Observable<unknown[]> {
+  getPuzzles(location: string): Observable<unknown[]> {
     return this.db.list(location).valueChanges()
   }
-  
+
 
   toPuzzle(ele: any): Puzzle {
     let newPuzzle = Object.assign(new Puzzle(), ele);
@@ -73,7 +73,7 @@ export class MakePuzzleService {
         ret = new Ramp(Direction.stopped, new Pos(0, 0))
         break;
       case Piece.Gear:
-        ret = new Gear(new Pos(0,0))
+        ret = new Gear(new Pos(0, 0))
         break;
       case Piece.Crossover:
         ret = new Crossover(new Pos(0, 0))
@@ -88,7 +88,7 @@ export class MakePuzzleService {
         ret = new Interceptor(new Pos(0, 0));
         break;
     }
-    
+
     // Make sure puzzles with incorrect asset path get the correct path
     piece.imgBlueMarble = ret.imgBlueMarble;
     piece.imgRedMarble = ret.imgRedMarble;
@@ -120,6 +120,7 @@ export class MakePuzzleService {
     newPBoard.expectedResults = Object.assign(new Array<MarblePair>(), newPBoard.expectedResults);
     newPBoard.collectedMarbles = Object.assign(new Array<MarblePair>(), newPBoard.collectedMarbles);
 
+    // Ensure correct attribute assignment for online puzzles
     newPBoard.inPlayMarble = null;
     newPBoard.inPlay = false;
     newPBoard.setSpeed(1500);
@@ -133,7 +134,7 @@ export class MakePuzzleService {
   setBoard(board: PuzzleBoard) {
     this.puzzleBoard = board;
   }
-  
+
   confirmStarting() {
     this.puzzleBoard.confirmedStartingSlots();
   }
@@ -152,7 +153,7 @@ export class MakePuzzleService {
     this.puzzleBoard.showAnswer();
   }
 
-  confirmForm() {    
+  confirmForm() {
     this.curPuzzle.title = this.form.get('Name').value;
     this.curPuzzle.description = this.form.get('Description').value;
     this.curPuzzle.difficulty = this.form.get('Difficulty').value;

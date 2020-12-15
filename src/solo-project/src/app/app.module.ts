@@ -22,6 +22,7 @@ import { PlayPuzzleComponent } from './Components/play-puzzle/play-puzzle.compon
 import { PuzzleCardComponent } from './Components/puzzle-card/puzzle-card.component';
 import { DefaultPuzzlesComponent } from './Components/default-puzzles/default-puzzles.component';
 import { TutorialComponent } from './Components/tutorial/tutorial.component';
+import { PuzzleListComponent } from './Components/puzzle-list/puzzle-list.component';
 import { HomeComponent } from './Components/home/home.component';
 
 // Mat components
@@ -44,8 +45,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatTableModule} from '@angular/material/table';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
 
 // Firebase imports
 import { AngularFireModule } from '@angular/fire';
@@ -76,6 +77,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     DefaultPuzzlesComponent,
     TutorialComponent,
     HomeComponent,
+    PuzzleListComponent,
   ],
   imports: [
     BrowserModule,

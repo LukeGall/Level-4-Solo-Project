@@ -10,7 +10,7 @@ import { of } from 'rxjs';
 describe('MakePuzzleComponent', () => {
   let component: MakePuzzleComponent;
   let fixture: ComponentFixture<MakePuzzleComponent>;
-  
+
   const stub = {
     user: of(true),
     collection: (name: string) => {
@@ -23,10 +23,10 @@ describe('MakePuzzleComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [ MakePuzzleComponent ],
-      providers: [MakePuzzleService, {provide: AngularFireAuth, useValue: stub}, {provide: AngularFireDatabase, useValue: stub}]
+      declarations: [MakePuzzleComponent],
+      providers: [MakePuzzleService, { provide: AngularFireAuth, useValue: stub }, { provide: AngularFireDatabase, useValue: stub }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -39,7 +39,7 @@ describe('MakePuzzleComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Should display a board to create', ()=>{
+  it('Should display a board to create', () => {
     fixture.detectChanges;
     const compiled = fixture.debugElement;
     const nat = compiled.query(By.css('#boardSide'))

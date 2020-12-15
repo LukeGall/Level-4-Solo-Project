@@ -1,7 +1,6 @@
 <div (click)="click()">
     <div *ngIf="compSlot.piece; else compSlotDef">
-        <app-piece  [piece]="compSlot.piece" [marble]="marble"></app-piece>
-        <!-- <app-gear-bit *ngIf="checkGearBit()" [gearBit]="compSlot.piece" [marble]="marble" [x]="x" [y]="y"></app-gear-bit> -->
+        <app-piece [piece]="compSlot.piece" [marble]="marble"></app-piece>
     </div>
     <ng-template #compSlotDef><img width="100%" height="100%" src="assets/compslot.svg"></ng-template>
 </div>

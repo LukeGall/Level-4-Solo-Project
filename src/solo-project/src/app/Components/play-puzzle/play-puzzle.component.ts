@@ -23,7 +23,7 @@ export class PlayPuzzleComponent implements OnInit {
     this.board.setSpeed(value);
   }
 
-  goHome(){
+  goHome() {
     this.home.emit();
   }
 
@@ -55,21 +55,21 @@ export class PlayPuzzleComponent implements OnInit {
     this.board.resetBoard();
   }
 
-  wonPuzzle(): boolean{
+  wonPuzzle(): boolean {
     return this.board.correctResults;
   }
 
-  showAnswer(){
+  showAnswer() {
     this.puzzle.puzzleBoard.showAnswer();
   }
 
-  clearMarbles(){
+  clearMarbles() {
     this.puzzle.puzzleBoard.clearMarbles();
   }
 
-  hasUserName(): boolean{
-    if(this.puzzle.author){
-      if(this.puzzle.author != "default"){
+  hasUserName(): boolean {
+    if (this.puzzle.author) {
+      if (this.puzzle.author != "default") {
         return true;
       }
     }

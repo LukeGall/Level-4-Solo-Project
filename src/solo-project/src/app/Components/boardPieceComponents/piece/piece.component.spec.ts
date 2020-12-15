@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PieceComponent } from './piece.component';
 
 describe('NonGbPieceComponent', () => {
@@ -8,9 +7,9 @@ describe('NonGbPieceComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PieceComponent ]
+      declarations: [PieceComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

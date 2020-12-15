@@ -21,10 +21,10 @@ export class PieceComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  needsFlip(){
+  needsFlip() {
     let p = this.piece;
-    if(p instanceof Ramp || p instanceof Bit || p instanceof GearBit){
-      if(p.direction == Direction.left){
+    if (p instanceof Ramp || p instanceof Bit || p instanceof GearBit) {
+      if (p.direction == Direction.left) {
         return true;
       }
     }

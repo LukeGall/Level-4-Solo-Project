@@ -8,22 +8,16 @@ describe('PlainBoardComponent', () => {
   let component: PlainBoardComponent;
   let fixture: ComponentFixture<PlainBoardComponent>;
   const stub = {
-    collection: (name: string) => {
-      doc: (_id: string) => ({
-        valueChanges: () => new BehaviorSubject({foo: 'bar'}),
-        set: (_d: any) => new Promise((resolve, _reject) => resolve()),
-      })
-    }
   }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [
-        {provide: AngularFireDatabase, useValue: stub},
+        { provide: AngularFireDatabase, useValue: stub },
       ],
-      declarations: [ PlainBoardComponent ]
+      declarations: [PlainBoardComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -37,7 +31,7 @@ describe('PlainBoardComponent', () => {
   });
 
 
-  it('should display a speed slider',()=>{
+  it('should display a speed slider', () => {
     const slider = fixture.nativeElement.querySelector('mat-slider')
     expect(slider).toBeTruthy();
   })

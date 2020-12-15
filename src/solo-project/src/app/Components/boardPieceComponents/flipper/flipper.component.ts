@@ -16,7 +16,7 @@ export class FlipperComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  trigger(){
+  trigger() {
     this.clickedFlipper.emit(this.colour);
   }
 

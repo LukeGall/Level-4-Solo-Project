@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FlipperComponent } from './flipper.component';
 
 describe('FlipperComponent', () => {
@@ -9,9 +8,9 @@ describe('FlipperComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FlipperComponent ]
+      declarations: [FlipperComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

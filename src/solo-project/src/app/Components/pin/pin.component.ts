@@ -19,7 +19,7 @@ export class PinComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  click(){
-    this.slotClicked.emit(new Pos(this.x,this.y));
+  click() {
+    this.slotClicked.emit(new Pos(this.x, this.y));
   }
 }

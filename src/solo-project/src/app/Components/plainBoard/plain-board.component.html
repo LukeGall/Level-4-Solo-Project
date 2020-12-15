@@ -11,10 +11,10 @@
         (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
     </mat-grid-tile>
     <mat-grid-tile>
-      <button mat-raised-button color="primary"  (click)="saveBoard()">Save Board</button>
+      <button mat-raised-button color="primary" (click)="saveBoard()">Save Board</button>
     </mat-grid-tile>
     <mat-grid-tile>
-      <button mat-raised-button color="primary"  (click)="fileUpload.click()">Upload Board</button>
+      <button mat-raised-button color="primary" (click)="fileUpload.click()">Upload Board</button>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1">
       <app-dispenser [marbles]="board.redMarbles" [marbleColour]="'red'" (increaseMarble)="increaseMarble($event)"
