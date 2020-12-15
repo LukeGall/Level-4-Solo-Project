@@ -277,4 +277,10 @@ All the classes now have a good set of tests, will focus on some component and e
 
 After some play testing by my family over the weekend a few extra bugs were found and then fixed. Other suggestions have been taken on board and will be worked on today, including some more points in the tutorial page
 
-Additions to tutorial page has been made plus some bug fixing
+Additions to tutorial page has been made plus some bug fixing.
+
+The app is all finished just a few more tests to add tomorrow then can focus on fleshing out the documentation and start writing out notes for the dissertation. 
+
+# 15 Dec 2020
+
+A few more e2e tests should be make today then I'll focus on cleaning up the code and trying to reduce duplication and any unneeded comments or console logs

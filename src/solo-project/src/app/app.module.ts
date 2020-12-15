@@ -15,13 +15,14 @@ import { SidenavComponent } from './Components/sidenav/sidenav.component';
 import { CollectedMarblesComponent } from './Components/boardPieceComponents/collected-marbles/collected-marbles.component';
 import { PieceComponent } from './Components/boardPieceComponents/piece/piece.component';
 import { MakePuzzleComponent } from './Components/make-puzzle/make-puzzle.component';
-import { ConfirmationComponent } from './Components/confirmation/confirmation.component';
 import { BoardComponent } from './Components/board/board.component';
 import { PromptCardComponent } from './Components/prompt-card/prompt-card.component';
 import { OnlinePuzzlesComponent } from './Components/online-puzzles/online-puzzles.component';
 import { PlayPuzzleComponent } from './Components/play-puzzle/play-puzzle.component';
 import { PuzzleCardComponent } from './Components/puzzle-card/puzzle-card.component';
 import { DefaultPuzzlesComponent } from './Components/default-puzzles/default-puzzles.component';
+import { TutorialComponent } from './Components/tutorial/tutorial.component';
+import { HomeComponent } from './Components/home/home.component';
 
 // Mat components
 import { MatSliderModule } from '@angular/material/slider';
@@ -51,8 +52,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database'
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { TutorialComponent } from './Components/tutorial/tutorial.component';
-import { HomeComponent } from './Components/home/home.component';
+
 
 
 @NgModule({
@@ -68,7 +68,6 @@ import { HomeComponent } from './Components/home/home.component';
     CollectedMarblesComponent,
     PieceComponent,
     MakePuzzleComponent,
-    ConfirmationComponent,
     BoardComponent,
     PromptCardComponent,
     OnlinePuzzlesComponent,

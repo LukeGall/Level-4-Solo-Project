@@ -1,10 +1,11 @@
+import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FlipperComponent } from './flipper.component';
 
 describe('FlipperComponent', () => {
-  let component: FlipperComponent;
-  let fixture: ComponentFixture<FlipperComponent>;
+  let component: TestFlipper;
+  let fixture: ComponentFixture<TestFlipper>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -14,7 +15,7 @@ describe('FlipperComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FlipperComponent);
+    fixture = TestBed.createComponent(TestFlipper);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,4 +23,12 @@ describe('FlipperComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  @Component({
+    selector: 'app-flipper',
+    template: `<app-flipper [colour]="'blue'">`
+  })
+  class TestFlipper {
+  }
 });

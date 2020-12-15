@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Marble } from 'src/app/Classes/boardParts/marble';
 
 import { DispenserComponent } from './dispenser.component';
 
@@ -10,9 +9,9 @@ describe('DispenserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DispenserComponent ]
+      declarations: [DispenserComponent, TestDispenser]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -27,9 +26,9 @@ describe('DispenserComponent', () => {
 
 
   @Component({
-    selector: 'app-dispenser',
-    template: '<app-dispenser [marbles]="null" [marbleColour]="red">'
+    selector: 'test-dispenser',
+    template: `<app-dispenser [marbles]="null" [marbleColour]="'red'">`
   })
   class TestDispenser {
-}
+  }
 });

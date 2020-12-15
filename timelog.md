@@ -246,3 +246,8 @@
 ## 14 Dec 2020
 * *1 hour* Basic user evals and bug fixes 
 * *2.5 hour* More bug fixes, appearance changes and more tutorial information
+* *1.5 hour* Writing more tests
+* *1 hour* Final unit tests and more e2e tests added
+
+# 15 Dec 2020
+* *1 hour* Final e2e tests added

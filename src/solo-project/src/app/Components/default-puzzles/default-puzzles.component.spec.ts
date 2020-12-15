@@ -35,4 +35,11 @@ describe('DefaultPuzzlesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set puzzle correctly',()=>{
+    component.pageSize = 5;
+    component.curIndex = 2;
+    component.setPuzzleTo(1);
+    expect(component.puzzleId).toEqual(11);
+  })
 });

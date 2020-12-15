@@ -1,4 +1,4 @@
-<div [ngClass]="whatColour() ? 'numCircle blue' : 'numCircle red'">
+<div *ngIf="marbles" [ngClass]="whatColour() ? 'numCircle blue' : 'numCircle red'">
     {{marbles.length}}
 </div>
 

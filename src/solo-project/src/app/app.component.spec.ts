@@ -39,8 +39,8 @@ describe('AppComponent', () => {
   it('should display a link to the github', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    const aElement: HTMLElement = compiled.querySelector('a');
+    const compiled = fixture.debugElement;
+    const aElement: HTMLElement = compiled.query(By.css('#code-link')).nativeElement;
     expect(aElement.getAttribute('href')).toContain("LukeGall");
   })
 
