@@ -1,0 +1,82 @@
+    
+\documentclass[11pt]{article}
+\usepackage{times}
+    \usepackage{fullpage}
+    
+    \title{Virtual Turing Tumble}
+    \author{ Luke Gall - 2298070g }
+
+\begin{document}
+\maketitle
+
+
+
+
+\section{Status report}
+
+\subsection{Proposal}\label{proposal}
+
+\subsubsection{Motivation}\label{motivation}
+
+Turing Tumble is a board game that uses marbles and small components to simulate the inner workings of a computer. This board game, with the aid of puzzles, can be used to help teach children and adults alike the simple yet powerful building blocks of computers while helping them develop their fundamental logic skills, which are vital in learning how to code. While the Turing Tumble board game is a fantastic tool for teaching kids how to code, it isn't always easily assessable for a large classroom, with costs for the school, therefore a online version of the game would allow classrooms with access to computer labs the ability to learn using the Turing Tumble through a fun and interactive medium.
+
+\subsubsection{Aims}\label{aims}
+
+This individual project will aim to produce an online web application that replicates the functionality of a Turing Tumble board game. A user should be able to access a plain board and place the 6 different Turing Tumble pieces onto the board and trigger a marble to fall down the board, following the game logic of the physical board game. After a marble is collected at the bottom of the screen it should trigger another marble at the top. All pieces placeable by the user should have identical logic to the physical pieces. A user should be able to a create puzzle with their own title, description, difficulty, starting set up, and correct results. A user should also be able to view and play a set of 'Original' puzzles that are from the physical game puzzle book plus have the ability to view puzzles created by other users of the site. The board show show the position of the current marble in play so that players can follow the flow of the marble going down the game board.
+
+\subsection{Progress}\label{progress}
+
+\begin{itemize}
+    \item Web development language and JS framework chosen for development. \textbf{Angular} will be used which uses \textbf{Typescript}, \textbf{HTML} and \textbf{SCSS}.
+    \item UI framework chosen. \textbf{Angular Material} will be used to style and improve UI elements.
+    \item Research into serious / educational games and the positive impacts on learning for school pupils conducted including a literature review.
+    \item Research into the Turing Tumble game and it's puzzles to understand the logic of the game and the types of puzzles available.
+    \item Turing Tumble board and pieces implemented using Angular component design that allows users to place components and simulate the board correctly.
+    \item Users can pause / play,'step forward' and change the speed of the marble falling in the simulation, giving greater user control and better understanding of how the board works.
+    \item SVG icons were made for all components with the rotation of the pieces changing when interacted with to give a better replication of the physical board game.
+    \item Unit and end-to-end tests where created to ensure that the logic of the board was correct and that the major refactors performed were safe.
+    \item \textbf{Create puzzle} page implemented where users can make a puzzle and upload it to a Firebase backend database.
+    \item 29 default puzzles from the official Turing Tumble puzzle book were uploaded that users can play.
+    \item Tutorial page was added to teach users how to use the site and the Turing Tumble simulation.
+    \item A home page was created to give context to the site and give new users some direction.
+    \item Cleanup of code and design of the application was completed with quality of life improvements added to various areas of the application.
+\end{itemize}
+
+\subsection{Problems and risks}\label{problems-and-risks}
+
+
+\subsubsection{Problems}\label{problems}
+
+\begin{itemize}
+    \item Only had limited knowledge of Angular framework at start of development so some bad design choices were made in early stages until later fixed in major refactors with new knowledge and experience with the framework.
+    \item Uploading object data to the firebase backend involved sending up a JSON string representation as Firebase would ignore 'null' values which were needed to represent some elements of a puzzle board. The object's type information was lost so data had to be converted to it's correct type when downloaded.
+    \item The JS library that converts Objects into JSON doesn't allow Map objects to be parsed so the data had to be converted into an array for upload then re-converted into a Map object when downloaded.
+    \item When getting connecting GearBit components to spin in a group, the class that changed their direction bypassed Angular view and lifecycle hierarchy so went against fundamental design decisions and give warnings, so new GearBit pieces need to be created whenever they interact with connected Gears and GearBits.
+\end{itemize}
+
+\subsubsection{Risks}\label{risks}
+
+\begin{itemize}
+    \item Performing user evaluations for two groups in a non physical environment due to COVID. \textbf{Mitigation:} ensure that the application can be easily accessed remotely by being hosted online.
+    \item Ensure clear and full documentation is created for the application. \textbf{Mitigation:} Update the wiki pages for each major file of the application over the semester, ensuring all application logic is explained in detail.
+    \item Gathering relevant data that can be used to analyse how useful the application is for teaching school pupils (aged 16+) coding skills. I can only ask a user to use the app in a single session which would be difficult to capture the long term educational effects it could have. \textbf{Mitigation:} Give users as long as they would like with the application and provide opportunity to give compressive feedback on if they think it could help with their understanding of coding concepts in the long run.
+\end{itemize}
+
+\subsection{Plan}\label{plan}
+
+\begin{itemize}
+    \item Week 1-2: Create and send out user surveys to two groups with link to online version of the application. \textbf{Deliverable: User surveys and raw data provided by participants}
+    \item Week 3-4: Analyse data gathered from surveys and draw conclusions about application usability and usefulness in simulating a Turing Tumble and helping to develop coding skills. \textbf{Deliverable: Evaluation conclusions and graphs of any relevant data gathered.}
+    \item Week 5-7: Initial draft of dissertation. \textbf{Deliverable: First draft submitted to supervisor}
+    \item Week 8-10: Final writeup of dissertation. \textbf{Deliverable: Second draft submitted to supervisor, then submitting final version via Moodle}
+\end{itemize}
+
+
+\subsection{Ethics and data}\label{ethics}
+
+I have verified that the ethics checklist will apply to any evaluation I need to do. I will sign and complete the checklist.
+
+To evaluate my application I will measure the ease of use and gather user feedback from a control group of my peers at the university and a group of school pupils (aged 16+) undertaking Higher Computing. They will be given time to play about with the application and undertake some of the puzzles then will be asked to fill out a user survey on the ease of use of the app, how easy it was to understand the Turing Tumble game through the tutorial and if they think puzzles could help them understand the core computing concepts that the application aims to develop.
+
+No sensitive data will be held and all participants asked to carry out this survey will be 16 and over, the ethics checklist will be appropriate.
+\end{document}

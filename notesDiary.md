@@ -295,5 +295,6 @@ Online and default puzzles are now just middle men components to the puzzle list
 * Storing the data of puzzles
 * Having to make new GearBit when they connect with each other
 * Getting the pieces into a general component form instead of board service
-* Map object passing 
+* Map object passing
+* Sets not accepting Objects, only strings 
 * Map object sending up
