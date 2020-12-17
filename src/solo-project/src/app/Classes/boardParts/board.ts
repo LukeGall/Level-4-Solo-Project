@@ -261,10 +261,10 @@ export class Board {
                 firstEle = false;
                 if (val.piece instanceof GearBit) dirForGbs = val.piece.direction;
             } else {
-                let orgLocked = val.piece.locked;
-                val.piece = (dirForGbs == Direction.left) ? new GearBit(Direction.left, val.piece.position) : new GearBit(Direction.right, val.piece.position);
-                if (val.piece.locked != orgLocked) {
-                    val.piece.lock();
+                if(val.piece instanceof GearBit){
+                    if(val.piece.direction != dirForGbs){
+                        val.piece.switchDirection();
+                    }
                 }
             }
         }

@@ -251,7 +251,10 @@
 
 # 15 Dec 2020
 * *1 hour* Final e2e tests added
-* *5 hour* More tests, cleanup and refactorings 
+* *5 hour* More tests, cleanup and refactors 
 
 # 16 Dec 2020
 * *3 hour* Status report write up
+
+# 17 Dec 2020
+* *3 hour* Lit review on wiki plus a write up of all the issues I faced during development
