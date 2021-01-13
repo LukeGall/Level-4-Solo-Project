@@ -23,4 +23,12 @@ export class BoardComponent implements OnInit {
     this.board.clickPiece(pos);
   }
 
+  marblePresent(x: number, y: number): boolean{
+    const marble = this.board.inPlayMarble;
+    if(marble){
+      return (marble.position.x == x && marble.position.y == y);
+    }
+    return false;
+  }
+
 }

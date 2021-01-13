@@ -22,4 +22,12 @@ export class CompSlotComponent implements OnInit {
   click() {
     this.slotClicked.emit(new Pos(this.x, this.y));
   }
+
+  isMarbleFall(){
+    if(this.marble){
+      return (this.marble.position.x == this.x && this.marble.position.y == this.y)
+    } else {
+      return false;
+    }
+  }
 }

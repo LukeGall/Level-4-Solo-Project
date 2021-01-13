@@ -2,5 +2,12 @@
     <div *ngIf="compSlot.piece; else compSlotDef">
         <app-piece [piece]="compSlot.piece" [marble]="marble"></app-piece>
     </div>
-    <ng-template #compSlotDef><img width="100%" height="100%" src="assets/compslot.svg"></ng-template>
+    <ng-template #compSlotDef>
+        <img *ngIf="!isMarbleFall(); else marbleFall" width="100%" height="100%" src="assets/compslot.svg">
+        <ng-template #marbleFall>
+            <img *ngIf="marble.colour=='blue'; else redMarble" width="100%" height="100%"
+                src="assets/blue-marble-fall.svg">
+            <ng-template #redMarble><img width="100%" height="100%" src="assets/red-marble-fall.svg"></ng-template>
+        </ng-template>
+    </ng-template>
 </div>

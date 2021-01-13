@@ -3,8 +3,8 @@ INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/luke/Level-4-Solo-Project/status_report/status_report.tex
-OUTPUT /home/luke/Level-4-Solo-Project/status_report/status_report.log
+INPUT /home/luke/Level-4-Solo-Project/status_report/status_report_2298070.tex
+OUTPUT /home/luke/Level-4-Solo-Project/status_report/status_report_2298070.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
@@ -17,9 +17,9 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/preprint/fullpage.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/preprint/fullpage.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
-INPUT /home/luke/Level-4-Solo-Project/status_report/status_report.aux
-INPUT /home/luke/Level-4-Solo-Project/status_report/status_report.aux
-OUTPUT /home/luke/Level-4-Solo-Project/status_report/status_report.aux
+INPUT /home/luke/Level-4-Solo-Project/status_report/status_report_2298070.aux
+INPUT /home/luke/Level-4-Solo-Project/status_report/status_report_2298070.aux
+OUTPUT /home/luke/Level-4-Solo-Project/status_report/status_report_2298070.aux
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
@@ -41,7 +41,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8c.tfm
-OUTPUT /home/luke/Level-4-Solo-Project/status_report/status_report.pdf
+OUTPUT /home/luke/Level-4-Solo-Project/status_report/status_report_2298070.pdf
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
@@ -56,7 +56,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr8c.vf
-INPUT /home/luke/Level-4-Solo-Project/status_report/status_report.aux
+INPUT /home/luke/Level-4-Solo-Project/status_report/status_report_2298070.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb

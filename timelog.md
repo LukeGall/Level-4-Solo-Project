@@ -258,3 +258,8 @@
 
 # 17 Dec 2020
 * *3 hour* Lit review on wiki plus a write up of all the issues I faced during development
+
+
+### Week 12
+# 12 Jan 2021
+* *1 hour* Reading of hall of fame project and note taking

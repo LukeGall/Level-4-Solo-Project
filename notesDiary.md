@@ -321,3 +321,113 @@ For the implementation of GearBit functionality, a function was made to find the
 As previously mentioned to get around the issue of storing the puzzles in Firebase, the object was sent up as a string of JSON which could later be downloaded and converted into it's correct type. One issue found was that the JSON.stringify method wouldn't correctly turn a Map object into it's JSON counterpart so would just leave it out, this lead to issues of puzzles not being correctly uploaded so the Map object had to get converted into an array before upload then re converted into a JS map object when downloaded.       
 
 
+
+
+### Semester 2
+
+## Notes on Hall of fame dissertation, don't need every section and can add more
+
+## Abstract
+
+Nothing too surprising here, write at the end like always and draw on main conclusions found during the paper. 
+
+## Introduction
+
+# Motivation
+Why is this project important, why did I make a virtual turing tumble. I can go into detail about some of the research I did about educational games but focus on having an easy way to access and use the game compared to the physical version. Focus on why someone might want to play with this game or why a class may use it.
+
+# Goals
+List main goals for the project and give a good paragraph to the exact reason why it is a goal, can put a few design decisions in this part i.e. included a tutorial. Talk about the logic of turing tumble, what should work, what shouldn't etc. Allow students to use it, save puzzles etc
+
+
+## Background
+
+Provide information on the background of the Turing Tumble and some of the logic of the game here
+
+Talk about the 2 (or three) existing virtual versions of the game and disadvantages of them
+
+JsTumble, virtual turing tumble and possibly the VR one but I can't use that one so probably not too important. *PUT IN REFS*
+
+Include picture of the pretty one
+
+## Analysis / Reqs
+
+Include a list of functional reqs of the project, might be a good place to start off with. Talk about the main objective, simulate a turing tumble board so needed to easily allow the building of the board but also the understand exactly how the game works when the marble falls so speed controls etc
+
+Make sure to have non-functional reqs as well and to not get them confused with the functional reqs
+
+# Chosen limitations
+
+Any parts of the game that I simplified for the user, not too many but can talk about how balls 'fall' I suppose, didn't allow for edit of the board etc
+Maybe talk about why I didn't add animation but maybe not. Can maybe talk about why I didn't end up having enough time to make phones use it?
+
+# Changes to spec
+
+Not much change tbh, possibly that I got some basic levels of animation done (svg turning) and that puzzles were indeed added even tho they weren't a 100% required feature
+
+## Design
+
+This will be quite a big section about exactly how I decided to design the various elements of the app so how to represent a marble, components etc 
+
+components, puzzles, board how and why I made them as classes with focused types
+
+talk about pins vs comp slots, ramps versus bits etc. Puzzle boards vs normal boards
+
+Talk about UI in this part too, can talk about why I used material UI (ref) for consistency and visual appeal, which is required in a game designed to keep users engaged
+
+Talk about home page, side nav bar, puzzle making etc
+
+Can add wireframes here too
+
+Add a section as to why I choose Angular compared with React or a desktop application
+
+## Implementation (biggest section)
+
+Can include pictures of the final app and talk about the UI implementation using mat ui possibly 
+
+# Aesthetics 
+
+Talk about why Mat ui was used, it's a Google standard, it focuses on clean and crisp appearance while trying to stay as simple as possible. Include pictures of components and the board with components
+
+# Features
+
+How the different features were implemented, exact class details here I imagine
+
+# Deployment
+
+Why did I put it online instead of having it as a desktop application
+
+## Evaluation
+
+Get results from surveys 
+
+Or talk about issues that I have found i.e. when does marble 'fall'
+
+talk about the limitations ie that ideally this can be used in more than one session and that it takes some time to read the tutorial and play through the puzzles to really understand the game
+
+
+
+## Surveys
+
+Can be a survey but should also supply a task for them to do i.e. play with a plain board and make it go down the screen, make a basic puzzle etc and ask questions on how easy they found it
+
+Can maybe look to monitor some peers while they do this and take some notes for UI stuff mainly 
+
+An unmonitored user test maybe?
+
+How to verify the non-functional reqs of the app
+
+Write about unit tests and end to end tests here
+
+## Conclusion
+
+Summary, how the features went, what more can be added and reflection on the project as a whole
+
+## Appendices
+
+Include surveys at end 
+
+Include results of these surveys as well
+
+
+

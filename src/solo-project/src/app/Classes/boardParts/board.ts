@@ -167,10 +167,18 @@ export class Board {
                         if (slot.piece instanceof GearBit) {
                             this.gearSpin(oldPos);
                         }
+                        if(marble.position.y < 0){
+                            marble.position.y = 0;
+                        } else if(marble.position.y > 10){
+                            marble.position.y = 10;
+                        }
                     } else {
                         this.marbleFall();
                         return;
                     }
+                } else {
+                    this.marbleFall();
+                    return;
                 }
             }
             else if (marble.direction != Direction.stopped) {
@@ -200,10 +208,10 @@ export class Board {
             }
 
             let posY = marble.position.y;
-            if (posY >= -1 && posY < 5) {
+            if (posY > -1 && posY < 5) {
                 this.updateList(marble);
                 this.releaseMarble("blue");
-            } else if (posY > 5 && posY <= 11) {
+            } else if (posY > 5 && posY < 11) {
                 this.updateList(marble);
                 this.releaseMarble("red");
             } else {

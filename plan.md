@@ -24,15 +24,15 @@ Week-by-week plan for the whole project. Update this as you go along.
 
 ## Spring Semester
 
-* **Week 13** Code should hopefully be in a nice state, so should work on evaluation
-* **Week 14** Evaluation of code and design decisions, read good dissertation and plan mine
-* **Week 15** Dissertation
-* **Week 16** Dissertation
+* **Week 13** Notes for dissertation by reading some Hall Of Fame examples, user surveys created and sent to group of uni students, possibly school students if can get organised
+* **Week 14** Send out and wait for survey responses, write up dissertation if waiting
+* **Week 15** Analyse data from surveys and draw conclusions
+* **Week 16** Analyse data from surveys and draw conclusions
 * **Week 17** Dissertation
 * **Week 19** Dissertation
-* **Week 20** Dissertation
+* **Week 20** Dissertation - first draft handed in by 
 * **Week 21** Dissertation
-* **Week 22** Dissertation
+* **Week 22** Dissertation and presentation 
 * **Week 23 [TERM ENDS]**
 * **Week 24** Dissertation submission deadline and presentations.
 
