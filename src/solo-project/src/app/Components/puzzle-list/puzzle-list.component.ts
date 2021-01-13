@@ -112,7 +112,6 @@ export class PuzzleListComponent implements OnInit {
         this.diffInput.nativeElement.value = '';
         this.frmControl.setValue(null);
 
-        console.log(val);
         if (!(this.difficultyList.includes(val))) {
             this.difficultyList.push(val);
             this.changeDif();

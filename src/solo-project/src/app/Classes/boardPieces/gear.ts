@@ -23,7 +23,6 @@ export class Gear extends BoardPiece {
     }
 
     click() {
-        console.log("Gear clicked");
     }
 
 }

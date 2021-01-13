@@ -36,7 +36,6 @@ export class SelectionBarComponent implements OnInit {
   }
 
   clicked(part: Piece) {
-    console.log(part);
     this.clickHolding.emit(part);
   }
 

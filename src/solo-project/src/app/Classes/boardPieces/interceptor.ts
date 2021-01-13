@@ -24,7 +24,6 @@ export class Interceptor extends BoardPiece {
 
 
     click() {
-        console.log("Interceptor clicked");
     }
 
 }

@@ -23,7 +23,6 @@ export class GearBit extends BoardPiece {
     }
 
     processMarble(marble: Marble) {
-        console.log("I am a gearBit")
         marble.position.x += 1;
         marble.position.y -= this.direction;
         this.switchDirection();
@@ -32,6 +31,5 @@ export class GearBit extends BoardPiece {
 
     click() {
         this.switchDirection();
-        console.log("GearBit clicked");
     }
 }

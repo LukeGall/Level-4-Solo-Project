@@ -197,7 +197,6 @@ export class Board {
     private marbleFall() {
         this.inPlayMarble = null;
         this.inPlay = false;
-        console.log("Marble has fallen");
     }
 
     workOutFlipperColour(marble: Marble) {

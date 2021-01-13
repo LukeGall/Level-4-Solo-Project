@@ -22,6 +22,5 @@ export class Crossover extends BoardPiece {
 
 
     click() {
-        console.log("Crossover clicked");
     }
 }

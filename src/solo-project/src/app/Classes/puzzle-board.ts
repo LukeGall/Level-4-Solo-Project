@@ -79,7 +79,6 @@ export class PuzzleBoard extends Board {
             this.redMarbles = cloneDeep(this.startingRedMarbles);
 
             this.heldPiece = Piece.Delete;
-            console.log(this);
         }
     }
 
@@ -160,7 +159,6 @@ export class PuzzleBoard extends Board {
         super.updateList(marble);
         if (JSON.stringify(this.collectedMarbles) == JSON.stringify(this.expectedResults)) {
             this.correctResults = true;
-            console.log("Correct");
         }
     }
 
