@@ -110,7 +110,6 @@ const OPTION_DATA: any[] = [
   styleUrls: ['./tutorial.component.scss']
 })
 export class TutorialComponent implements OnInit {
-  RampImg: string = new Ramp(null, null).imgLink;
   dataSource = ITEM_DATA;
   optionData = OPTION_DATA;
   displayColumns = ['name', 'image', 'description', 'isLike'];

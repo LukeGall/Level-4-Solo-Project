@@ -263,3 +263,24 @@
 ### Week 12
 # 12 Jan 2021
 * *1 hour* Reading of hall of fame project and note taking
+
+# 13 Jan 2021
+* *2.5 hour* Adding falling marbles, more code cleanup and appearance changes
+* *1 hour* Beginning of user survey research and design 
+
+# 14 Jan 2021
+* *5.5 hour* Creating user tasks, creating eval questions
+
+# 15 Jan 2021
+* *1 hour* Write up ethics brief and debrief script
+* *3 hour* Write up of code documentation on wiki
+
+### Week 13
+# 18 Jan 2021
+* *0.5 hour* More code documentation on wiki
+
+# 20 Jan 2021
+* *5 hour* Component documentation work
+* *1 hour* Meeting prep, meeting itself and writeup
+
+

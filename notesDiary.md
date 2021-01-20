@@ -405,16 +405,6 @@ Or talk about issues that I have found i.e. when does marble 'fall'
 
 talk about the limitations ie that ideally this can be used in more than one session and that it takes some time to read the tutorial and play through the puzzles to really understand the game
 
-
-
-## Surveys
-
-Can be a survey but should also supply a task for them to do i.e. play with a plain board and make it go down the screen, make a basic puzzle etc and ask questions on how easy they found it
-
-Can maybe look to monitor some peers while they do this and take some notes for UI stuff mainly 
-
-An unmonitored user test maybe?
-
 How to verify the non-functional reqs of the app
 
 Write about unit tests and end to end tests here
@@ -428,6 +418,135 @@ Summary, how the features went, what more can be added and reflection on the pro
 Include surveys at end 
 
 Include results of these surveys as well
+
+
+## Surveys notes
+
+Can be a survey but should also supply a task for them to do i.e. play with a plain board and make it go down the screen, make a basic puzzle etc and ask questions on how easy they found it
+
+Can maybe look to monitor some peers while they do this and take some notes for UI stuff mainly 
+
+An unmonitored user test maybe?
+
+Should create a list of tasks for the users to perform with the website, focus on the main features of the site. After making the list of tasks, a survey should be added afterwards to ask about the general feel and how they found the site to use and if it helped them understand how to play the game and the educational use of the Turing Tumble.
+
+Task 0 - Open and navigate to the tutorial page (Can spend a little time reading the tutorial 5 mins)
+
+In monitored evaluation can also provide more help to this
+
+
+Task 1 - Create an example using the plain board
+Click ramp and add to the comp slot under the blue arrow, then trigger the marble. Notice which direction the marble goes in, click the ramp to change it's direction. 
+Fill in the rest of the board like this. Then display basic ramp pattern and ask them to run through this task and notice balls falling and then spiting out of the top
+
+Make them use the reset marble option and add more marbles to the top
+
+Task 1 - cont, display basic bit pattern as shown and focus on how bits 'save' state (maybe add a bit here about why this is important)
+
+Get them to add GearBits and Gear in a patten and explain how GearBits can add complex logic to allow the Turing Tumble to be Turing complete. (Monitored task online)
+
+Task 2 - Load example 3 addition and give basic recap on binary and how it faces down, then after that make them play the pattern
+After they click on the button they can then trigger the blue marble and follow the marble down the screen. Ask then to pause execution, play and step forward and increase the speed.
+
+Task 3 - Play a puzzle 
+In the difficulty filter, filter the list to patterns with difficulty of 3 & 4, click on say puzzle #15 show the different tabs then delete the filter and move back to puzzle #2
+
+Allow the user to complete the puzzle with their basic knowledge of the game, ask them to try and delete pieces when they place them and then try to place more pieces then allowed 
+
+Task 4 (Optional) - Ask them to create a puzzle, based on ramps and bits (give them a starting set up), then ask them to confirm these pieces, add the final pieces and run the puzzle, then submit a form at the end.
+
+
+## User Evaluation form notes
+
+First page will the ethical consent which I will write up soon
+
+Task 1
+
+Did you complete this task?
+
+Have you heard of a Turing Tumble before?
+
+How easy was it to select and place pieces onto the board?
+
+Would you suggest an improvement to placing pieces on the board?
+
+How easy was it to understand when a marble 'fell' based on the interface?
+
+How easy was it change the direction of a piece on the board?
+
+How it clear how many marbles where collected at the bottom of the screen?
+
+Do you have an suggestions to improve the experience of the previous task?
+
+Task 2
+
+Did you complete this task?
+
+Has this task helped you understand the concept of bits and registers better?
+
+How easy are the piece icons to uniquely identify?
+
+How easy was it to understand the different playback options available?
+
+Do you have an suggestions to improve the playback features or ease of understanding the pieces?
+
+Task 3
+
+Did you complete this task?
+
+How clear was the puzzle list?
+
+Was the information relevant to choose a puzzle?
+
+How useful was the difficulty filter?
+
+Would you suggest any other types of filters or search features?
+
+How clear was it that some pieces couldn't be changed or deleted?
+
+How clear was it that you only had a certain number of pieces to complete the puzzle?
+
+Task 4 (extra)
+
+Did you complete this task?
+
+How clear was the create starting set up phase?
+
+Was it easy to come up with a puzzle by thinking of the solution?
+
+Would you want a different way of creating a puzzle?
+
+Would you want to add any more information to your puzzle's description?
+
+Any more suggestions to add?
+
+~20 (+5) mins 
+
+
+From quick evaluation from friend on task sheet. It was proposed that too much information was given to perform the tasks and that some of the help should be cut out to reduce it feeling like a tutorial. This will lead to more accurate responses for how easy it is to navigate or place pieces without explicit instructions on how to do it.
+
+# 15 Jan 2021
+
+Plan to write up the ethics brief and debrief for the evaluation tasks. - done
+
+After that work on the documentation for the various parts of the code on the main wiki. 
+
+After that start writing part of the dissertation, maybe the implementation part just to get something written down for it. 
+
+# 20 Jan 2021
+
+Continuing on with the documentation on the wiki, taking longer than expected but is handy as it reminds me of all the different parts in the code and helps give the big picture before trying to start the implementation stage
+
+It looks as if the Pin and CompSlot component can be refactored into one, might want to give this a try at some point. 
+
+
+
+
+
+
+
+
+
 
 
 
