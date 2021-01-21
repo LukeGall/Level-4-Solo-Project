@@ -27,7 +27,6 @@ import { MarblePair } from '../Classes/boardParts/marblePair';
 export class MakePuzzleService {
   private puzzleBoard: PuzzleBoard = new PuzzleBoard();
   curPuzzle: Puzzle = new Puzzle;
-  curAmount: number = 0;
 
   constructor(private db: AngularFireDatabase) { }
 

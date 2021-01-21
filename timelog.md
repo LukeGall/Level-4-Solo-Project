@@ -284,7 +284,11 @@
 * *1 hour* Meeting prep, meeting itself and writeup
 
 # 21 Jan 2021
-* *0.5 hour* Anonymous login and site upload
+* *1 hour* Anonymous login and site upload
+* *2 hour* Ethics task checklist and changing, form creation
+* *1 hour* Final task updates and questions then consent forms sent out
+* *1 hour* More code documentation 
+
 
 
 

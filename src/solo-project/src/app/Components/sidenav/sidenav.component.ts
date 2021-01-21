@@ -18,7 +18,7 @@ export class SidenavComponent implements OnInit {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
-  authLogin(): void{
+  anonLogin(): void{
     this.auth.signInAnonymously().catch((error => {
       console.log(error.code);
       console.log(error.message);

@@ -478,6 +478,11 @@ How it clear how many marbles where collected at the bottom of the screen?
 
 Do you have an suggestions to improve the experience of the previous task?
 
+<!-- Monitored question -->
+How intuitive was it that two Gearbits were connected?
+
+Do you have any suggestions to improve the use of GearBits?
+
 Task 2
 
 Did you complete this task?
@@ -505,6 +510,8 @@ Would you suggest any other types of filters or search features?
 How clear was it that some pieces couldn't be changed or deleted?
 
 How clear was it that you only had a certain number of pieces to complete the puzzle?
+
+Do you think these puzzles would assist in learning the Turing Tumble?
 
 Task 4 (extra)
 
@@ -539,7 +546,15 @@ Continuing on with the documentation on the wiki, taking longer than expected bu
 
 It looks as if the Pin and CompSlot component can be refactored into one, might want to give this a try at some point. 
 
+# 21 Jan 2021
 
+Create the form with questions, make consent form, checklist needs to be signed. 
+
+Get all those sorted and sent away with list of who to do the monitored questions
+
+Consent forms sent out, I shall wait for all the responses and then start the evaluation stage
+
+A typo in the tutorial should be fixed
 
 
 
