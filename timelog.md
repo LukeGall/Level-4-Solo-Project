@@ -283,4 +283,8 @@
 * *5 hour* Component documentation work
 * *1 hour* Meeting prep, meeting itself and writeup
 
+# 21 Jan 2021
+* *0.5 hour* Anonymous login and site upload
+
+
 
