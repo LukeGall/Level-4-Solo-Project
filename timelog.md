@@ -289,6 +289,10 @@
 * *1 hour* Final task updates and questions then consent forms sent out
 * *1 hour* More code documentation 
 
+# 22 Jan 2021
+* *1 hour* Starting the component diagram and first monitored eval
+
+
 
 
 

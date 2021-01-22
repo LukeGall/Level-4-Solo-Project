@@ -556,6 +556,9 @@ Consent forms sent out, I shall wait for all the responses and then start the ev
 
 A typo in the tutorial should be fixed
 
+# 22 Jan 2021
+For the monitored experiments, use a table that has the number of times the participant needed help and any suggestions or questions they have.
+
 
 
 
