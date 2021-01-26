@@ -544,7 +544,7 @@ After that start writing part of the dissertation, maybe the implementation part
 
 Continuing on with the documentation on the wiki, taking longer than expected but is handy as it reminds me of all the different parts in the code and helps give the big picture before trying to start the implementation stage
 
-It looks as if the Pin and CompSlot component can be refactored into one, might want to give this a try at some point. 
+* It looks as if the Pin and CompSlot component can be refactored into one, might want to give this a try at some point. *
 
 # 21 Jan 2021
 

@@ -249,14 +249,14 @@
 * *1.5 hour* Writing more tests
 * *1 hour* Final unit tests and more e2e tests added
 
-# 15 Dec 2020
+## 15 Dec 2020
 * *1 hour* Final e2e tests added
 * *5 hour* More tests, cleanup and refactors 
 
-# 16 Dec 2020
+## 16 Dec 2020
 * *3 hour* Status report write up
 
-# 17 Dec 2020
+## 17 Dec 2020
 * *3 hour* Lit review on wiki plus a write up of all the issues I faced during development
 
 
@@ -264,14 +264,14 @@
 # 12 Jan 2021
 * *1 hour* Reading of hall of fame project and note taking
 
-# 13 Jan 2021
+## 13 Jan 2021
 * *2.5 hour* Adding falling marbles, more code cleanup and appearance changes
 * *1 hour* Beginning of user survey research and design 
 
-# 14 Jan 2021
+## 14 Jan 2021
 * *5.5 hour* Creating user tasks, creating eval questions
 
-# 15 Jan 2021
+## 15 Jan 2021
 * *1 hour* Write up ethics brief and debrief script
 * *3 hour* Write up of code documentation on wiki
 
@@ -279,19 +279,29 @@
 # 18 Jan 2021
 * *0.5 hour* More code documentation on wiki
 
-# 20 Jan 2021
+## 20 Jan 2021
 * *5 hour* Component documentation work
 * *1 hour* Meeting prep, meeting itself and writeup
 
-# 21 Jan 2021
+## 21 Jan 2021
 * *1 hour* Anonymous login and site upload
 * *2 hour* Ethics task checklist and changing, form creation
 * *1 hour* Final task updates and questions then consent forms sent out
 * *1 hour* More code documentation 
 
-# 22 Jan 2021
+## 22 Jan 2021
 * *1 hour* Starting the component diagram and first monitored eval
+* *0.5 hour* Github documentation updates, including manual and readme.
+* *1.5 hour* Eval updates and the start of the component diagram start
+* *0.5 hour* More work on the component diagram
+* *2.0 hour* More monitored evals
 
+## 24 Jan 2021
+* *1 hour* Last monitored eval
+
+### Week 14
+## 26 Jan 2021
+* *1 hour* Refactoring of bad code smell
 
 
 
