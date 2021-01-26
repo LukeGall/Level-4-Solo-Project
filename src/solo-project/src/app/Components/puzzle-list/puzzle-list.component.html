@@ -33,7 +33,7 @@
                 </div>
             </div>
             <footer class="footer">
-                <mat-paginator [length]="puzzles.length" [pageIndex]="curIndex" [pageSize]="5"
+                <mat-paginator [length]="puzzles.length" [pageIndex]="curIndex" [pageSize]="pageSize"
                     (page)="changePage($event.pageIndex)">
                 </mat-paginator>
             </footer>

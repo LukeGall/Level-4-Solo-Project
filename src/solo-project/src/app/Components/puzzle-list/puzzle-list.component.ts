@@ -19,7 +19,7 @@ export class PuzzleListComponent implements OnInit {
     puzzleId: number;
     puzzlePage: Puzzle[] = [];
     fullPuzzles: Puzzle[] = [];
-    pageSize = 5;
+    pageSize = 10;
     curIndex = 0;
     fullDiffList = ["1", "2", "3", "4", "5"];
     difficultyList: string[] = [];
@@ -74,7 +74,7 @@ export class PuzzleListComponent implements OnInit {
             }
         })
         this.curIndex = 0;
-        this.puzzlePage = this.puzzles.slice(0, 5);
+        this.puzzlePage = this.puzzles.slice(0, this.pageSize);
     }
 
     resetDif() {
