@@ -1,23 +1,21 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Marble } from 'src/app/Classes/boardParts/marble';
-import { Pin } from 'src/app/Classes/boardParts/pin';
 import { Pos } from 'src/app/Classes/boardParts/pos';
+import { Slot } from 'src/app/Classes/boardParts/slot';
 
 @Component({
-  selector: 'app-pin',
-  templateUrl: './pin.component.html',
-  styleUrls: ['./pin.component.scss']
+  selector: 'app-slot',
+  templateUrl: './slot.component.html',
+  styleUrls: ['./slot.component.scss']
 })
-export class PinComponent implements OnInit {
-  @Input() pin: Pin;
+export class SlotComponent implements OnInit {
+  @Input() slot: Slot;
+  @Input() x: number;
+  @Input() y: number;
   @Input() marble: Marble;
-  @Input() private x: number;
-  @Input() private y: number;
   @Output() slotClicked: EventEmitter<Pos> = new EventEmitter<Pos>();
 
-
   constructor() { }
-
   ngOnInit(): void {
   }
 

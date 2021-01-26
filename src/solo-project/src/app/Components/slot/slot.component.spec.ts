@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PinComponent } from './pin.component';
+import { SlotComponent } from './slot.component';
 
-describe('PinComponent', () => {
-  let component: TestPin;
-  let fixture: ComponentFixture<TestPin>;
+describe('SlotComponent', () => {
+  let component: TestSlot;
+  let fixture: ComponentFixture<TestSlot>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PinComponent]
+      declarations: [ SlotComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TestPin);
+    fixture = TestBed.createComponent(TestSlot);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -25,8 +25,8 @@ describe('PinComponent', () => {
   });
 
   @Component({
-    selector: 'app-pin',
-    template: '<app-pin [pin]=null [x]="2" [y]="3">'
+    selector: 'app-slot',
+    template: `<app-slot [slot]="null" [x]="5" [y]="6">`
   })
-  class TestPin { }
+  class TestSlot{}
 });

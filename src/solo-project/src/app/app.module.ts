@@ -5,8 +5,6 @@ import { AppComponent } from './app.component';
 
 // Created Components
 import { PlainBoardComponent } from './Components/plainBoard/plain-board.component';
-import { PinComponent } from './Components/pin/pin.component';
-import { CompSlotComponent } from './Components/comp-slot/comp-slot.component';
 import { SelectionBarComponent } from './Components/selection-bar/selection-bar.component';
 import { DispenserComponent } from './Components/boardPieceComponents/dispensor/dispenser.component';
 import { FlipperComponent } from './Components/boardPieceComponents/flipper/flipper.component';
@@ -24,6 +22,7 @@ import { DefaultPuzzlesComponent } from './Components/default-puzzles/default-pu
 import { TutorialComponent } from './Components/tutorial/tutorial.component';
 import { PuzzleListComponent } from './Components/puzzle-list/puzzle-list.component';
 import { HomeComponent } from './Components/home/home.component';
+import { SlotComponent } from './Components/slot/slot.component';
 
 // Mat components
 import { MatSliderModule } from '@angular/material/slider';
@@ -60,8 +59,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
   declarations: [
     AppComponent,
     PlainBoardComponent,
-    PinComponent,
-    CompSlotComponent,
     SelectionBarComponent,
     DispenserComponent,
     FlipperComponent,
@@ -78,6 +75,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     TutorialComponent,
     HomeComponent,
     PuzzleListComponent,
+    SlotComponent,
   ],
   imports: [
     BrowserModule,

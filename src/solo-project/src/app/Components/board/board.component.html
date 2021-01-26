@@ -9,11 +9,11 @@
         <div *ngFor="let row of board.slots; index as x">
             <div *ngFor="let slot of row; index as y">
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
-                    <app-pin class="pin" *ngIf="slot && (slot.partName) == 'Pin'" [pin]="slot" [x]="x" [y]="y"
-                        [marble]="board.inPlayMarble" (slotClicked)="slotClicked($event)"></app-pin>
-                    <app-comp-slot class="compSlot" *ngIf="slot && (slot.partName) == 'CompSlot'" [compSlot]="slot"
+                    <app-slot *ngIf="slot && (slot.partName) == 'Pin'" [slot]="slot" [x]="x" [y]="y"
+                        [marble]="board.inPlayMarble" (slotClicked)="slotClicked($event)"></app-slot>
+                    <app-slot *ngIf="slot && (slot.partName) == 'CompSlot'" [slot]="slot"
                         [x]="x" [y]="y" [marble]="board.inPlayMarble" (slotClicked)="slotClicked($event)">
-                    </app-comp-slot>
+                    </app-slot>
                     <div *ngIf="x==10 && !slot && marblePresent(x,y)">
                         <img *ngIf="board.inPlayMarble.colour == 'blue'; else redMarble" src="assets/blue-marble.svg" width="100%" height="100%">
                         <ng-template #redMarble><img src="assets/red-marble.svg" width="100%" height="100%"></ng-template>
