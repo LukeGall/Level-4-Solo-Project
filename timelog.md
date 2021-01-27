@@ -302,7 +302,12 @@
 ### Week 14
 ## 26 Jan 2021
 * *1 hour* Refactoring of bad code smell
+* *1 hour* Continuing the component diagram
 
+## 27 Jan 2021
+* *1 hour* Reading of more hall of fame projects and a more comprehensive plan of the evaluation section of the project
+* *4.5 hour* Evaluation section of the dissertation
+* *0.5 hour* Supervisor meeting and writeup
 
 
 

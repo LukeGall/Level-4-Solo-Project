@@ -560,10 +560,56 @@ A typo in the tutorial should be fixed
 For the monitored experiments, use a table that has the number of times the participant needed help and any suggestions or questions they have.
 
 
+# 27 Jan 2021
+
+Notes about the evaluation section
+
+First paragraph should be why I carried out evaluation, at this point I will have a list of goals that I will want to meet, so the evaluation will be needed for this. Should also include some details about the Unit Testing that was performed and what I managed 
+
+Unit testing
+Unit testing and e2e tests, what was tested, what wasn't why? etc
+Include coverage report
+
+Include the task spec at the start of the monitored and unmonitored and can talk about the extra task for monitored and why it was left for just the monitored part
+
+Monitored user test 
+
+Who, why, talk about the task sheet length etc, as the tutorial sheet should give all the explanation that is needed. 
+
+Task explanation, talk about each task and what they had to do and why
+
+Monitoring
+
+Talk about how the tasks where monitored using a Zoom call and was recorded, questions, notes of when they went wrong etc
+
+Talk about the evaluation questions. What they were about why they were added etc, how long form answers were given about certain features of the program 
+
+Results
+
+List the suggested improvements given by the users
+
+Improvements that I noticed after observing the users
+
+Then go into details of what the evaluation responses showed
+
+limitations of the study, online, who is the main target audience?
+Really need more time with the game to understand how likely they would be to keep coming back and using the website for a prolonged period of time
+They didn't all know how the board game worked so some didn't understand how the parts all worked etc
+
+Some users asked lots of help to clearly gain more information about how exactly the game worked while others were happy to quietly work away at the tasks without much issue. As I couldn't' physically observe the user it was difficult to know how many times they exactly read the task sheet so the times asked for help was only when the user audibly asked questions. Other times 2 users played the puzzle incorrectly so help had to be given to tell them how to play it properly.
+
+Can include some tables of feature ease of use
+
+Unmonitored user test part
+
+
+A part on future work, personal evaluation on sections that could be improved
 
 
 
+After eval part written up, should look at getting a list of functional and non-functional reqs. Once these have been written up need to talk about how these are meet, from either the unit testing or the user evals
 
+How good is the program? 
 
 
 
