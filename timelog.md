@@ -309,5 +309,7 @@
 * *4.5 hour* Evaluation section of the dissertation
 * *0.5 hour* Supervisor meeting and writeup
 
+## 28 Jan 2021
+* *5 hour* Evaluation section write up cont. 
 
 
