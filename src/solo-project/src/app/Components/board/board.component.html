@@ -15,8 +15,8 @@
                         [x]="x" [y]="y" [marble]="board.inPlayMarble" (slotClicked)="slotClicked($event)">
                     </app-slot>
                     <div *ngIf="x==10 && !slot && marblePresent(x,y)">
-                        <img *ngIf="board.inPlayMarble.colour == 'blue'; else redMarble" src="assets/blue-marble.svg" width="100%" height="100%">
-                        <ng-template #redMarble><img src="assets/red-marble.svg" width="100%" height="100%"></ng-template>
+                        <img *ngIf="board.inPlayMarble.colour == 'blue'; else redMarble" src="assets/blue-marble.svg" width="100%" height="100%" alt="blue marble">
+                        <ng-template #redMarble><img src="assets/red-marble.svg" width="100%" height="100%" alt="red marble"></ng-template>
                     </div>
                 </mat-grid-tile>
             </div>

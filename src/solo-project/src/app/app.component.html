@@ -1,7 +1,7 @@
 <span [ngClass]="this.darkTheme ? 'unicorn-dark-theme' : 'defTheme'">
     <div class="container">
         <mat-toolbar color="primary" id="toolbar">
-            <button mat-icon-button class="menu-icon" (click)="sidenav.toggle()">
+            <button mat-icon-button class="menu-icon" (click)="sidenav.toggle()" aria-label="Hamburger Icon">
                 <mat-icon>menu</mat-icon>
             </button>
             <a routerLink="/home" style="text-decoration: none;">
@@ -9,9 +9,9 @@
             </a>
             <span class="spacer"></span>
             <button mat-button (click)="this.darkTheme = !this.darkTheme">Change theme</button>
-            <a id="code-link" href="https://github.com/LukeGall/Level-4-Solo-Project" target="_blank"><button
-                    mat-icon-button [matTooltip]="'Github Repo'">
-                    <img src="assets/github.svg">
+            <a id="code-link" href="https://github.com/LukeGall/Level-4-Solo-Project" target="_blank" rel="noopener"><button
+                    mat-icon-button [matTooltip]="'Github Repo'" aria-label="Github Repo link">
+                    <img src="assets/github.svg" alt="Github Icon">
                 </button></a>
         </mat-toolbar>
         <mat-sidenav-container class="sidenav-container" [hasBackdrop]="false">

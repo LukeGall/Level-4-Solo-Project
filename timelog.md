@@ -312,4 +312,18 @@
 ## 28 Jan 2021
 * *5 hour* Evaluation section write up cont. 
 
+## 29 Jan 2021
+* *4 hour* Evaluation section finish 
+
+### Week 15
+## 2 Feb 2021
+* *2 hour* Start of the logic design section
+
+## 3 Feb 2021
+* *3 hour* Clean up and continuation of design section
+* *3 hour* Requirements section
+
+## 4 Feb 2021
+* *5 hour* Implementation section
+
 

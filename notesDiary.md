@@ -612,5 +612,8 @@ After eval part written up, should look at getting a list of functional and non-
 How good is the program? 
 
 
+For next time, focus on going through the implementation stage
+
+
 
 
