@@ -311,6 +311,12 @@ these games would be ones to look at.
 
 %==================================================================================================================================
 \chapter{Analysis/Requirements}
+
+% Talk about how the requirements were split into reqs needed be to be meet to match existing projects and then the reqs added to imrpove upon these projects 
+
+
+% Talk about adding puzzles as the external motivator to encourage people to use the app, therefore increasing the possiblit that it could be useful in a learning concept
+
 The main aim of this project was to create a virtual simulation of a Turing Tumble board game. As stated in the background multiple versions of the game exist online so one of the major requirements was to include new features to distinguish this program from existing implementations. A minor requirement was to create a program that could be used in a classroom environment where it could be used to encourage the use of this program to help teach logical skills useful in a Computer Science context. The problem was researched by studying the Turing Tumble board game and the existing simulations that exist online to develop a set of functional and non-functional requirements that would meat the brief. user evaluation was carried out by university students and school pupils undertaking a computer science course to gain valuable insight into new features that could be added and improvements that can be implemented to better meet the non-functional requirements.
 
 \section{Requirements}
@@ -539,6 +545,7 @@ The aesthetics for the a plain Turing Tumble board as shown in (REF) was designe
 INCLUDE pictures here
 \section{Features}
 
+% Each feature should start off at the high level and then more information can be added to describe how it was implemented 
 \subsection{Board Simulation}
 The most important feature involved in this program was ensuring a Turing Tumble board could be correctly simulated and pieces can be easily placed by users. 
 
@@ -562,10 +569,119 @@ A user must be able to simulate the path a marble would take following the selec
 
 Once a marble is released by the user. The data binding marble property given to all slots ensure that a marble updating it's position property corresponds to the display given to the user. A marble is simulated by having a position property related to the slots on the board, be updated every time it is processed by a piece, having the individual piece logic change the direction of the marble. Once a marble reaches the bottom of the board, it will calculate which new coloured marble it will release. This is required to have one marble release lead to an execution of multiple marbles resulting in a collection of marbles stored at the bottom of the board. 
 
+Board validity and ensuring marbles only followed paths present in a physical Turing Tumble was achieved by ensuring every piece followed the exact logic provided by the physical board. The slots on the board follow a criss cross and pieces will also send a marble down a level and either left or right, ensuring a marble is always sent from one component slot to the next. When a marble is sent outside the boards defined width the board will catch this marble and keep it within the board width, this will lead to a marble being sent to a pin slot below where it shall 'fall'. It was important to implement the marble falling below when hitting a wall to ensure that when the board had a marble in execution, it was displayed to the user, even when entering an invalid slot. This ensures there is no disconnect between teh data the board is evaluating and the view displayed to the user.
+
+Two marble dispenser components were created to be displayed above the board. These components had the logic responsible for displaying the amount of marbles available to be released onto the board, it also included 2 buttons to increase or decrease the amount of marbles available. Negative marble amounts are forbidden and an upper bound of 100 marbles has been added to ensure complicated and varied patterns can be created without overfilling the marble display component.
+
+Space is added at the bottom of the board component to aid understanding that marbles can be collected in this space. When a marble reaches the end of the board, it will release another coloured marble while being stored by the board. This collected marbles property uses a class streamlining the details of list of marbles collected. A simple map object was used to only list the number of consecutive marbles collected by the board. For example if a pattern of 2 blue, 2 red marbles were to be collected, the user would have a blue circle with a 2 displayed and similar for Red. This was implemented to reduce visual clutter allowing a greater number of marbles to be collected while staying within it's defined component area. The data held by the map stores the important data properties necessary to understand the output of the Turing Tumble without requiring the user to count the resulting pattern by sight, aiding useability.   
+
 \textbf{Playback features}
-An important feature of the program was to give control to the speed and execution of the game to aid in users understanding of the logic of execution. A function was created to deal with a single iteration of the marble travelling down the board. Playback functions were then implemented that dealt with calling this function in different sleep intervals to mimic the physical time required by a marble to travel. The main execution loop called on the marble release would wait before calculating the first new position a marble would take to give time for the marble to be displayed to a user. A pause / play feature was added to allow users to stop execution when required to better understand the path the marble were to take. A speed slider was added below the board to allow users to change the amount of time the execution loop would wait before calculating the next location for the marble. A slider was added for more accurate control on how fast or slow a user wanted the execution. A step forward function was implemented that allows user to click a button to pause the current execution and jump to the next location without waiting, this can be clicked based on the users input clicks and allows users to step past more simple piece patterns or step through more complicated logical components. 
+An important feature of the program was to give control to the speed and execution of the game to aid in users understanding of the logic of execution. A function was created to deal with a single iteration of the marble travelling down the board. Playback functions were then implemented that dealt with calling this function in different sleep intervals to mimic the physical time required by a marble to travel. The main execution loop called on the marble release would wait before calculating the first new position a marble would take to give time for the marble to be displayed to a user. A pause / play feature was added to allow users to stop execution when required to better understand the path the marble were to take. A speed slider was added below the board to allow users to change the amount of time the execution loop would wait before calculating the next location for the marble. A slider was added for more accurate execution control compared to a list of presets. A step forward function was implemented that allows user to click a button to pause the current execution and jump to the next location without waiting, this can be clicked based on the users input clicks and allows users to step past more simple piece patterns or step through more complicated logical components. 
+
+\textbf{Board options}
+4 separate options were added to the board to aid user control over every aspect present. A user can reset the board removing all placed pieces on the board while removing the collected and in play marbles. This gives the user a quick reset function without requiring excessive time spent deleting the individual pieces. A similar reset marbles option was also added to allow users to reset the in play marble and collected marbles, useful to slightly edit the pattern on the board will resetting the output held by the board. It is also the natural option used to reset a marble that has been caught by an interceptor.
+
+4 example boards were created from inspiration from JSTumble and the Turing Tumble home page. These examples can be accessed by a button press on the plain board page. It will add the selected piece layout to the board and allows the user to work through more complicated examples of the computational powers of the Turing Tumble. This was added to improve users awareness to the computational capabilities of the Turing Tumble without requiring them to create the patterns from scratch. 
+\begin{itemize}
+    \item Example 1 Pattern - This pattern outputs a repeating 3 blue, 1 red marble pattern using a combination of Gearbit and bits. This adds a simple and comprehensive look into how Gearbits interact and can send logic up or down the board when interacting with a marble.
+    \item Example 2 Counting - This pattern uses a combination of Bits that represent 4 registers in a standard CPU to count the number of blue marbles that have been released by the board. The bits current state, represented by the direction, can be used in a binary representation to act as a register on the board and count marbles. This example shows users a direct link between a Turing Tumble and a computer hardware concept used in the more complicated puzzles.
+    \item Example 3 Addition - This example involves 2 vertical lines of bits on the left and right of the board, as shown in the diagram (REF). The binary number represented by the first line is added to the number in the second line before outputting the value of this addition on the second line. This examples gives a powerful example to the users how a simple set up on the Turing Tumble can perform powerful computational operations. It works by sending a blue marble and reducing the number displayed on the left line until it reaches zero, once it reaches zero it is caught by an interceptor. Once a blue marble reaches the bottom of the board, it releases a red marble which adds one to the current numerical representation.
+    \item  Example 4 Pattern - The last example that a user can view involves a complicated pattern involving three 'latch' patterns of connected Gearbits. These latches will sen the marble right the first time it reaches the top Gearbit and will then 'latch over' and only send marbles below it's Gear afterwards no matter the direction of the marble. This pattern creates a 2-1-4-1-8 pattern of blue to red marbles. This example gives the users an example of a intricate and complicated pattern that creates a unique output. 
+\end{itemize}
+
+A save and upload board feature was implemented to allow users to save a board setup in a simple txt file that could then be later uploaded to the site. This will encourage users to create complicated patterns that they can save and reopen at a later time. The file takes a snapshot of the current piece layout created by the user and save a JSON representation of the board which can be parsed using a service function into the board when uploaded.
+
+\subsection{Puzzles}
+The most important feature implemented in this program was the addition of puzzles. Allowing users to play through the set of default Turing Tumble puzzles found in the practice guide directly within the program. Puzzle creation was also implemented to allow for the creation of a puzzle ecosystem in which users can create new puzzles for others to play, directly increasing the enjoyment users can have on the site as well as the possible learning effects the puzzles can have.
+
+\textbf{Puzzle List}
+A user can find puzzles from two pages. 'Original Puzzles' which will list the puzzles created from the puzzles provided in the Turing Tumble practice guide, and 'Online Puzzles' which will list the puzzles created by other users of the site.
+
+For each page, a list of puzzle card components is given on the screen. The list of puzzles has been limited to 10 cards per page, with a paginator added to the bottom  here users can move through the list of puzzles available. Each puzzle card component as shown in (REF) lists the 6 descriptive properties using in determining what the puzzle entails. 
+\begin{itemize}
+    \item Title - The name given to the puzzle
+    \item Description - The description of a puzzle contains a one or two line summary as to the purpose of the puzzle and what a user should expect to achieve or learn.
+    \item Difficulty Rating - The difficulty rating of a puzzle is used to categorize the puzzles into 5 distinct groups based on a 5 star difficulty scale. This scale was chosen to mimic the scale found in the physical Turing Tumble to allow a direct relation between puzzles created for the physical game and any user created puzzles.
+    \item Starting Set up - The starting set up attribute displays a board with the starting pieces which cannot be replaced or deleted by the user. These pieces constrain the puzzle and the way the user must meet the expected output. 
+    \item List of Pieces available - The challenge of the Turing Tumble puzzles come with the restriction of pieces available to reach the expected output of the puzzle. This restriction ensures users follow a set pattern of computation to meet the expected output and can create a variety of different challenging puzzles even if they share the same expected output.
+    \item Expected output - This lists the collected marble output that the board should receive to complete the puzzle.
+\end{itemize}
+
+A difficulty filter has been implemented allowing users to filter the list of puzzles shown by the set of difficulties they wish to view. This gives the users greater control as to which puzzles they wish to view without having to  go through multiple pages of puzzles that may not interest them. This filter was also implemented to help organise the list of user created puzzles. A clear difficulty progression is present with the default puzzles but with online puzzles it currently lists any puzzles created by users based on the time created so by adding a filter users can ensure they only see puzzles of interest.
+
+\textbf{Playing a Puzzle}
+A user is presented a board component as used in other parts of the program. The user is also given a prompt card at the top of the screen which details the puzzle objective and description. 
+
+A puzzle also limits the number of pieces available to a user to place on the board. This is given by a number next to the pieces icon on the selection bar component. This number is updated dynamically when users place and delete the available pieces onto the board. This ensures users understand the exact pieces available to them to complete the puzzle, adding to the learning and challenge of the objective. 
+
+The starting pieces can highlighted with a darker background compared to the normal slots. These are seen as 'locked' and users can edit the pieces held within these slots. 
+
+The normal marble buttons used to increase the number of marbles available have been removed as the number of marbles available to complete the puzzle are set as part of the challenge. So the buttons have been removed to ensure users understand that option isn't available. 
+
+When a user plays through the board, a congratulations message will appear in the prompt card to encourage users to continue on to the next puzzle.
+
+\textbf{Puzzle Class}
+To implement and store details of puzzles a new Puzzle Board class was created which extended the existing board class used to represent a normal Turing Tumble board. This extension allowed all functionality used in simulating, placing, and deleting pieces to be reused by users when playing a puzzle. By keeping the functionality shared the user can use the knowledge learned by using the plain board to play through a puzzle. Major extensions of functionality included the puzzle board class to call the boards click piece function and check if a slot had been changed using this function. It could then use this to determine if the piece placement by the user was valid, keeping within the piece type constraints required. By reusing this functionality, any changes to how users could place pieces will automatically be available for puzzles as well. This was useful for the possibility of future work if a drag and drop feature were to be implemented. Another important function that had to be replaced by this class included the reset board option. In the puzzle implementation it was required that resetting the board didn't break the piece amount constraints so the amount of pieces available to the user had to correctly reset. The reset marble function was also extended to allow users to attempt the puzzle again by resetting the amount of marbles the board had available to their original amounts. 
+
+\textbf{Puzzle validity}
+It was important to ensure any user playing the puzzle couldn't cheat their way to the congratulations message. While the completion of a puzzle is only for self satisfaction, future work can be dedicated to adding leaderboards or user statistics detailing the number of puzzles users correctly solve. This requires a strong set of functions that ensure completion of a puzzle by a user is from their own merit and not by cheating. 
+
+This was ensured by not allowing extra marbles on the board to be added or removed by the user, so a single execution of the puzzle would be all that would be required to reach the expected output. A user is only reset the boards available marbles by using the reset marbles function which also removes the marbles collected by the board. To ensure users can't send down one marble correctly, reset the marbles and send down the next correctly colored marble, without staying within the limits.
+
+When a user resets the board, it is also enforced that the marbles are reset also. This ensures a user doesn't make a pattern to get the first part of an expected output then creates a new pattern to reaches the second part.
+
+The amount of pieces uses have to complete the puzzle is enforced and checked before a piece can be placed, this ensures no puzzles can be completed without the set amount. 
+
+\textbf{Puzzle Component}
+The puzzle playing component makes sure to reuse components already created for other parts of the site. This ensures internal consistency between the different sections of the app that use the same functionality. For example the selection bar component used in tandem with other parts of the site that allow placement of pieces on the board. Is present here with different property bindings given to this component as part of it's API. This allows the selection bar to update the options and piece information is displays while keeping the same structure and view between two separate pages. For example the list of pieces is sent to this component and an internal property representing if it is a selection bar for a puzzle is confirmed to allow the different options to be displayed to the user.
+
+The puzzle playing component also makes use of a prompt card component which uses data interpolation to display the different puzzle attributes in the same format for any puzzle that is played. This abstraction is handled by Angular and allows heavy reuse of this component.
+
+\subsection{Creating puzzles}
+To ensure that users had a compelling reason to return to the site and continue exploring the Turing Tumble. A puzzle creation system was implemented. This allowed users to use create puzzles following the puzzle design introduced to uses when playing them to create their own puzzles of varying difficulty for other users.
+
+The creation of a puzzle was implemented using a phase system where underlying functions would have different logic depending on the phase a user was in. 
+
+Puzzle creation was implemented using the existing board functionality. This allowed for efficient code reuse but also ensured that the users would already be familiar with how to place and create a pattern on a Turing board so reduced the barrier of entry for a user to create puzzles.
+
+\textbf{First phase}
+The first phase a user would enter the page in was the starting set up phase. This asks the user to place the pieces that will act as the starting set up for a puzzle. Users only have the option to place the pieces needed for a starting set up, and other unavailable options have been hidden to ensure the user isn't given visual clutter distracting from the first stage of puzzle creation. The user is given details of what is expected of them in a prompt component at the top of the board. After placing the starting pieces, a button can be clicked to confirm the set up. 
+
+\textbf{Second phase}
+Once the puzzle starting slots have been confirmed the user is asked to places the pieces required to solve the puzzle. When placing pieces, the selection bar will take note of how many pieces have been placed in this phase. This will store the amount of pieces a user will have when they play the puzzle. A user can solve the puzzle in fewer pieces but the solution created by the author is the least efficient solution possible. Once the solution pieces have been placed a user can will add the marbles required and then execute the board using the triggers familiar from the plain board. Once the collected marbles matches the target result the user clicks a button to confirm the board set up and output.
+
+\textbf{Final phase}
+The final phase gives the user a simple form to input the title, description and difficulty attributes for this puzzle. After ensuring this values are valid the puzzle is then submitted by a user click.
+
+\textbf{Puzzle creation functionality}
+The underlying functionality uses a combination of the puzzle board class, a puzzle object, and an external service dealing with puzzle upload. The puzzle class uses functionality extended from the base Board class but holds a property related to the phase a user is in. The phases include the three creation phases as well as playing the puzzle as used above (REF). When a user is in the starting set up phase the placement of pieces is directly extended from the base class, when a user enters the solution making phase all the pieces currently placed on the board are deep copied then saved in a starting slots property. When a user is creating the solution to a puzzle, the click function will check if a place has been placed correctly from the super function and will then update the correct value in the piece map. Once confirming the board output, the solution set up is saved and stored in a property. At this stage the data save in this puzzle object is given to a puzzle model and saved with the form data given by the user.
+
+\textbf{Puzzle Creation Validity}
+To ensure a user creates a puzzle which is fun and possible to be solved correctly by an anther user. Validity was implemented in the functions users used to create the puzzle.
+
+To ensure the correct starting pieces are identified, a user must set the starting slots first before moving onto the solution creation phase. These slots are saved so can be retrieved when playing the puzzle.
+
+The number of pieces available to a player is not set as input from the puzzle creator. It is calculated during the creation phase where a creator places the pieces required for a working solution to the puzzle. This ensures a user can not create an impossible solution to solve. While it is unlikely a user would seek to create an impossible puzzle, it was seen as an important feature to have puzzle correctness developed as a core feature. 
+
+The amount of marbles available to a user is calculated by increasing a property whenever a creator increases of decreases the amount of marbles available. This again ensures that a user can not create and upload a puzzle that is impossible for a user to complete. 
+
+By enforces the expected output of a puzzle to be confirmed by a user playing through their puzzle. This ensures that the puzzle created is feasible and can be completed by at least one user, the creator. This was implemented instead of a possible creation form where users could could create puzzles that were either impossible or harder than the creator could solve.
+
+By implementing built in validity through the creation phase, any puzzles uploaded to the backend server are by design valid and solvable. This is important to future work where more emphasis can be added ion nurturing a puzzle ecosystem for a large number of users. It also adds to user enjoyment by ensuring that a user couldn't play a broken puzzle in the online puzzle list.
+
+\textbf{Puzzle Creation Component}
+
+\subsection{Backend Service}
+\section{Component design}
+This section should include details of how the components were designed to improve reuse etc 
+% ADD next puzzle button
+% Add bit about buttons being disabled when they can't access them
+% Add a bit about how users can't place new pieces and keep the same output
+
+   
 
 
+% Have a read of both good dissertations, relax and just write anything down about what I did. It will get edited later.
 
 
 board, pieces, selection bar, tutorial page, puzzle list, play puzzle, puzzle creation and then some more. Talk about board validity and how the pieces work together and stuff
@@ -971,6 +1087,7 @@ One limitation of the unmonitored survey is that the number of responses given d
 The survey took around 30 minutes to complete yet it still missed some features I would have liked to have tested given more time but I decided to keep the tasks shorter to ensure I didn't lose the attention of the participant. More tasks related to learning via the program would have been desireable but as 50\% of participants didn't complete the last optional task, any more tasks or questions would have likely been too many and wouldn't have gathered much useful feedback.
 
 \subsection{Discussion on given suggestions}
+% This will likely be cut as it isn't work I did so doesn't matter
 This section discuses some of the major suggestions given by users and if they should be detailed in the future work section or if they shouldn't be focused on given the scope of this project.
 
 \emph{Interactive tutorial}

@@ -326,4 +326,6 @@
 ## 4 Feb 2021
 * *5 hour* Implementation section
 
+## 5 Feb 2021
+* *4 hour* More implementation writing 
 
