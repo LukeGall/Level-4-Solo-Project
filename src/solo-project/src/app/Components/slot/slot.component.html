@@ -1,9 +1,14 @@
-<div (click)="click()">
+<div (click)="click()" (mouseenter)="hover=true" (mouseleave)="hover=false">
     <div *ngIf="slot.piece; else slotDefault">
         <app-piece [piece]="slot.piece" [marble]="marble"></app-piece>
     </div>
     <ng-template #slotDefault>
-        <img *ngIf="!isMarbleFall(); else marbleFall" width="100%" height="100%" src={{slot.image}} alt="Slot">
+        <div *ngIf="!isMarbleFall(); else marbleFall">
+            <img *ngIf="!hover || !shouldHover(); else ghostImage" width="100%" height="100%" src={{slot.image}} alt="Slot">
+            <ng-template #ghostImage>
+                <img class="hoverImage" [src]="getPieceImage()" width="100%" height="100%" alt="ghostImage">
+            </ng-template>
+        </div>
         <ng-template #marbleFall>
             <img *ngIf="marble.colour=='blue'; else redMarble" width="100%" height="100%"
                 src="assets/blue-marble-fall.svg" alt="Blue marble fall">
