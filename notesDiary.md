@@ -618,8 +618,7 @@ For next time, focus on going through the implementation stage
 
 ## Issues to fix
 
-* add ghost image
-* Restrict amount of marbles present
+* Change the amount of marbles to a number not a list
 * Reduce data load of boards
 * Improve the saving and uploading of boards
 * Disable buttons during puzzles if can't place

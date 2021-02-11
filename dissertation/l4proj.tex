@@ -80,6 +80,23 @@
 % reset page numbering. Don't remove this!
 \pagenumbering{arabic} 
 
+\section{Motivation}
+Serious games are designed for the purposes of teaching and education. Various studies have shown promising results of the beneficial impact educational games can have for students in both increasing their subject knowledge and natural intelligences, useful across all aspects of a students academic career. Serious games have been shown as a avenue for effective teaching in teh areas of mathematics and programming concepts. Various design techniques have been applied from the traditional game design field to aid in the educational benefits these games can have for students.
+
+Turing Tumble a marble based board game is designed to teach children and adults the intricate logic used within a computer chip. With a focus on teaching the basic logical components that can be used to build up powerful computational tools through puzzles and gamification. This board game designed to be Turing complete, which has been proved to be P-Space complete, allows users to build computational powerful patterns. This award winning game can be used to teach and motivate students into the inner workings of a computer and allow them to improve their knowledge of computer components as well as the logical skills used in programming. This game can teach users the small but powerful components that store state, activate conditions and count using binary. 
+
+This project aims to create a easy to use and assessable simulation of a Turing Tumble following design principles from the game itself and ideas from research into the effectiveness of serious games. The aim was to create a faithful simulation that could be a useful serious game to teach students the intricacies of a computer chip from power building blocks through an award winning STEM game.
+
+
+\section{Goals}
+\textbf{Simulate a Turing Tumble board} The main goal of the program to correctly simulate all logical configurations that are possible on a physical version of the Turing Tumble board. This is required to ensure a faithful simulation is created for users to use as a replacement for the physical board game. This includes ensuring that all pieces follow the exact logic of the game board and the simulation can play through a series of marbles going down the board and recording the result. The marble correctly following the path determined by the pieces is an important aspect for a user to learn and understand how a combination of small but powerful pieces can lead to complex results. Marbles must also be recorded when they reach the bottom of the board. It is important that users can see the marbles collected as this is an essential result used to understand the output of the Turing Tumble board, including patterns expected in puzzles. It was decided that the board created in the program should follow the exact size and specifications of the physical board to keep a faithful simulation while avoiding unnecessary complexity for new users to the game.
+
+\textbf{Provide gamification via puzzles} Once the main goal of the program is reached the second goal was to provide a direct feature for users to choose a play a selection of puzzles from the Turing Tumble game guide. The board while interesting in it's own right is easier to learn and enjoy for users will going through a set of puzzles designed to teach the various aspects of the board and show of the power of the pieces available. The user should have a clear set of puzzles they can work through with difficulty increasing at a steady pace to keep motivation high for users following design principles used to increase retention on educational games. While the Turing Tumble is a fun game in it's on right, it can be used to teach users logical skills and give metaphors for how parts of a computer chip works so by providing fun and engaging puzzles within the program users will have a clear objective encouraging them to learn and play with the board.   
+
+\textbf{Should be easy to use and understand} The target audience of this program is Computer Science students interested in the game and school pupils that could use this program as a replacement for the physical board game. This means that the program should be easy to use and understand for users unfamiliar with the Turing Tumble game. It is important that users can focus on how the board works and what they can learn from it rather than getting confused or disinterested because the program is hard to understand or follow. 
+
+\textbf{Puzzle ecosystem to be created by users} To increase the likelihood that users are encouraged to use the site more than once it should be possible for users to create their own puzzles and upload them to the site. By allowing users to create their own puzzles they will be encouraged to learn more about how the board works and how complicated patterns can be made that could be fun for other users to play through. By allowing users to create their own puzzles an ecosystem of puzzles for users to play can be created and be updated over time increasing the number of fun ways for users to learn and play with the board. 
+
 
 Why should the reader care about what are you doing and what are you actually doing?
 \section{Guidance}
@@ -153,162 +170,124 @@ If you are unsure about how to cite online sources, please see this guide: \url{
 
 %==================================================================================================================================
 \chapter{Background}
-What did other people do, and how is it relevant to what you want to do?
-\section{Guidance}
-\begin{itemize}    
-    \item
-      Don't give a laundry list of references.
-    \item
-      Tie everything you say to your problem.
-    \item
-      Present an argument.
-    \item Think critically; weigh up the contribution of the background and put it in context.    
-    \item
-      \textbf{Don't write a tutorial}; provide background and cite
-      references for further information.
+\section{Turing Tumble}
+
+The Turing Tumble is a marble based board game that was designed to teach children the power of small simple switches and components and how they can be connected together to produce algorithms capable of computationally power results. A picture of the board can be found (REF), two marble dispensers are located in the top two corners of the board, one for blue and another for red marbles. Each marble represents 'electricity' in the computer metaphor that persists through the board. A marble travels down the board interacting with various pieces that represent different computer components. At the bottom of the board it will flip either a blue or red flipper which will release another marble of that colour. The marble is also stored and displayed at the bottom. The board is filled with a criss cross pattern of Pins and Component Slots, all 6 pieces fit on Component Slot with only the Gear piece fitting on Pins. Each piece has it's own logic that will change the direction of a marble going down the screen and is placed on Component slots or Pin slots. The marble uses the pieces to travel down every level before it reaches the bottom. The 6 pieces are described below.
+
+\textbf{Ramp} 
+The Ramp component is the simplest component and acts as a 'wire' in the computer metaphor that persists throughout the components. The Ramp sends a marble either right or left depending on the direction the curved end is facing. This piece is reversible in order to change the direction it faces. As the marbles aren't allowed to drop freely until they reach the end, the ramp is the most common way to direct the marbles to the desired location.
+
+\textbf{Crossover}
+The Crossover is a non reversible piece that continues the direction a marble is travelling into the component and allows the marbles to enter from either side.
+If a marble enters from the top left, travelling to the bottom right, it will leave the bottom right side of the crossover continuing it's direction. As this is a static piece, the crossover can't be reversed and will always act the same way. This piece is metaphorically equivalent to wires crossing over in chips, it allows paths created using ramps and other components to cross over each other.
+
+\textbf{Bit}
+The Bit component acts as a metaphorical switch that will change the direction the next marble will travel based on if it is 'on' (pointing to the right) or 'off' (pointing to the left). If the bit is pointing to the right (on) it will send the marbles to the left. If the bit is pointing left it will send the marble right. When a marble passes through a bit it changes the direction it is facing so it isn't a perfect analogy when comparing them to switches inside circuits. These components can be used to represent registers that store binary represented values.
+
+\textbf{Interceptor}
+This component catches a marble and stops the execution of the Turing Tumble as the marble will no longer be able to reach the end of the board and release another marble. This component is similar to a shutoff switch inside a regular computer. 
+
+\textbf{Gear}
+Gears are the only components that can be placed on Pins and Component Slots on the board and act as connections between a number of gear bits. They turn either 90° left or right. They will need a turn function.
+
+\textbf{Gear Bit}
+This component is a like a Bit in that it stores state by pointing left or right and will send a marble in the opposite direction it is facing and then change direction. A Gear Bit not connected to a Gear will act and behave exactly like a normal Bit component. When a Gear Bit changes direction it will also turn any connecting gears this direction which can then in turn change other gears and gear bits. The combination of this component and the Gear is claimed to make the game 'Turing Complete'. Information can only be sent down the board unless using these components which can then be used to affect components above the gear bit that gets switched.
+
+Using a combination of gear and gear bits we can make new logical components like latches, fixed position switches, set switches and flip flops.
+
+\section{Existing Simulations}
+Research was carried out into existing simulations of the Turing Tumble and evaluation was carried out.
+
+\subsection{Overview}
+Various simulations of the Turing Tumble exist online or as downloadable programs. Three such programs were explored and analysed. A paid version was found that implements the board in a VR example but as this product and implementation style would be unaccessible for the majority of the target audience it was not evaluated. THe products were analysed based on the goals set for the project and helped define the requirements for the program.
+
+\subsection{Turing Tumble Simulator}
+Turing Tumble Simulator is an open source simulator running in a web browser and hosted on Github pages (REF). It was created in Typescript using Javascript libraries for graphics and gravity simulation.
+
+\textbf{Advantages}
+\begin{itemize}
+    \item The graphic simulation added is impressive and gives a clear and intuitive simulation of the logic of a physical Turing Tumble board.
+    \item All pieces are correctly represented with pieces easily placed by clicking and placing onto slots.
+    \item The graphics update instantly and give a clear indication to what pieces are currently placed on the board.
+    \item Marbles are simulated correctly when falling down the board and allow complicated patterns to be simulated.
+    \item Extra marbles can be easily added to the dispensers and are collected at the bottom of the board.
+    \item A tutorial page has been added to give clear descriptions to how the pieces and the application works. 
+    \item The board can be made larger and edited by adding new walls, slots, dispensers and flippers giving a large amount of possible customisation options to making complicated patterns for the board.
+    \item The board has different speed options to control the execution speed of the marble falling down the board, helpful to improve understanding to how the pieces are interacting with the marble.
+    \item An options to change the graphical representation of the pieces can be activated to change the pieces into a simpler view which could be easier for a user to understand the path a marble would follow.
+    \item Large focus on the board on the centre of the screen with options on either side.
+    \item Can download a board as an image, which can later be uploaded to the site.
+    \item Pieces can be deleted and new Component slots and pins can be added.
 \end{itemize}
 
+\textbf{Disadvantages}
+\begin{itemize}
+    \item Only two pages on the simulation with no clear direction for a new user unfamiliar with a Turing Tumble.
+    \item No puzzles can be played on the simulation. This can lead to a lack of an external motivator for users to play with the board instead relying on them needing to understand how to use the board and what it can do as a motivator to use the program.
+    \item To change the direction of a piece, a user must first place a piece then select the 'hand' tool to click on this piece to change it's direction. 
+    \item Too many marbles collected at the bottom can lead to marbles overflowing on top of each over reducing clarity to the order of marbles collected by the board.
+    \item The tutorial page doesn't describe how a Turing Tumble board works and may be insufficient for a user unfamiliar with the game to understand.
+    \item Can't step through a marble path or pause the marble going down the screen so would need to use the slowest speed to help users understand the exact marble path.
+    \item Marbles can drop from any height and reach the end of the board and trigger a new marble going against the rules of the physical Turing Tumble.
+    \item The directions of pieces is difficult to understand when in the simplified view.
+\end{itemize}
 
-If I wanted this to focus more for school children. I could try and either target high school or primary and if so maybe talk to the teachers there?
+\textbf{Overall}
+A very visually appealing simulation that very faithfully simulates how a physical game would play out by integrating a complex gravity simulation. The site can be difficult to understand without having previous experience with a Turing Tumble and no puzzles can be played by users, meaning only an internal motivator of an interest in the Turing Tumble can motivate users to use the site.
 
-Each puzzle in the starting book has a start set up and a list of available parts they could use, solutions are also given, so puzzles and the right output could be tracked in an app?
+\subsection{JS Tumble}
+JS Tumble is a Javascript emulator that simulates a Turing Tumble board and is available online.
 
+\textbf{Advantages}
+\begin{itemize}
+    \item The simulator correctly models all pieces of the Turing Tumble board and has a clear representation for all pieces.
+    \item Pieces can be easily placed using a click and place system, with a held piece indicated by a red outline on the selection bar.
+    \item A small tutorial text box can be obtained that gets a short description of the board and how to run the page.
+    \item Users can send the current board pattern to others by sharing a URL with the current board set up. This is useful in helping to foster a community of people to share puzzles with.
+    \item Marbles can be reset to their default values while clearing the collected marbles at the bottom.
+    \item Tooltips appear when hoovering over options to give a description of their use. Can help make options clear to users.
+    \item Can temporally store a board in the current browser section to load back at another time. Useful when creating puzzles to allow for some experimentation.
+    \item Can step forward and back in the execution of the marble, giving users a great sense of control which can aid understanding.
+    \item 4 Example boards can be loaded which can show users more complicated and sophisticated patterns that the Turing Tumble can compute. 
+\end{itemize}
 
-% This is where I should put any notes when researching the turing tumble or any virtual comterparts
-Turing Tumble is a marble game that can build mechanical computers using various components and gears
-Can help teach people how simple switches work which act as the building block to computers. Can teach logic gates, truth tables, conditionals, binary etc
+\textbf{Disadvantages}
+\begin{itemize}
+    \item It has simplistic user interface and does not react to changes in browser height or width. This may put some users off at it may appear more simple than the other versions available.
+    \item Can't easily switch the direction of a piece on the board, the user must click the piece in with the direction you wish to place on the selection board.
+    \item They only have 4 analogue speed options, with slider to help a user choose the exact speed that would be useful for them.
+    \item The collected marbles can go off the screen when too many are collected. This won't allow users to check the resulting output if they wish to experiment with more complicated patterns.
+    \item No puzzles are available for users to play on the site. As puzzles are the main game element for the physical board, it would be helpful for users to play through puzzles to help learn the game.
+    \item Not clear which side of the board would release the next coloured marble. This may lead to confusion for users unfamiliar with the game.
+\end{itemize}
 
-The online version they recommended is very much just the game, could look at making it more of an edu tool by having the puzzles available online and maybe making my own?
-Depends if I want it to be used in class rooms for school children in schools where they won't want to get the physical boards due to practice
+\textbf{Overview}
+An aesthetically simple but complex simulation that has a variety of useful features and functionality for users familiar with the Turing Tumble game. Including the sharing of puzzles and examples of more complex patterns. It doesn't contain puzzles for users to play thorough and learn the game with and could also lead to some confusion for users unfamiliar with the Turing Tumble.
 
-The balls act as the electricity going through the board
+\subsection{Emtumble}
+This simulator written in c++ is a desktop application that can create and simulate Turing Tumble boards of varying sizes.
 
-The game board has two flippers, one that releases the blue ball and one that releases the red ones
-6 different parts
-Ramp directs balls left or right depending on which way it is put in, this moves a ball along the vertical track. These are like wires in normal computing terms
-Crossover lets ball paths cross over, so can cross paths that some balls may have. Crossover acts as 2 wires crossing over each other, but not touching
-bit, points left or right storing logic. These act as switches which allow the balls to change the course of the next set of electricity 
+\textbf{Advantages}
+\begin{itemize}
+    \item The simulator correctly models the logic and pieces needed to mimic a Turing Tumble board.
+    \item All pieces can easily be placed and added via clicking and placing the pieces. This can allow users to easily place of the pieces needed for a puzzle.
+    \item A icon is added at the bottom of the board to indicate that a marble reaching that location would spawn a new marble of this colour. This makes it intuitive for a new user. These icons can also be placed in new locations to custom the behaviour of the Turing Tumble.
+    \item Speed slider is available for users to choose how quickly the marble falls down the screen.
+    \item Marbles are clearly collected at the bottom of the board.
+    \item The size of the board can be increased and edited for greater customisation. This will allow more complicated patterns to be created, allowing the full computation power of the Turing Tumble to be explored.
+    \item Very clear and unique icons were created for the different pieces. Making it easy to identify the pieces and increase understanding of how they differ from other available pieces.
+    \item A unique 'cell' view is available where every piece is turned into a colour cell representation instead of it's graphical representation. 
+\end{itemize}
 
-Interceptor stops any more balls being released, if the ball stops, 'electricity' stops meaning it no longer runs
-Gears and gear bits are the components that help make the board turing complete, the bit part stores logic 
+\textbf{Disadvantages}
+\begin{itemize}
+    \item No tutorial so may be difficult for new users to understand how to use the program and what the Turing Tumble is about.
+    \item Requires the user to download the program and to have an install library to run the program. This can an issue for some users if they are unable to install new software onto their machines, for example school pupils on school lab machines.
+    \item No puzzles to help encourage users to play the game and learn the variety of board pieces and the computational power it can achieve.
+    \item Must use the side selection bar to select the direction of the piece you wish to place. This was found to be an inefficient way to place multiple pieces of different directions.
+\end{itemize}
 
-Gears and gear bits let other gear bits to turn each other. Can turn gear bits above, side or below them. Needs to be used in combination with gears as they aren't weighted correctly overwise
-By using gears we can send info back up the board, so we could send up to the top that a register is above a certain number i.e. for loops
-Different combinations of gear bits and bits made different logical pieces, like the latch which lets one blue left and the rest right (2 gear bits top left and bottom with a gear)
-Set switch lets you make all bits point in a certain direction, lets you test the direction (bit value) without changing it
-Can make a flip flop using gear and gear bits to remember info about it before it drops
-
-This switch can be used to check overflow etc. The combinations that gears and gear bit could be made to do could be explored?
-
-
-Features that can be improved upon with virtual one online, no save Elements, no login etc. Could be useful? Could encourage people to make puzzles online? 
-\emph{Notes on Java Swing}
-For java swing, intellij has a swing Ui designer which can be used to automatically add different components to the app without needing to code from scratch
-Has a main JFrame which will seems to act as the main desktop app panel that buttons, etc can be placed in. 
-Hovering over the components in Intellj doesn't give too much information into what they actually do are why we need them. Could be someone to focus on improving.
-
-The Java swing API has it's main super class as a Component (Object is above this like every java class). It can then be a Container or JComponent. Where a container is either a window or a panel, and the 
-components are labels, lists, tables etc. 
-
-Swing isn't really designed for animations, java fx is recommended instead
-
-
-\emph{Angular vs React} 
-Angular is made and maintained by Google using the Typescript as it's main language
-
-React is a front end JS lib for building UI interfaces, made by facebook. More interaction based way of working with the UI Elements
-
-React uses a virtual DOM so would be quicker to re-write elements of HTML Doc (Could include the board pieces)
-Angular uses a real DOM so it needs to update the entire HTML tree even for little changes
-
-React is smaller and therefore faster to load up
-
-I already have a bit of knowledge of angular so it might be easier to start with
-
-matter js could be used, plus also animejs and angular has it's own animation library
-
-\emph{React notes}
-These notes were taken while undertaking the official react tutorial
-
-Mainly about composing complex UIs from lots of components which are smaller and more singular pieces of code
-React will re update and render the components if the data changes.
-
-Reach component class takes in prop and returns a react Element
-Can put any JS expressions inside the JSX, so could be a different react class (say a component for the turing tumble)
-
-Parent components can pass data down to child Elements using props, don't think it can go the other way 
-Components have state. State can be considered private 
-
-Children props can pass state to each other using shared state stored in the parent component. Parent component can pass the state back down to the children by using props
-Keeps the child components in sync
-
-In the tutorial we push state up from the lower down child component so it gets state from it's parent and uses the function provided by it. Making it a controlled component
-The tutorial recommends always keeping state immutable and replacing this with new objects instead of changing the existing state for error handling and the ability to check changes more easily in the future
-Helps the react engine know when it should update it's rendering 
-
-\emph{Angular vs React vs Vue} 
-Frameworks don't equal library's. Libs are pre written code with classes, functions etc, can download these from npm or github
-Frameworks include a large stack of functions and help the dev use the various features that would otherwise need to be made before the real site can be done, i.e. routing etc
-
-React is only the UI library would need other technologies to handle any backend (if needed) for example
-Vue can let you use JS or Typescipt, but Angular's documentation is all in Typescript but can use normal JS or Dart if needed. 
-This makes it good for devs form OO background tho. Angular forces the three file approach to a component while react and vue don't
-React is one way binding only which may be an issue. 
-
-\emph{Angular notes} 
-
-I know a little bit of angular already so it wouldn't be a complete deep dive into web dev and could probably help save some hours.
-It is fully component based, the components are the main building tools for the framework, each component consists of Typescript, html and css files 
-Components are organised hierarchy, this will help force a good layout for my code and will help encourage good practices 
-Can support data flow from component to the template - property
-    template to the component - event
-Can two way bind using these, using a fairly complex background of watchers
-Got a slightly steeper learning curve by all accounts 
-Typescript is pretty similar to Java or C
-
-\emph{p5}
-
-p5 could be used as a drawing library but I would need to spend some more time looking at it
-
-\emph{Matter js notes (https://brm.io/matter-js/)}
-It is a 2D physics engine for shapes and objects, that could be useful to model the marbles going down the slope of the game board
-Matter js has an internal engine that updates the animations for us
-
-engine has a timescale object which will slow down animations, which could be useful
-x, y starts from top left.
-This is a very powerful library with some very interesting examples on their site, this could be a very powerful tool to use to make the envo but it may be difficult to apply the logic of the balls and components, may be easier to 
-focus on the logic then add some animation?
-
-Engine is the module for creating and maintains the physics engine while render is the module that visualizes the objects moving
-World module is used to provide methods and props to create and manipulate the world, i.e. gravity
-Bodies is circles rectangles and other common solid Bodies
-body is used to manipulate properties of bodies ie density, velocity etc
-Composites allow a quick creation of multiple bodies like a stack of rectangles 
-
-It would definitely be possible to create turing tumble using this library it might just be too powerful for what we need 
-
-% SHOULD MAYBE LOOK AT WCAG
-\emph{Online board games}
-Tabletop simulator is the most popular game that allows people to play board games in a 3d desktop game that allows multiple people to play 'physical' like online board games.
-The player can touch, pick up and move objects which can interact with the board game. Can be a bit complicated for new users however and is very reliant on learning the controls and 
-playing the game 'physically'. There is a large mod scene for this game which allows new games and versions to be added by fans of the game creating a large ecosystem of different games for people to play.
-The rules for board games need to enforced by the players, it is more a sandbox for the game pieces to exist in which users will manipulate them like in real life to follow the play of the game.
-This is the more 'hardcore' version for people serious about playing 3d versions of board games with great community made games and lots of mod-ability.
-
-This game is on the game platform Steam, it also contains a lot of separate virtual versions of popular board games that can be purchased separately which have various levels of polish and online aspects.
-Including a GoT board game or versions of Monopoly.
-
-In terms of browser based online board games there is Boardgame Arena which is free online but offers paid exclusive content including better UI or more popular
-games. Only the host is required to have the premium games that allows friends to play them together with other people that have the free version. Unlike tabletop simulator
-the rules are enforced and it includes tooltips to ensure people can understand the rules as they play the game. It has a fairly simple look and feel to the board games
-by using only a top down 2d view on the board. Which makes it easier on slower computers but doesn't make it the most visually appealing. 
-Focusing more on logic instead of look and feel while keeping the game 2d will make it more accessible to a wider audience while reducing load on slower PCs.
-
-Many educational games exist online aimed at providing a family friendly and fun way for kids to learn and have fun. Some are made by large charities including Animal Jam made by NatGeo. 
-Tinybob has a wide variety of online games aimed at teaching children different subjects. The visuals are very applying and there is a great sense of style and attention put into the games, leading to many awards for the company 
-and it's various games. Including ones learning the body, simple physics, the Earth and some Mammals. If I was to go down a more kid focused educational route
-these games would be ones to look at.
-
+A complex and well made simulator of the Turing Tumble that may be unaccessible by some users by requiring an install of the program. The ability to edit the size of the board can lead to higher user customisation and greater possibility of unique and computationally interesting boards. 
 %==================================================================================================================================
 \chapter{Analysis/Requirements}
 
@@ -350,6 +329,7 @@ The following list of requirements uses the MoSCoW prioritization method to dist
     \item (C) Allow users filter through puzzles using a difficulty filter. This will give the user greater control of which puzzles they see and allow a greater ease of learning by giving the option to start with more simpler puzzles before moving onto more complicated ones.
     \item (C) Add a description to each piece to increase understandability. This will greater improve the usability of the pieces and allow users to learn how the piece works without needing to check the tutorial page. 
     \item (C) A user should be able to change the theme of the program. This will add accessible to the site and allow the user to choose a theme they prefer.
+    \item (C) A user could create custom patterns of pieces and save these configurations. This would allow users to create more complicated Gearbit patterns that they could use in other parts of the program. 
     \item (C) Add a selection of example board configurations to show more complicated patterns and functionality of the board. For example an addition pattern could be added to show how the Turing Tumble can use Bit pieces to add two binary numbers together.
     \item (C) Allow users to comment and rate other puzzles. This will help create a more active puzzle environment were users can encourage each other to create more elaborate puzzles that others can enjoy.
     \item (W) A user page were users can delete or edit there published puzzles. This will encourage users to create puzzles and update older puzzles with any possible fixes or edits to improve the puzzle for other users.
@@ -361,8 +341,8 @@ The following list of requirements uses the MoSCoW prioritization method to dist
 \textbf{Non-functional Requirements}
 \begin{itemize}
     \item (M) No existing knowledge of a Turing Tumble should be required to understand and use the app. As this program is decided to introduce people to the Turing Tumble game, it must be easy to use for this target audience.
-    \item (M) Should be intuitively from the outset without the need to keep going back to a tutorial to understand how to use it. After the first read of the tutorial which describes the game, the UI elements shouldn't need too much explanation and should be easy to understand.
-    \item (M) Should be runnable on modern browsers with no software install required. This will allow school pupils and Computer Science students to use it without the need to install software, which may be unavailable for some.
+    \item (M) Should be intuitive from the outset without the need to keep going back to a tutorial to understand how to use it. After the first read of the tutorial which describes the game, the UI elements shouldn't need too much explanation and should be easy to understand.
+    \item (M) Should be runnable on browsers with no software install required. This will allow school pupils and Computer Science students to use it without the need to install software, which may be unavailable for some.
     \item (C) Should be quick and efficient to use on most modern desktop devices. Users will be unlikely to return to a website if it is slow and inefficient, keeping the user experience as enjoyable as possible will increase the possible uptake of the site.
     \item (W) Should be runnable on mobile devices. Some users may not have access to a desktop or laptop so making sure the app can run on more common mobile devices could increase the number of users of the program.
 \end{itemize}
@@ -370,46 +350,6 @@ The following list of requirements uses the MoSCoW prioritization method to dist
 \section{Specification updates}
 The requirements was changed halfway through development time. The project was planned to go one of two way. It was either going to focus on full physics simulation to improve the user experience or puzzle playing and creation was going to be the focus. In both cases it was important to first ensure that the minimum viable product was created in which a Turing Tumble board could be successfully simulated. Time was then spent deciding which possible course of action would be the best given the remaining development time. Puzzles were chosen as the next major requirement in order to give a unique feature to the program that other online versions don't contain. After adding the puzzle features it was decided that development time was better focused on general improvements than adding full physics simulation. 
 
-% Write up of Turing Tumble Pieces
-
-\emph{Ramp} 
-The Ramp component is the simplest component and acts as a 'wire' in the computer metaphor that persists throughout the components. 
-The Ramp sends a ball either right or left depending on the direction the curved end is facing, the ramp doesn't care which way the ball enters
-the component, it will send right / left for a ball entering from the top right or left of the component. This piece is reversible in order to change the direction
-it faces. As the balls aren't allowed to drop freely until they reach the end, the ramp is the most common way to direct the balls to the desired location.
-This components representation in code should store the direction it is facing which will be the direction it sends the ball or 'electricity' down.
-
-\emph{Crossover}
-The Crossover is a non reversible piece that continues the direction a ball is travelling into the component but allows the balls to enter from either side.
-If a ball enters from the top left, travelling to the bottom right, it will leave the bottom right side of the crossover continuing it's direction. As this is a 
-static piece, the crossover can't be reversed and will always act the same way. This piece is metaphorically equivalent to wires crossing over in chips, it allows paths created 
-using ramps and other components to cross over each other.
-
-\emph{Bit}
-The Bit component acts as a metaphorical switch that will change the direction the next ball will travel based on if it is on (pointing to the right) or off (pointing to the left).
-If the bit is pointing to the right (on) send the balls to the left no matter which direction they enter from. Send the balls to the right if the switch is pointing to the left (off).
-However when a ball passes through a bit it changes the direction it is facing so it isn't a perfect analogy when comparing them to switches inside circuits. These components can be used to represent registers
-that store bit values which can then be used to represent values in binary representation.
-This component will need to store the direction it's facing as it's only main property.
-
-\emph{Interceptor}
-This component catches a ball and stops the execution of the turing tumble as the marble will no longer be able to reach the end of the board and release another marble. 
-By using the metaphor of electricity this component stops the electricity from flowing through the computer meaning it will stop execution.
-This component is similar to a shutoff switch inside a regular computer. It will not store any properties but should be able to change the position of the ball to static and 
-stop the run time of the board.
-
-\emph{Gear}
-Gears are the only components that can be placed on pegs instead of slots on the board and act as connections between a number of gear bits. They turn either 90 left or right. They will need a turn function.
-
-\emph{Gear Bit}
-This component is a like a bit in that it stores state by pointing left or right and will send a ball in the opposite direction it is facing and then change direction.
-A Gear Bit not connected to a Gear will act and behave exactly like a normal Bit component. When a gear bit changes direction it will also turn any connecting gears this direction which can 
-then in turn change other gears and gear bits. The combination of this component and the gear makes the game Turing Complete. 
-Information can only be sent down the board unless using these components which can then be used to affect components above the gear bit that gets switched.
-This component like the bit will need to be able to store it's direction (state) and then turn itself and any connecting gears.
-
-Using a combination of gear and gear bits we can make new logical components like latches, fixed position switches, set switches and flip flops. The logic of these
-new composite components could be explored plus the creation of new components that provide different logic.
 \section{Guidance}
 Make it clear how you derived the constrained form of your problem via a clear and logical process. 
 
@@ -508,7 +448,7 @@ A component's template file is made up of HTML and Angular template syntax. This
     \item \textbf{<app-example-component>} - This tag links to another user created component, making it a child of the current component. This allows user defined components to be easily mixed in between standard HTML allowing Angular to replace that tag with a call to a component and the template file it contains.
     \item \textbf{ \{\{componentProperty\}\}} - This \emph{interpolation} syntax allows for data binding between the template file and the component class which contains and can edit the data. If the data were to be updated Angular would refresh the data displayed in the DOM.
     \item \textbf{[property] = "value"} - This syntax when placed within a HTML or component tag is called \emph{property binding} which can set the data values of child components or set property values in a components API, used extensively for an external component library like material UI. A simple example is <img [src]="imgLink">. The value within the double quotes is a property held within the component class file, named z\emph{imgLink}, this allows the src property of an image tag to be updated dynamically.
-    \item \textbf{<button (click)="clickFunction()">} - The \emph{(click)} value represents \emph{event binding} in which a DOM event, in this case a button click, can be bound to a response function. In this example a button when clicked by a user will call a \textbf{clickFunction()} held within the component class. 
+    \item \textbf{<button (click)="clickFunction()">} - The (click) value represents \emph{event binding} in which a DOM event, in this case a button click, can be bound to a response function. In this example a button when clicked by a user will call a \textbf{clickFunction()} held within the component class. 
 \end{itemize}
 
 By allowing data binding in native HTML the responsibility of updating data values and ensuring user inputs are captured correctly are given to Angular and focus can be spent on developing the major functionality of the program without spending development time ensuring JS calls are made correctly. 
@@ -550,13 +490,17 @@ INCLUDE pictures here
 The most important feature involved in this program was ensuring a Turing Tumble board could be correctly simulated and pieces can be easily placed by users. 
 
 \textbf{Adding pieces}
-Ensuring that users can place the pieces into their desired location allows them to create any pattern of pieces they can imagine, aiding learning using the board by encouraging any possible pattern to be created by the users. A board class was created that contained a 2d array of Slots that could have pieces placed by users using a side selection bar. This selection bar component contained a list of the available pieces as well as the SVG representing the piece. A user can select a piece by clicking a piece button on the selection bar to 'hold' the piece. A user can then click any visible slot on the board to place the piece. The board component and selection bar were kept separate to improve modularity so eventEmitters were added to the selection bar so a users click could be captured by it's parent component and the currently held piece could be updated. When a user holds a piece, it's corresponding icon on the selection changes colour to aid understanding of which piece is held without an explicit prompt. After clicking a slot on the board, the board will check that a valid slot was clicked before adding this piece to the slot property of the board object. Within the board component template every slot is created using a Slot component that is given it's unique slot held by the board as an input property using Angular data binding. This ensures that when a slot property is updated by adding a piece object, the corresponding component updates it's view in the DOM instantly showing this piece to the user.
+Ensuring that users can place the pieces into their desired location allows them to create any pattern of pieces they can imagine, aiding learning using the board by encouraging any possible pattern to be created by the users. A board class was created that contained a 2d array of Slots that could have pieces placed by users using a side selection bar. This selection bar contained a list of the available pieces as well as the SVG representing the piece. A user can select a piece by clicking a piece button on the selection bar to 'hold' the piece. A user can then click any visible slot on the board to place the piece. When a user hovers over a slot holding a valid piece, a 'ghost image' is displayed in the slot to give intuition that a piece can be placed, an example can be seen REF. 
 
+The board component and selection bar were kept separate to improve modularity so eventEmitters were added to the selection bar so a users click could be captured by it's parent component and the currently held piece could be updated. When a user holds a piece, it's corresponding icon on the selection changes colour to aid understanding of which piece is held without an explicit prompt. After clicking a slot on the board, the board will check that a valid slot was clicked before adding this piece to the slot property of the board object. Within the board component template every slot is created using a Slot component that is given it's unique slot held by the board as an input property using Angular data binding. This ensures that when a slot property is updated by adding a piece object, the corresponding component updates it's view in the DOM instantly showing this piece to the user.
+% Talk about ghost pieces
 \textbf{Deleting Pieces}
-Pieces on the Turing Tumble board can be replaced or deleted in two ways. If a user is currently holding a piece and places it in a slot currently occupied by another piece. This allows for quicker board configurations as pieces aren't required to be explicated deleted by replacements can be made. The user can also select the delete piece option on the side selection bar, this will allow any slot clicked while this option is added to reset the slot.
+Pieces on the Turing Tumble board can be replaced or deleted in two ways. If a user is currently holding a piece and places it in a slot currently occupied by another piece. This allows for quicker board configurations as pieces aren't required to be explicated deleted as replacements can be made. The user can also select the delete piece option on the side selection bar, this will allow any slot clicked while this option is active to reset the slot.
 
 \textbf{Flipping Pieces}
 Users can flip the direction of a reversible piece by holding that piece and clicking on an existing piece on the board. This allows correct Turing Tumble boards to be created by ensuring ramps, bits and Gearbits follow the correct path envisioned by the user. For example a basic Ramp pattern that sends the marble left, right down the board. 
+
+The current direction of each reversible piece is held within it's piece class that every piece component contains. This direction is used in the process marble function to ensure marbles travel in teh right direction. The SVG icon displayed to the user is flipper on direction change giving a clear indication to the user of the state of the board.
 
 \textbf{Piece logic}
 Each piece available in a physical Turing Tumble board needed it's own logical representation. To allow every piece to be abstracted in the boards implementation, an abstract piece class was created that contained the most important properties including it's SVG icon that would be displayed to the user as well as it's logic required to interact with a marble. The logic of every piece was created to exactly follow the logic described in the background section (REF). Each piece would be sent a marble to 'process' and would edit it's current direction based on it's properties and call any internal functions required to keep the boards logic. For example a Bit piece would accept a marble, send it down a level and in the opposite direction to which the piece is facing before changing the direction property of the bit, ensuring state is preserved. 
@@ -571,7 +515,7 @@ Once a marble is released by the user. The data binding marble property given to
 
 Board validity and ensuring marbles only followed paths present in a physical Turing Tumble was achieved by ensuring every piece followed the exact logic provided by the physical board. The slots on the board follow a criss cross and pieces will also send a marble down a level and either left or right, ensuring a marble is always sent from one component slot to the next. When a marble is sent outside the boards defined width the board will catch this marble and keep it within the board width, this will lead to a marble being sent to a pin slot below where it shall 'fall'. It was important to implement the marble falling below when hitting a wall to ensure that when the board had a marble in execution, it was displayed to the user, even when entering an invalid slot. This ensures there is no disconnect between teh data the board is evaluating and the view displayed to the user.
 
-Two marble dispenser components were created to be displayed above the board. These components had the logic responsible for displaying the amount of marbles available to be released onto the board, it also included 2 buttons to increase or decrease the amount of marbles available. Negative marble amounts are forbidden and an upper bound of 100 marbles has been added to ensure complicated and varied patterns can be created without overfilling the marble display component.
+Two marble dispenser components were created to be displayed above the board. These components had the logic responsible for displaying the amount of marbles available to be released onto the board, it also included 2 buttons to increase or decrease the amount of marbles available. 
 
 Space is added at the bottom of the board component to aid understanding that marbles can be collected in this space. When a marble reaches the end of the board, it will release another coloured marble while being stored by the board. This collected marbles property uses a class streamlining the details of list of marbles collected. A simple map object was used to only list the number of consecutive marbles collected by the board. For example if a pattern of 2 blue, 2 red marbles were to be collected, the user would have a blue circle with a 2 displayed and similar for Red. This was implemented to reduce visual clutter allowing a greater number of marbles to be collected while staying within it's defined component area. The data held by the map stores the important data properties necessary to understand the output of the Turing Tumble without requiring the user to count the resulting pattern by sight, aiding useability.   
 
@@ -606,11 +550,11 @@ For each page, a list of puzzle card components is given on the screen. The list
     \item List of Pieces available - The challenge of the Turing Tumble puzzles come with the restriction of pieces available to reach the expected output of the puzzle. This restriction ensures users follow a set pattern of computation to meet the expected output and can create a variety of different challenging puzzles even if they share the same expected output.
     \item Expected output - This lists the collected marble output that the board should receive to complete the puzzle.
 \end{itemize}
-
-A difficulty filter has been implemented allowing users to filter the list of puzzles shown by the set of difficulties they wish to view. This gives the users greater control as to which puzzles they wish to view without having to  go through multiple pages of puzzles that may not interest them. This filter was also implemented to help organise the list of user created puzzles. A clear difficulty progression is present with the default puzzles but with online puzzles it currently lists any puzzles created by users based on the time created so by adding a filter users can ensure they only see puzzles of interest.
+ 
+A difficulty filter has been implemented allowing users to filter the list of puzzles shown by the set of difficulties they wish to view. This gives the users greater control as to which puzzles they wish to view without having to  go through multiple pages of puzzles that may not interest them. This filter was also implemented to help organise the list of user created puzzles. A clear difficulty progression is present with the default puzzles but with online puzzles it currently lists any puzzles created by users based on the time created so by adding a filter users can ensure they only see puzzles of interest. The filter updates the list instantly and doesn't require the page to be reloaded when a new set of difficulties is selected, this adds to usability and avoids unnecessary load times for users.
 
 \textbf{Playing a Puzzle}
-A user is presented a board component as used in other parts of the program. The user is also given a prompt card at the top of the screen which details the puzzle objective and description. 
+A user is presented a board component as used in other parts of the program. The user is also given a prompt card at the top of the screen which details the puzzle objective and description.
 
 A puzzle also limits the number of pieces available to a user to place on the board. This is given by a number next to the pieces icon on the selection bar component. This number is updated dynamically when users place and delete the available pieces onto the board. This ensures users understand the exact pieces available to them to complete the puzzle, adding to the learning and challenge of the objective. 
 
@@ -633,7 +577,7 @@ When a user resets the board, it is also enforced that the marbles are reset als
 The amount of pieces uses have to complete the puzzle is enforced and checked before a piece can be placed, this ensures no puzzles can be completed without the set amount. 
 
 \textbf{Puzzle Component}
-The puzzle playing component makes sure to reuse components already created for other parts of the site. This ensures internal consistency between the different sections of the app that use the same functionality. For example the selection bar component used in tandem with other parts of the site that allow placement of pieces on the board. Is present here with different property bindings given to this component as part of it's API. This allows the selection bar to update the options and piece information is displays while keeping the same structure and view between two separate pages. For example the list of pieces is sent to this component and an internal property representing if it is a selection bar for a puzzle is confirmed to allow the different options to be displayed to the user.
+The puzzle playing component reuses components already created for other parts of the site. This ensures internal consistency between the different sections of the app. For example the selection bar component used in tandem with other parts of the site that allow placement of pieces on the board. Is present here with different property bindings given to this component as part of it's API. This allows the selection bar to update the options and piece information is displays while keeping the same structure and view between two separate pages. For example the list of pieces is sent to this component and an internal property representing if it is a selection bar for a puzzle is confirmed to allow the different options to be displayed to the user.
 
 The puzzle playing component also makes use of a prompt card component which uses data interpolation to display the different puzzle attributes in the same format for any puzzle that is played. This abstraction is handled by Angular and allows heavy reuse of this component.
 
@@ -670,56 +614,53 @@ By enforces the expected output of a puzzle to be confirmed by a user playing th
 By implementing built in validity through the creation phase, any puzzles uploaded to the backend server are by design valid and solvable. This is important to future work where more emphasis can be added ion nurturing a puzzle ecosystem for a large number of users. It also adds to user enjoyment by ensuring that a user couldn't play a broken puzzle in the online puzzle list.
 
 \textbf{Puzzle Creation Component}
+The puzzle creation page makes use of the selection bar, board component, and a information card. The selection bar is given input for the puzzle that is being created and as the current creation phase changes with the user creating the puzzle. The selection bar updates which options it will show or hide to the user. The board component works identically to other parts of the site, but ensures that the users starting set up pieces update to the their locked state once confirmed. A information card component is added to the top of the page to give the user more information on the stages of the puzzle information. This was to give easier instructions to a creator without requiring them to reread the tutorial. 
+
+The final phase puzzle creation uses a simple material UI form view. Giving the user text fields for text and description, as well as a 5 point ratio box list to enforce difficulty is constrained without the range. The form fields are stored in the external service and enforce all fields are filled before submission.
 
 \subsection{Backend Service}
+An external service was created containing the relevant functionality to upload and download data from the backend Firebase server. The Firebase server was easy to use and required simple API calls to interact with the server. This approach was taken to minimize time needed to be spent on a backend implementation, focusing instead of the puzzle features for the users. 
+
+This service is injected into the 3 different components. The puzzle creation component uses this service to set and then upload the puzzle created by the user. The puzzle list component, used by both the default puzzles and online puzzles, uses this service to download the specific list of puzzles stored. The plain board page uses a converter function within the service to convert uploaded user txt files into valid boards.
+
+When uploading a puzzle, the details are converted into JSON and uploaded as a string. This allowed for simple upload of the exact puzzle details to the server but can lead to higher than expected upload sizes that can be optimised as part of future work. When a call is made to the server to download a list of puzzles, the JSON representation stores the data of the objects but discards all type information when uploading. A converter function was created as described in section (REF). This function is used to convert a board represented by a string into it's correct types.
+
+The form used to add puzzle details is also stored within the service. It ensures that all entered by the user is required and a difficulty validator was created to ensure no values outwith the range could be entered. 
+
 \section{Component design}
-This section should include details of how the components were designed to improve reuse etc 
-% ADD next puzzle button
-% Add bit about buttons being disabled when they can't access them
-% Add a bit about how users can't place new pieces and keep the same output
+Angular encourages a component approach when developing. This design principle was followed as much as possible when creating abstract and interactive components. By focusing on creating small compact components, many pages would utilise a set list of components already used in different sections of the page. As shown by the component diagram (REF) for the Home page. The same board component is created 4 times each with it's own individual list of slots and pieces. This allowed all components to follow one source of truth and lead to high reuse of existing code. 
 
-   
+An Input tag can be added to any property in a component class to allow this property to have a value passed to it via \emph{property binding} when creating this component. This allowed components to abstract exact details of what data they were displaying to users and allow components to be created for interfaces or abstract classes. One example were this was used heavily was the piece component. A BoardPiece property that could be bound by a parent component allowed for any of the six components to be passed and utilized in this component class. Ensuring that a consistent design and reuse of code was implemented for all 6 pieces. 
 
+An output property can be added to a component allow data to be sent 'up' to the parent component by creating an event emitter. The parent component can then bind this event sent by the child component and capture call a function to deal with the event. This is used heavily in the selection bar component which contains output properties to signify when a button is pressed by the user, the parent component will then capture this event and update the board. This allowed the selection component to not have direct access to the board object and not been given details on the implementation of the options it presents to the user. 
 
-% Have a read of both good dissertations, relax and just write anything down about what I did. It will get edited later.
+As each created component holds it's own independent data, multiple components can be created without data being shared. This is most useful when creating the slots on the board object. Over 106 separate slot components are created to handle the data and any user events for each individual slot. This allowed the functionality for a single slot to be implemented then repeated for each slot on the board.
 
+\section{Deployment}
+The site was deployed using Github pages. This allowed easy deployment to a free and always online platform. It was decided that the site would be deployed to ensure that the target audiences of the program can access the program without downloading or installing the necessary files or libraries required to run this program on their own computer. 
 
-board, pieces, selection bar, tutorial page, puzzle list, play puzzle, puzzle creation and then some more. Talk about board validity and how the pieces work together and stuff
-
-% Can have a small part on how it is deployed on github pages and documentation on the wiki etc
-
-\section{Issues experienced during development}
+\section{documentation}
+Documentation has been created to provide guides to other developers on how to install and run this program on their machine. Extensive code documentation was created detailing ever major typescript class and component. This documentation will allow other future developers to edit and add new features to the program.
 
 
+\section{Issues experienced during implementation}
 \subsection{Passing Router parameters}
-One way originally attempted to reduce the amount of duplicated code between the 'Original puzzles' and 'Online Puzzles' was to have both pages use the same component but for it to pass a different parameter to the component based on the 'routerLink' clicked by a user on the navigation bar. Meaning a button titled 'Original puzzles' would router to a puzzle-list component but also pass a string 'original-puzzles' as the path to access the correct list of puzzles from the Firebase server. The same would have been done for the 'Online puzzles' page, however when passing this parameter to the router it would work when clicked originally and display the correct list, but if a user was to navigate from 'Original puzzles' to 'Online puzzles' the routerOutlet would still point to the same component and would not call 'ngOnIt' which was the lifecycle function required to pull the data from the Firebase backend. It would be entirely possibly to fix this error and ensure that whenever the url parameters changed it would update the component view but due to my limited experience with Angular I decided the effort required to fix this and gain a better design wasn't worth it compared to the fix of still having a puzzle-list component containing all the main logic but then having the 'Original puzzles' and 'Online puzzles' just act as intermediary components passing the correct 'Input()' to the puzzle list component. 
+Routing between different views in Angular, is implemented via a 'Router Outlet' component. This component is placed at the root of the web page and then a 'Router Link' can be creating a route between a URL and a component to display, for example '{path: 'path-to-component', component: ExampleComponent}'. Originally the 'Original Puzzles' and 'Online Puzzles' pages used the same component but depending on the link clicked by the user a puzzle destination was passed as a parameter to obtain the specific list of puzzles. This allowed a link to 'Original Puzzles' to access a generic puzzle list component while passing the path to this list of default created puzzles. The same would have been repeated for Online Puzzles, however when passing this parameter to the router it would display the correct list initially, but if a user was to navigate from 'Original puzzles' to 'Online puzzles' the Router Outlet would not detect a change of component, so would therefore not call the component creation function which pulled the exact data from the Firebase server, leading to no change in view for the user. This was fixed by creating 2 separate components for 'Original Puzzles' and 'Online Puzzles' that had a child component of the abstracted puzzle list component passing the list path using property binding. This allowed an abstract components to be used for both lists of puzzles while ensuring all routing to these components worked as expected. A diagram of this change is shown (REF). 
 
 \subsection{Converting data pulled from backend server}
 
-During the design of the application, I decide to focus on leaving the data and methods to modify that data within the variety of typescript classes created and maintained in the 'Classes' folder. This includes the Board, PuzzleBoard and Puzzle class for example. This let me focus on the development and design knowledge I had of working with the OO paradigm. Meaning all the data related to a board was stored within the board class and any methods required to update the board i.e. dropMarble which would release a new marble and have it fall down the board, was also stored. This presented no problems for the majority of development and I am still confident I made the right design decision. However when it came to uploading data to a backend server to Firebase, some issues arose. One issue was that the data stored in the Firebase server would lose it's type information. This meant that when I downloaded a puzzle for the user to play and send it to the board component to display this data and the options the user has to interact with the board. The data would throw an error as all the methods required to implement the board logic was unavailable as all the data downloaded was stored in base Javascript Objects instead of the created custom types. This was likely due to my inexperience of working in a web environment and focusing too much on using Typescript custom classes.
+The program was designed with a focus on an Object Oriented (OO) approach, we decided to have Typescipt classes to represent the various objects used in the program, for example a Board and Ramp class. This allowed development to focus on keeping data and methods contained within the objects requiring them. This allowed a separation of concerns between each individual class and reduced the reliance on external services to update board state as originally designed. One issue arose when uploading puzzle data to the firebase server. The data stored in the Firebase server would lose it's type information. This caused puzzles downloaded to not correctly execute as the data held had no references to the class methods required to update state. 
 
-To fix this issue of losing all type information of the classes, I had to set up converter functions in a service class that would take the data and then recursively call Object.assign() function from the base JS library which would create a class instance then copy all the data from the passed value. This solution worked well given the circumstances but does lead to some slow down when pulling the data from the server.
-
-One issue with this method however is that all properties are sent up and then downloaded later, even properties that are static among instances, e.g. the path to a pieces SVG icon. This caused issues later down the line once all original puzzles were uploaded but the asset path later changed so when downloading and parsing the objects, the specific pieces needed to have their properties correctly updated. This is not the most efficient fix to the problem but it more time effective than reuploading all the puzzles made previously. I had originally tried to solve this issue by having the different properties on the typescript class as 'readonly' so that when Object.assign() was applied to a version of the class it wouldn't rewrite this data, but this was sadly not the case so the previously mentioned method had to be used. 
-
-\subsection{Storing the data held by a puzzle object}
-A puzzle is represented by a class which contains a title, description, difficulty and a PuzzleBoard object. The first three objects are merely simple strings however the last object contains a puzzleBoard which contains all the data required to store a board with pieces, solution pieces, amount of marbles available to a player etc. This class is quite large with a lot of relevant data. When i originally tried to upload the data to a Firebase database I just sent the entire object up as stored, this caused a few problems, mainly that Firebase has a (sensible) feature where it will not stored a field that has a 'null' value. However my classes use 'null' to represent an empty board slot (which is common) or fields that will be updated when they are used i.e. inPlayMarble field. This lead to a lot of data that was lost when I tried to download the data I required from the server. I originally tried to refactor the code to reduce the amount of null values in the objects can including Empty values for classes, i.e. a object which would represent an empty slot. However this was time consuming and lead to a lot of errors when trying to implement this with the current design so a solution was to send the data up as a JSON string, which stored all the data, including the nulls as is and meant I could keep the current representation of different fields. The use of null as 'empty' is not a desirable practice but was found to be the most effective and understandable in the contexts they were used in, so I decided they were acceptable in this circumstance.
+To ensure that data downloaded from the server contained the correct type data required a converter function was created within the external 'make puzzle' service. This converter function would loop through all properties of the data downloaded and assign each property to a new instance of the object required. This fix allowed puzzles uploaded to be downloaded with no data or type loss. Future work can be spent making this function more efficient which would reduce load times for users.
 
 \subsection{New GearBit when turned}
-One of the requirements and most important part of logic for the Turing Tumble is the feature of having GearBits and Gears connected together meaning the turning of one GearBit will also turn a connected GearBit. This feature is the main function that makes the board game 'Turing Complete'. This was quite a difficult feature to implement and the original version of it had the GearBit object themselves calling the function in the board service which would check if it needed to change it's direction, however this caused warnings from the Angular system as a child component would have it's data changed after the View had been rendered to the screen so would go against the View lifecycle implemented by the Angular system. This meant that the function would require to create a new GearBit object instead of editing an existing rendered one, bypassing the View lifecycle. However once refactoring was completed and the functionality was moved towards just the board object instead of being in the GearBit class, the objects can be successfully have the direction changed without needing to be remade. It also was fixed once the Pieces, in this case a GearBit was given to the Piece components as Input from the parent component which stored the board, meaning the View hierarchy was preserved as a parent would edit a child, whereas before a child component would edit it itself and try to update the parent class as well causing warnings.
-
-\subsection{Map Object passing}
-I had an error where I would want to send an angular component a Map object containing a list of pieces and the amount available for a player in a puzzle, this was a Map of type String to Int. This property of the PuzzleBoard object was passed as an input parameter to the Selection Bar component, however this caused some strange errors where Angular would say a child process was changing parents data, which I couldn't work out for a while until I found a Angular pipe that was the correct way to pass key/value data, a very strange error that took much longer than I would like to fix it.
+The most complex and interesting piece in the Turing Tumble is the Gearbit and the relationship they have with Gears. The original implementation of this feature had the GearBit object calling a function in an external board service which would check if it needed to change it's direction by inspecting the state of the board and if the piece was connected to any other Gearbits. This implementation bypassed the Angular component child relationship and caused warnings to appear and Gearbits to render incorrectly. This was because a board component would finish rendering to the screen and then a child component would then edit it's view bypassing the parent. This goes against Angular best practice so a new implementation had to be designed. Refactoring was undertaking and the functionality required to move sets of Gearbits was moved to the board object instead of being in the individual GearBit objects. This allowed the view hierarchy to be preserved as the board component contains a board object which would edit it's Gearbit child. This ensured that the child component's data, the Gearbit, was only edited by the parent so could be rendered in teh correct order by the Angular framework. 
 
 \subsection{Sets not checking objects}
-For the implementation of GearBit functionality, a function was made to find the set of all connected GearBits, these GearBits were connected by Gear components are were found using a version of breadth first search that stored the visited Gears and GearBits and stored it in a set. One issue that was found was the lack of complete understanding of a JS Set, Angular uses Typescript which is a super set of JS which includes explicit typing of variables and makes it easier to create custom classes. The version of the JS set caused issues however as it wouldn't be able to distinguish between different instances of a custom class, so when the same Gear or GearBit piece was added to the visited set, JS wouldn't check if they were the same as no two instances of an object match even if they are actually pointing at the same instance. This caused issues when clicking a GearBit as it wouldn't exit the loop trying to find all connected pieces, so the visited set would be added to infinitely.  So to get around this error I had to use JSON.stringify to turn the object into a JSON string that could then be stored in a set and used correctly in the breadth first search algorithm. 
+For the implementation of GearBit functionality, a breadth first style search function was created to discover the set of all Gearbits connected via Gear objects. The function required a set of visited Gear and GearBits. An issue was found using the built in Javascript (JS) Set object. The project was written in Typescript, the superset of JS that adds type checking and custom classes. Custom class was created to store the position of each visited Gear or Gearbit. It was then discovered that the set object in JS doesn't contain type information so any position object added to this set was unique, even if two position objects contained the same x and y property. This lead to issues when clicking a GearBit as it wouldn't exit the loop trying to find all connected pieces, as the base case would never be met, so would search infinitely.  To fix this issue a built in library was used to convert this position object into a string JSON representation, this could then be stored in the set as expected for the breadth first algorithm. 
 
 \subsection{Map Objects not getting sent to Firebase}
-As previously mentioned to get around the issue of storing the puzzles in Firebase, the object was sent up as a string of JSON which could later be downloaded and converted into it's correct type. One issue found was that the JSON.stringify method wouldn't correctly turn a Map object into it's JSON counterpart so would just leave it out, this lead to issues of puzzles not being correctly uploaded so the Map object had to get converted into an array before upload then re converted into a JS map object when downloaded.
-
-\section{Guidance}
-You can't talk about everything. Cover the high level first, then cover important, relevant or impressive details.
-
+A Map data type to map the type of piece and the number of those pieces a user has available to complete a puzzle. A built in library was used to convert an object to JSON representation before it was uploaded to the Firebase server. An issue arose when the function used to convert to JSON, would ignore Javascript Map objects, leading to data being lost when uploading. To fix this issue, the Map data was converted to an array data type before upload and was converted back to a Map object when downloaded.
 
 
 \section{General points}
@@ -1084,7 +1025,7 @@ One limitation of the unmonitored survey is that the number of responses given d
 
 6 responses were gained for the evaluation survey. While valuable information was obtained the number of responses from school pupils was low (1), which is unavoidable given the current pandemic and the inability to go into a school and help explain the tasks and give more motivation for the pupils to give feedback. This feedback would have been insightful as possible future work could be focused on making the program as easy to use and fun as possible for a school environment. 
 
-The survey took around 30 minutes to complete yet it still missed some features I would have liked to have tested given more time but I decided to keep the tasks shorter to ensure I didn't lose the attention of the participant. More tasks related to learning via the program would have been desireable but as 50\% of participants didn't complete the last optional task, any more tasks or questions would have likely been too many and wouldn't have gathered much useful feedback.
+The survey took around 30 minutes to complete yet it still missed some features I would have liked to have tested given more time but I decided to keep the tasks shorter to ensure I didn't lose the attention of the participants. More tasks related to learning via the program would have been desireable but as 50\% of participants didn't complete the last optional task, it can be suggested that any more tasks or questions would have likely reduced user retention and not have gathered useful information.
 
 \subsection{Discussion on given suggestions}
 % This will likely be cut as it isn't work I did so doesn't matter
@@ -1136,9 +1077,9 @@ One user suggested that a hint descriptive element can be added to a puzzle the 
 This feature was suggested as a possible change to the current puzzle creation feature. This will not be put under future work, while the suggestion is novel and interesting it is far outside the scope of the project and the possible advantage of this implementation over using the current method could involve speed but the learning curve for this feature and the server side code needed to work out what puzzle they were creating wouldn't be worth the development effort for the average user.
 
 \emph{Animation for the marble falling off the screen}
-One user suggested adding an animation to indicate when the marble had fallen. This would likely eliminate any confusion that could be had of what happens when a ball reaches an empty slot on the board. Animation for the board in whole is part of the future work section and this suggestion could be added as part of it.
+One user suggested adding an animation to indicate when the marble had fallen. This would likely eliminate any confusion that could be had of what happens when a marble reaches an empty slot on the board. Animation for the board in whole is part of the future work section and this suggestion could be added as part of it.
 
-\subsection{Issues known about the program}
+\section{Issues known about the program}
 \begin{itemize}
     \item The current program is not responsible on a mobile browser. This was known during the design and implementation of the program. To make the program responsive for a mobile device, the front end code focusing on how the elements display to the page would require a different library to give different sizes to different elements based on the type of device the program is currently displayed on. This was seen as something outwith the scope of the project as it was decided at the design stage that it was primarily focused on displaying information on a desktop browser. The site currently breaks when viewed on a mobile phone and some of the most fundamental features of the program no longer work, for example a user can not place a piece on the board correctly as the board is pushed off the screen.
     \item The program sends the puzzle data to the backend firebase server by converting the puzzle object to JSON representation then saving this file in the server. This method was chosen to focus on getting the data stored correctly and then spending more development time on the user facing features of puzzle creation and playing. A single default puzzle is 19.8 kB large when stored on the server. A fix to this would be remove the current implementation of sending up the entire puzzle object and instead only send up the details of changes and important data for example instead of sending up the list of slots for the set up and solution slot lists. A single JSON file can be made that details where pieces are located for each set up instead of sending up data about the board that is already known for example the number of Pin and Component Slots stored in a board object. This issue is something that would improve the backend performance for the site and would lead to a more efficient program. 
@@ -1146,7 +1087,7 @@ One user suggested adding an animation to indicate when the marble had fallen. T
     \item Full animation of the board involving gravity was explored as a possible avenue for design. It was decided early on that more focus should be given towards creating a puzzle environment for users and then spending any extra development time on full animation after the main requirements were met. Full animation is a desired function to greatly improve user feedback and help aid understanding of the board while in play. Future work could be to implement this feature into the site. One issue with the current design of the program leads to a focus on having a collection of small modular component each with it's own HTML elements. This doesn't lead naturally to the extension of using an external physics library as a lot of code would need to be changed to deal with the logic of gravity and the api calls to the external library. It will still be included in future work but it is important to evaluate the design of the program doesn't lead itself naturally to this new feature.   
 \end{itemize}
 
-\subsection{Program efficiency via lighthouse}
+\section{Program efficiency via lighthouse}
 To evaluate the perform efficiency and performance. Lighthouse (REF) was used to generate a report on the performance, accessibly and best practices used on each page. The report also gave suggestions to why some metrics may be lower than other plus suggestions to improve them. The overall scores for 4 pages are shown in \ref{tab:lighthouse}. The testing was performed using the Lighthouse CLI tool while the page was hosted on the main development machine. 
 
 \begin{table}[]
@@ -1165,8 +1106,37 @@ As shown from the metrics above the performance was acceptable for most pages bu
 The Home and Plain Board pages were shown to have the longest Largest Contentful Paint time, this metric describes the time taken to display the largest text or graphic content on the page. Both pages include large amounts of data to display the board with all it's icons and Board parts i.e. 4 example boards on the Home page. Other suggestions to improve performance across all pages was to reduce the DOM size, this is down to the high modulation of components that was chosen for the design leading to large list of HTML components on most pages. This wss seen as an acceptable compromise as high component design reduced repeated code during development and allowed for greater abstraction. Future work can be given to explore avenues to improve these performance metrics across all pages taking note of the opportunities identify by lighthouse as well as focusing on minimise component size and cutting down on unnecessary DOM size.   
 
 \section{Overall}
-\subsection{Talk about how it meets functional reqs}
-\subsection{Talk about how it meets non-functional reqs or moscow}
+\subsection{Functional Requirement verification}
+
+All 'must have' functional requirements described in (REF) were demonstrated to have been met by users in the evaluation tasks. Including users placing and deleting pieces, walking through more complex examples related to addition and asking users to play through a puzzle. The only requirement that wasn't demonstrated by all users involved the 'creating puzzle' feature, this was demonstrated by 9 users (70\% of total participants). This number was seen as suitable to accept this as evidence that this requirement was met. This task was made optional to ensure that the experiment didn't go over 30 mins to ensure that user retention remained high. More time could have been spent in the monitored experiment asking users to use the Gearbit piece but this piece and it's complexity were decided too difficult to properly convey in a short time frame. 
+
+All 'should have' requirements were met and demonstrated by users in the evaluation tasks and their responses. The only requirement not demonstrated by users involved the saving and uploading of the board patterns, however this feature was manually tested in multiple occasions to ensure it worked as expected. Requirement (REF) detailing a clear indication where pieces could be placed was met by the users response but also met after the most popular suggestion to improve this feature, a ghost image, was implemented.
+
+All but two of the 'could have' requirements were met. The difficulty filter was directly tested by the user task, while multiple users commented on the tooltips over pieces as requested by the requirement detailing a clear explanation for the pieces. Users were not explicitly asked to change theme during the tasks but a few monitored users experimented with the feature as well as the program developer to determine this requirement met. One requirement not met was the ability for users to save complex patterns of pieces for later use, this can be seen as future work. The final requirement not met included an ability for users to comment and rate other puzzles. This can be seen as future work and the authentication system required for this system has been implemented to ease this.
+
+No 'would be nice to have' requirements were met and have all been noted as possible future work.
+
+\subsection{Non-functional Requirement verification}
+\textbf{No existing knowledge of Turing Tumble} should be required to use the program. 7 out of the 8 users that participated in the unmonitored user experiment had not heard of the Turing Tumble before this experiment. As all users completed the first three tasks only using the tutorial to guide them, this satisfies the given requirement.
+
+\textbf{Should be intuitive}. For all questions related to the ease of use of understanding. All but one feature was given an average greater than or equal to 3. Where 3 is seen as medium on ease of use. The only feature lower, at 2.75 was how intuitive it was that multiple Gearbits were connected, this can been seen as future work to increase this ease of use. As all features bar one were found to be intuitive by users, this requirement is satisfied. 
+
+\textbf{Should be runnable} as all users managed to run the program without issue, this requirement as met.
+
+\textbf{Should be quick and efficient}. As shown by the section on efficiency (REF) this can be seen as only getting met by a lower standard than desired. Future work can be set to improve efficiency scores for the program. As this requirement was seen as a 'could have' it was not seen as useful to divert development time towards this. 
+
+\textbf{Runnable on Mobile devices}. As discussed in section (REF), this was not met due to development time but as it was deemed a 'would be nice to have' requirement this is seen as acceptable. 
+
+\section{Program Goals}
+
+\textbf{Simulate a Turing Tumble board} This goal was met as shown by the tasks users successfully carried out as well as the example boards stored on the site that follow the logic found in the physical game. 
+
+\textbf{Provide gamification via puzzles} Puzzles were successfully created and can be played by users as shown by task 3 of the user evaluations. The list of puzzles available to the user was also shown during this task.
+
+\textbf{Should be easy to use and understand} The responses from users from the evaluations show that users found all aspects easy to understand. With all but one feature evaluated by using getting an average positive response on ease of use. 
+
+\textbf{Puzzle ecosystem to be created by users} Task 4 of the user evaluation shows that this goal was implemented with users finding the puzzle creation system easy to use and understand.
+% Maybe a section comparing to features in other products?
 
 
 

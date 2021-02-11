@@ -328,4 +328,16 @@
 
 ## 5 Feb 2021
 * *4 hour* More implementation writing 
+* *0.5 hour* Adding a ghost image when hovering over a slot
+
+### Week 16
+## 9 Feb 2021
+* *2 hour* Dissertation work
+
+## 10 Feb 2021
+* *3 hour* Implementation section
+* *3 hour* Final bit of eval plus some background stuff and meeting
+
+## 11 Feb 2021
+* *5 hour* More dissertation work
 

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MakePuzzleComponent } from './make-puzzle.component';
 import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
