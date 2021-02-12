@@ -341,3 +341,7 @@
 ## 11 Feb 2021
 * *5 hour* More dissertation work
 
+## 12 Feb 2021
+* *2 hour* conclusion page
+* *3 hour* Tidy up and images added
+

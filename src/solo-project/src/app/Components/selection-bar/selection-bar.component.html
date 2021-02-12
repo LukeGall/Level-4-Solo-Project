@@ -3,7 +3,7 @@
         <div class="piece" *ngFor="let part of partList | keyvalue : sortByDiff">
             <button class="pieceButtons" mat-raised-button [color]="isSelected(part.key) ? 'primary' : 'accent'"
                 (click)="clicked(part.key)" [matTooltip]="getInfo(part.key)" [matTooltipPosition]="'right'"
-                aria-label="Piece button">
+                aria-label="Piece button" [disabled]="isPlaying() && part.value==0">
                 {{part.key}}
                 <span *ngIf="isPuzzleBoard && notStarting()">
                     {{part.value}}

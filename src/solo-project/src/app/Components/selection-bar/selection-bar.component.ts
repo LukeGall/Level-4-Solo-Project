@@ -99,6 +99,7 @@ export class SelectionBarComponent implements OnInit {
     if (this.boardState) {
       return this.boardState == boardState.playing;
     }
+    return false;
   }
 
   private getDiff(piece: any): number {
