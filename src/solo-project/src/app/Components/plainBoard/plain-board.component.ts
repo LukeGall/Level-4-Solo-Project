@@ -24,9 +24,11 @@ export class PlainBoardComponent implements OnInit {
   }
 
   saveBoard() {
-    var blob = new Blob([JSON.stringify(this.board.slots)], { type: "text/plain;charset=utf-8" });
+    var blob = new Blob([this.convertService.slotsToString(this.board.slots)], { type: "text/plain;charset=utf-8" });
     saveAs(blob, "TuringTumbleBoard.txt");
   }
+
+  // Goes from 16.2kb to 289 bytes
 
   uploadBoard(files: FileList) {
     let input = files.item(0);
@@ -35,8 +37,7 @@ export class PlainBoardComponent implements OnInit {
       reader.onload = () => {
         var text = reader.result;
         try {
-          this.board.slots = JSON.parse(text as string);
-          this.convertService.convertSlots(this.board.slots);
+          this.board.slots = this.convertService.parseSlotString(text as string);
         } catch (error) {
           alert("Error loading file");
         }
