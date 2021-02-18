@@ -21,8 +21,8 @@ import { Slot } from './slot';
 
 export class Board {
     slots: Slot[][] = new Array<Array<Slot>>();
-    blueMarbles: Marble[] = new Array<Marble>();
-    redMarbles: Marble[] = new Array<Marble>();
+    blueMarbles: number = 0;
+    redMarbles: number = 0;
     inPlayMarble: Marble = null;
     collectedMarbles: MarblePair[] = new Array<MarblePair>();
     boardPieces: any = new Map([[Piece.Ramp, -1], [Piece.Gear, -1], [Piece.Bit, -1], [Piece.Crossover, -1], [Piece.GearBit, -1], [Piece.Interceptor, -1]]);
@@ -54,10 +54,8 @@ export class Board {
         this.slots[10].push(null, null, null, null, new Pin(), new CompSlot(), new Pin(), null, null, null, null);
 
         // Add the marbles
-        for (i = 0; i < numOfMarbles; i++) {
-            this.blueMarbles.push(new Marble("blue"))
-            this.redMarbles.push(new Marble("red"))
-        }
+        this.blueMarbles = numOfMarbles;
+        this.redMarbles = numOfMarbles;
     }
 
     resetBoard() {
@@ -82,17 +80,19 @@ export class Board {
 
     increaseMarble(colour: string) {
         if (colour == "blue") {
-            this.blueMarbles.push(new Marble("blue"))
+            this.blueMarbles++;
         } else {
-            this.redMarbles.push(new Marble("red"))
+            this.redMarbles++;
         }
     }
 
     decreaseMarble(colour: string) {
         if (colour == "blue") {
-            this.blueMarbles.pop();
+            if(this.blueMarbles > 0)
+                this.blueMarbles--;  
         } else {
-            this.redMarbles.pop();
+            if(this.redMarbles > 0)
+                this.redMarbles--;
         }
     }
 
@@ -107,9 +107,19 @@ export class Board {
 
     private releaseMarble(colour: string) {
         if (colour == "blue") {
-            this.inPlayMarble = this.blueMarbles.pop()
+            if(this.blueMarbles > 0) {
+                this.blueMarbles--;
+                this.inPlayMarble = new Marble("blue");
+            } else {
+                this.inPlayMarble = null;
+            }
         } else {
-            this.inPlayMarble = this.redMarbles.pop()
+            if(this.redMarbles > 0){
+                this.redMarbles--;
+                this.inPlayMarble = new Marble("red");
+            } else {
+                this.inPlayMarble = null;
+            }
         }
     }
 

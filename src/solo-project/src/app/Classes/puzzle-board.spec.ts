@@ -25,13 +25,13 @@ describe('PuzzleBoard', () => {
 
   it('Should only let you increase the marble if editing', () => {
     board.boardState = boardState.starting;
-    expect(board.blueMarbles.length == 0).toBeTruthy();
+    expect(board.blueMarbles == 0).toBeTruthy();
     board.increaseMarble('blue')
-    expect(board.blueMarbles.length == 1).toBeTruthy();
+    expect(board.blueMarbles == 1).toBeTruthy();
 
     board.boardState = boardState.playing;
     board.increaseMarble('blue');
-    expect(board.blueMarbles.length == 2).toBeFalsy('Shouldnt increase as its in the playing state');
+    expect(board.blueMarbles == 2).toBeFalsy('Shouldnt increase as its in the playing state');
   })
 
 
@@ -89,9 +89,9 @@ describe('PuzzleBoard', () => {
     board.confirmBoard();
 
     board.startMarble('blue');
-    expect(board.blueMarbles.length == 2).toBeTruthy();
+    expect(board.blueMarbles == 2).toBeTruthy();
     board.clearMarbles();
-    expect(board.blueMarbles.length == 3).toBeTruthy('Should go back to starting amount');
+    expect(board.blueMarbles == 3).toBeTruthy('Should go back to starting amount');
   })
 
   it('should click pieces correctly when making solution', () => {

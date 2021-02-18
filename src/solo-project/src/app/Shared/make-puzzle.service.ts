@@ -42,11 +42,6 @@ export class MakePuzzleService {
     return newPuzzle
   }
 
-  private convertMarArray(arr: Marble[]) {
-    for (let i = 0; i < arr.length; i++) {
-      arr[i] = Object.assign(new Marble(), arr[i]);
-    };
-  }
 
   convertSlots(arr: Slot[][]) {
     for (let i = 0; i < arr.length; i++) {
@@ -100,14 +95,14 @@ export class MakePuzzleService {
   private convertPuzzleBoard(pBoard): PuzzleBoard {
     let newPBoard: PuzzleBoard = Object.assign(new PuzzleBoard(), pBoard);
 
-    newPBoard.blueMarbles = Object.assign(new Array<Marble>(), newPBoard.blueMarbles);
-    newPBoard.redMarbles = Object.assign(new Array<Marble>(), newPBoard.redMarbles);
-    newPBoard.startingBlueMarbles = Object.assign(new Array<Marble>(), newPBoard.startingBlueMarbles);
-    newPBoard.startingRedMarbles = Object.assign(new Array<Marble>(), newPBoard.startingRedMarbles);
-    this.convertMarArray(newPBoard.blueMarbles);
-    this.convertMarArray(newPBoard.redMarbles);
-    this.convertMarArray(newPBoard.startingBlueMarbles);
-    this.convertMarArray(newPBoard.startingRedMarbles);
+    newPBoard.blueMarbles = pBoard.blueMarbles.length;
+    newPBoard.redMarbles = pBoard.redMarbles.length;
+    newPBoard.startingBlueMarbles = pBoard.startingBlueMarbles.length;
+    newPBoard.startingRedMarbles = pBoard.startingRedMarbles.length
+    // this.convertMarArray(newPBoard.blueMarbles);
+    // this.convertMarArray(newPBoard.redMarbles);
+    // this.convertMarArray(newPBoard.startingBlueMarbles);
+    // this.convertMarArray(newPBoard.startingRedMarbles);
 
     newPBoard.slots = Object.assign(new Array<Array<Slot>>(), newPBoard.slots);
     newPBoard.startingSlots = Object.assign(new Array<Array<Slot>>(), newPBoard.startingSlots);

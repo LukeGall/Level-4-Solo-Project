@@ -1,5 +1,5 @@
-<div *ngIf="marbles" [ngClass]="marbleColour=='blue' ? 'numCircle blue' : 'numCircle red'">
-    {{marbles.length}}
+<div [ngClass]="marbleColour=='blue' ? 'numCircle blue' : 'numCircle red'">
+    {{marbles}}
 </div>
 
 <div *ngIf="buttons">

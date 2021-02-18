@@ -28,8 +28,6 @@ export class PlainBoardComponent implements OnInit {
     saveAs(blob, "TuringTumbleBoard.txt");
   }
 
-  // Goes from 16.2kb to 289 bytes
-
   uploadBoard(files: FileList) {
     let input = files.item(0);
     if (input.type == "text/plain") {

@@ -618,10 +618,10 @@ For next time, focus on going through the implementation stage
 
 ## Issues to fix
 
-* Change the amount of marbles to a number not a list
+* Change the amount of marbles to a number not a list - done
 * Reduce data load of boards
-* Improve the saving and uploading of boards
-* Disable buttons during puzzles if can't place
+* Improve the saving and uploading of boards - done
+* Disable buttons during puzzles if can't place- done
 * Add next puzzle button
 * Reset marbles when a user places a new piece
 * Remove marble output and triggers when in starting set up

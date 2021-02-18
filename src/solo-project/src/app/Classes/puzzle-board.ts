@@ -13,8 +13,8 @@ export class PuzzleBoard extends Board {
     expectedResults: MarblePair[] = new Array<MarblePair>();
     boardState: boardState = boardState.starting;
     correctResults: boolean = false;
-    startingBlueMarbles: Marble[] = new Array<Marble>();
-    startingRedMarbles: Marble[] = new Array<Marble>();
+    startingBlueMarbles: number = 0;
+    startingRedMarbles: number = 0;
     startingPieces: any = new Map<Piece, number>();
 
 
@@ -34,9 +34,9 @@ export class PuzzleBoard extends Board {
 
     private cloneMarbles(colour: string) {
         if (colour == "blue") {
-            this.startingBlueMarbles = cloneDeep(this.blueMarbles);
+            this.startingBlueMarbles = this.blueMarbles;
         } else {
-            this.startingRedMarbles = cloneDeep(this.redMarbles);
+            this.startingRedMarbles = this.redMarbles;
         }
     }
 

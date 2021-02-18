@@ -13,7 +13,7 @@ describe('Board', () => {
   });
 
   it('should have a set number of marbles', () => {
-    expect(new Board(10).blueMarbles.length).toEqual(10);
+    expect(new Board(10).blueMarbles).toEqual(10);
   })
 
   it('should reset the pieces correctly', () => {
@@ -27,14 +27,14 @@ describe('Board', () => {
 
   it('Should allow the marbles to increase and decrease', () => {
     let board: Board = new Board(6);
-    expect(board.blueMarbles.length).toEqual(6);
+    expect(board.blueMarbles).toEqual(6);
 
     board.increaseMarble("blue");
-    expect(board.blueMarbles.length).toEqual(7);
+    expect(board.blueMarbles).toEqual(7);
 
     board.decreaseMarble("blue");
     board.decreaseMarble("blue");
-    expect(board.blueMarbles.length).toEqual(5);
+    expect(board.blueMarbles).toEqual(5);
   })
 
   it('Should release marbles', () => {
@@ -141,19 +141,19 @@ describe('Board', () => {
     marble.position = new Pos(10, 0);
 
     board.workOutFlipperColour(marble);
-    expect(board.blueMarbles.length == 5).toBeTruthy('Should have released a blue marble');
+    expect(board.blueMarbles == 5).toBeTruthy('Should have released a blue marble');
 
     marble.position = new Pos(10, 6);
     board.workOutFlipperColour(marble);
-    expect(board.redMarbles.length == 5).toBeTruthy('Should have released a red marble');
+    expect(board.redMarbles == 5).toBeTruthy('Should have released a red marble');
 
     marble.position = new Pos(10, 5);
-    expect(board.redMarbles.length == board.blueMarbles.length && board.blueMarbles.length == 5).toBeTruthy('No piece so shouldnt increase marble in either');
+    expect(board.redMarbles == board.blueMarbles && board.blueMarbles == 5).toBeTruthy('No piece so shouldnt increase marble in either');
 
     board.slots[10][5].piece = new Ramp(Direction.left, new Pos(10, 5));
     board.workOutFlipperColour(marble);
 
-    expect(board.blueMarbles.length == 4).toBeTruthy('Should have increased blue marbles');
+    expect(board.blueMarbles == 4).toBeTruthy('Should have increased blue marbles');
   })
 
   it('should correctly use click piece', () => {

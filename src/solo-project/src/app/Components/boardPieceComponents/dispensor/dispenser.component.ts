@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Marble } from 'src/app/Classes/boardParts/marble';
 
 
 @Component({
@@ -9,7 +8,7 @@ import { Marble } from 'src/app/Classes/boardParts/marble';
 })
 export class DispenserComponent implements OnInit {
   @Input() marbleColour: string;
-  @Input() marbles: Marble[];
+  @Input() marbles: number;
   @Input() buttons: boolean = true;
   @Output() increaseMarble = new EventEmitter<string>();
   @Output() decreaseMarble = new EventEmitter<String>();
