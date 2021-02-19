@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Piece } from 'src/app/Classes/piece.enum';
 import { Puzzle } from 'src/app/Classes/puzzle';
 import { PuzzleBoard } from 'src/app/Classes/puzzle-board';
@@ -8,14 +8,15 @@ import { PuzzleBoard } from 'src/app/Classes/puzzle-board';
   templateUrl: './play-puzzle.component.html',
   styleUrls: ['./play-puzzle.component.scss']
 })
-export class PlayPuzzleComponent implements OnInit {
+export class PlayPuzzleComponent implements AfterContentChecked {
   @Input() puzzle: Puzzle;
   board: PuzzleBoard = null;
   @Output() home = new EventEmitter<string>();
+  @Output() nextPuzzle = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngAfterContentChecked(): void {
     this.board = this.puzzle.puzzleBoard;
   }
 

@@ -351,3 +351,6 @@
 * *0.5* Marble improvements
 * *1 hour* Moving object asset strings to components to reduce class size
 
+## 19 Feb 2021
+* *2 hour* Puzzle optimisation as well as converting all old default puzzle files into new version 
+* *0.5 hour* Next puzzle button

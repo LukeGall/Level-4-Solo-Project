@@ -117,4 +117,12 @@ export class PuzzleListComponent implements OnInit {
             this.changeDif();
         }
     }
+
+    nextPuzzle(){
+        if(this.puzzleId + 1 < this.puzzles.length){
+            this.puzzleId++;
+        } else {
+            this.puzzleId = null;
+        }
+    }
 }

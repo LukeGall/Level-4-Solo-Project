@@ -1,5 +1,6 @@
 <div id=selectionBar>
   <button mat-raised-button style="margin:2%;" color="primary" (click)="goHome()">Back to puzzle list</button>
+  <button mat-raised-button style="margin:2%;" color="primary" (click)="nextPuzzle.emit()">Next Puzzle</button>
   <app-selection-bar [heldPart]="board.heldPiece" [boardState]="this.board.boardState" [partList]="board.boardPieces"
     (clickHolding)="setHolding($event)" (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()" (reset)="clearBoard()"
     [isPuzzleBoard]="true" (displayAnswer)="showAnswer()" (clearMarbles)="clearMarbles()" [inPlay]="board.inPlay">
@@ -8,15 +9,18 @@
 <div id="boardSide">
   <div class="prompt">
     <mat-card>
-      <mat-card-title *ngIf="!hasUserName(); else userName">{{puzzle.title}}</mat-card-title>
+      <mat-card-title *ngIf="!hasUserName(); else userName">{{puzzle.title}}
+      </mat-card-title>
       <ng-template #userName>
-        <mat-card-title>{{puzzle.title}} by {{puzzle.author}}</mat-card-title>
+        <mat-card-title>{{puzzle.title}} by {{puzzle.author}}
+        </mat-card-title>
       </ng-template>
       <mat-card-subtitle>{{puzzle.difficulty}} stars</mat-card-subtitle>
       <mat-card-content>
         <div>
           {{puzzle.description}}
         </div>
+
 
       </mat-card-content>
 
