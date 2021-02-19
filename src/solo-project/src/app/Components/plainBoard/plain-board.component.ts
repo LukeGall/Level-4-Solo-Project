@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { saveAs } from 'file-saver';
 import { Board } from 'src/app/Classes/boardParts/board';
 import { Piece } from 'src/app/Classes/piece.enum';
-import { saveAs } from 'file-saver';
-import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
+import { parseSlotString, slotsToString } from 'src/app/Shared/convert-functions';
 
 @Component({
   selector: 'app-plain-board',
@@ -13,7 +13,7 @@ export class PlainBoardComponent implements OnInit {
   board: Board = null;
   uploadedBoard: File = null;
 
-  constructor(private convertService: MakePuzzleService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.board = new Board(18);
@@ -24,7 +24,7 @@ export class PlainBoardComponent implements OnInit {
   }
 
   saveBoard() {
-    var blob = new Blob([this.convertService.slotsToString(this.board.slots)], { type: "text/plain;charset=utf-8" });
+    var blob = new Blob([slotsToString(this.board.slots)], { type: "text/plain;charset=utf-8" });
     saveAs(blob, "TuringTumbleBoard.txt");
   }
 
@@ -35,7 +35,7 @@ export class PlainBoardComponent implements OnInit {
       reader.onload = () => {
         var text = reader.result;
         try {
-          this.board.slots = this.convertService.parseSlotString(text as string);
+          this.board.slots = parseSlotString(text as string);
         } catch (error) {
           alert("Error loading file");
         }

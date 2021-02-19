@@ -6,15 +6,17 @@ import { Slot } from './boardParts/slot';
 import { BoardPiece } from './boardPieces/board-piece';
 import { Piece } from './piece.enum';
 import { cloneDeep } from 'lodash';
+import { parseSlotString, slotsToString } from '../Shared/convert-functions';
 
 export class PuzzleBoard extends Board {
-    startingSlots: Slot[][] = new Array<Slot[]>();
-    solutionSlot: Slot[][] = new Array<Slot[]>();
+    startingSlots: string;
+    solutionSlot: string;
     expectedResults: MarblePair[] = new Array<MarblePair>();
     boardState: boardState = boardState.starting;
     correctResults: boolean = false;
     startingBlueMarbles: number = 0;
     startingRedMarbles: number = 0;
+    // To allow type conversion when uploading
     startingPieces: any = new Map<Piece, number>();
 
 
@@ -60,7 +62,7 @@ export class PuzzleBoard extends Board {
                 }
             }
         }
-        this.startingSlots = cloneDeep(this.slots);
+        this.startingSlots = slotsToString(this.slots);
         this.boardState = boardState.solutionMaking;
     }
 
@@ -68,8 +70,8 @@ export class PuzzleBoard extends Board {
         if (this.boardState == boardState.solutionMaking) {
             this.boardState = boardState.done;
 
-            this.solutionSlot = cloneDeep(this.slots);
-            this.slots = cloneDeep(this.startingSlots);
+            this.solutionSlot = slotsToString(this.slots);
+            this.slots = parseSlotString(this.startingSlots);
 
             this.startingPieces = cloneDeep(this.boardPieces);
 
@@ -83,7 +85,7 @@ export class PuzzleBoard extends Board {
     }
 
     showAnswer() {
-        this.slots = cloneDeep(this.solutionSlot);
+        this.slots = parseSlotString(this.solutionSlot);
     }
 
     resetBoard() {
@@ -91,7 +93,14 @@ export class PuzzleBoard extends Board {
         this.inPlayMarble = null;
         this.collectedMarbles = new Array<MarblePair>();
         if (this.boardState != boardState.starting) {
-            this.slots = cloneDeep(this.startingSlots);
+            this.slots = parseSlotString(this.startingSlots);
+            this.slots.forEach((row)=>{
+                row.forEach((slot)=>{
+                    if(slot && slot.piece){
+                        slot.piece.lock();
+                    }
+                })
+            })
             if (this.boardState == boardState.solutionMaking) {
                 for (const pair of this.boardPieces) {
                     this.boardPieces.set(pair[0], 0);

@@ -1,12 +1,12 @@
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Puzzle } from 'src/app/Classes/puzzle';
-import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
-import { cloneDeep } from 'lodash';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormControl } from '@angular/forms';
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { cloneDeep } from 'lodash';
+import { Puzzle } from 'src/app/Classes/puzzle';
+import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
 
 @Component({
     selector: 'app-puzzle-list',
