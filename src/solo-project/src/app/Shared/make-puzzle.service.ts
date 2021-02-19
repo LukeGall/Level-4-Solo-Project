@@ -84,9 +84,6 @@ export class MakePuzzleService {
     }
 
     // Make sure puzzles with incorrect asset path get the correct path
-    piece.imgBlueMarble = ret.imgBlueMarble;
-    piece.imgRedMarble = ret.imgRedMarble;
-    piece.imgLink = ret.imgLink;
     ret = Object.assign(ret, piece);
 
     return ret;
@@ -207,7 +204,7 @@ export class MakePuzzleService {
               slots += " I";
               break;
           }
-          if (slot.piece instanceof Ramp || slot.piece instanceof Bit || slot.piece instanceof GearBit) {
+          if (slot.piece.type == Piece.Ramp || slot.piece.type == Piece.Bit || slot.piece.type == Piece.GearBit) {
             if (slot.piece.direction == Direction.left) {
               slots += "l";
             } else {

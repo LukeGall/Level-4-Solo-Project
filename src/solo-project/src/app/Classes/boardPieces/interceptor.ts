@@ -5,11 +5,8 @@ import { Piece } from '../piece.enum';
 import { BoardPiece } from './board-piece';
 
 export class Interceptor extends BoardPiece {
-    imgLink: string = "assets/interceptor.svg";
-    imgBlueMarble = "assets/interceptor-blue.svg"
-    imgRedMarble = "assets/interceptor-red.svg"
     type = Piece.Interceptor;
-    info = "Stop and catch the marble"
+    position: Pos;
 
     constructor(pos: Pos) {
         super(pos);
@@ -18,10 +15,6 @@ export class Interceptor extends BoardPiece {
     processMarble(marble: Marble) {
         marble.direction = Direction.stopped;
     }
-
-
-    position: Pos;
-
 
     click() {
     }

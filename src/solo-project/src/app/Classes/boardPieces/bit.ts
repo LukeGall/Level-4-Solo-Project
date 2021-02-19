@@ -6,12 +6,8 @@ import { BoardPiece } from './board-piece';
 
 export class Bit extends BoardPiece {
     direction: Direction;
-    imgLink: string = "assets/bit.svg";
-    imgBlueMarble = "assets/bit-blue.svg"
-    imgRedMarble = "assets/bit-red.svg"
     position: Pos;
     type = Piece.Bit;
-    info = "Send marble in opposite direction then flip direction"
 
     constructor(direction: Direction, position: Pos) {
         super(position);

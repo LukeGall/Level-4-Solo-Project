@@ -19,7 +19,7 @@ export interface tableData {
 const ITEM_DATA: tableData[] = [
   {
     name: "Ramp",
-    imgLink: new Ramp(null, null).imgLink,
+    imgLink: "assets/ramp.svg",
     description: ` 
       The Ramp sends a ball either right or left depending on 
       the direction the curved end is facing, the ramp doesn't care
@@ -30,7 +30,7 @@ const ITEM_DATA: tableData[] = [
   },
   {
     name: "Crossover",
-    imgLink: new Crossover(null).imgLink,
+    imgLink: "assets/crossover.svg",
     description: `The Crossover is a non reversible piece
       that continues the direction a ball is travelling 
       into the component but allows the balls to enter from
@@ -42,7 +42,7 @@ const ITEM_DATA: tableData[] = [
   },
   {
     name: "Bit",
-    imgLink: new Bit(null, null).imgLink,
+    imgLink: "assets/bit.svg",
     description: `If the bit is pointing to
       the right (on) send the balls to the left no matter which
       direction they enter from. Send the balls to the right if
@@ -52,7 +52,7 @@ const ITEM_DATA: tableData[] = [
   },
   {
     name: "Interceptor",
-    imgLink: new Interceptor(null).imgLink,
+    imgLink: "assets/interceptor.svg",
     description: `This component catches a ball and stops the 
       execution of the turing tumble as the marble will no 
       longer be able to reach the end of the board and release 
@@ -63,7 +63,7 @@ const ITEM_DATA: tableData[] = [
   },
   {
     name: "Gear",
-    imgLink: new Gear(null).imgLink,
+    imgLink: "assets/gear.svg",
     description: `Gears are the only components that can be placed
       on Pins as well as Component Slots. Gears only connect GearBits 
       so they can turn together. If a marble touches a Gear it will fall.`,
@@ -71,7 +71,7 @@ const ITEM_DATA: tableData[] = [
   },
   {
     name: "Gear Bit",
-    imgLink: new GearBit(null, null).imgLink,
+    imgLink: "assets/gear-bit.svg",
     description: `This component is a like a bit in that it stores
       state by pointing left or right and will send a ball in the
       opposite direction it is facing and then change direction.

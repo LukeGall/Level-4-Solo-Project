@@ -1,15 +1,13 @@
+import { Direction } from '../boardParts/direction';
 import { Marble } from '../boardParts/marble';
 import { Pos } from '../boardParts/pos';
 import { Piece } from '../piece.enum';
 
 export class BoardPiece {
-    imgLink: string;
-    imgBlueMarble: string;
-    imgRedMarble: string;
     position: Pos = null;
     type: Piece = null;
     locked: boolean = false;
-    info: string;
+    direction?: Direction;
 
     constructor(pos: Pos) {
         this.position = pos;

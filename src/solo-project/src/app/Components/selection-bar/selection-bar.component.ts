@@ -64,34 +64,34 @@ export class SelectionBarComponent implements OnInit {
   getInfo(piece: string): string {
     switch (piece) {
       case Piece.Ramp:
-        return (new Ramp(null, null)).info;
+        return "Send the marble in the direction of the Ramp";
       case Piece.Gear:
-        return (new Gear(null)).info;
+        return "Flip the direction of any connected Gearbits";
       case Piece.Crossover:
-        return (new Crossover(null)).info;
+        return "Send the marble in the direction it is already going";
       case Piece.Bit:
-        return (new Bit(null, null)).info;
+        return "Send the marble in the opposite direction then flip direction";
       case Piece.GearBit:
-        return (new GearBit(null, null)).info;
+        return "Send the marble in the opposite direction, flip direction and spin any connected Gears";
       case Piece.Interceptor:
-        return (new Interceptor(null)).info;
+        return "Stop and catch the marble";
     }
   }
 
   getPic(piece: string): string {
     switch (piece) {
       case Piece.Ramp:
-        return (new Ramp(null, null)).imgLink;
+        return "assets/ramp.svg";
       case Piece.Gear:
-        return (new Gear(null)).imgLink;
+        return "assets/gear.svg";
       case Piece.Crossover:
-        return (new Crossover(null)).imgLink;
+        return "assets/crossover.svg";
       case Piece.Bit:
-        return (new Bit(null, null)).imgLink;
+        return "assets/bit.svg";
       case Piece.GearBit:
-        return (new GearBit(null, null)).imgLink;
+        return "assets/gear-bit.svg";
       case Piece.Interceptor:
-        return (new Interceptor(null)).imgLink;
+        return "assets/interceptor.svg";
     }
   }
 

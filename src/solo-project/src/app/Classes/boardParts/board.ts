@@ -98,6 +98,7 @@ export class Board {
 
     startMarble(colour: string) {
         if (!this.inPlay) {
+            this.inPlayMarble = null;
             this.releaseMarble(colour);
 
             this.inPlay = true;
@@ -170,11 +171,11 @@ export class Board {
             if (this.marbleInBounds(marble.position) && marble.direction != Direction.stopped) {
                 let slot = this.slots[marble.position.x][marble.position.y];
 
-                if (slot instanceof CompSlot) {
-                    if (slot.piece && !(slot.piece instanceof Gear)) {
+                if (slot.partName == 'CompSlot') {
+                    if (slot.piece && !(slot.piece.type == Piece.Gear)) {
                         let oldPos = new Pos(marble.position.x, marble.position.y);
                         slot.piece.processMarble(marble);
-                        if (slot.piece instanceof GearBit) {
+                        if (slot.piece.type == Piece.GearBit) {
                             this.gearSpin(oldPos);
                         }
                         if(marble.position.y < 0){
@@ -249,9 +250,9 @@ export class Board {
 
         let slot = this.slots[xPos][yPos]
         let connections = [new Pos(xPos - 1, yPos), new Pos(xPos + 1, yPos), new Pos(xPos, yPos - 1), new Pos(xPos, yPos + 1)];
-        if (slot) {
-            if (slot.piece instanceof Gear || slot.piece instanceof GearBit) {
-                if (slot.piece instanceof GearBit) {
+        if (slot && slot.piece) {
+            if (slot.piece.type == Piece.Gear || slot.piece.type == Piece.GearBit) {
+                if (slot.piece.type == Piece.GearBit) {
                     setAccepted.add(slot);
                 }
                 connections.forEach(pos => {
@@ -276,7 +277,7 @@ export class Board {
         for (var it = acceptedPos.values(), val: Slot = null; val = it.next().value;) {
             if (firstEle) {
                 firstEle = false;
-                if (val.piece instanceof GearBit) dirForGbs = val.piece.direction;
+                dirForGbs = val.piece.direction;
             } else {
                 if(val.piece instanceof GearBit){
                     if(val.piece.direction != dirForGbs){
@@ -328,17 +329,17 @@ export class Board {
             }
         }
         // Pin
-        else if (slot instanceof Pin && newPiece instanceof Gear) {
+        else if (slot.partName == 'Pin' && newPiece.type == Piece.Gear) {
             if (!slot.piece) {
                 slot.piece = newPiece;
                 this.gearSpin(new Pos(pos.x, pos.y));
                 changed = true;
             }
-        } else if (slot instanceof CompSlot) {
+        } else if (slot.partName == 'CompSlot') {
             if (!slot.piece || ((slot.piece.type != newPiece.type) && !slot.piece.locked)) {
                 changed = true;
                 slot.piece = newPiece;
-                if (newPiece instanceof GearBit || newPiece instanceof Gear) {
+                if (newPiece.type == Piece.GearBit || newPiece.type == Piece.Gear) {
                     this.gearSpin(new Pos(pos.x, pos.y));
                 }
             }
@@ -346,7 +347,7 @@ export class Board {
         // If just clicked
         if (!changed && slot.piece) {
             slot.piece.click()
-            if (slot.piece instanceof Gear || slot.piece instanceof GearBit) {
+            if (slot.piece.type == Piece.Gear || slot.piece.type == Piece.GearBit) {
                 this.gearSpin(pos);
             }
         }

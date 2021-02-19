@@ -61,7 +61,7 @@ describe('workspace-project App', () => {
     element(by.css('.menu-icon')).click();
 
     element(by.buttonText('Original Puzzles')).click().then(() => { browser.sleep(4000) });
-    expect(element.all(by.css('.card')).count()).toBe(5);
+    expect(element.all(by.css('.card')).count()).toBe(10);
   })
 
   afterEach(async () => {

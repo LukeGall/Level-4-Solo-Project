@@ -349,4 +349,5 @@
 ## 18 Feb 2021
 * *1.5 hour* New save board implementation
 * *0.5* Marble improvements
+* *1 hour* Moving object asset strings to components to reduce class size
 

@@ -35,6 +35,14 @@ export class SlotComponent implements OnInit {
     }
   }
 
+  getImg(){
+    if(this.slot.partName == "CompSlot"){
+      return "assets/compslot.svg";
+    } else {
+      return "assets/pin.svg";
+    }
+  }
+
   getPieceImage(): string{
     if(this.heldPiece == Piece.GearBit) return "assets/gear-bit.svg";
     return "assets/"+this.heldPiece.toLowerCase()+".svg";

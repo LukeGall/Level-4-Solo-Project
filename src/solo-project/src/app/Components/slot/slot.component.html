@@ -4,7 +4,7 @@
     </div>
     <ng-template #slotDefault>
         <div *ngIf="!isMarbleFall(); else marbleFall">
-            <img *ngIf="!hover || !shouldHover(); else ghostImage" width="100%" height="100%" src={{slot.image}} alt="Slot">
+            <img *ngIf="!hover || !shouldHover(); else ghostImage" width="100%" height="100%" [src]="getImg()" alt="Slot">
             <ng-template #ghostImage>
                 <img class="hoverImage" [src]="getPieceImage()" width="100%" height="100%" alt="ghostImage">
             </ng-template>
