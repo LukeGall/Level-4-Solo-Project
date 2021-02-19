@@ -622,7 +622,7 @@ For next time, focus on going through the implementation stage
 * Reduce data load of boards - done
 * Improve the saving and uploading of boards - done
 * Disable buttons during puzzles if can't place- done
-* Add next puzzle button
-* Reset marbles when a user places a new piece
-* Remove marble output and triggers when in starting set up
+* Add next puzzle button - done
+* Reset marbles when a user places a new piece - done
+* Remove marble output and triggers when in starting set up, go back steps while making - done
 * Look at other suggestions

@@ -25,6 +25,10 @@ export class MakePuzzleComponent implements OnInit {
     this.puzzleBoard.setSpeed(value);
   }
 
+  notStarting(): boolean{
+    return this.puzzleBoard.boardState != boardState.starting;
+  }
+
   increaseMarble(colour: string) {
     this.puzzleBoard.increaseMarble(colour);
   }

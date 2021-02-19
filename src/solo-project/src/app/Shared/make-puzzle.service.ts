@@ -93,6 +93,11 @@ export class MakePuzzleService {
     this.curPuzzle.puzzleBoard.boardState = boardState.playing;
     this.curPuzzle.puzzleBoard.boardPieces = [...this.curPuzzle.puzzleBoard.boardPieces];
     this.curPuzzle.puzzleBoard.startingPieces = [...this.curPuzzle.puzzleBoard.startingPieces];
+    this.curPuzzle.puzzleBoard.slots = parseSlotString(this.curPuzzle.puzzleBoard.startingSlots);
+    this.curPuzzle.puzzleBoard.collectedMarbles = new Array<MarblePair>();
+    this.curPuzzle.puzzleBoard.heldPiece = null;
+    this.curPuzzle.puzzleBoard.blueMarbles = this.curPuzzle.puzzleBoard.startingBlueMarbles;
+    this.curPuzzle.puzzleBoard.redMarbles = this.curPuzzle.puzzleBoard.startingRedMarbles;
 
     this.db.list('puzzles').push(JSON.stringify(this.curPuzzle));
   }

@@ -8,7 +8,7 @@
                 <span *ngIf="isPuzzleBoard && notStarting()">
                     {{part.value}}
                 </span>
-                <img style="width: 28%; float:right" alt="Piece icon"[src]="getPic(part.key)">
+                <img style="width: 28%; float:right" alt="Piece icon" [src]="getPic(part.key)">
             </button>
         </div>
 
@@ -22,19 +22,19 @@
             <button mat-raised-button color="warn" (click)="stepBoard.emit();">Step Forward</button>
             <button mat-raised-button color="warn" (click)="triggerPlay.emit();">{{ inPlay ? 'Pause' : 'Play'}}</button>
             <button mat-raised-button color="warn" (click)="reset.emit();">Reset Board</button>
-            <button *ngIf="!isPuzzleBoard" mat-raised-button color="warn" (click)="clearMarbles.emit();">Reset
-                Marbles</button>
+            <button mat-raised-button color="warn" (click)="clearMarbles.emit();">Reset Marbles</button>
+            <!-- <button *ngIf="!isPuzzleBoard" mat-raised-button color="warn" (click)="clearMarbles.emit();">Reset
+                Marbles</button> -->
             <div *ngIf="isPlaying()">
-                <button mat-raised-button color="warn" (click)="clearMarbles.emit();">Reset Marbles</button>
                 <button mat-raised-button color="warn" (click)="displayAnswer.emit();">Show Answer</button>
             </div>
         </div>
         <div *ngIf="isPuzzleBoard && !isPlaying()">
             <button *ngIf="!notStarting()" mat-raised-button color="warn" (click)="confStartingPieces.emit();">Confirm
-                set
-                up</button>
+                set up</button>
             <button *ngIf="notStarting()" mat-raised-button color="warn" (click)="confPuzzleOutput.emit();">Confirm
                 output</button>
+            <button *ngIf="notStarting()" mat-raised-button color ="primary" (click)="goBack.emit()">Previous Step</button>
         </div>
         <div *ngIf="!isPuzzleBoard">
             <button mat-raised-button color="primary" (click)="exampleEmitter.emit(1)">Example 1 - Pattern</button>

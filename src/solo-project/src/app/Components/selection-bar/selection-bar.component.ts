@@ -29,6 +29,7 @@ export class SelectionBarComponent implements OnInit {
   @Output() displayAnswer = new EventEmitter();
   @Output() clearMarbles = new EventEmitter();
   @Output() exampleEmitter = new EventEmitter<number>();
+  @Output() goBack = new EventEmitter();
 
   constructor() { }
 

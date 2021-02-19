@@ -315,7 +315,7 @@
 ## 29 Jan 2021
 * *4 hour* Evaluation section finish 
 
-### Week 15
+### Week 15 (17 hours)
 ## 2 Feb 2021
 * *2 hour* Start of the logic design section
 
@@ -330,7 +330,7 @@
 * *4 hour* More implementation writing 
 * *0.5 hour* Adding a ghost image when hovering over a slot
 
-### Week 16
+### Week 16 (18 hours)
 ## 9 Feb 2021
 * *2 hour* Dissertation work
 
@@ -345,7 +345,7 @@
 * *2 hour* conclusion page
 * *3 hour* Tidy up and images added
 
-### Reading Week
+### Reading Week (6 hours)
 ## 18 Feb 2021
 * *1.5 hour* New save board implementation
 * *0.5* Marble improvements
@@ -354,3 +354,4 @@
 ## 19 Feb 2021
 * *2 hour* Puzzle optimisation as well as converting all old default puzzle files into new version 
 * *0.5 hour* Next puzzle button
+* *0.5 hour* Can go back previous steps while making puzzles

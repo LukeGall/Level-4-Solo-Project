@@ -71,21 +71,33 @@ export class PuzzleBoard extends Board {
             this.boardState = boardState.done;
 
             this.solutionSlot = slotsToString(this.slots);
-            this.slots = parseSlotString(this.startingSlots);
+
+            // this.slots = parseSlotString(this.startingSlots);
+            // this.collectedMarbles = new Array<MarblePair>();
+            // this.heldPiece = Piece.Delete;
 
             this.startingPieces = cloneDeep(this.boardPieces);
 
             this.expectedResults = cloneDeep(this.collectedMarbles);
-            this.collectedMarbles = new Array<MarblePair>();
-            this.blueMarbles = cloneDeep(this.startingBlueMarbles);
-            this.redMarbles = cloneDeep(this.startingRedMarbles);
-
-            this.heldPiece = Piece.Delete;
+            // this.blueMarbles = this.startingBlueMarbles;
+            // this.redMarbles = this.startingRedMarbles;
         }
     }
 
     showAnswer() {
         this.slots = parseSlotString(this.solutionSlot);
+    }
+
+    goBackToStarting() {
+        this.boardState = boardState.starting;
+        this.slots = parseSlotString(this.startingSlots);
+        for (const pair of this.boardPieces) {
+            this.boardPieces.set(pair[0], 0);
+        }
+    }
+
+    goBackToSolution(){
+        this.boardState = boardState.solutionMaking;
     }
 
     resetBoard() {
@@ -94,9 +106,9 @@ export class PuzzleBoard extends Board {
         this.collectedMarbles = new Array<MarblePair>();
         if (this.boardState != boardState.starting) {
             this.slots = parseSlotString(this.startingSlots);
-            this.slots.forEach((row)=>{
-                row.forEach((slot)=>{
-                    if(slot && slot.piece){
+            this.slots.forEach((row) => {
+                row.forEach((slot) => {
+                    if (slot && slot.piece) {
                         slot.piece.lock();
                     }
                 })
@@ -107,16 +119,16 @@ export class PuzzleBoard extends Board {
                 }
             } else if (this.boardState == boardState.playing) {
                 this.boardPieces = cloneDeep(this.startingPieces);
-                this.blueMarbles = cloneDeep(this.startingBlueMarbles);
-                this.redMarbles = cloneDeep(this.startingRedMarbles)
+                this.blueMarbles = this.startingBlueMarbles;
+                this.redMarbles = this.startingRedMarbles;
             }
         }
     }
 
     clearMarbles() {
         super.clearMarbles();
-        this.blueMarbles = cloneDeep(this.startingBlueMarbles);
-        this.redMarbles = cloneDeep(this.startingRedMarbles);
+        this.blueMarbles = this.startingBlueMarbles;
+        this.redMarbles = this.startingRedMarbles;
     }
 
     clickPiece(pos: Pos): boolean {

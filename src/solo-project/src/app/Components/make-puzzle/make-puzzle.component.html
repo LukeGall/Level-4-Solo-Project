@@ -2,10 +2,10 @@
     <div *ngIf="!isDone(); else confirmation">
         <div id=selectionBar>
             <app-selection-bar [heldPart]="puzzleBoard.heldPiece" [partList]="puzzleBoard.boardPieces"
-                (clickHolding)="setHolding($event)" (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()"
+                (clickHolding)="setHolding($event)" (clearMarbles)="puzzleBoard.clearMarbles()" (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()"
                 (reset)="clearBoard()" [isPuzzleBoard]="true" (confStartingPieces)="confirmStarting()"
                 [boardState]="puzzleBoard.boardState" (confPuzzleOutput)="confirmBoard(user.displayName)"
-                [inPlay]="puzzleBoard.inPlay"></app-selection-bar>
+                [inPlay]="puzzleBoard.inPlay" (goBack)="puzzleBoard.goBackToStarting()"></app-selection-bar>
 
         </div>
         <div id="boardSide">
@@ -13,7 +13,7 @@
                 <app-prompt-card [boardState]="puzzleBoard.boardState"></app-prompt-card>
             </div>
             <div class="clear"></div>
-            <mat-grid-list cols="3" id="dispensers" [rowHeight]="'80px'">
+            <mat-grid-list *ngIf="notStarting()" cols="3" id="dispensers" [rowHeight]="'80px'">
                 <mat-grid-tile [colspan]="1">
                     <app-dispenser [marbles]="puzzleBoard.blueMarbles" [marbleColour]="'blue'"
                         (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)">
@@ -34,7 +34,7 @@
             </div>
 
             <div id="triggers" style="width: 100%; margin: auto;">
-                <mat-grid-list cols="3" rowHeight="25px">
+                <mat-grid-list cols="3" rowHeight="25px" *ngIf="notStarting()">
                     <mat-grid-tile [colspan]="1" [rowspan]="2">
                         <app-flipper [colour]="'blue'" (clickedFlipper)="clickedFlipper($event)"
                             [inPlay]="puzzleBoard.inPlay"></app-flipper>
@@ -56,6 +56,7 @@
     </div>
 
     <ng-template #confirmation>
+        <button mat-raised-button color="primary" style="margin: 3%;" (click)="puzzleBoard.goBackToSolution()">Previous Step</button>
         <div id="confirm">
             <app-prompt-card class="prompt" [boardState]="this.puzzleBoard.boardState"></app-prompt-card>
             <div id="form">
