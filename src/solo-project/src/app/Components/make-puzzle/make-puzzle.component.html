@@ -27,7 +27,7 @@
                 </mat-grid-tile>
             </mat-grid-list>
             <div class="clear"></div>
-            <div class="board">
+            <div [ngClass]="!notStarting() ? 'starting' : 'board'">
 
                 <app-board [board]="puzzleBoard"></app-board>
 

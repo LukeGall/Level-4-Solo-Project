@@ -32,6 +32,14 @@
     float: left;
 }
 
+.starting{
+    position: relative;
+    width: 60vh;
+    margin:5vh auto;
+    align-self: center;
+    justify-self: center;
+}
+
 #boardSide{
     width:65%;
     overflow: hidden;

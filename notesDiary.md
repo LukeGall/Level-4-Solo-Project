@@ -626,3 +626,24 @@ For next time, focus on going through the implementation stage
 * Reset marbles when a user places a new piece - done
 * Remove marble output and triggers when in starting set up, go back steps while making - done
 * Look at other suggestions
+
+
+## Notes for first draft of dissertation
+
+### Analysis
+* Precise analyse of the problem, understanding of the context, talk about existing products that have met the problem. Talk about the reqs
+
+### Software Product (Biggest part)
+* Well designed - components, UI, class interaction etc
+* Functional
+* Efficient, useable, maintainable and well documented
+
+### Eval
+* Has eval been useful why did I choose it etc?
+
+### Dissertation in general 
+* Completeness and coherence, organisation, literacy, bib etc
+
+
+
+
