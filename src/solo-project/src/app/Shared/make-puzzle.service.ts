@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+// Clone Deep has been taken from the lodash library under the MIT license, with more details on the Github Wiki
 import { cloneDeep } from 'lodash';
 import { Observable, of } from 'rxjs';
 import { MarblePair } from '../Classes/boardParts/marblePair';

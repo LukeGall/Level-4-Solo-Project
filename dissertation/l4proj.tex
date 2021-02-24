@@ -78,56 +78,57 @@
 \chapter{Introduction}
 
 % reset page numbering. Don't remove this!
-\pagenumbering{arabic} 
+\pagenumbering{arabic}
 
 \section{Motivation}
-Serious games are designed for the purposes of teaching and education. Various studies have shown promising results of the beneficial impact educational games can have for students in both increasing their subject knowledge and natural intelligences, useful across all aspects of a students academic career. Serious games have been shown as a avenue for effective teaching in the areas of mathematics and programming concepts. Various design techniques have been applied from the traditional game design field to aid in the educational benefits these games can have for students.
+Turing Tumble, a marble based board game is designed to teach children and adults the logic found within a computer chip. It focuses on teaching 6 basic logical components that can be used to build up powerful computational patterns capable of storing state, activating conditionals, and counting in binary. The game uses puzzles and gamification to provide an assessable and fun environment for users to learn how small, simple components can be combined to produce powerful results. With puzzles included to provide external learning motivation for players it succeeds in creating an interactive and addicting learning environment that can help improve users knowledge of the inner workings of computers as well as develop practical skills in logic based problem solving. 
 
-Turing Tumble a marble based board game is designed to teach children and adults the intricate logic used within a computer chip. With a focus on teaching the basic logical components that can be used to build up powerful computational tools through puzzles and gamification. This board game designed to be Turing complete, which has been proved to be P-Space complete, allows users to build computational powerful patterns. This award winning game can be used to teach and motivate students into the inner workings of a computer and allow them to improve their knowledge of computer components as well as the logical skills used in programming. This game can teach users the small but powerful components that store state, activate conditions and count using binary. 
+The board game, primarily focused on being a fun learning tool for children, is also interesting enough to warrant the attention of adults and students. It is designed to be Turing complete, allowing users to build patterns with the same computational expressiveness as a modern day computer. With this computational expressiveness contained within simple marbles, mechanical pieces, and a board the game can be of interest to students wanting to explore a fun and unique way to compose computationally powerful patterns.  
 
-This project aims to create a easy to use and assessable simulation of a Turing Tumble following design principles from the game itself and ideas from research into the effectiveness of serious games. The aim was to create a faithful simulation that could be a useful serious game to teach students the intricacies of a computer chip from power building blocks through an award winning STEM game.
+A simulation of the game gives an easy and accessible tool to play and learn using a Turing Tumble. This project focuses on the creation of a faithful Turing Tumble simulator while adding features focused on improving learning through the game. The main aim was creating an easy to use tool for users unfamiliar with the physical board game rather than adding new complex features to the game. This allows new users to learn and play the game using the simulation while ensuring unnecessary complexity isn't added. 
 
 
 \section{Goals}
 \textbf{Simulate a Turing Tumble board} The main goal of the program to correctly simulate all logical configurations that are possible on a physical version of the Turing Tumble board. This is required to ensure a faithful simulation is created for users to use as a replacement for the physical board game. This includes ensuring that all pieces follow the exact logic of the game board and the simulation can play through a series of marbles going down the board and recording the result. The marble correctly following the path determined by the pieces is an important aspect for a user to learn and understand how a combination of small but powerful pieces can lead to complex results. Marbles must also be recorded when they reach the bottom of the board. It is important that users can see the marbles collected as this is an essential result used to understand the output of the Turing Tumble board, including patterns expected in puzzles. It was decided that the board created in the program should follow the exact size and specifications of the physical board to keep a faithful simulation while avoiding unnecessary complexity for new users to the game.
 
-\textbf{Provide gamification via puzzles} Once the main goal of the program is reached the second goal was to provide a direct feature for users to choose a play a selection of puzzles from the Turing Tumble game guide. The board while interesting in it's own right is easier to learn and enjoy for users will going through a set of puzzles designed to teach the various aspects of the board and show of the power of the pieces available. The user should have a clear set of puzzles they can work through with difficulty increasing at a steady pace to keep motivation high for users following design principles used to increase retention on educational games. While the Turing Tumble is a fun game in it's on right, it can be used to teach users logical skills and give metaphors for how parts of a computer chip works so by providing fun and engaging puzzles within the program users will have a clear objective encouraging them to learn and play with the board.   
+\textbf{User can build their own Turing Tumble configuration} User must be able to select and place the 6 logical pieces onto the various slots of a Turing Tumble board. This will allow users to create and then simulate different combinations of pieces on the board, allowing them to learn the power of the board by creating their own individual configurations. It was decided that the users should be able to place pieces using a on screen board to provide an easy and efficient way to create new combinations. While a txt file could be used to input the different pieces, however this was seen as time consuming for the user and would lead to extra complexity required to validated this input. 
+
+\textbf{Increase learning via puzzles} Users should be able to view and play puzzles from a selection included with the official Turing Tumble game guide. The game while interesting in it's own right for users interested in building complex patterns using simple components, is more enjoyable and motivating for new users by providing a set of puzzles designed to teach the various aspects of the board and display the computational power available. The user should have a clear set of puzzles they can work through with difficulty increasing at a steady pace to keep motivation high and the challenge steady to improve the user's learning experience. The puzzles can be used to teach how a Turing Tumble works as well as improve logical problem solving skills.    
 
 \textbf{Should be easy to use and understand} The target audience of this program is Computer Science students interested in the game and school pupils that could use this program as a replacement for the physical board game. This means that the program should be easy to use and understand for users unfamiliar with the Turing Tumble game. It is important that users can focus on how the board works and what they can learn from it rather than getting confused or disinterested because the program is hard to understand or follow. 
 
-\textbf{Puzzle ecosystem to be created by users} To increase the likelihood that users are encouraged to use the site more than once it should be possible for users to create their own puzzles and upload them to the site. By allowing users to create their own puzzles they will be encouraged to learn more about how the board works and how complicated patterns can be made that could be fun for other users to play through. By allowing users to create their own puzzles an ecosystem of puzzles for users to play can be created and be updated over time increasing the number of fun ways for users to learn and play with the board. 
+\textbf{Puzzle ecosystem} To increase the likelihood that users are encouraged to use the site more than once it should be possible for users to create their own puzzles and upload them to the site. By allowing users to create their own puzzles they will learn more about creating logical challenges while also encouraging other users to play these puzzles and learn more using the game. This ecosystem can ensure that the user has multiple reasons to continue using the site after completing the original set of puzzles. This is important as it would encourage more time spent with the game, increasing the likelihood of users learning more about inner workings of computers as well as logical problem solving skills. 
 
 %==================================================================================================================================
 \chapter{Background}
 \section{Turing Tumble}
 
-The Turing Tumble is a marble based board game that was designed to teach children the power of small simple switches and components and how they can be connected together to produce algorithms capable of computationally power results. A picture of the board can be found in \ref{fig:ttboard}, two marble dispensers are located in the top two corners of the board, one for blue and another for red marbles. Each marble represents 'electricity' in the computer metaphor that persists through the board. A marble travels down the board interacting with various pieces that represent different computer components. At the bottom of the board it will flip either a blue or red flipper which will release another marble of that colour. The marble is also stored and displayed at the bottom. The board is filled with a criss cross pattern of Pins and Component Slots, all 6 pieces fit on Component Slot with only the Gear piece fitting on Pins. Each piece has it's own logic that will change the direction of a marble going down the screen and is placed on Component slots or Pin slots. The marble uses the pieces to travel down every level before it reaches the bottom. The 6 pieces are described below.
+The Turing Tumble is a marble based board game that was designed to teach children the power of small simple components and how they can be connected together to produce algorithms capable of computationally powerful results. A picture of the board can be found in \ref{fig:ttboard}, two marble dispensers are located in the top two corners of the board, one for blue and another for red marbles. Each marble represents 'electricity' in the computer metaphor that persists through the board. A marble travels down the board interacting with various pieces that represent different computer components. At the bottom of the board it will flip either a blue or red flipper which will release another marble of that colour. The marble is also stored and displayed at the bottom. The board is filled with a criss cross pattern of Pins and Component Slots, all 6 pieces fit in \emph{Component Slots}, while only the Gear piece fitting in \emph{Pins}. Each piece has it's own logic that will change the direction of a marble going down the screen. The 6 pieces are described below.
 
-\textbf{Ramp} 
-The Ramp component is the simplest component and acts as a 'wire' in the computer metaphor that persists throughout the components. The Ramp sends a marble either right or left depending on the direction the curved end is facing. This piece is reversible in order to change the direction it faces. As the marbles aren't allowed to drop freely until they reach the end, the ramp is the most common way to direct the marbles to the desired location.
+\textbf{Ramp}
+The Ramp component is the simplest component and acts as a 'wire' in the computer metaphor that persists throughout the components. The Ramp sends a marble either right or left depending on the direction the curved end is facing. As the marbles aren't allowed to drop freely until they reach the end, the ramp is the most common way to direct the marbles to the desired location.
 
 \textbf{Crossover}
-The Crossover is a non reversible piece that continues the direction a marble is travelling into the component and allows the marbles to enter from either side.
-If a marble enters from the top left, travelling to the bottom right, it will leave the bottom right side of the crossover continuing it's direction. As this is a static piece, the crossover can't be reversed and will always act the same way. This piece is metaphorically equivalent to wires crossing over in chips, it allows paths created using ramps and other components to cross over each other.
+The Crossover is a non reversible piece that continues the direction a marble is travelling into the component and allows the marbles to enter from either side.This piece is metaphorically equivalent to wires crossing over in chips, it allows paths created using ramps and other components to cross over each other.
 
 \textbf{Bit}
-The Bit component acts as a metaphorical switch that will change the direction the next marble will travel based on if it is 'on' (pointing to the right) or 'off' (pointing to the left). If the bit is pointing to the right (on) it will send the marbles to the left. If the bit is pointing left it will send the marble right. When a marble passes through a bit it changes the direction it is facing so it isn't a perfect analogy when comparing them to switches inside circuits. These components can be used to represent registers that store binary represented values.
+The Bit component acts as a metaphorical switch that will change the direction the next marble will travel based on if it is 'on' (pointing to the right) or 'off' (pointing to the left). It sends marbles in the opposite direction it is facing. When a marble passes through a Bit it changes the direction of the piece. These components can be used to represent registers that store binary represented values.
 
 \textbf{Interceptor}
 This component catches a marble and stops the execution of the Turing Tumble as the marble will no longer be able to reach the end of the board and release another marble. This component is similar to a shutoff switch inside a regular computer. 
 
 \textbf{Gear}
-Gears are the only components that can be placed on Pins and Component Slots on the board and act as connections between a number of gear bits. They turn either 90° left or right. They will need a turn function.
+Gears are the only components that can be placed on Pins on the board and act as connections between a number of gear bits. They turn either 90° left or right. 
 
 \textbf{Gear Bit}
-This component is a like a Bit in that it stores state by pointing left or right and will send a marble in the opposite direction it is facing and then change direction. A Gear Bit not connected to a Gear will act and behave exactly like a normal Bit component. When a Gear Bit changes direction it will also turn any connecting gears this direction which can then in turn change other gears and gear bits. The combination of this component and the Gear is claimed to make the game 'Turing Complete'. Information can only be sent down the board unless using these components which can then be used to affect components above the gear bit that gets switched.
+This component is a like a Bit in that it stores state by pointing left or right and will send a marble in the opposite direction it is facing and then change direction. A Gear Bit not connected to a Gear will act and behave exactly like a normal Bit component. When a Gear Bit changes direction it will also turn any connecting gears which in turn will change the direction of any other Gear Bits and so on. The combination of this component and the Gear is claimed to make the game 'Turing Complete'.
 
 Using a combination of gear and gear bits we can make new logical components like latches, fixed position switches, set switches and flip flops.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\linewidth]{images/turingTumbleBoard.png}
-    \caption{A physical Turing Tumble board with pieces placed onto the board. The marble dispensers are at the top left and right corners with the flippers at the bottom. The boards design is implemented in this program. This image was obtained (REF)}
+    \includegraphics[width=0.5\linewidth]{images/turingTumbleBoard.png}
+    \caption{A physical Turing Tumble board with pieces placed onto the board. The marble dispensers are at the top left and right corners with the flippers at the bottom. The boards design is implemented in this program. This image was obtained from (\cite{turing_tumble_picture}).}
     \label{fig:ttboard}
 \end{figure}
 
@@ -136,77 +137,63 @@ Using a combination of gear and gear bits we can make new logical components lik
 Research was carried out into existing simulations of the Turing Tumble and evaluation was carried out.
 
 \subsection{Overview}
-Various simulations of the Turing Tumble exist online or as downloadable programs. Three such programs were explored and analysed. A paid version was found that implements the board in a VR example but as this product and implementation style would be unaccessible for the majority of the target audience it was not evaluated. THe products were analysed based on the goals set for the project and helped define the requirements for the program.
+Various simulations of the Turing Tumble exist online or as downloadable programs. Three such programs were explored and analysed. A paid version was found that implements the board in virtual reality but as this product and implementation style would be unaccessible for the majority of the target audience it was not evaluated. The products were analysed based on the goals set for the project and helped define the requirements for the program.
 
 \subsection{Turing Tumble Simulator}
-Turing Tumble Simulator is an open source simulator running in a web browser and hosted on Github pages (REF). It was created in Typescript using Javascript libraries for graphics and gravity simulation. A image of the simulator can be found in \ref{fig:gravitySim}
+Turing Tumble Simulator is an open source simulator running in a web browser and hosted on Github pages. (\cite{turing_tumble_simulator}). It was created in Typescript using Javascript libraries for graphics and gravity simulation. 
 
 \textbf{Advantages}
 \begin{itemize}
-    \item The graphic simulation added is impressive and gives a clear and intuitive simulation of the logic of a physical Turing Tumble board.
-    \item All pieces are correctly represented with pieces easily placed by clicking and placing onto slots.
-    \item The graphics update instantly and give a clear indication to what pieces are currently placed on the board.
+    \item The gravity simulation is impressive and gives a clear and intuitive simulation of the logic of a physical Turing Tumble board. Including when marbles fall and interact with the different pieces.
     \item Marbles are simulated correctly when falling down the board and allow complicated patterns to be simulated.
-    \item Extra marbles can be easily added to the dispensers and are collected at the bottom of the board.
-    \item A tutorial page has been added to give clear descriptions to how the pieces and the application works. 
-    \item The board can be made larger and edited by adding new walls, slots, dispensers and flippers giving a large amount of possible customisation options to making complicated patterns for the board.
-    \item The board has different speed options to control the execution speed of the marble falling down the board, helpful to improve understanding to how the pieces are interacting with the marble.
-    \item An options to change the graphical representation of the pieces can be activated to change the pieces into a simpler view which could be easier for a user to understand the path a marble would follow.
-    \item Large focus on the board on the centre of the screen with options on either side.
-    \item Can download a board as an image, which can later be uploaded to the site.
-    \item Pieces can be deleted and new Component slots and pins can be added.
+    \item Extra marbles can be easily added to the dispensers and are collected at the bottom of the board. Unlike other simulators where the number of marbles is represented by numbers, in this implementation it is clearly represented by a graphic for each marble in the dispenser, similar to how it would look it the physical board game.
+    \item A tutorial page has been added to give clear descriptions of how the pieces and the application works.
+    \item The board can be made larger and edited by adding new walls, slots, dispensers, and flippers giving a large amount of possible customisation options to making complicated patterns for the board. This can allow users to fully explore the computational power of the Turing Tumble giving more space to add complex patterns.
+    \item The board has different speed options to control the speed of the marble falling down the board, helpful to improve user understanding of how the pieces are interacting with the marble.
+    \item An option to change the graphical representation of the pieces can be activated to change the pieces into a simpler view, in which the pieces are represented by a simple graphic showing the direction the marble can go.
+    \item Can download a board as an image, which can later be uploaded to the site. This is an unusual implementation of saving boards where normally a text file is used but the image allows the saved version to be easily recognisable.
 \end{itemize}
 
 \textbf{Disadvantages}
 \begin{itemize}
-    \item Only two pages on the simulation with no clear direction for a new user unfamiliar with a Turing Tumble.
-    \item No puzzles can be played on the simulation. This can lead to a lack of an external motivator for users to play with the board instead relying on them needing to understand how to use the board and what it can do as a motivator to use the program.
-    \item To change the direction of a piece, a user must first place a piece then select the 'hand' tool to click on this piece to change it's direction. 
+    \item Only two pages on the simulation with no clear direction for a new user unfamiliar with a Turing Tumble. This can lead to some initial confusion to a user unfamiliar with what a Turing Tumble is and why they should be interested.
+    \item No puzzles can be played on the simulation. This can lead to a lack of an external motivator for users to play with the simulation instead relying on them needing an internal motivator of wanting to learn the Turing Tumble without prompt.
+    \item To change the direction of a piece, a user must first place a piece then select the 'hand' tool to click on this piece to change it's direction. It is unclear why the hand tool would be necessary to change the direction of a piece while also being inefficient to change the direction of newly placed pieces.
     \item Too many marbles collected at the bottom can lead to marbles overflowing on top of each over reducing clarity to the order of marbles collected by the board.
     \item The tutorial page doesn't describe how a Turing Tumble board works and may be insufficient for a user unfamiliar with the game to understand.
-    \item Can't step through a marble path or pause the marble going down the screen so would need to use the slowest speed to help users understand the exact marble path.
+    \item Can't step through a marble path or pause the marble going down the screen so users would need to use the slowest speed to aid understanding of the exact marble path.
     \item Marbles can drop from any height and reach the end of the board and trigger a new marble going against the rules of the physical Turing Tumble.
-    \item The directions of pieces is difficult to understand when in the simplified view.
 \end{itemize}
 
 \textbf{Overall}
-A very visually appealing simulation that very faithfully simulates how a physical game would play out by integrating a complex gravity simulation. The site can be difficult to understand without having previous experience with a Turing Tumble and no puzzles can be played by users, meaning only an internal motivator of an interest in the Turing Tumble can motivate users to use the site.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/gravitySim.png}
-    \caption{A screenshot of the Turing Tumble Simulator which was explored as an example of a strong existing product This image was obtained (REF)}
-    \label{fig:gravitySim}
-\end{figure}
+A very visually appealing simulation that very faithfully simulates how a physical game would play out by integrating complex gravity simulation. The site can be difficult to understand without having previous experience with a Turing Tumble and no puzzles can be played by users, meaning only an internal motivator of an interest in the Turing Tumble can motivate users to use the site.
 
 \subsection{JS Tumble}
-JS Tumble is a Javascript emulator that simulates a Turing Tumble board and is available online.
+JS Tumble is a Javascript emulator that simulates a Turing Tumble board and is available online \cite{jstumble}.
 
 \textbf{Advantages}
 \begin{itemize}
-    \item The simulator correctly models all pieces of the Turing Tumble board and has a clear representation for all pieces.
+    \item The simulator correctly simulates all pieces of the Turing Tumble board and has a clear graphic for all pieces.
     \item Pieces can be easily placed using a click and place system, with a held piece indicated by a red outline on the selection bar.
-    \item A small tutorial text box can be obtained that gets a short description of the board and how to run the page.
+    \item A small tutorial text box can be obtained that gets a short description of the board and how to run the simulation. This tutorial is helpful in given users a brief understanding of how to use the various parts of the page.
     \item Users can send the current board pattern to others by sharing a URL with the current board set up. This is useful in helping to foster a community of people to share puzzles with.
-    \item Marbles can be reset to their default values while clearing the collected marbles at the bottom.
-    \item Tooltips appear when hoovering over options to give a description of their use. Can help make options clear to users.
-    \item Can temporally store a board in the current browser section to load back at another time. Useful when creating puzzles to allow for some experimentation.
+    \item Tooltips appear when hoovering over options to give a description of their use. Can help make options more clear to users without needing to reread the tutorial page.
+    \item Can temporally store a board in the current browser section to load back at another time. Useful when creating patterns to allow for some experimentation.
     \item Can step forward and back in the execution of the marble, giving users a great sense of control which can aid understanding.
-    \item 4 Example boards can be loaded which can show users more complicated and sophisticated patterns that the Turing Tumble can compute. 
+    \item 4 Example boards can be loaded which can show users more complicated and sophisticated patterns that the Turing Tumble can compute helping them understand the computational power of the board.
 \end{itemize}
 
 \textbf{Disadvantages}
 \begin{itemize}
-    \item It has simplistic user interface and does not react to changes in browser height or width. This may put some users off at it may appear more simple than the other versions available.
-    \item Can't easily switch the direction of a piece on the board, the user must click the piece in with the direction you wish to place on the selection board.
-    \item They only have 4 analogue speed options, with slider to help a user choose the exact speed that would be useful for them.
+    \item It has a simplistic user interface and does not react to changes in browser height or width. This may put some users off at it may appear more outdated than the other versions available.
+    \item Can't easily switch the direction of a piece on the board, the user must click the piece with the correct direction on the selection board before placing. This can lead to a slower placement of pieces compared with other implementations.
     \item The collected marbles can go off the screen when too many are collected. This won't allow users to check the resulting output if they wish to experiment with more complicated patterns.
     \item No puzzles are available for users to play on the site. As puzzles are the main game element for the physical board, it would be helpful for users to play through puzzles to help learn the game.
     \item Not clear which side of the board would release the next coloured marble. This may lead to confusion for users unfamiliar with the game.
 \end{itemize}
 
 \textbf{Overview}
-An aesthetically simple but complex simulation that has a variety of useful features and functionality for users familiar with the Turing Tumble game. Including the sharing of puzzles and examples of more complex patterns. It doesn't contain puzzles for users to play thorough and learn the game with and could also lead to some confusion for users unfamiliar with the Turing Tumble.
+An aesthetically simple but complex simulation that has a variety of useful features and functionality for users familiar with the Turing Tumble game, including the sharing of boards and examples of more complex patterns. It doesn't contain puzzles for users to play through and learn the game with and could also lead to some confusion for users unfamiliar with the Turing Tumble.
 
 %  Cut this
 \subsection{Emtumble}
@@ -214,14 +201,12 @@ This simulator written in c++ is a desktop application that can create and simul
 
 \textbf{Advantages}
 \begin{itemize}
-    \item The simulator correctly models the logic and pieces needed to mimic a Turing Tumble board.
+    \item The simulator correctly models the board logic and pieces needed to mimic a Turing Tumble board.
     \item All pieces can easily be placed and added via clicking and placing the pieces. This can allow users to easily place of the pieces needed for a puzzle.
     \item A icon is added at the bottom of the board to indicate that a marble reaching that location would spawn a new marble of this colour. This makes it intuitive for a new user. These icons can also be placed in new locations to custom the behaviour of the Turing Tumble.
-    \item Speed slider is available for users to choose how quickly the marble falls down the screen.
-    \item Marbles are clearly collected at the bottom of the board.
+    \item Speed slider is available for users to choose how quickly the marble falls down the screen as compared to analogue choices in the other implementations.
     \item The size of the board can be increased and edited for greater customisation. This will allow more complicated patterns to be created, allowing the full computation power of the Turing Tumble to be explored.
     \item Very clear and unique icons were created for the different pieces. Making it easy to identify the pieces and increase understanding of how they differ from other available pieces.
-    \item A unique 'cell' view is available where every piece is turned into a colour cell representation instead of it's graphical representation. 
 \end{itemize}
 
 \textbf{Disadvantages}
@@ -241,10 +226,10 @@ A complex and well made simulator of the Turing Tumble that may be unaccessible 
 
 % Talk about adding puzzles as the external motivator to encourage people to use the app, therefore increasing the possiblit that it could be useful in a learning concept
 
-The main aim of this project was to create a virtual simulation of a Turing Tumble board game. As stated in the background multiple versions of the game exist online so one of the major requirements was to include new features to distinguish this program from existing implementations. A minor requirement was to create a program that could be used in a classroom environment where it could be used to encourage the use of this program to help teach logical skills useful in a Computer Science context. The problem was researched by studying the Turing Tumble board game and the existing simulations that exist online to develop a set of functional and non-functional requirements that would meat the brief. user evaluation was carried out by university students and school pupils undertaking a computer science course to gain valuable insight into new features that could be added and improvements that can be implemented to better meet the non-functional requirements.
+The main goal of this project was to create a virtual simulation of a Turing Tumble board game. As stated in the background multiple versions of the game exist so another major goal was to include features to distinguish this program from existing implementations while focusing on features helpful for users to learn using the Turing Tumble. The problem was researched by studying the Turing Tumble board game and the existing simulations that exist to develop a set of functional and non-functional requirements. New requirements were later added after user evaluations in which useful suggestions were given that would improve the program for the target audience.
 
 \section{Requirements}
-To meet the main aim as described above a list of major functional requirements are listed below with their MoSCoW (REF) prioritization tier, these are described below. As the main aim of the project is well understood and has been demonstrated by various existing programs the major requirement that had to be researched was to distinguish this program from these versions with a feature that could be seen as unique enough to help separate this implementation from the existing programs and be useful in helping users learn more about the Turing Tumble. It was decided that by adding puzzle creation and playing as a requirement it could meet both of these requirements. The idea was inspired from the physical board game that comes with a set of puzzles to help teach children how to use the board including it's various pieces and is designed to teach them about different physical components that exist within computer circuits. 
+To meet the main goals as described in the introduction, a list of requirements were created which are listed below with their MoSCoW \cite{noauthor_moscow_nodate} prioritization tier. The first main set of requirements were created to match some of the existing functionality found in other implementations. The second main set of requirements were added to include functionality to distinguish this program from the existing programs and be useful in helping users learn more about the Turing Tumble. It was decided that by adding puzzle creation and playing as requirements it could distinguish the program while adding useful features to improve a users learning. The idea was inspired from the physical board game that comes with a set of puzzles to help teach children how to use the board including it's various pieces and how they can be used to create powerful patterns. The set of requirements are split up based on if they required to meet the existing simulations or to add new functionality.
 
 The following list of requirements uses the MoSCoW prioritization method to distinguish which features were most important within the scope of the project. 
 \begin{itemize}
@@ -254,39 +239,44 @@ The following list of requirements uses the MoSCoW prioritization method to dist
     \item Would Like (\textbf{W}) - A requirement that won't be delivered due to the scope of the project but are stated for future work considerations.
 \end{itemize}
 
-\textbf{Functional Requirements}
+\subsection{Functional Requirements}
+\textbf{Main Requirements}
 \begin{itemize}
     \item (M) Allow users to view, place, and delete pieces on a virtual Turing Tumble board. This should include the 6 pieces present within the physical Turing Tumble as well as the two slot types they are placed in. This will allow a user to build any pattern possible on the physical Turing Tumble.
-    \item (M) Allow users to simulate a valid board. This allows users to play through a Turing Tumble board and understand how the various pieces influence a passing marble.
-    \item (M) correctly simulate the Gearbit and Gear pieces. These two pieces are required to add Turing completeness to the Turing Tumble and should be able to interact with other connected Gearbits. This will allow the user to create more complicated boards and puzzles.
-    \item (M) Add playback features to a board. Including a pause / play, speed slider and a step forward feature. This will allow the user to play the pace at their preferred pace helping them understand the exact path a marble takes on the board.
     \item (M) Ensure pieces match the logic present in the physical Turing Tumble. The pieces placed by the user should directly match the logic of the pieces in the physical game. This allows the boards created by a user to directly simulate a board created on the physical game.
-    \item (M) Marbles should be clear and visible on the board. This includes the amount of marbles in the 2 coloured marble dispensers, the marble in play, and the collected marbles at the bottom of the board. This will allow the user to directly view where the marble is during its execution as well as aid understanding on the path it will take. Collected marbles are required to understand the output of the Turing Tumble and allow pattern to be created by the board.
-    \item (M) Allow users to edit the number of marbles present in the default board. This will allow users to change how many marbles could be released by the board.
+    \item (M) Correctly simulate the Gearbit and Gear pieces. These two pieces are required to add Turing completeness to the Turing Tumble and should be able to interact with other connected Gearbits. This will allow the user to create more complicated boards and puzzles.
+    \item (M) Allow users to simulate a valid board. This allows users to play through a Turing Tumble board and understand how the various pieces influence a passing marble.
+    \item (M) Add playback features to the simulation. Including a pause / play, speed slider, and a step forward feature. This will allow the user to play at their preferred speed aiding their understand of the path the marble is taking.
+    \item (M) Marbles should be clear and visible on the board. This includes the amount of marbles in the 2 coloured marble dispensers, the marble in play, and the collected marbles at the bottom of the board. This will allow the user to directly view where the marble is during its execution as well as aid understanding on the path it will take. Collected marbles are required to understand the output of the Turing Tumble and allow output patterns to be created.
+    \item (M) Allow users to edit the number of marbles present in the default board. This will allow users to change how many marbles can be released, which is required for more complicated board configurations.
+    \item (S) Allow users to save and upload boards as txt. The user should also be able to edit this txt file if they wish to edit the board before uploading. This will users to create patterns then save them for future visits to the site.
+    \item (C) Clearly display where a piece can be placed using an opaque piece image before placement. Will help aid in understanding of how to place the pieces onto the board while improving understand of the rules of the game. This was a suggestion given during evaluation.
+    \item (C) Add a description to each piece to increase understandability. This will greater improve the usability of the pieces and allow users to learn how the piece works without needing to check the tutorial page.
+    \item (C) A user should be able to change the theme of the program. This will add accessible to the site and allow the user to choose a theme they prefer.
+    \item (C) Add a selection of example board configurations to show more complicated patterns and functionality of the board. For example an addition pattern could be added to show how the Turing Tumble can use Bit pieces to add two binary numbers together.
+    \item (W) Full gravity simulation for the board. This would greatly improve the visual appeal of the game and be a very faithful recreation of the physical game. It would also add to user enjoyment, encouraging greater use of the site and possible learning effects.
+    \item (W) Allow a user to edit the size and dimensions of the board. This would allow users to create more complicated patterns and puzzles to fully simulate the computational power of the Turing Tumble.
+\end{itemize}
+
+\textbf{Unique Requirements related to learning}
+\begin{itemize}
     \item (M) Allow users to play puzzles. This includes adding the main descriptors required to understand what the puzzle is about, including a title, description, hwo many pieces the user has available, and it's expected output. This will allow a user to learn more about the Turing Tumble while providing a fun way to learn more about logic needed in Computer Science.
     \item (M) Allow users to create puzzles. This will allow users to create new puzzles that other users can play, creating an ecosystem of puzzles that can be played over time improving overall learning using the game.
-    \item (S) Clearly display where a piece can be placed. Will help aid in understanding of how to place the pieces onto the board while improving understand of the rules of the game. 
-    \item (S) Allow users to save and upload boards. This will users to create patterns then save them for future visits to the site.
-    \item (S) Users should be able to login to the site. This will allow the site to monitor which user created the puzzle and display the author name on created puzzles. 
+    \item (S) Users should be able to login to the site. This will allow the site to monitor which user created the puzzle and display the author name on created puzzles.
     \item (S) Have a list of default puzzles created for users to work through. A list of puzzles should be uploaded to the site so users have a set to play through without needing the online puzzle ecosystem to be very active.
     \item (S) Create a tutorial page to describe the game and the application. This should allow a user to understand how the application works and how the Turing Tumble game plays.
     \item (S) Create a home page. Should give an brief overview to the site and the different pages a user can access.
-    \item (C) Allow users filter through puzzles using a difficulty filter. This will give the user greater control of which puzzles they see and allow a greater ease of learning by giving the option to start with more simpler puzzles before moving onto more complicated ones.
-    \item (C) Add a description to each piece to increase understandability. This will greater improve the usability of the pieces and allow users to learn how the piece works without needing to check the tutorial page. 
-    \item (C) A user should be able to change the theme of the program. This will add accessible to the site and allow the user to choose a theme they prefer.
-    \item (C) A user could create custom patterns of pieces and save these configurations. This would allow users to create more complicated Gearbit patterns that they could use in other parts of the program. 
-    \item (C) Add a selection of example board configurations to show more complicated patterns and functionality of the board. For example an addition pattern could be added to show how the Turing Tumble can use Bit pieces to add two binary numbers together.
+    \item (C) Allow users to filter through puzzles using a difficulty filter. This will give the user greater control of which puzzles they see and allow a greater ease of learning by giving the option to start with more simpler puzzles before moving onto more complicated ones.
+    \item (C) A user could create custom patterns of pieces and save these configurations. This would allow users to create more complicated Gearbit patterns that they could use in other parts of the program.
     \item (C) Allow users to comment and rate other puzzles. This will help create a more active puzzle environment were users can encourage each other to create more elaborate puzzles that others can enjoy.
+    \item (W) A leaderboard where users completion time for puzzles can be views. This will give an extra environment aspect to complete puzzles for users.
     \item (W) A user page were users can delete or edit there published puzzles. This will encourage users to create puzzles and update older puzzles with any possible fixes or edits to improve the puzzle for other users.
-    \item (W) Full gravity simulation for the board. This would greatly improve the visual appeal of the game and be a very faithful recreation of the physical game. It would also add to user enjoyment, encouraging greater use of the site and possible learning effects.
-    \item (W) A leaderboard where users completion time for puzzles can be views. This will give an extra environment aspect to complete puzzles for users. 
-    \item (W) Allow a user to edit the size and dimensions of the board. This would allow users to create more complicated patterns and puzzles to fully simulate the computational power of the Turing Tumble. 
 \end{itemize}
 
-\textbf{Non-functional Requirements}
+\subsection{Non-functional Requirements}
 \begin{itemize}
     \item (M) No existing knowledge of a Turing Tumble should be required to understand and use the app. As this program is decided to introduce people to the Turing Tumble game, it must be easy to use for this target audience.
-    \item (M) Should be intuitive from the outset without the need to keep going back to a tutorial to understand how to use it. After the first read of the tutorial which describes the game, the UI elements shouldn't need too much explanation and should be easy to understand.
+    \item (M) Should be intuitive from the outset without the need to keep going back to a tutorial to understand how to use it. After the first read of the tutorial which describes the game, the UI elements shouldn't need more explanation and should be easy to understand.
     \item (M) Should be runnable on browsers with no software install required. This will allow school pupils and Computer Science students to use it without the need to install software, which may be unavailable for some.
     \item (C) Should be quick and efficient to use on most modern desktop devices. Users will be unlikely to return to a website if it is slow and inefficient, keeping the user experience as enjoyable as possible will increase the possible uptake of the site.
     \item (W) Should be runnable on mobile devices. Some users may not have access to a desktop or laptop so making sure the app can run on more common mobile devices could increase the number of users of the program.
@@ -405,12 +395,12 @@ Angular components are designed to lead to a natural separation of concerns betw
 \textbf{Template file}
 A component's template file is made up of HTML and Angular template syntax. This file will tell Angular how to render the component to the screen. An advantage of this implementation is it allows the mix of native HTML code and Angular template syntax which can directly edit the DOM. It also allows calls to child components multiple times with each call creating a new instance of a component with it's own separate data. For example multiple calls to a component slot component where each slot has it's own personal data but they are all created from a single component file. It also allows for easy creation of a component hierarchy where children components can easily be created and called when necessary as shown in \ref{fig:homeComponent}. Most of the file is written in standard HTML but some important template syntax used in the implementation include
 \begin{itemize}
-    \item \textbf{Angular Directive} - To ensure that templates created by the user are dynamic, angular uses \emph{directives} to transform the template based on the instructions they give. Components are examples of directives as Angular will replace a component selector tag (<app-component>) with the component template at runtime. 
-    \item \textbf{<li *ngFor="let item of itemList">} - This is an an example of a \emph{structural Angular directive} which tells angular to repeat the HTML and the children it contains over a list of elements by adding the elements to the DOM multiple times. 
+    \item \textbf{Angular Directive} - To ensure that templates created by the user are dynamic, angular uses \emph{directives} to transform the template based on the instructions they give. Components are examples of directives as Angular will replace a component selector tag (<app-component>) with the component template at runtime.
+    \item \textbf{<li *ngFor="let item of itemList">} - This is an an example of a \emph{structural Angular directive} which tells angular to repeat the HTML and the children it contains over a list of elements by adding the elements to the DOM multiple times.
     \item \textbf{<app-example-component>} - This tag links to another user created component, making it a child of the current component. This allows user defined components to be easily mixed in between standard HTML allowing Angular to replace that tag with a call to a component and the template file it contains.
     \item \textbf{ \{\{componentProperty\}\}} - This \emph{interpolation} syntax allows for data binding between the template file and the component class which contains and can edit the data. If the data were to be updated Angular would refresh the data displayed in the DOM.
     \item \textbf{[property] = "value"} - This syntax when placed within a HTML or component tag is called \emph{property binding} which can set the data values of child components or set property values in a components API, used extensively for an external component library like material UI. A simple example is <img [src]="imgLink">. The value within the double quotes is a property held within the component class file, named z\emph{imgLink}, this allows the src property of an image tag to be updated dynamically.
-    \item \textbf{<button (click)="clickFunction()">} - The (click) value represents \emph{event binding} in which a DOM event, in this case a button click, can be bound to a response function. In this example a button when clicked by a user will call a \textbf{clickFunction()} held within the component class. 
+    \item \textbf{<button (click)="clickFunction()">} - The (click) value represents \emph{event binding} in which a DOM event, in this case a button click, can be bound to a response function. In this example a button when clicked by a user will call a \textbf{clickFunction()} held within the component class.
 \end{itemize}
 
 By allowing data binding in native HTML the responsibility of updating data values and ensuring user inputs are captured correctly are given to Angular and focus can be spent on developing the major functionality of the program without spending development time ensuring JS calls are made correctly. 
@@ -421,7 +411,7 @@ The component class file, written in Typescript, contains all the application lo
     \item \textbf{selector} - The selector attribute describes the tag name that other components could use to call this component in a template file. When Angular sees this selector it will create an instance of this component and insert it into the DOM. An example would be \emph{'app-board'} where a board component could be called by placing \emph{<app-board>} in a template file.
     \item \textbf{Template URL} - This metadata links to the template file that is associated with this component class, for example \emph{'./board.component.html'}.
     \item \textbf{Style URL} - This metadata links to the CSS file associated with styling the components template file, for example \emph{'./board.component.css}
-    \item \textbf{Providers} - Gives the list of providers for \emph{services} (REF) that the component is injected with using \emph{dependency injection} (REF). 
+    \item \textbf{Providers} - Gives the list of providers for \emph{services} (REF) that the component is injected with using \emph{dependency injection} (REF).
 \end{itemize}
 
 \textbf{Styling file}
@@ -567,7 +557,7 @@ The current direction of each reversible piece is held within it's piece class t
 \textbf{Piece logic}
 Each piece available in a physical Turing Tumble board needed it's own logical representation. To allow every piece to be abstracted in the boards implementation, an abstract piece class was created that contained the most important properties including it's SVG icon that would be displayed to the user as well as it's logic required to interact with a marble. The logic of every piece was created to exactly follow the logic described in the background section (REF). Each piece would be sent a marble to 'process' and would edit it's current direction based on it's properties and call any internal functions required to keep the boards logic. For example a Bit piece would accept a marble, send it down a level and in the opposite direction to which the piece is facing before changing the direction property of the bit, ensuring state is preserved. 
 
-\textbf{Gearbit logic} 
+\textbf{Gearbit logic}
 The most complicated of the Turing Tumble pieces is the combination of Gearbit and Gears. This combination of pieces makes the Turing Tumble Turing complete and is required to create the most complicated patterns possible on the board. It was implemented that the logic of ensuring all connected Gearbits changed direction whe one was clicked or processed a marble should be held in the parent board class. This allowed the Gearbit pieces to have no knowledge of their sibling pieces in the representation and kept the logic of a Gearbit piece to that of a Gear. When a user placed down a Gear or Gearbit using the click functionality explained above the board will call a private function that uses a form of breadth first search to find all Gearbits in the slot array that is connected by an adjacent Gear. A breadth first first search allowed an efficient traversal of the placed Gearbits using a graph algorithm were Gearbits were analogous to vertexes with Gears as the edges. The board object will also ensure that when a Gearbit piece processes a marble it will switch the direction of any connected Gearbit before they process the marble. This ensures that the complicated patterns that can be created by the Gearbits are possible for the user.
 
 \textbf{Marble simulation}
@@ -599,7 +589,7 @@ An important feature of the program was to give control to the speed and executi
     \item Example 1 Pattern - This pattern outputs a repeating 3 blue, 1 red marble pattern using a combination of Gearbit and bits. This adds a simple and comprehensive look into how Gearbits interact and can send logic up or down the board when interacting with a marble.
     \item Example 2 Counting - This pattern uses a combination of Bits that represent 4 registers in a standard CPU to count the number of blue marbles that have been released by the board. The bits current state, represented by the direction, can be used in a binary representation to act as a register on the board and count marbles. This example shows users a direct link between a Turing Tumble and a computer hardware concept used in the more complicated puzzles.
     \item Example 3 Addition - This example involves 2 vertical lines of bits on the left and right of the board. The binary number represented by the first line is added to the number in the second line before outputting the value of this addition on the second line. This examples gives a powerful example to the users how a simple set up on the Turing Tumble can perform powerful computational operations. It works by sending a blue marble and reducing the number displayed on the left line until it reaches zero, once it reaches zero it is caught by an interceptor. Once a blue marble reaches the bottom of the board, it releases a red marble which adds one to the current numerical representation.
-    \item  Example 4 Pattern - The last example that a user can view involves a complicated pattern involving three 'latch' patterns of connected Gearbits. These latches will sen the marble right the first time it reaches the top Gearbit and will then 'latch over' and only send marbles below it's Gear afterwards no matter the direction of the marble. This pattern creates a 2-1-4-1-8 pattern of blue to red marbles. This example gives the users an example of a intricate and complicated pattern that creates a unique output. 
+    \item  Example 4 Pattern - The last example that a user can view involves a complicated pattern involving three 'latch' patterns of connected Gearbits. These latches will sen the marble right the first time it reaches the top Gearbit and will then 'latch over' and only send marbles below it's Gear afterwards no matter the direction of the marble. This pattern creates a 2-1-4-1-8 pattern of blue to red marbles. This example gives the users an example of a intricate and complicated pattern that creates a unique output.
 \end{itemize}
 
 A save and upload board feature was implemented to allow users to save a board setup in a simple txt file that could then be later uploaded to the site. This will encourage users to create complicated patterns that they can save and reopen at a later time. The file takes a snapshot of the current piece layout created by the user and save a JSON representation of the board which can be parsed using a service function into the board when uploaded.
@@ -615,11 +605,11 @@ For each page, a list of puzzle card components is given on the screen. The list
     \item Title - The name given to the puzzle
     \item Description - The description of a puzzle contains a one or two line summary as to the purpose of the puzzle and what a user should expect to achieve or learn.
     \item Difficulty Rating - The difficulty rating of a puzzle is used to categorize the puzzles into 5 distinct groups based on a 5 star difficulty scale. This scale was chosen to mimic the scale found in the physical Turing Tumble to allow a direct relation between puzzles created for the physical game and any user created puzzles.
-    \item Starting Set up - The starting set up attribute displays a board with the starting pieces which cannot be replaced or deleted by the user. These pieces constrain the puzzle and the way the user must meet the expected output. 
+    \item Starting Set up - The starting set up attribute displays a board with the starting pieces which cannot be replaced or deleted by the user. These pieces constrain the puzzle and the way the user must meet the expected output.
     \item List of Pieces available - The challenge of the Turing Tumble puzzles come with the restriction of pieces available to reach the expected output of the puzzle. This restriction ensures users follow a set pattern of computation to meet the expected output and can create a variety of different challenging puzzles even if they share the same expected output.
     \item Expected output - This lists the collected marble output that the board should receive to complete the puzzle.
 \end{itemize}
- 
+
 A difficulty filter has been implemented allowing users to filter the list of puzzles shown by the set of difficulties they wish to view. This gives the users greater control as to which puzzles they wish to view without having to  go through multiple pages of puzzles that may not interest them. This filter was also implemented to help organise the list of user created puzzles. A clear difficulty progression is present with the default puzzles but with online puzzles it currently lists any puzzles created by users based on the time created so by adding a filter users can ensure they only see puzzles of interest. The filter updates the list instantly and doesn't require the page to be reloaded when a new set of difficulties is selected, this adds to usability and avoids unnecessary load times for users.
 
 \begin{figure}
@@ -789,7 +779,7 @@ For the implementation of GearBit functionality, a breadth first style search fu
 A Map data type to map the type of piece and the number of those pieces a user has available to complete a puzzle. A built in library was used to convert an object to JSON representation before it was uploaded to the Firebase server. An issue arose when the function used to convert to JSON, would ignore Javascript Map objects, leading to data being lost when uploading. To fix this issue, the Map data was converted to an array data type before upload and was converted back to a Map object when downloaded.
 
 %==================================================================================================================================
-\chapter{Evaluation} 
+\chapter{Evaluation}
 
 Evaluation was carried to out to analyse if the program meets the functional and non-functional requirements discussed in the design section. Unit tests were created to ensure functional requirements of the program were meet. Angular end to end tests were made to test UI functionality while user evaluations were carried out to gain suggestions for improvements and feedback on ease of use of the application. Some suggestions have been added to the future work section while others are just discussed. 
 
@@ -817,12 +807,12 @@ Important Unit tests that were created include
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{images/codeCoverage.png}    
-
+    \includegraphics[width=1\linewidth]{images/codeCoverage.png}
+    
     \caption{This code coverage table was produced by the testing framework and shows the test coverage for different parts of the program including the typescript classes and Angular components created.}
-
+    
     % use the notation fig:name to cross reference a figure
-    \label{fig:codeCoverage} 
+    \label{fig:codeCoverage}
 \end{figure}
 
 \section{UI Testing}
@@ -838,7 +828,7 @@ Test covered include
     \item The user should be able to navigate to the Tutorial page.
     \item The three separate tutorial sub sections should be visible.
     \item The theme of the program should be changeable by the user.
-    \item A set of puzzles should be viewable when navigating to the Original Puzzles page. 
+    \item A set of puzzles should be viewable when navigating to the Original Puzzles page.
 \end{itemize}
 
 \section{Monitored User Tests}
@@ -912,15 +902,15 @@ All 5 users completed this extra task. They all found the starting phase easy to
     \item One used wasn't exactly clear on the use of the reset marbles button compared to the reset board button. This is likely due to the buttons being very close in functionality, tooltips could maybe be added to give exact definitions for the buttons.
     \item Multiple users were confused with which marble would be triggered when it reached the bottom. A colour bar was added to help this but it doesn't seem to have helped make it more intuitive. More emphasis in the tutorial could be given to this or add some graphics to show the marble hitting a 'trigger' for another coloured marble.
     \item Some users were unaware of the tooltips for the pieces when hovered over so asked questions based on what each piece does. Could maybe add more information in the tutorial explaining this tool tip or have the currently held piece display it's tooltip in a prompt window. This would give the user clear instructions to what the piece does without the possibility of missing the information.
-    \item One user found it difficult to find the different playback options as they didn't assume they would be in the same place as the selection bar. This could be improved by moving the playback options into their own separate bar. 
+    \item One user found it difficult to find the different playback options as they didn't assume they would be in the same place as the selection bar. This could be improved by moving the playback options into their own separate bar.
     \item A few users didn't initially see that the puzzle page had a paginator at the bottom so assumed that the 5 initial puzzles shown where the only ones available. This can be improved by adding an infinite scroll to get around the paginator or as a quicker fix the number of puzzles has been increased to have more of the page filled hopefully leading to the users eye spotting the paginator at the bottom.
     \item One user wasn't aware that the middle slot on the final row could send a marble to trigger the blue or red marbles. This could be fixed by including graphics that represent the physical board which could give a better intuition to this functionality.
     \item A user didn't initially known which side of the speed bar represented faster or slower. This could be made clearer by adding icons to represent an increase and decrease of speed.
     \item Some users tried to complete the puzzle by triggering a blue marble multiple times instead of once and letting the marbles to be spawn by the board. This could be more intuitive by only letting the user trigger the puzzle once unless they reset the marbles or board.
-    \item One user was initially confused on how to change the direction of the piece and was looking for an option in the selection bar. This can be improved by one of their suggestions which was to add a tooltip over the piece which indicated that it can be switched direction. 
-    \item One user was unsure of why the board was split into Pin slot and Component Slots. This was explained as a requirement in the physical board to allow the different pieces to stay in place. It may be beneficial to add this to the tutorial.  
+    \item One user was initially confused on how to change the direction of the piece and was looking for an option in the selection bar. This can be improved by one of their suggestions which was to add a tooltip over the piece which indicated that it can be switched direction.
+    \item One user was unsure of why the board was split into Pin slot and Component Slots. This was explained as a requirement in the physical board to allow the different pieces to stay in place. It may be beneficial to add this to the tutorial.
     \item One user tried to drag and drop the pieces initially. This suggests that this may be the more intuitive option but they later found that the click and place was more effective for large quantity of pieces.
-    \item One user made a mistake while creating the starting pieces for their puzzles and tried to go back but was unable. This could be added as a feature. 
+    \item One user made a mistake while creating the starting pieces for their puzzles and tried to go back but was unable. This could be added as a feature.
     \item One user wasn't clear that the solution for a created puzzle must be generated by playing through the puzzle that was made. More emphasis can be given to this in the tutorial and prompt the user gets while on this stage.
 \end{itemize}
 
@@ -1036,9 +1026,9 @@ The survey took around 30 minutes to complete yet it still missed some features 
 \section{Issues known about the program}
 \begin{itemize}
     \item The current program is not responsible on a mobile browser. This was known during the design and implementation of the program. To make the program responsive for a mobile device, the front end code focusing on how the elements display to the page would require a different library to give different sizes to different elements based on the type of device the program is currently displayed on. This was seen as something outwith the scope of the project as it was decided at the design stage that it was primarily focused on displaying information on a desktop browser. The site currently breaks when viewed on a mobile phone and some of the most fundamental features of the program no longer work, for example a user can not place a piece on the board correctly as the board is pushed off the screen.
-    \item The program sends the puzzle data to the backend firebase server by converting the puzzle object to JSON representation then saving this file in the server. This method was chosen to focus on getting the data stored correctly and then spending more development time on the user facing features of puzzle creation and playing. A single default puzzle is 19.8 kB large when stored on the server. A fix to this would be remove the current implementation of sending up the entire puzzle object and instead only send up the details of changes and important data for example instead of sending up the list of slots for the set up and solution slot lists. A single JSON file can be made that details where pieces are located for each set up instead of sending up data about the board that is already known for example the number of Pin and Component Slots stored in a board object. This issue is something that would improve the backend performance for the site and would lead to a more efficient program. 
+    \item The program sends the puzzle data to the backend firebase server by converting the puzzle object to JSON representation then saving this file in the server. This method was chosen to focus on getting the data stored correctly and then spending more development time on the user facing features of puzzle creation and playing. A single default puzzle is 19.8 kB large when stored on the server. A fix to this would be remove the current implementation of sending up the entire puzzle object and instead only send up the details of changes and important data for example instead of sending up the list of slots for the set up and solution slot lists. A single JSON file can be made that details where pieces are located for each set up instead of sending up data about the board that is already known for example the number of Pin and Component Slots stored in a board object. This issue is something that would improve the backend performance for the site and would lead to a more efficient program.
     \item As noted by some users during the monitored evaluations, some aspects of the site on desktop are not fully responsive meaning they can reduce the width of the screen while on a plain board and the selection bar will become hidden behind the board which won't change it's width. This issue was known while creating the site and focus was given to the pages being fully visible with no data being hidden lower on the page, requiring no scrolling from the user. As future work, responsive front end logic should be added so that the board and selection bar don't overlap on each over, this would improve ease of use and usability for a desktop user.
-    \item Full animation of the board involving gravity was explored as a possible avenue for design. It was decided early on that more focus should be given towards creating a puzzle environment for users and then spending any extra development time on full animation after the main requirements were met. Full animation is a desired function to greatly improve user feedback and help aid understanding of the board while in play. Future work could be to implement this feature into the site. One issue with the current design of the program leads to a focus on having a collection of small modular component each with it's own HTML elements. This doesn't lead naturally to the extension of using an external physics library as a lot of code would need to be changed to deal with the logic of gravity and the api calls to the external library. It will still be included in future work but it is important to evaluate the design of the program doesn't lead itself naturally to this new feature.   
+    \item Full animation of the board involving gravity was explored as a possible avenue for design. It was decided early on that more focus should be given towards creating a puzzle environment for users and then spending any extra development time on full animation after the main requirements were met. Full animation is a desired function to greatly improve user feedback and help aid understanding of the board while in play. Future work could be to implement this feature into the site. One issue with the current design of the program leads to a focus on having a collection of small modular component each with it's own HTML elements. This doesn't lead naturally to the extension of using an external physics library as a lot of code would need to be changed to deal with the logic of gravity and the api calls to the external library. It will still be included in future work but it is important to evaluate the design of the program doesn't lead itself naturally to this new feature.
 \end{itemize}
 
 \section{Program efficiency via lighthouse}
@@ -1047,13 +1037,13 @@ To evaluate the perform efficiency and performance. Lighthouse (REF) was used to
 \begin{table}[]
     \caption{The table of lighthouse metric scores for 4 pages of the program.}\label{tab:lighthouse}
     \begin{tabular}{llllll}
-    Page            & Performance & Accessibility & Best Practices & Speed Index & Largest Contentful Paint \\
-    Home            & 39          & 100           & 93             & 4.2s        & 5.7s                     \\
-    Plain Board     & 51          & 87            & 93             & 4.1s        & 5.4s                     \\
-    Tutorial        & 60          & 96            & 93             & 4.1s        & 4.7s                     \\
-    Default Puzzles & 51          & 98            & 93             & 4.1s        & 4.6s                    
+        Page            & Performance & Accessibility & Best Practices & Speed Index & Largest Contentful Paint \\
+        Home            & 39          & 100           & 93             & 4.2s        & 5.7s                     \\
+        Plain Board     & 51          & 87            & 93             & 4.1s        & 5.4s                     \\
+        Tutorial        & 60          & 96            & 93             & 4.1s        & 4.7s                     \\
+        Default Puzzles & 51          & 98            & 93             & 4.1s        & 4.6s                    
     \end{tabular}
-    \end{table}
+\end{table}
 
 As shown from the metrics above the performance was acceptable for most pages but not high enough overall to meet the non-functional requirement (PUT REQ HERE). Suggestions from the lighthouse tool include removing unnecessary JS from the first load. This is due to the design of the routing functionality of the program. The home page will load all pages can access before displaying it's own content. This is down to the router functionality where it ensures all components it can route to are sent to the users client before they can access those links. Future work can be given to improve the performance metrics of this program. While not meeting the non-functional requirement for strong performance, a focus on the features available for the users was seen as an acceptable compromise to diverting development time towards performance metrics. 
 
@@ -1137,16 +1127,16 @@ Summarise the whole project for a lazy reader who didn't read the rest (e.g. a p
 \section{Guidance}
 \begin{itemize}
     \item
-        Summarise briefly and fairly.
+          Summarise briefly and fairly.
     \item
-        You should be addressing the general problem you introduced in the
-        Introduction.        
+          You should be addressing the general problem you introduced in the
+          Introduction.        
     \item
-        Include summary of concrete results (``the new compiler ran 2x
-        faster'')
+          Include summary of concrete results (``the new compiler ran 2x
+          faster'')
     \item
-        Indicate what future work could be done, but remember: \textbf{you
-        won't get credit for things you haven't done}.
+          Indicate what future work could be done, but remember: \textbf{you
+              won't get credit for things you haven't done}.
 \end{itemize}
 
 %==================================================================================================================================
@@ -1157,28 +1147,28 @@ Summarise the whole project for a lazy reader who didn't read the rest (e.g. a p
 
 \begin{appendices}
 
-\chapter{Appendices}
-
-Typical inclusions in the appendices are:
-
-\begin{itemize}
-\item
-  Copies of ethics approvals (required if obtained)
-\item
-  Copies of questionnaires etc. used to gather data from subjects.
-\item
-  Extensive tables or figures that are too bulky to fit in the main body of
-  the report, particularly ones that are repetitive and summarised in the body.
-
-\item Outline of the source code (e.g. directory structure), or other architecture documentation like class diagrams.
-
-\item User manuals, and any guides to starting/running the software.
-
-\end{itemize}
-
-\textbf{Don't include your source code in the appendices}. It will be
-submitted separately.
-
+    \chapter{Appendices}
+    
+    Typical inclusions in the appendices are:
+    
+    \begin{itemize}
+        \item
+              Copies of ethics approvals (required if obtained)
+        \item
+              Copies of questionnaires etc. used to gather data from subjects.
+        \item
+              Extensive tables or figures that are too bulky to fit in the main body of
+              the report, particularly ones that are repetitive and summarised in the body.
+              
+        \item Outline of the source code (e.g. directory structure), or other architecture documentation like class diagrams.
+              
+        \item User manuals, and any guides to starting/running the software.
+              
+    \end{itemize}
+    
+    \textbf{Don't include your source code in the appendices}. It will be
+    submitted separately.
+    
 \end{appendices}
 
 %==================================================================================================================================

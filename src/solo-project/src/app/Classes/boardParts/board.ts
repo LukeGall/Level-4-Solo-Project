@@ -1,3 +1,4 @@
+// Clone Deep has been taken from the lodash library under the MIT license, with more details on the Github Wiki
 import { cloneDeep } from 'lodash';
 import { Bit } from '../boardPieces/bit';
 import { BoardPiece } from '../boardPieces/board-piece';

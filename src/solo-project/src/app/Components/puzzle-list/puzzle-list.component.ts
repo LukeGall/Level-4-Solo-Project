@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { FormControl } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
+// Clone Deep has been taken from the lodash library under the MIT license, with more details on the Github Wiki
 import { cloneDeep } from 'lodash';
 import { Puzzle } from 'src/app/Classes/puzzle';
 import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';

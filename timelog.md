@@ -355,3 +355,13 @@
 * *2 hour* Puzzle optimisation as well as converting all old default puzzle files into new version 
 * *0.5 hour* Next puzzle button
 * *0.5 hour* Can go back previous steps while making puzzles
+
+
+### Week 17
+## 23 Feb 2021
+* *2.5 hour* Adding references, fixing images, and bugs
+
+## 24 Feb 2021
+* *1 hour* Re-read of dissertation guidelines and notes of how to do the re-write
+* *2 hour* Re-write of intro section
+* *3 hour* Background and requirements rewrite 

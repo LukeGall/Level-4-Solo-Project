@@ -640,9 +640,29 @@ For next time, focus on going through the implementation stage
 
 ### Eval
 * Has eval been useful why did I choose it etc?
+* How well were reqs met?
+* Do the tests pass?
+* What was the code coverage etc
+* Ask relevant question etc
+* Do the tests cover the REQS
 
 ### Dissertation in general 
 * Completeness and coherence, organisation, literacy, bib etc
+
+
+* Use the past perfect tense
+
+
+### How to write a great research paper notes
+* Writing first helps us to be clear and understand what we don't understand
+* Narrative flow should be like a whiteboard
+* Molehills not mountains
+* Put the reader first, so don't talk about personal details
+* Use simple direct language 
+
+## Need to cite the examples from the Turing Tumble page and add this to the prod site
+
+
 
 
 

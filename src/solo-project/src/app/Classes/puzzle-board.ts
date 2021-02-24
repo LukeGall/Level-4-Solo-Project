@@ -5,6 +5,7 @@ import { Pos } from './boardParts/pos';
 import { Slot } from './boardParts/slot';
 import { BoardPiece } from './boardPieces/board-piece';
 import { Piece } from './piece.enum';
+// Clone Deep has been taken from the lodash library under the MIT license, with more details on the Github Wiki
 import { cloneDeep } from 'lodash';
 import { parseSlotString, slotsToString } from '../Shared/convert-functions';
 
