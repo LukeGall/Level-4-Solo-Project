@@ -633,6 +633,11 @@ For next time, focus on going through the implementation stage
 ### Analysis
 * Precise analyse of the problem, understanding of the context, talk about existing products that have met the problem. Talk about the reqs
 
+### Design
+* Talk about how the pieces are separate yet connected when it comes to the GearBits
+* Marble is independent at each slot, no carry over 
+* Talk about the way the txt file was designed 
+
 ### Software Product (Biggest part)
 * Well designed - components, UI, class interaction etc
 * Functional

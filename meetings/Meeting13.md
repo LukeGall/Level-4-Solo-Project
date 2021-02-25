@@ -1,4 +1,4 @@
-# Meeting 13 (24th Feb)
+# Meeting 13 (24th Feb) (Missed due to internet issues on my end, an email was sent instead)
 
 ## Talk about work done since last meeting
 * First rough draft finished, ~54 pages in total, including images and references

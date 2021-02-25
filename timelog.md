@@ -365,3 +365,6 @@
 * *1 hour* Re-read of dissertation guidelines and notes of how to do the re-write
 * *2 hour* Re-write of intro section
 * *3 hour* Background and requirements rewrite 
+
+## 25 Feb 2021
+* *4 hour* Re-write and update of design section, including wireframes
