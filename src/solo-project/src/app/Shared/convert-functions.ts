@@ -12,64 +12,65 @@ import { Ramp } from "../Classes/boardPieces/ramp";
 import { Piece } from "../Classes/piece.enum";
 
 export function slotsToString(boardSlots: Slot[][]): string {
-    var slots = "";
-    boardSlots.forEach((row) => {
-      row.forEach((slot) => {
-        if (!slot) {
-          slots += " x";
-        } else if (!slot.piece) {
-          switch (slot.partName) {
-            case "Pin":
-              slots += " .";
-              break;
-            case "CompSlot":
-              slots += " ,";
-              break;
-          }
-        } else {
-          switch (slot.piece.type) {
-            case "Ramp":
-              slots += " R";
-              break;
-            case "Gear":
-              slots += " g";
-              break;
-            case "Bit":
-              slots += " B";
-              break;
-            case "Crossover":
-              slots += " C";
-              break;
-            case "GearBit":
-              slots += " G";
-              break;
-            case "Interceptor":
-              slots += " I";
-              break;
-          }
-          if (slot.piece.type == Piece.Ramp || slot.piece.type == Piece.Bit || slot.piece.type == Piece.GearBit) {
-            if (slot.piece.direction == Direction.left) {
-              slots += "l";
-            } else {
-              slots += "r";
-            }
+  var slots = "";
+  boardSlots.forEach((row) => {
+    row.forEach((slot) => {
+      if (!slot) {
+        slots += " x";
+      } else if (!slot.piece) {
+        switch (slot.partName) {
+          case "Pin":
+            slots += " .";
+            break;
+          case "CompSlot":
+            slots += " ,";
+            break;
+        }
+      } else {
+        switch (slot.piece.type) {
+          case "Ramp":
+            slots += " R";
+            break;
+          case "Gear":
+            slots += " g";
+            break;
+          case "Bit":
+            slots += " B";
+            break;
+          case "Crossover":
+            slots += " C";
+            break;
+          case "GearBit":
+            slots += " G";
+            break;
+          case "Interceptor":
+            slots += " I";
+            break;
+        }
+        if (slot.piece.type == Piece.Ramp || slot.piece.type == Piece.Bit || slot.piece.type == Piece.GearBit) {
+          if (slot.piece.direction == Direction.left) {
+            slots += "l";
+          } else {
+            slots += "r";
           }
         }
-      })
-      slots += "\n";
+      }
     })
-  
-    return slots;
-  }
-  
+    slots += "\n";
+  })
+
+  return slots;
+}
+
 export function parseSlotString(slotString: string): Slot[][] {
-    var slots = new Array<Array<Slot>>();
-  
-  
-    slotString.split("\n").forEach(function (row, xPos) {
+  var slots = new Array<Array<Slot>>();
+
+
+  slotString.split("\n").forEach(function (row, xPos) {
+    if (row) {
       var slotRow = new Array<Slot>();
       var yPos = -1;
-  
+
       row.split(" ").forEach((str) => {
         var slot: Slot;
         if (str) {
@@ -136,6 +137,7 @@ export function parseSlotString(slotString: string): Slot[][] {
         }
       })
       slots.push(slotRow);
-    })
-    return slots
-  }
+    }
+  })
+  return slots
+}

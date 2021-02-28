@@ -368,3 +368,6 @@
 
 ## 25 Feb 2021
 * *4 hour* Re-write and update of design section, including wireframes
+
+## 26 Feb 2021
+* *6.5 hour* Re-write and update of implementation section
