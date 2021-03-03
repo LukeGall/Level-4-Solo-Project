@@ -371,3 +371,8 @@
 
 ## 26 Feb 2021
 * *6.5 hour* Re-write and update of implementation section
+
+### Week 18
+## 1 Mar 2021
+* *6 hour* All parts rewritten as well as abstract 
+* *6 hour* Another read through to cut down pages, meeting with supervisor
