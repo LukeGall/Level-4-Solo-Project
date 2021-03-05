@@ -6,6 +6,8 @@
 %
 % put any additional packages here
 %
+\usepackage{pdfpages}
+
 
 \begin{document}
 
@@ -72,7 +74,6 @@
 %==================================================================================================================================
 \chapter{Introduction}
 
-\textbf{Check which cite to use}
 % reset page numbering. Don't remove this!
 \pagenumbering{arabic}
 
@@ -100,7 +101,7 @@ A simulation of the game gives an easy and accessible tool to play and learn. Th
 \section{Turing Tumble}
 \label{section:background}
 
-The Turing Tumble is a marble based board game that was designed to teach children the power of small simple components and how they can be connected together to produce algorithms capable of computationally powerful results. A picture of the board can be found in \ref{fig:ttboard}, two marble dispensers are located in the top two corners of the board, one for blue and another for red marbles. Each marble represents 'electricity' in the computer metaphor that persists through the game. A marble travels down the board interacting with various pieces that represent different computer components. At the bottom of the board it will flip either a blue or red flipper which will release another marble of that colour. The marble is also stored and displayed at the bottom. The board is filled with a criss cross pattern of Pins and Component Slots, all 6 pieces fit in \emph{Component Slots}, while only the Gear piece fitting in \emph{Pins}. Each piece has its own logic that will change the direction of a marble going down the screen. The 6 pieces are described below.
+Details about the Turing Tumble were adapted form their website \citep{turing_tumble_site}. The Turing Tumble is a marble based board game that was designed to teach children the power of small simple components and how they can be connected together to produce algorithms capable of computationally powerful results. A picture of the board can be found in \ref{fig:ttboard}, two marble dispensers are located in the top two corners of the board, one for blue and another for red marbles. Each marble represents 'electricity' in the computer metaphor that persists through the game. A marble travels down the board interacting with various pieces that represent different computer components. At the bottom of the board it will flip either a blue or red flipper which will release another marble of that colour. The marble is also stored and displayed at the bottom. The board is filled with a criss cross pattern of Pins and Component Slots, all 6 pieces fit in \emph{Component Slots}, while only the Gear piece fitting in \emph{Pins}. Each piece has its own logic that will change the direction of a marble going down the screen. The 6 pieces are described below.
 
 \textbf{Ramp}
 The Ramp component is the simplest component and acts as a 'wire' in the computer metaphor that persists throughout the components. The Ramp sends a marble either right or left depending on the direction the curved end is facing. As the marbles aren't allowed to drop freely until they reach the end, the ramp is the most common way to direct the marbles to the desired location.
@@ -226,7 +227,7 @@ A complex and well made simulator of the Turing Tumble that may be unaccessible 
 The main goal of this project was to create a virtual simulation of a Turing Tumble board game. As stated in the background multiple versions of the game exist so another major goal was to include features to distinguish this program from existing implementations while focusing on features helpful for learning. The problem was researched by studying the Turing Tumble board game and the existing simulations to develop a set of functional and non-functional requirements. New requirements were later added after user evaluations in which useful suggestions were given that would improve the program for the target audience.
 
 \section{Requirements}
-To meet the main goals as described in the introduction, a list of requirements were created which are listed below with their MoSCoW \cite{noauthor_moscow_nodate} prioritization tier. The first main set of requirements were created to match some of the existing functionality found in other implementations. The second main set of requirements were added to include functionality to distinguish this program from the existing programs and be useful in helping users learn more about the Turing Tumble. It was decided that by adding puzzle creation and playing as requirements it could distinguish the program while adding useful features to improve a user's learning. The idea was inspired from the physical board game that comes with a set of puzzles to help teach children how to use the board including its various pieces and how they can be used to create powerful patterns. The set of requirements are split up based on if they required to meet the existing simulations or to add new functionality.
+To meet the main goals as described in the introduction, a list of requirements were created which are listed below with their MoSCoW \citep{noauthor_moscow_nodate} prioritization tier. The first main set of requirements were created to match some of the existing functionality found in other implementations. The second main set of requirements were added to include functionality to distinguish this program from the existing programs and be useful in helping users learn more about the Turing Tumble. It was decided that by adding puzzle creation and playing as requirements it could distinguish the program while adding useful features to improve a user's learning. The idea was inspired from the physical board game that comes with a set of puzzles to help teach children how to use the board including its various pieces and how they can be used to create powerful patterns. The set of requirements are split up based on if they required to meet the existing simulations or to add new functionality.
 
 The following list of requirements uses the MoSCoW prioritization method to distinguish which features were most important within the scope of the project. 
 \begin{itemize}
@@ -251,7 +252,7 @@ The following list of requirements uses the MoSCoW prioritization method to dist
     \item (C) Add a description to each piece to increase understandability. This will greater improve the usability of the pieces and allow users to learn how the piece works without needing to check the tutorial page.
     \item (C) A user should be able to change the theme of the program. This will add accessible to the site and allow the user to choose a theme they prefer.
     \item (C) Add a selection of example board configurations to show more complicated patterns and functionality of the board. For example an addition pattern could be added to show how the Turing Tumble can use Bit pieces to add two binary numbers together.
-    % \item (W) Full gravity simulation for the board. This would greatly improve the visual appeal of the game and be a very faithful recreation of the physical game. It would also add to user enjoyment, encouraging greater use of the site and possible learning effects.
+          % \item (W) Full gravity simulation for the board. This would greatly improve the visual appeal of the game and be a very faithful recreation of the physical game. It would also add to user enjoyment, encouraging greater use of the site and possible learning effects.
     \item (W) Allow a user to edit the size and dimensions of the board. This would allow users to create more complicated patterns and puzzles to fully simulate the computational power of the Turing Tumble.
 \end{itemize}
 
@@ -265,14 +266,14 @@ The following list of requirements uses the MoSCoW prioritization method to dist
     \item (C) Allow users to filter through puzzles using a difficulty filter. This will give the user greater control of which puzzles they see and allow a greater ease of learning by giving the option to start with more simpler puzzles before moving onto more complicated ones.
     \item (C) A user could create custom patterns of pieces and save these configurations. This would allow users to create more complicated Gear Bit patterns that they could use in other parts of the program.
     \item (C) Allow users to comment on and rate other puzzles. This will help create a more active puzzle environment where users can encourage each other to create more elaborate puzzles.
-    % \item (W) A leaderboard where users completion time for puzzles can be views. This will give an extra environment aspect to complete puzzles for users.
+          % \item (W) A leaderboard where users completion time for puzzles can be views. This will give an extra environment aspect to complete puzzles for users.
     \item (W) A user page where users can delete or edit their published puzzles. This will encourage users to create puzzles and update older puzzles with any possible fixes or edits.
 \end{itemize}
 
 \subsection{Non-functional Requirements}
 \begin{itemize}
     \item (M) No existing knowledge of a Turing Tumble should be required to understand and use the app. As this program is decided to introduce people to the Turing Tumble game, it must be easy to use for this target audience.
-    \item (M) Should be intuitive from the outset without the need to keep going back to a tutorial to understand how to use it. After the first read of the tutorial which describes the game, the UI elements shouldn't need more explanation and should be easy to understand.
+    \item (M) Should be intuitive from the outset without the need to keep going back to a tutorial to understand how to use it. After the first read of the tutorial which describes the game, the User Interface (UI) elements shouldn't need more explanation and should be easy to understand.
     \item (M) Should be runnable on browsers with no software install required. This will allow school pupils and Computer Science students to use it without the need to install software, which may be unavailable for some.
     \item (C) Should be quick and efficient to use on most modern desktop devices. Users will be unlikely to return to a website if it is slow and inefficient, keeping the user experience as enjoyable as possible will increase the possible uptake of the site.
     \item (W) Should be runnable on mobile devices. Some users may not have access to a desktop or laptop so making sure the app can run on more common mobile devices could increase the number of users of the program.
@@ -347,7 +348,7 @@ The main user interface for a board was designed after examining other simulator
     \item Speed control could be a slider or a list of set speeds.
 \end{itemize}
 
-After examining these pages 3 initial wireframes were created for possible page designs. By focusing the design on other implementations it allows users already familiar with these programs to understand this program more easily. The wireframes were created online using draw.io \cite{noauthor_flowchart_nodate}. Different design elements were considered in each with the final wireframe, shown here \ref{fig:wireframe}, being the main design that was improved on during the implementation stage. In this design it was important to have strong emphasis on the board by placing it in the centre of the page. A side navigation bar was chosen to reduce to visual impact of a top navigation bar and was designed to be hidden or reveled by the user with a button toggle. It was designed that only options available to the user should be shown at any given time and that icons would be greyed out to signify unavailable options leading to less visual weight to useless actions.
+After examining these simulators 3 initial wireframes were created for possible page designs. By focusing the design on other implementations it allows users already familiar with these programs to understand this program more easily. The wireframes were created online using draw.io \citep{noauthor_flowchart_nodate}. Different design elements were considered in each with the final wireframe, shown here \ref{fig:wireframe}, being the main design that was improved on during the implementation stage. In this design it was important to have strong emphasis on the board by placing it in the centre of the page. A side navigation bar was chosen to reduce to visual impact of a top navigation bar and was designed to be hidden or reveled by the user with a button toggle. It was designed that only options available to the user should be shown at any given time and that icons would be greyed out to signify unavailable options leading to less visual weight to useless actions.
 
 
 \begin{figure}
@@ -361,29 +362,31 @@ After examining these pages 3 initial wireframes were created for possible page 
 The following technologies were chosen to meet the specification and capture the functional requirements.
 
 \subsection{Angular}
-Angular (\cite{noauthor_angular_nodate-1}) was chosen as it is a fully component based Javascript (JS) framework with components split into modules of HTML, Typescript, CSS, and a testing file. Typescript (\cite{noauthor_typed_nodate}) is a super script of JS adding static type checking and allows for greater control over the creation of classes and interfaces compared to standard JS. The components in Angular are organised in a hierarchy and can help keep a strong modular design by passing data down to child components only when necessary. Angular comes prepackaged with some very helpful libraries including a testing framework, routing service, and forms. It is also very easy to add a wide variety of different JS libraries using Node Package Manager (NPM) allowing more development time spent on implementing the functionality of the program instead of solving issues solved by external libraries. While this project is focused mainly with building a web application, Angular can be used to built native mobile applications so the implementation can made more portable as part of possible future work.
+Angular (\cite{noauthor_angular_nodate-1}) was chosen as it is a fully component based Javascript (JS) framework with components split into a model, view, and controller. Typescript (\cite{noauthor_typed_nodate}) is the scripting langrage used in Angular that compiles down to native JS. It is a super script of JS with static type checking and allows for greater control over the creation of classes and interfaces. The components in Angular are organised in a hierarchy and can help keep a strong modular design by passing data down to child components only when necessary. Angular comes prepackaged with some useful libraries including a testing framework, routing service, and forms. It is also very easy to add a wide variety of different JS libraries using Node Package Manager (\cite{noauthor_npm_nodate}) allowing more development time spent on implementing the functionality of the program instead of solving issues solved by external libraries.
 
 \subsection{Material UI}
 Material UI (\cite{material}) created by Google was chosen as an external user interface library to add high quality UI elements to the application. Material UI components are highly reliable and already tested to ensure that the UI in the program is easy to use and follows a standard seen in other sites. Material UI components are added to existing code by using a call to an individual component using Angular notation and editing the component using its API.
 
 \subsection{Web Application}
-This program was designed as web application. One reason was the goal to have this program be easily accessible to the target audience so the high portability of a web application was desirable. Second is that the program was designed with user integration in mind so a web application lends itself to storing user data in a backend server that can then be displayed to other users. Lastly a web application is more accessible for users in a classroom environment, as desktop machines may have different hardware specifications across schools and may not allow external software to be installed easily.
+This program was designed as a web application. One reason was the goal to have this program be easily accessible to the target audience so the high portability of a web application was desirable. Second is that the program was designed with user integration in mind so a web application lends itself to storing user data in a backend server that can then be displayed to other users. Lastly a web application is more accessible for users in a classroom environment, as desktop machines may have different hardware specifications across schools and may not allow external software to be installed easily.
 
 
 %==================================================================================================================================
 \chapter{Implementation}
 \label{section:implementation}
 \section{Angular Framework}
-The program was implemented using the Angular framework with Components created to deal with user facing views and Typescript classes created to model the various elements of the Turing Tumble.
+The Angular framework is designed with the model view controller (MVC) pattern as a core principle.  This principle is present in Components, the main building block of an Angular application. 
 
-\subsection{Typescript Classes}
-Typescript classes were created to model different elements of the program for example 'Board.ts' is a typescript class with properties and functionality related to a Turing Tumble board. These classes are stored outwith the normal Angular Component file structure and can be imported when the class is required.
+\subsection{Typescript Classes - Model}
+Typescript classes were created to model and contain the domain logic of the application, e.g. 'Board.ts' contains properties and functionality related to a Turing Tumble board. These classes are stored outwith the normal Angular Component file structure and are used to model complex data. A component file, which acts as the controller, can then store and call these models to access and use the models API to update the data.
 
 \subsection{Angular Components}
-Angular components are designed to lead to a natural separation of concerns between its template, written in HTML, which controls an area of the screen and the application logic contained within its component class file, written in Typescript. The template file can use two way data binding to interact with its component class to send and receive data between them, for example displaying data held within the class to the template that can dynamically be updated.
+Angular components are split into a template file, component class file, and an optional style sheet. With each file equivalent to a part in the MVC. A diagram showing this separation is shown here \ref{fig:angularComp}. 
 
-\textbf{Template file}
-A component's template file is made up of HTML and Angular template syntax. This file will tell Angular how to render the component to the screen. An advantage of this implementation is it allows the mix of native HTML code and Angular template syntax which can directly edit the Document Object Model (DOM). It also allows calls to child components multiple times with each call creating a new instance of a component with its own separate data. For example multiple calls to a Component Slot component where each slot has its own data but they are all created from a single component definition. It also allows for easy creation of a component hierarchy where children components can easily be created and called when necessary as shown in \ref{fig:homeComponent}. 
+\textbf{Template file - View}
+A component's template file is made up of HTML and Angular template syntax and represents the View. This file will instruct Angular on how to render the component to the screen. This has multiple advantages to base HTML, including the use of template syntax to directly edit the Document Object Model at run time. For example a for loop can repeat a HTML template for every item in a list, e.g. use the same template for all Slots on a board. It also allows child components to be created multiple times with each call creating a new instance of a component with its own separate data. For example multiple calls to a Piece component where each piece has its own data but they are all created from a single definition.
+
+% Template files deals with UI logic and different Angular syntax can updated the view in real time. For example, when displaying a ghost image as shown in \ref{fig:ghostPiece}, a conditional is used to only display the image if the piece can fit in the slot that the user is hoovering over. This makes use of template syntax to allow the same component to update it's view based on user events. 
 
 % Most of the file is written in standard HTML but some important Angular template syntax used in the implementation include
 % \begin{itemize}
@@ -397,29 +400,34 @@ A component's template file is made up of HTML and Angular template syntax. This
 
 % By allowing data binding in native HTML the responsibility of updating data values and ensuring user inputs are captured correctly is given to Angular and focus can be spent on developing the major functionality of the program without spending development time ensuring JS calls are made correctly. 
 
-\textbf{Component file}
-The component class file, written in Typescript, contains all the application logic and data related to a view. An example would be a component class for a Turing Tumble piece, which would contain the piece object and functions to deal with a user clicking on a piece. The advantage of these files was that template files could call complex conditional functions which could then be used to determine what data should be displayed in the view.
+\textbf{Component class - Controller}
+The component class file, written in Typescript, contains all the logic responsible with connecting the data models and views. These classes are used to contain data and functions to update the models based on user events.  An example would be a component class for a Turing Tumble piece, which contains the Piece object and functions to deal with a user actions, e.g. clicking the piece. They are also responsible with setting the templates state. For example contain functionality to edit the state when the component is created or model data changes. The file makes use of external Typescript models and use the model's API to react to user events. A useful example of this class is the difficulty filter shown in \ref{fig:puzzleList}. When a user updates the filter, the component class reacts to the user event, decides if the input is valid and then filters the list of puzzles that the template file then displays.
+
+Angular design principles and best practices where used when implementing this program. Following a clear separation of concerns between the various files related to the MVC pattern. Details on best practices were found online (\cite{angular_practices}, \cite{freeman_pro_2017}) and focused on storing domain logic within classes, user event logic within component classes, and UI logic in templates.
 
 \subsection{Angular Services}
-A service is a class designed for non-UI functionality that can be used by multiple components using \emph{dependency injection} to insert this class into a component at run time. It is Angular practice to design components to only deal with UI logic and leave any functionality related to form input, backend servers, or non-UI functionality in a service which can be injected when required. For example a service was created that uploads and retrieves data from a backend server. This allowed one service to be created for this functionality that components could use if they needed backend data without repeating the functionality across multiple components. 
+A service is a class designed for non-UI functionality that can be inserted into multiple components at run time. For example a service was created that uploads and retrieves data from a backend server. This allowed one service to be created for this functionality that components can use when required. 
 
 
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=1\linewidth]{images/componentDesign.png}
-%     \caption{A diagram showing the files included in each Angular component. Including the hierarchy that is created when calling multiple components Diagram adapted from \cite{noauthor_angular_nodate-1}}
-%     \label{fig:angularComp}
-% \end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{images/componentDesign.png}
+    \caption{A diagram showing the files included in each Angular component. Including the hierarchy that is created when calling multiple components. Diagram adapted from \cite{noauthor_angular_nodate-2}}
+    \label{fig:angularComp}
+\end{figure}
 
 % \clearpage
 
 \section{Aesthetics}
-\subsection{Material UI} 
+\subsection{Material UI}
 This library was used to provide a user friendly and visually appealing standard across the program. In which various packages were used including buttons, forms, prompt cards, and side navigation bars. This allowed more development time to be spent on functionality and while some development time was still spent arranging the various UI elements, time was saved by including high quality UI building blocks included in this library. It also allowed solutions to common UI problems to be provided by this library, for example the side navigation bar as shown \ref{fig:homepageDark} was implemented using material UI side-nav component module.
 
-% \textbf{2 program themes} were created, and a change theme button was added on the heading bar to allow users to switch between a 'dark' and 'light' theme as shown in the appendices \ref{fig:themes}, 'dark' theme is used in all other figures. By having 2 distinct themes it allowed users choose the theme they find the most accessible. The themes are stored in a SCSS file contained at the root of the component hierarchy. This theme change is possible due to material UI and applies to all material UI components, leading to a consistency among all UI elements.
+% \subection{Program theme}
+% 2 Themes were created, and a change theme button was added on the heading bar to allow users to switch between a 'dark' and 'light' theme as shown in the appendices \ref{fig:themes}, 'dark' theme is used in all other figures. By having 2 distinct themes it allowed users choose the theme they find the most accessible. The themes are stored in a SCSS file contained at the root of the component hierarchy. This theme change is possible due to material UI and applies to all material UI components, leading to a consistency among all UI elements.
+
 \subsection{Piece aesthetics}
-The 6 pieces created for this program were strongly influenced by the design implemented by the physical Turing Tumble, they can be seen in figure \ref{fig:pieces}. This consistency allows any user familiar with the physical board game to be familiar with the pieces and their logic. The colours of the pieces were also influenced by the physical pieces and each have a distinct colour separate from any other pieces. This attribute and the unique shape of a piece helps improve the individual recognizability. This was found to be no issue in the user evaluation. The pieces icons were created using an online SVG creator \cite{noauthor_method_nodate} and saved as an SVG icon so machines of different resolutions could scale up the icons without losing quality. 
+The 6 pieces created for this program were strongly influenced by the design implemented by the physical Turing Tumble, they can be seen in figure \ref{fig:pieces}. This consistency allows any user familiar with the physical board game to be familiar with the pieces and their logic. The colours of the pieces were also influenced by the physical pieces and each have a distinct colour separate from any other pieces. This attribute and the unique shape of a piece helps improve the individual recognizability. This was found to be no issue in the user evaluation. The pieces icons were created using an online SVG creator \citep{noauthor_method_nodate} and saved as an SVG icon so machines of different resolutions could scale up the icons without losing quality. 
 
 \begin{figure}
     \centering
@@ -489,11 +497,11 @@ The 6 pieces created for this program were strongly influenced by the design imp
 \section{Simulation Features}
 This section lists the features implemented to meet the main set of functional requirements needed to match the existing Turing Tumble simulators.
 % Each feature should start off at the high level and then more information can be added to describe how it was implemented 
- 
+
 \subsection{Board Creation}
 Board creation is important to ensure users can create their own complicated Turing Tumble boards to simulate and learn with. Users can select the pieces they wish to place from a selection bar at the side of the page. This selection bar contains the list of pieces including its graphic icon as shown on the left in \ref{fig:puzzle}. Once a piece has been selected then can place it in a valid slot to add it to the board. When a user hovers over a slot holding a piece, a 'ghost image' is displayed to give an intuition that a piece can be placed, an example can be seen in \ref{fig:ghostPiece}. This was a suggestion given by multiple users during the evaluation stage to make it clearer where and how pieces can be placed. Users can delete pieces can selecting the delete piece option and selecting the piece they wish to remove.
 
-Unlike other simulators, users don't need to use a different piece for each direction. Instead if they holding a reversible piece and click on the same type of piece on the board, it will flip its direction. This was implemented to be more efficient for users to reverse piece direction, this was found to be intuitive in the user evaluations. 
+Unlike other simulators, users don't need to use a different piece for each direction. Instead if they are holding a reversible piece and click on the same type of piece on the board, it will flip its direction. This was implemented to be more efficient for users to reverse piece direction, this was found to be intuitive in the user evaluations. 
 
 The board and selection bar components were kept separate to improve modularity and single responsibility. When a user clicks a piece on the selection bar this event is captured and sent to the parent component where it then updates the board object. When a user holds a piece, its corresponding icon on the selection bar changes colour to aid understanding of which piece is being held, this is also aided by the ghost image. After clicking a slot on the board, the individual slot while release an event telling it's parent board component that it has been clicked, detailing it's location. The board will check that a valid slot was clicked before adding this piece to the slot. Within the board component template every slot is created using a separate Slot component that is given a unique slot object using an input property which uses Angular data binding to act as parameter for components. This also ensures that when a slot property is updated, the corresponding component updates its view in the DOM instantly showing this piece to the user in real time.
 
@@ -526,7 +534,7 @@ The marble in play has its on state which is updated by each piece it visits. Th
 
 % Two marble dispenser components were created to be displayed above the board. These components had the logic responsible for displaying the amount of marbles available to be released onto the board, it also included 2 buttons to increase or decrease the amount of marbles available. 
 To reduce the space required by captured marbles which caused issues in other implementations. A collected marbles class was created that only stored the coloured marble sequence collected by a board. This can be seen at the bottom of \ref{fig:marbleInPlay} in which 5 collected marbles are only represented by 3 icons to reduce visual clutter displayed to the user.
-   
+
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{images/marbleInPlay.png}
@@ -555,7 +563,7 @@ For each page, a list of puzzle card components is displayed on the screen. The 
 \begin{itemize}
     \item Title - The name given to the puzzle
     \item Description - The description of a puzzle contains a one or two line summary as to the purpose of the puzzle and what a user should expect to achieve or learn.
-    \item Difficulty Rating - The difficulty rating of a puzzle is used to categorize the puzzles into 5 distinct groups based on a 5 star difficulty scale. 
+    \item Difficulty Rating - The difficulty rating of a puzzle is used to categorize the puzzles into 5 distinct groups based on a 5 star difficulty scale.
     \item Starting Set up - The starting set up attribute displays a board with the starting pieces which cannot be replaced or deleted by the user. These pieces constrain the puzzle and the way the user must meet the expected output.
     \item List of Pieces available - The challenge of the Turing Tumble puzzles come with the restriction of pieces available to reach the expected output of the puzzle. This restriction ensures users follow a set pattern of computation to meet the expected output and can create a variety of different challenging puzzles even if they share the same expected output.
     \item Expected output - This lists the collected marble output that the board should receive to complete the puzzle.
@@ -696,12 +704,12 @@ When uploading a puzzle, the details of a puzzle are converted into a smaller mo
 
 % The form used to add puzzle details is also stored within the service. It ensures that all entered by the user is required and a difficulty validator was created to ensure no values outwith the range could be entered. 
 
-\section{Component Implementation}
+\section{Component Benefits}
 Angular encourages a component approach when developing. This design principle was followed when creating abstract and interactive components. By focusing on creating small compact components, many pages would utilise a set list of components already used in different sections of the site. As shown by the component diagram \ref{fig:homeComponent} for the Home page. The same board component is created 4 times each with its own individual list of slots and pieces. This allowed all components to follow one source of truth and lead to high reuse of existing code. 
 
 An Input tag can be added to any property in a component class to allow this property to have a value passed to it as parameter. This allowed components to abstract exact details of what data they were displaying to users and allow components to be created for interfaces or abstract classes. One example where this was used heavily was the piece component. A Board Piece interface property that could be bound by the parent component allowed for any of the six pieces to be passed and utilized in this component class. Ensuring that a consistent design and reuse of code was implemented. 
 
-An output property can be added to a component to allow data to be sent 'up' to the parent component by creating an event emitter. The parent component can then capture this event sent by the child component and handle it via functions. This is used heavily in the selection bar component which contains output properties to signify when a button is pressed by the user, the parent component will then capture this event and update the board. This allowed the selection component to not have direct access to the board object and not been given details on the implementation of the options it presents to the user. 
+An output property can be added to a component to allow data to be sent 'up' to the parent component by creating an event emitter. The parent component can then capture this event sent by the child component and handle it via functions. This is used heavily in the selection bar component which contains output properties to signify when a button is pressed by the user, the parent component will then capture this event and update the board. This allowed the selection component to not have direct access to the board object and not be given details on the implementation of the options it presents to the user. 
 
 As each created component holds its own independent data, multiple components can be created without data being shared. This is most useful when creating the slots on the board object. Over 106 separate slot components are created to handle the data and any user events for each individual slot. This allowed the functionality for a single slot to be implemented then repeated for each slot on the board.
 
@@ -713,7 +721,7 @@ As each created component holds its own independent data, multiple components ca
 \end{figure}
 
 \section{Deployment}
-The site was deployed using Github pages (\cite{soloproject}). This allowed easy deployment to a free and always online platform. It was decided that the site would be deployed to ensure that the target audiences of the program can access the program without downloading or installing the necessary files or libraries required to run this program on their own computer. 
+The site was deployed using Github pages (\cite{github_pages}). This allowed easy deployment to a free and always online platform. It was decided that the site would be deployed to ensure that the target audiences of the program can access the program without downloading or installing the necessary files or libraries required to run this program on their own computer. This project can be found here \url{https://lukegall.github.io/Level-4-Solo-Project/home}.
 
 \section{Documentation}
 Documentation has been created to provide guides to other developers on how to install and run this program on their machine. Extensive code documentation was created detailing ever major class and component. This documentation will help other future developers edit and add new features to the program, improving the overall maintainability.
@@ -800,7 +808,7 @@ The user was asked to share their screen over a recorded Zoom call. They were to
 Users were given a variety of questions for each task. Initial questions gathered data on how many users were familiar with the Turing Tumble and how easy they found the first task. Answers were either long form or on a scale from 1 - 5, with 5 being very positive. They were asked at this stage if they had any suggestions to improve the previous task, focusing on how easy it was to place pieces and if the board gave enough detail. Monitored users were also asked how easy they found GearBit pieces and if they have suggestions to improve their ease of use. Questions about Task 2 focused on if Bits could help improve their knowledge of CPU registers. This was to help highlight the possibility of using a Turing Tumble simulation to teach computing concepts to users. They were also asked to comment on the playback features. Task 3 questions asked how easy it was to select a puzzle and if they have any other suggestions for search or filter features. The final set of questions asked users to evaluate how intuitive it was to create a puzzle and any suggestions they had to improve the experience. They were finally asked if they had any final suggestions for the program in general. A copy of the questions can be found in the appendices.
 
 \subsection{Results}
-The full list of responses given can be found in the appendices. 3 out of the 5 users surveyed had heard of the Turing Tumble before, these users would be expected to find the program more intuitive than their peers as they have an idea of how the game works.
+The full list of responses given, as well as a summary table can be found in the appendices. 3 out of the 5 users surveyed had heard of the Turing Tumble before, these users would be expected to find the program more intuitive than their peers as they have an idea of how the game works.
 
 \textbf{Ease of Use Results}
 \textbf{Task 1 questions}
@@ -837,7 +845,7 @@ All 5 users completed this extra task. They all found the starting phase easy to
     \item Some users were unaware of the tooltips for the pieces when hovered over so asked questions based on what each piece does. Could maybe add more information in the tutorial explaining this tool tip or have the currently held piece display its tooltip in a prompt window. This would give the user clear instructions to what the piece does without the possibility of missing the information.
     \item One user found it difficult to find the different playback options as they didn't assume they would be in the same place as the selection bar. This could be improved by moving the playback options into their own separate bar.
     \item A few users didn't initially see that the puzzle page had a paginator at the bottom so assumed that the 5 initial puzzles shown where the only ones available. This can be improved by adding an infinite scroll to get around the paginator. This was later changed to 10 puzzles per page to help draw the eye to the paginator.
-    \item A user didn't initially known which side of the speed bar represented faster or slower. This could be made clearer by adding icons to represent an increase and decrease of speed.
+    % \item A user didn't initially known which side of the speed bar represented faster or slower. This could be made clearer by adding icons to represent an increase and decrease of speed.
     \item Some users tried to complete the puzzle by triggering a blue marble multiple times instead of letting the marbles be spawned by the board. This could be more intuitive by only letting the user trigger the puzzle once unless they reset the marbles or board.
     \item One user was initially confused on how to change the direction of the piece and was looking for an option in the selection bar. This can be improved by their suggestion to add a over a piece to indicate it can change direction.
     \item One user made a mistake while creating the starting pieces for their puzzles and tried to go back but was unable. This was later added as a feature.
@@ -853,7 +861,7 @@ Some users were more willing to ask for help than others. It was unclear if thes
 
 \section{Unmonitored User Evaluations}
 % The unmonitored user evaluations were given out after the user returned a sign consent form, which can be found in the appendices. The user was given the ethics brief and was then sent a task sheet giving the details of how to access the site, the task specifications plus a link to the Google form used for the evaluation questions.
-Unmonitored user evaluation was carried out to find out how intuitive the program was for users that only had the tutorial. A mix of 4th year Computer Science students and school pupils studying Computer Science were chosen as both groups are the target audience for this program so would have valuable feedback. This task was seen as a more realistic evaluation of how many users would use the site as they would only have the tutorial page to understand the functionality. The task sheet was designed to focus on giving only as much information as required to complete the tasks, with a focus on using the tutorial page, not the task sheet, to learn the program. 
+Unmonitored user evaluation was carried out to find out how intuitive the program was for users that only had the tutorial. A mix of 4th year Computer Science students and school pupils (aged 16+) studying Computer Science were chosen as both groups are the target audience for this program so would have valuable feedback. This task was seen as a more realistic evaluation of how many users would use the site as they would only have the tutorial page to understand the functionality. The task sheet was designed to focus on giving only as much information as required to complete the tasks, with a focus on using the tutorial page, not the task sheet, to learn the program. 
 
 \subsection{Task Specification}
 The task specifications for the unmonitored user evaluation follow the tasks given in monitored evaluations section \nameref{taskExplanation}. With the only difference being the removal of the section using Gear Bits. This section of the task sheet was deemed too complex and was left in the monitored evaluation as more information could be given as to why the Gear Bits were important and could be used to make the board Turing complete. The task specification can be found in the appendices.
@@ -862,7 +870,7 @@ The task specifications for the unmonitored user evaluation follow the tasks giv
 The evaluation questions given are identical to the questions given to the monitored sessions, without the question related to Gear Bits. The full question list can be found in the appendices.   
 
 \subsection{Results}
-The full list of responses given can be found in the appendices. Of the 8 responses given, only one user had previously heard of the Turing Tumble. This lead to evaluations that focused almost purely on the ease of use of the program and how intuitive it was to understand the logic of the game without a understanding of the physical game to compare to. 
+The full list of responses given and a summary table can be found in the appendices. Of the 8 responses given, only one user had previously heard of the Turing Tumble. This lead to evaluations that focused almost purely on the ease of use of the program and how intuitive it was to understand the logic of the game without a understanding of the physical game to compare to. 
 
 \textbf{Ease of Use Results}
 \textbf{Task 1 questions}
@@ -902,9 +910,9 @@ The survey took around 30 minutes to complete yet it still missed some features 
 \label{section:issues}
 \begin{itemize}
     \item The current program is not responsible on a mobile device. This was known during the design and implementation of the program. To make the program responsive for a mobile device, the front end code focusing on how the elements display to the page would require an external library to give different sizes to elements based on the type of device the program is currently displayed on. This was seen as something outwith the scope of the project during the design stage. The site currently breaks when viewed on a mobile phone and some of the most fundamental features are broken, for example a user can't place a piece on the board correctly as the board is pushed off the screen.
-    % \item The program sends the puzzle data to the backend firebase server by converting the puzzle object to JSON representation then saving this file in the server. This method was chosen to focus on getting the data stored correctly and then spending more development time on the user facing features of puzzle creation and playing. A single default puzzle is 19.8 kB large when stored on the server. A fix to this would be remove the current implementation of sending up the entire puzzle object and instead only send up the details of changes and important data for example instead of sending up the list of slots for the set up and solution slot lists. A single JSON file can be made that details where pieces are located for each set up instead of sending up data about the board that is already known for example the number of Pin and Component Slots stored in a board object. This issue is something that would improve the backend performance for the site and would lead to a more efficient program.
+          % \item The program sends the puzzle data to the backend firebase server by converting the puzzle object to JSON representation then saving this file in the server. This method was chosen to focus on getting the data stored correctly and then spending more development time on the user facing features of puzzle creation and playing. A single default puzzle is 19.8 kB large when stored on the server. A fix to this would be remove the current implementation of sending up the entire puzzle object and instead only send up the details of changes and important data for example instead of sending up the list of slots for the set up and solution slot lists. A single JSON file can be made that details where pieces are located for each set up instead of sending up data about the board that is already known for example the number of Pin and Component Slots stored in a board object. This issue is something that would improve the backend performance for the site and would lead to a more efficient program.
     \item As noted by some users during the monitored evaluations, some aspects of the site on desktop are not fully responsive meaning they can reduce the width of the screen while on a plain board and the selection bar will become hidden behind the board. This issue was known while creating the site with focus given to the pages being fully visible with no data being hidden lower on the page, requiring no scrolling from the user. As future work, responsive front end logic should be added so that the board and selection bar don't overlap on each over, for example the selection bar could get hidden if the width reduces to a certain limit. This would improve ease of use for a desktop user.
-    % \item Full animation of the board involving gravity was explored as a possible avenue for implementation. It was decided early on that more focus should be given towards creating a puzzle environment for users rather than spending extra development time on full animation. Full animation is a desired to greatly improve user feedback and help aid understanding of the board while in play. One issue with the current design of the program is a focus on having a collection of small modular components each with its own HTML file. This doesn't lead naturally to the extension of using an external physics library as a lot of code would need to be changed to deal with the api calls and gravity logic. It will still be included in future work but it is important to evaluate the design of the program doesn't lead itself naturally to this new feature.
+          % \item Full animation of the board involving gravity was explored as a possible avenue for implementation. It was decided early on that more focus should be given towards creating a puzzle environment for users rather than spending extra development time on full animation. Full animation is a desired to greatly improve user feedback and help aid understanding of the board while in play. One issue with the current design of the program is a focus on having a collection of small modular components each with its own HTML file. This doesn't lead naturally to the extension of using an external physics library as a lot of code would need to be changed to deal with the api calls and gravity logic. It will still be included in future work but it is important to evaluate the design of the program doesn't lead itself naturally to this new feature.
 \end{itemize}
 
 \section{Program efficiency via lighthouse}
@@ -970,7 +978,7 @@ No 'would be nice to have' requirements were met and have all been noted as poss
 \section{Summary}
 This project looked at creating software capable of simulating a Turing Tumble board game and adding features to improve the learning possible through the game. The first main focus of the project was to create a faithful simulation of the Turing Tumble, with the rules and logic present in the physical game being present within the program, allowing a user to build any complex pattern possible on the physical board within this simulation. This allows the program to be a faithful simulation in which users can learn skills that can be directly applied to a physical version. The program had a focus on ease of use for users unfamiliar with a Turing Tumble board, the addition of a clear tutorial, tooltips, and a clean aesthetic were added to meet this. Examples of complex board set ups were added to convey the computational power of the game to new users. 
 
-It was decided that it was important to focus on features that could aid a user learning with the simulation. Therefore it was decided that adding puzzles would be the main focus of the program after successfully simulating the game. This would add a unique feature to this program while giving users a clear progression path and objectives to aid motivation for playing and learning on a Turing Tumble. A puzzle creation feature was also added to allow users to create a puzzle environment that can shared with other users. 
+It was decided that it was important to focus on features that could aid a user learning with the simulation. Therefore it was decided that adding puzzles would be the main focus of the program after successfully simulating the game. This would add a unique feature to this program while giving users a clear progression path and objectives to aid motivation for playing and learning on a Turing Tumble. A puzzle creation feature was also added to allow users to create a puzzle environment that can be shared with others. 
 
 Evaluation was carried out as listed in \ref{section:evaluation} that focused on usability on the two main sections of the program, simulation of a Turing Tumble and the puzzle features. All \emph{must have} functional and non-functional requirements were shown to have been met by the program through the use of user evaluations and unit tests. The main program goals were met by user evaluations and manual testing by the program developer. The main two goals of the project were to simulate a Turing Tumble correctly and provide a puzzle environment for users to learn. The main disadvantage of the program was the lack of some features found in other simulations including full gravity simulation and custom board set up, this is the first area covered in the future work section.
 
@@ -1016,61 +1024,122 @@ On reflection, this project was an excellent learning opportunity especially whe
 \begin{appendices}
 
     \chapter{Appendices}
-    
-    Typical inclusions in the appendices are:
-    
-    \begin{itemize}
-        \item
-              Copies of ethics approvals (required if obtained)
-        \item
-              Copies of questionnaires etc. used to gather data from subjects.
-        \item
-              Extensive tables or figures that are too bulky to fit in the main body of
-              the report, particularly ones that are repetitive and summarised in the body.
-              
-        \item Outline of the source code (e.g. directory structure), or other architecture documentation like class diagrams.
-              
-        \item User manuals, and any guides to starting/running the software.
-              
-    \end{itemize}
-    
-    \textbf{Don't include your source code in the appendices}. It will be
-    submitted separately.
 
-    \begin{figure}
-        \centering
-        \begin{subfigure}[b]{0.7\textwidth}
-            \includegraphics[width=\textwidth]{images/darkTheme.png}
-            \caption{Home page with the dark theme}
-            \label{fig:homepageDark}
-        \end{subfigure}
-        \begin{subfigure}[b]{0.7\textwidth}
-            \includegraphics[width=\textwidth]{images/lightTheme.png}
-            \caption{Home page with the light theme}
-            \label{fig:homepageLight}
-        \end{subfigure}
-        \caption{The 2 themes are displayed on the home page of the site with the side navigation bar extended}
-        \label{fig:themes}
-    \end{figure}
+    
+    
+    \section{Monitored response tables}
+    The table below lists a summary of ease of use question responses. 
+    
+    
+    \begin{table}[h]
+        \resizebox{\textwidth}{!}{%
+            \begin{tabular}{llllllll}
+                Question                    & Responses &   &   &   &   & Average & Standard Deviation \\
+                Place pieces                & 4         & 5 & 5 & 4 & 4 & 4.4     & 0.55               \\
+                Marble falling              & 4         & 5 & 4 & 5 & 4 & 4.4     & 0.55               \\
+                Change Direction            & 2         & 4 & 5 & 5 & 4 & 4       & 1.2                \\
+                Gear Bits connected         & 3         & 3 & 3 & 2 & 3 & 2.8     & 0.45               \\
+                Identify piece icons        & 5         & 5 & 5 & 5 & 5 & 5       & 0                  \\
+                Playback options            & 5         & 4 & 3 & 3 & 5 & 4       & 1                  \\
+                Puzzle list                 & 3         & 5 & 4 & 4 & 4 & 4       & 0.7                \\
+                Relevant puzzle information & 4         & 5 & 5 & 5 & 5 & 4.8     & 0.4                \\
+                Difficulty Filter           & 3         & 5 & 3 & 5 & 5 & 4.2     & 1.1                \\
+                Locked pieces               & 5         & 4 & 4 & 4 & 3 & 4       & 0.7                \\
+                Restricted number of pieces & 5         & 4 & 5 & 5 & 5 & 4.8     & 0.4                \\
+                Starting set up phase       & 5         & 5 & 5 & 4 & 5 & 4.8     & 0.4                \\
+                Ease of puzzle creation     & 2         & 4 & 5 & 4 & 5 & 4       & 1.2               
+            \end{tabular}%
+        }
+    \end{table}
 
-    \begin{figure}
+    \newpage
+\section{Unmonitored User Results}
+The table below lists a summary of ease of use question responses. 
+
+
+\begin{table}[h]
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lllllllllll}
+    Question                    & Responses &   &   &   &   &   &   &   & Average & Standard Deviation \\
+    Place pieces                & 5         & 4 & 5 & 5 & 4 & 4 & 5 & 4 & 4.5     & 0.53               \\
+    Marble falling              & 5         & 5 & 5 & 1 & 4 & 3 & 3 & 5 & 3.875   & 1.46               \\
+    Change Direction            & 5         & 5 & 3 & 5 & 5 & 5 & 5 & 3 & 4.5     & 0.93               \\
+    Identify piece icons        & 5         & 5 & 5 & 5 & 4 & 4 & 4 & 5 & 4.875   & 0.35               \\
+    Playback options            & 5         & 4 & 2 & 4 & 4 & 4 & 4 & 3 & 3.75    & 0.88               \\
+    Puzzle list                 & 5         & 3 & 5 & 5 & 5 & 4 & 5 & 4 & 4.5     & 0.75               \\
+    Relevant puzzle information & 5         & 5 & 5 & 5 & 4 & 4 & 5 & 3 & 4.5     & 0.75               \\
+    Difficulty Filter           & 4         & 5 & 5 & 5 & 4 & 3 & 5 & 4 & 4.375   & 0.74               \\
+    Locked pieces               & 4         & 5 & 5 & 2 & 5 & 3 & 4 & 4 & 4       & 1.07               \\
+    Restricted number of pieces & 5         & 4 & 4 & 5 & 5 & 3 & 5 & 2 & 4.125   & 1.126              \\
+    Starting set up phase       & 5         & 4 & 4 &   & 3 &   &   & 5 & 4.2     & 0.83               \\
+    Ease of puzzle creation     & 2         & 2 & 4 &   & 4 &   &   & 3 & 3       & 1                 
+    \end{tabular}%
+    }
+    \end{table}
+    \newpage
+
+\section{Unmonitored Consent Form}
+This was form was sent out to possible users. Once signed and returned they were sent the task sheet.
+
+\includepdf{images/unmonitoredConsent.pdf}
+\section{Unmonitored Task Sheet}
+\includepdf[pages=-]{images/taskSpecUnmonitored.pdf}
+\section{Unmonitored Evaluation Questions}
+\includepdf[pages=-]{images/unmonitoredQuestions.pdf}
+\section{Unmonitored Evaluation Responses}
+\includepdf[pages=-]{images/unmonitoredResponses1.pdf}
+\includepdf[pages=-]{images/unmonitoredResponses2.pdf}
+
+\section{Monitored Consent Form}
+This was form was sent out to possible users. Once signed and returned they were sent the task sheet.
+
+\includepdf{images/monitoredConsent.pdf}
+\section{Monitored Task Sheet}
+\includepdf[pages=-]{images/taskSpecMonitored.pdf}
+\section{Monitored Evaluation Questions}
+\includepdf[pages=-]{images/monitoredQuestions.pdf}
+\section{Monitored Evaluation Responses}
+\includepdf[pages=-]{images/monitoredResponses.pdf}
+\section{Monitored Evaluation Notes}
+\includepdf[pages=-]{images/MonitoredEvalNotes.pdf}
+
+\section{Additional Images}
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+        \includegraphics[width=\textwidth]{images/darkTheme.png}
+        \caption{Home page with the dark theme}
+        \label{fig:homepageDark}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.6\textwidth}
+        \includegraphics[width=\textwidth]{images/lightTheme.png}
+        \caption{Home page with the light theme}
+        \label{fig:homepageLight}
+    \end{subfigure}
+    \caption{The 2 themes are displayed on the home page of the site with the side navigation bar extended}
+    \label{fig:themes}
+\end{figure}
+\newpage
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.2\linewidth]{images/selectionBar.png}
     \caption{The selection bar component when a user is holding a Bit piece}
     \label{fig:selectionBar}
 \end{figure}
+\newpage
 
 
-\begin{figure}
+\begin{figure}[h]
     \centering
-    \includegraphics[width=1\linewidth]{images/codeCoverage.png}
+    \includegraphics[width=0.9\linewidth]{images/codeCoverage.png}
     
     \caption{This code coverage table was produced by the in build Jasmine testing framework and shows the test coverage for different parts of the program including the typescript classes and created components.}
     
     % use the notation fig:name to cross reference a figure
     \label{fig:codeCoverage}
 \end{figure}
-    
+\newpage
 \end{appendices}
 
 %==================================================================================================================================
