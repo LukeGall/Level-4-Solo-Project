@@ -1,5 +1,6 @@
 // Clone Deep has been taken from the lodash library under the MIT license, with more details on the Github Wiki
 import { cloneDeep } from 'lodash';
+import { parseSlotString } from 'src/app/Shared/convert-functions';
 import { Bit } from '../boardPieces/bit';
 import { BoardPiece } from '../boardPieces/board-piece';
 import { Crossover } from '../boardPieces/crossover';
@@ -360,16 +361,16 @@ export class Board {
         let example: Slot[][];
         switch (examNumber) {
             case 1:
-                example = Example1.getSlots();
+                example = parseSlotString(Example1.example1);
                 break;
             case 2:
-                example = Example2.getSlots();
+                example = parseSlotString(Example2.example2);
                 break;
             case 3:
-                example = Example3.getSlots();
+                example = parseSlotString(Example3.example3);
                 break;
             case 4:
-                example = Example4.getSlots();
+                example = parseSlotString(Example4.example4);
                 break;
         }
         this.slots = cloneDeep(example)
