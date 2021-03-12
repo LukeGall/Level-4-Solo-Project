@@ -381,3 +381,7 @@
 
 ## 5 Mar 2021
 * *4 hour* Tidy up and appendices for first draft
+
+### Week 18
+## 12 Mar 2021
+* *2 hour* Initial tidy up of issues found by supervisor 
