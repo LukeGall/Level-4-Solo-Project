@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Board } from 'src/app/Classes/boardParts/board';
 
 @Component({
@@ -8,7 +9,7 @@ import { Board } from 'src/app/Classes/boardParts/board';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
   example1: Board = new Board(6);
   example2: Board = new Board(6);
   example3: Board = new Board(6);
@@ -19,6 +20,10 @@ export class HomeComponent implements OnInit {
     this.example2.setExample(2);
     this.example3.setExample(3);
     this.example4.setExample(4);
+  }
+
+  goToPlainBoard(num: number){
+    this.router.navigate(['/plain-board', {example: num}]);
   }
 
 }

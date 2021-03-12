@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { saveAs } from 'file-saver';
 import { Board } from 'src/app/Classes/boardParts/board';
 import { Piece } from 'src/app/Classes/piece.enum';
@@ -13,10 +14,14 @@ export class PlainBoardComponent implements OnInit {
   board: Board = null;
   uploadedBoard: File = null;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.board = new Board(18);
+    const number = this.route.snapshot.paramMap.get('example');
+    if(number){
+      this.setExample(Number(number));
+    }
   }
 
   setExample(examNumber: number) {
