@@ -385,3 +385,7 @@
 ### Week 18
 ## 12 Mar 2021
 * *2 hour* Initial tidy up of issues found by supervisor 
+
+### Week 19
+## 15 Mar 2021
+* *6 hour* Clean up of Intro, background, Reqs, and design 
