@@ -389,3 +389,12 @@
 ### Week 19
 ## 15 Mar 2021
 * *6 hour* Clean up of Intro, background, Reqs, and design 
+
+## 17 Mar 2021
+* *5 hour* More dissertation fixes 
+
+## 18 Mar 2021
+* *4 hour* Evaluation section clean up
+
+## 19 Mar 2021
+* *2 hour* Final cleanup before proof read
