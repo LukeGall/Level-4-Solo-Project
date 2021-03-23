@@ -399,3 +399,12 @@
 
 ### 19 Mar 2021
 * *2 hour* Final cleanup before proof read
+
+## Week 21
+### 22 Mar 2021
+* *6 hour* Created presentation powerpoint 
+
+### 23 Mar 2021
+* *2 hour* Cleanup and recording of presentation
+
+
