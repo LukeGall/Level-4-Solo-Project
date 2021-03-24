@@ -1,19 +1,14 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Bit } from 'src/app/Classes/boardPieces/bit';
-import { Crossover } from 'src/app/Classes/boardPieces/crossover';
-import { Gear } from 'src/app/Classes/boardPieces/gear';
-import { GearBit } from 'src/app/Classes/boardPieces/gear-bit';
-import { Interceptor } from 'src/app/Classes/boardPieces/interceptor';
-import { Ramp } from 'src/app/Classes/boardPieces/ramp';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Piece } from 'src/app/Classes/piece.enum';
 import { boardState } from 'src/app/Classes/puzzle-board';
 
 @Component({
   selector: 'app-selection-bar',
   templateUrl: './selection-bar.component.html',
-  styleUrls: ['./selection-bar.component.scss']
+  styleUrls: ['./selection-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SelectionBarComponent implements OnInit {
+export class SelectionBarComponent implements OnChanges {
   @Input() partList: Map<Piece, number>;
   @Input() heldPart: string = null;
   @Input() isPuzzleBoard: boolean = false;
@@ -31,10 +26,18 @@ export class SelectionBarComponent implements OnInit {
   @Output() exampleEmitter = new EventEmitter<number>();
   @Output() goBack = new EventEmitter();
 
+  notStarting: boolean = this.getNotStarting();
+  isPlaying: boolean = this.getIsPlaying();
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.boardState) {
+      this.notStarting = this.getNotStarting();
+      this.isPlaying = this.getIsPlaying();
+    }
   }
+
 
   clicked(part: Piece) {
     this.clickHolding.emit(part);
@@ -44,22 +47,16 @@ export class SelectionBarComponent implements OnInit {
     this.clicked(Piece.Delete);
   }
 
-  isSelected(piece: string): boolean {
-    if (this.heldPart) {
-      return this.heldPart == piece;
-    }
-  }
-
   hasAmount() {
     return this.partList.get(Piece.Ramp) != -1;
   }
 
 
-  notStarting() {
+  getNotStarting() {
     if (this.boardState) {
       return this.boardState != boardState.starting;
     }
-    return true;
+    return this.notStarting = true;
   }
 
   getInfo(piece: string): string {
@@ -96,7 +93,7 @@ export class SelectionBarComponent implements OnInit {
     }
   }
 
-  isPlaying() {
+  getIsPlaying() {
     if (this.boardState) {
       return this.boardState == boardState.playing;
     }

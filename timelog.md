@@ -406,5 +406,9 @@
 
 ### 23 Mar 2021
 * *2 hour* Cleanup and recording of presentation
+* *2 hour* Theme updates and failed layout changes 
+* *1 hour* Start of onPush optimisation strategy 
 
+### 24 Mar 2021
+* *2.5 hour* New piece gifs to aid understanding 
 

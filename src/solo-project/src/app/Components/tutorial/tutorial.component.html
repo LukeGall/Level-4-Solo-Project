@@ -3,6 +3,8 @@
     <mat-tab-group dynamicHeight>
         <mat-tab label="General Instructions">
             <div class="instructions">
+                <mat-divider></mat-divider>
+                <h1 style="margin-top: 2%;">Site Instructions</h1>
                 <P>
                     This virtual turing tumble runs in the browser and there is nothing for you to install. Find the
                     <b>sidenav</b> to the left of the screen to go to the different pages of the site. These
@@ -23,7 +25,8 @@
                         users created puzzles.
                     </li>
                     <li>
-                        Finally the <b>Create Puzzle</b> page will let you make your own puzzles for other users to play.
+                        Finally the <b>Create Puzzle</b> page will let you make your own puzzles for other users to
+                        play.
                     </li>
                 </P>
                 <br>
@@ -31,7 +34,8 @@
                     The site has two themes, light and dark, which can be changed on the fly using the button on the top
                     header bar.
                 </p>
-                <br>                
+                <mat-divider></mat-divider>
+                <h1 style="margin-top: 2%;">Turing Tumble Instructions</h1>
                 <p>
                     A Turing Tumble board involves blue and red marbles, shown at the top left and right corner of the
                     board
@@ -42,7 +46,8 @@
                     bottom of the board it will release another blue or red marble depending on the side the marble gets
                     to. It will also be 'collected' in which the board will store the marbles that have reached the
                     bottom. An example is shown below in which 2 blue marbles were collected, then 3 red and finally 5
-                    blues. The main objective of the game is to place a combination of pieces onto the board to create a mechanical computer that will output a certain marble pattern.
+                    blues. The main objective of the game is to place a combination of pieces onto the board to create a
+                    mechanical computer that will output a certain marble pattern.
                 </p>
                 <div id="collected-marbles">
                     <app-collected-marbles [marbles]="exampleMarbles"></app-collected-marbles>
@@ -92,9 +97,10 @@
                 <mat-grid-list cols="2" [rowHeight]="'6:1'" style="width: 50%; margin: auto;">
                     <mat-grid-tile [colspan]="1">Component Slot</mat-grid-tile>
                     <mat-grid-tile [colspan]="1">Pin</mat-grid-tile>
-                    <mat-grid-tile [colspan]="1"><img src="assets/compslot.svg" alt="Component Slot">
+                    <mat-grid-tile [colspan]="1"><img style="width:40%" src="assets/compslot.svg" alt="Component Slot">
                     </mat-grid-tile>
-                    <mat-grid-tile [colspan]="1"><img src="assets/pin.svg" alt="Pin slot"></mat-grid-tile>
+                    <mat-grid-tile [colspan]="1"><img style="width:40%" src="assets/pin.svg" alt="Pin slot">
+                    </mat-grid-tile>
                 </mat-grid-list>
             </div>
 
@@ -109,13 +115,14 @@
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
                 <mat-text-column name="name"></mat-text-column>
 
-                <ng-container matColumnDef="image">
-                    <th mat-header-cell *matHeaderCellDef>Image</th>
-                    <td mat-cell *matCellDef="let element"><img src="{{element.imgLink}}" alt="Piece image"></td>
-                </ng-container>
-
                 <mat-text-column name="description"></mat-text-column>
                 <mat-text-column name="isLike"></mat-text-column>
+                <ng-container matColumnDef="gif">
+                    <th mat-header-cell *matHeaderCellDef>Example (Hover for GIF)</th>
+                    <td mat-cell *matCellDef="let element"><img style="width: 120px;"
+                            [src]="element.gifSource || element.imgLink" (mouseover)="element.gifSource=element.gifLink"
+                            (mouseout)="element.gifSource=element.imgLink" alt="Piece gif"></td>
+                </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>

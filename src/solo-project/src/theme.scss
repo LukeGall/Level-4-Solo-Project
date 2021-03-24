@@ -2,12 +2,12 @@
 
 @include mat-core();
 
-$light-primary: mat-palette($mat-indigo);
+$light-primary: mat-palette($mat-indigo,400);
 $light-accent:  mat-palette($mat-amber, A200, A100, A400);
 $light-theme:   mat-light-theme($light-primary, $light-accent);
 
 #boardBackground{
-    background-color: #3f51b5;
+    background-color: #5c6bc0;
 }
 
 @include angular-material-theme($light-theme);

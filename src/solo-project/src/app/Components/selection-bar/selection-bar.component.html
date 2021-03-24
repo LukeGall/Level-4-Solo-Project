@@ -1,11 +1,11 @@
 <mat-card class="wrapper">
     <div class="pieces">
         <div class="piece" *ngFor="let part of partList | keyvalue : sortByDiff">
-            <button class="pieceButtons" mat-raised-button [color]="isSelected(part.key) ? 'primary' : 'accent'"
+            <button class="pieceButtons" mat-raised-button [color]="part.key == heldPart ? 'primary' : 'accent'"
                 (click)="clicked(part.key)" [matTooltip]="getInfo(part.key)" [matTooltipPosition]="'right'"
-                aria-label="Piece button" [disabled]="isPlaying() && part.value==0">
+                aria-label="Piece button" [disabled]="isPlaying && part.value==0">
                 {{part.key}}
-                <span *ngIf="isPuzzleBoard && notStarting()">
+                <span *ngIf="isPuzzleBoard && notStarting">
                     {{part.value}}
                 </span>
                 <img style="width: 28%; float:right" alt="Piece icon" [src]="getPic(part.key)">
@@ -14,27 +14,25 @@
 
     </div>
     <div>
-        <button class="pieceButtons" mat-raised-button [color]="isSelected('DeletePiece') ? 'primary' : 'warn'"
-            (click)="delete()">
+        <button class="pieceButtons" mat-raised-button [color]="'DeletePiece'==heldPart ? 'primary' : 'warn'"
+            (click)="delete()" [matTooltipPosition]="'right'" [matTooltip]="'Click to enter delete piece mode'">
             Delete Piece
         </button>
-        <div *ngIf="notStarting()">
-            <button mat-raised-button color="warn" (click)="stepBoard.emit();">Step Forward</button>
-            <button mat-raised-button color="warn" (click)="triggerPlay.emit();">{{ inPlay ? 'Pause' : 'Play'}}</button>
-            <button mat-raised-button color="warn" (click)="reset.emit();">Reset Board</button>
-            <button mat-raised-button color="warn" (click)="clearMarbles.emit();">Reset Marbles</button>
-            <!-- <button *ngIf="!isPuzzleBoard" mat-raised-button color="warn" (click)="clearMarbles.emit();">Reset
-                Marbles</button> -->
-            <div *ngIf="isPlaying()">
-                <button mat-raised-button color="warn" (click)="displayAnswer.emit();">Show Answer</button>
+        <div *ngIf="notStarting">
+            <button mat-raised-button color="warn" (click)="stepBoard.emit();" [matTooltipPosition]="'right'" [matTooltip]="'Pause board execution then drop the marble one position'">Step Forward</button>
+            <button mat-raised-button color="warn" (click)="triggerPlay.emit();" [matTooltipPosition]="'right'" [matTooltip]="'Pause / Play execution'">{{ inPlay ? 'Pause' : 'Play'}}</button>
+            <button mat-raised-button color="warn" (click)="reset.emit();" [matTooltipPosition]="'right'" [matTooltip]="'Remove all pieces and collected marbles'">Reset Board</button>
+            <button mat-raised-button color="warn" (click)="clearMarbles.emit();" [matTooltipPosition]="'right'" [matTooltip]="'Remove the collected marbles'">Reset Marbles</button>
+            <div *ngIf="isPlaying">
+                <button mat-raised-button color="warn" (click)="displayAnswer.emit();" [matTooltipPosition]="'right'" [matTooltip]="'Display the solution to this puzzle'">Show Answer</button>
             </div>
         </div>
-        <div *ngIf="isPuzzleBoard && !isPlaying()">
-            <button *ngIf="!notStarting()" mat-raised-button color="warn" (click)="confStartingPieces.emit();">Confirm
+        <div *ngIf="isPuzzleBoard && !isPlaying">
+            <button *ngIf="!notStarting" mat-raised-button color="warn" (click)="confStartingPieces.emit();" [matTooltipPosition]="'right'" [matTooltip]="'Confirm the puzzles starting setup'">Confirm
                 set up</button>
-            <button *ngIf="notStarting()" mat-raised-button color="warn" (click)="confPuzzleOutput.emit();">Confirm
+            <button *ngIf="notStarting" mat-raised-button color="warn" (click)="confPuzzleOutput.emit();" [matTooltipPosition]="'right'" [matTooltip]="'Confirm the puzzle require output and solution'">Confirm
                 output</button>
-            <button *ngIf="notStarting()" mat-raised-button color ="primary" (click)="goBack.emit()">Previous Step</button>
+            <button *ngIf="notStarting" mat-raised-button color ="primary" (click)="goBack.emit()" [matTooltipPosition]="'right'" [matTooltip]="'Go back to the previous step'">Previous Step</button>
         </div>
         <div *ngIf="!isPuzzleBoard">
             <button mat-raised-button color="primary" (click)="exampleEmitter.emit(1)">Example 1 - Pattern</button>

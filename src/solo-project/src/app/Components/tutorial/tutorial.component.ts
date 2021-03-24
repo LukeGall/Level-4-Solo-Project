@@ -14,6 +14,7 @@ export interface tableData {
   imgLink: string;
   description: string;
   isLike: string;
+  gifLink:string;
 }
 
 const ITEM_DATA: tableData[] = [
@@ -26,7 +27,8 @@ const ITEM_DATA: tableData[] = [
       which way the ball enters the component, it will send the ball
       right / left only based on the ramps direction.This piece's direction
       is reversible, just click a ramp while holding a 'Ramp'.`,
-    isLike: 'A electrical wire in a computer circuit, where the balls act as electricity'
+    isLike: 'A electrical wire in a computer circuit, where the balls act as electricity',
+    gifLink: "assets/ramp-gif.gif",
   },
   {
     name: "Crossover",
@@ -38,7 +40,8 @@ const ITEM_DATA: tableData[] = [
       travelling to the bottom right, it will leave the bottom
       right side of the crossover continuing it's direction. 
       `,
-    isLike: 'Two wires crossing over (but not touching) each other, to allow different sets of electricity cross over each other'
+    isLike: 'Two wires crossing over (but not touching) each other, to allow different sets of electricity cross over each other',
+    gifLink: "assets/crossover-gif.gif",
   },
   {
     name: "Bit",
@@ -48,7 +51,8 @@ const ITEM_DATA: tableData[] = [
       direction they enter from. Send the balls to the right if
       the switch is pointing to the left (off). These components
       can be used to represent registers that store bit values.`,
-    isLike: 'An electronic switch inside a chip, acn change the direction electricity is flowing based on if its "on" or "off".'
+    isLike: 'An electronic switch inside a chip, can change the direction electricity is flowing based on if its "on" or "off".',
+    gifLink: "assets/bit-gif.gif",
   },
   {
     name: "Interceptor",
@@ -59,7 +63,8 @@ const ITEM_DATA: tableData[] = [
       another marble. By using the metaphor of electricity this 
       component stops the electricity from flowing through the 
       computer meaning it will stop execution.`,
-    isLike: 'Is similar to a shutoff switch in a real life computer'
+    isLike: 'Is similar to a shutoff switch in a real life computer',
+    gifLink: "assets/interceptor-gif.gif",
   },
   {
     name: "Gear",
@@ -67,7 +72,8 @@ const ITEM_DATA: tableData[] = [
     description: `Gears are the only components that can be placed
       on Pins as well as Component Slots. Gears only connect GearBits 
       so they can turn together. If a marble touches a Gear it will fall.`,
-    isLike: 'Connectors in more complicated switch combinations'
+    isLike: 'Connectors in more complicated switch combinations',
+    gifLink: "assets/gear-gif.gif",
   },
   {
     name: "Gear Bit",
@@ -79,7 +85,8 @@ const ITEM_DATA: tableData[] = [
       like a normal Bit component. When a gear bit changes direction
       it will also turn any connecting gears this direction which can
       then in turn change other gears and gear bits.`,
-    isLike: 'Can be used to create set switches, latches, flip flops and more complicated components'
+    isLike: 'Can be used to create set switches, latches, flip flops and more complicated components',
+    gifLink: "assets/gear-bit-gif.gif"
   }
 ]
 
@@ -112,7 +119,7 @@ const OPTION_DATA: any[] = [
 export class TutorialComponent implements OnInit {
   dataSource = ITEM_DATA;
   optionData = OPTION_DATA;
-  displayColumns = ['name', 'image', 'description', 'isLike'];
+  displayColumns = ['name', 'description', 'isLike','gif'];
   exampleMarbles: MarblePair[] = [];
   examplePuzzle: Puzzle;
 
@@ -127,5 +134,6 @@ export class TutorialComponent implements OnInit {
     this.examplePuzzle.description = "This is an example puzzle"
     this.examplePuzzle.difficulty = "1"
     this.examplePuzzle.puzzleBoard = new PuzzleBoard();
+    this.examplePuzzle.puzzleBoard.expectedResults = this.exampleMarbles;
   }
 }
