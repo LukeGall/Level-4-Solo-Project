@@ -14,10 +14,17 @@ export class Ramp extends BoardPiece {
         this.direction = direction;
     }
 
-    processMarble(marble: Marble) {
+    processMarble(marble: Marble) : any[]{
         marble.position.x += 1;
         marble.position.y += this.direction;
         marble.direction = this.direction;
+
+        let newPiece = new Ramp(null,null);
+        let newMarble = new Marble();
+        Object.assign(newMarble, marble);
+        Object.assign(newPiece, this);
+
+        return [newPiece, newMarble];
     }
 
 

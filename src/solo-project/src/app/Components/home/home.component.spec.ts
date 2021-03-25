@@ -1,14 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
+import { RouterTestingModule } from "@angular/router/testing";
+import { routes } from '../../app-routing.module';
 import { HomeComponent } from './home.component';
 
 describe('HomeComponent', () => {
     let component: HomeComponent;
     let fixture: ComponentFixture<HomeComponent>;
-
+      
     beforeEach(async(() => {
         TestBed.configureTestingModule({
+            imports: [RouterTestingModule.withRoutes(routes)],
             declarations: [HomeComponent]
         })
             .compileComponents();
@@ -36,3 +38,5 @@ describe('HomeComponent', () => {
         expect(compiled.querySelector('a').textContent).toContain('Turing');
     })
 });
+
+

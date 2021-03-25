@@ -1,14 +1,14 @@
-<div *ngIf="piece" [ngClass]="isLocked() ? 'centre locked' : 'centre'">
+<div *ngIf="piece" [ngClass]="isLocked ? 'centre locked' : 'centre'">
     <div *ngIf="piece.ifMarble(marble); else def">
         <div *ngIf="marble.colour == 'blue'; else red">
-            <img [ngClass]="needsFlip() ? 'flip' : 'def'" alt="Piece with blue marble" [src]="getBlueImg()">
+            <img [ngClass]="needsFlip ? 'flip' : 'def'" alt="Piece with blue marble" [src]="blueImgLink">
         </div>
         <ng-template #red>
-            <img [ngClass]="needsFlip() ? 'flip' : 'def'" alt="Piece with red marble" [src]="getRedImg()">
+            <img [ngClass]="needsFlip ? 'flip' : 'def'" alt="Piece with red marble" [src]="redImgLink">
         </ng-template>
 
     </div>
     <ng-template #def>
-        <img [ngClass]="needsFlip() ? 'flip' : 'def'" alt="Piece with no marble" [src]="getImg()">
+        <img [ngClass]="needsFlip ? 'flip' : 'def'" alt="Piece with no marble" [src]="imgLink">
     </ng-template>
 </div>

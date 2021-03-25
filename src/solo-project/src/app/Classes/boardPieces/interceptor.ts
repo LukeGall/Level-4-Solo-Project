@@ -12,8 +12,13 @@ export class Interceptor extends BoardPiece {
         super(pos);
     }
 
-    processMarble(marble: Marble) {
+    processMarble(marble: Marble) : any[]{
         marble.direction = Direction.stopped;
+
+        let newMarble = new Marble();
+        Object.assign(newMarble, marble);
+
+        return [null, newMarble];
     }
 
     click() {

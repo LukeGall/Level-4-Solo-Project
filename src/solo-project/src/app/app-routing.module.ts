@@ -8,7 +8,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { TutorialComponent } from './Components/tutorial/tutorial.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'tutorial', component: TutorialComponent },
   { path: 'plain-board', component: PlainBoardComponent },

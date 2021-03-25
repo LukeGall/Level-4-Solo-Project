@@ -12,10 +12,12 @@ export class Gear extends BoardPiece {
         super(position);
     }
 
-    processMarble(marble: Marble) {
+    processMarble(marble: Marble): any[] {
         marble.direction = Direction.stopped;
         marble.position.x = -5;
         marble.position.y = -5;
+
+        return [null,null];
     }
 
     click() {

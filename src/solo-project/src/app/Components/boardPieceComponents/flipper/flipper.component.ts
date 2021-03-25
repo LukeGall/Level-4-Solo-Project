@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-flipper',
   templateUrl: './flipper.component.html',
-  styleUrls: ['./flipper.component.scss']
+  styleUrls: ['./flipper.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FlipperComponent implements OnInit {
   @Input() colour: string;

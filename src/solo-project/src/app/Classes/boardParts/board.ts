@@ -77,7 +77,7 @@ export class Board {
     }
 
     setHeldPiece(piece: Piece) {
-        this.heldPiece = (piece);
+        this.heldPiece = piece;
     }
 
     increaseMarble(colour: string) {
@@ -176,15 +176,23 @@ export class Board {
                 if (slot.partName == 'CompSlot') {
                     if (slot.piece && !(slot.piece.type == Piece.Gear)) {
                         let oldPos = new Pos(marble.position.x, marble.position.y);
-                        slot.piece.processMarble(marble);
+                        let [newPiece, newMarble] = slot.piece.processMarble(marble);
+                        
+                        if(newPiece){
+                            slot.piece = newPiece;
+                        }
+
                         if (slot.piece.type == Piece.GearBit) {
                             this.gearSpin(oldPos);
                         }
-                        if(marble.position.y < 0){
-                            marble.position.y = 0;
-                        } else if(marble.position.y > 10){
-                            marble.position.y = 10;
+
+                        if(newMarble.position.y < 0){
+                            newMarble.position.y = 0;
+
+                        } else if(newMarble.position.y > 10){
+                            newMarble.position.y = 10;
                         }
+                        this.inPlayMarble = newMarble;
                     } else {
                         this.marbleFall();
                         return;
@@ -216,7 +224,12 @@ export class Board {
         // Makes sure any balls sent to the sides is only valid on the last 2 rows
         if (marble.position.x >= 10) {
             if (marble.position.x == 10 && marble.position.y == 5 && this.slots[10][5].piece) {
-                this.slots[10][5].piece.processMarble(marble);
+                let [newPiece, newMarble] = this.slots[10][5].piece.processMarble(marble);
+                if(newPiece){
+                    this.slots[10][5].piece = newPiece;
+                }
+                this.inPlayMarble = newMarble;
+                marble = newMarble;
             }
 
             let posY = marble.position.y;
@@ -241,6 +254,7 @@ export class Board {
         } else {
             this.collectedMarbles.push(new MarblePair(1, marble.colour));
         }
+        this.collectedMarbles = Object.assign(new Array<MarblePair>(), this.collectedMarbles)
     }
 
     private getSetOfJoining(position: Pos, setVisited: Set<string>, setAccepted: Set<Slot>) {
@@ -283,7 +297,7 @@ export class Board {
             } else {
                 if(val.piece instanceof GearBit){
                     if(val.piece.direction != dirForGbs){
-                        val.piece.switchDirection();
+                        val.piece = new GearBit(dirForGbs, val.piece.position);
                     }
                 }
             }
@@ -293,36 +307,25 @@ export class Board {
     clickPiece(pos: Pos): boolean {
         let changed = false;
         let newPiece: BoardPiece;
+        let slot = this.slots[pos.x][pos.y];
+        let oppDirection: Direction = null;
+
         // Will let users add new piece but make sure old marble is removed if caught by interceptor  
         if (this.intercepted) {
             this.intercepted = false;
             this.inPlayMarble = null;
         }
 
-        switch (this.heldPiece) {
-            case Piece.Ramp:
-                newPiece = (new Ramp(Direction.left, pos));
-                break;
-            case Piece.Crossover:
-                newPiece = (new Crossover(pos));
-                break;
-            case Piece.GearBit:
-                newPiece = (new GearBit(Direction.left, pos));
-                break;
-            case Piece.Interceptor:
-                newPiece = (new Interceptor(pos));
-                break;
-            case Piece.Bit:
-                newPiece = (new Bit(Direction.left, pos));
-                break;
-            case Piece.Gear:
-                newPiece = (new Gear(pos));
-                break;
-            case Piece.Delete:
-                newPiece = null
+        if(slot.piece){
+            if(slot.piece.type == Piece.Bit || slot.piece.type == Piece.GearBit || slot.piece.type == Piece.Ramp){
+                oppDirection = slot.piece.direction == Direction.left ? Direction.right : Direction.left;
+            }
         }
 
-        let slot = this.slots[pos.x][pos.y];
+        let dir = oppDirection ? oppDirection : Direction.left
+        newPiece = this.getNewPiece(this.heldPiece,dir,pos);
+        
+
         // Delete piece
         if (newPiece == null) {
             if (slot.piece && !slot.piece.locked) {
@@ -348,7 +351,12 @@ export class Board {
         }
         // If just clicked
         if (!changed && slot.piece) {
-            slot.piece.click()
+            if(slot.piece.locked){
+                slot.piece.click();
+                slot.piece = this.getNewPiece(slot.piece.type, dir, pos, true);
+            } else {
+                slot.piece = newPiece;
+            }
             if (slot.piece.type == Piece.Gear || slot.piece.type == Piece.GearBit) {
                 this.gearSpin(pos);
             }
@@ -374,5 +382,33 @@ export class Board {
                 break;
         }
         this.slots = cloneDeep(example)
+    }
+
+    protected getNewPiece(oldPiece: Piece, dir: Direction, pos: Pos, lock?: boolean): BoardPiece{
+        let newPiece: BoardPiece;
+        switch (oldPiece) {
+            case Piece.Ramp:
+                newPiece = (new Ramp(dir, pos));
+                break;
+            case Piece.Crossover:
+                newPiece = (new Crossover(pos));
+                break;
+            case Piece.GearBit:
+                newPiece = (new GearBit(dir, pos));
+                break;
+            case Piece.Interceptor:
+                newPiece = (new Interceptor(pos));
+                break;
+            case Piece.Bit:
+                newPiece = (new Bit(dir, pos));
+                break;
+            case Piece.Gear:
+                newPiece = (new Gear(pos));
+                break;
+            case Piece.Delete:
+                newPiece = null
+        }
+        if(newPiece && lock) newPiece.lock();
+        return newPiece;
     }
 }

@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { boardState } from 'src/app/Classes/puzzle-board';
 
 @Component({
   selector: 'app-prompt-card',
   templateUrl: './prompt-card.component.html',
-  styleUrls: ['./prompt-card.component.scss']
+  styleUrls: ['./prompt-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PromptCardComponent implements OnInit {
   @Input() boardState: boardState;

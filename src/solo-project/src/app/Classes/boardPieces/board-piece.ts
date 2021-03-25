@@ -16,7 +16,7 @@ export class BoardPiece {
         }
     }
 
-    processMarble(marble: Marble) { };
+    processMarble(marble: Marble): any[] { return null };
 
     click() { };
 

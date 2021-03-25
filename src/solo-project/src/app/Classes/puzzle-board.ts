@@ -58,7 +58,8 @@ export class PuzzleBoard extends Board {
                 for (var j = 0; j < rowOfSlots.length; j++) {
                     let slot = rowOfSlots[j];
                     if (slot && slot.piece) {
-                        rowOfSlots[j].piece.lock();
+                        const oldPiece = rowOfSlots[j].piece;
+                        rowOfSlots[j].piece = this.getNewPiece(oldPiece.type, oldPiece.direction, oldPiece.position, true);
                     }
                 }
             }

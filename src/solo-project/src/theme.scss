@@ -10,6 +10,11 @@ $light-theme:   mat-light-theme($light-primary, $light-accent);
     background-color: #5c6bc0;
 }
 
+.locked{
+    background-color: #6b7acf;
+
+}
+
 @include angular-material-theme($light-theme);
 
 .unicorn-dark-theme {
@@ -20,6 +25,11 @@ $light-theme:   mat-light-theme($light-primary, $light-accent);
 
     #boardBackground{
         background-color: #678296;
+    }
+
+    .locked{
+        background-color: #506a77;
+    
     }
 
     @include angular-material-theme($dark-theme);

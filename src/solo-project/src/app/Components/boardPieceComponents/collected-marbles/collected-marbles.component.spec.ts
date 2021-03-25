@@ -1,3 +1,4 @@
+import { ChangeDetectionStrategy } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MarblePair } from 'src/app/Classes/boardParts/marblePair';
 import { CollectedMarblesComponent } from './collected-marbles.component';
@@ -14,7 +15,7 @@ describe('CollectedMarblesComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(CollectedMarblesComponent);
+        fixture = TestBed.overrideComponent(CollectedMarblesComponent, {set:{changeDetection: ChangeDetectionStrategy.Default}}).createComponent(CollectedMarblesComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

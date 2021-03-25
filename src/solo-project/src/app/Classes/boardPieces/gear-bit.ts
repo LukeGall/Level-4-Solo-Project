@@ -18,11 +18,18 @@ export class GearBit extends BoardPiece {
         this.direction = (this.direction == Direction.left) ? Direction.right : Direction.left;
     }
 
-    processMarble(marble: Marble) {
+    processMarble(marble: Marble): any[] {
         marble.position.x += 1;
         marble.position.y -= this.direction;
         this.switchDirection();
         marble.direction = this.direction;
+
+        let newPiece = new GearBit(null,null);
+        let newMarble = new Marble();
+        Object.assign(newMarble, marble);
+        Object.assign(newPiece, this);
+
+        return [newPiece, newMarble];
     }
 
     click() {

@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 
 @Component({
   selector: 'app-dispenser',
   templateUrl: './dispenser.component.html',
-  styleUrls: ['./dispenser.component.scss']
+  styleUrls: ['./dispenser.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DispenserComponent implements OnInit {
   @Input() marbleColour: string;

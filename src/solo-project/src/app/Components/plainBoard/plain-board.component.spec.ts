@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { BehaviorSubject } from 'rxjs';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { routes } from '../../app-routing.module';
 import { PlainBoardComponent } from './plain-board.component';
 
 describe('PlainBoardComponent', () => {
@@ -12,6 +12,7 @@ describe('PlainBoardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule.withRoutes(routes)],
       providers: [
         { provide: AngularFireDatabase, useValue: stub },
       ],

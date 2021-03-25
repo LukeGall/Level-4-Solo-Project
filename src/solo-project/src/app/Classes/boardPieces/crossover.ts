@@ -11,9 +11,14 @@ export class Crossover extends BoardPiece {
         super(pos);
     }
 
-    processMarble(marble: Marble) {
+    processMarble(marble: Marble) : any[]{
         marble.position.x += 1;
         marble.position.y += marble.direction;
+
+        let newMarble = new Marble();
+        Object.assign(newMarble, marble);
+
+        return [null,newMarble];
     }
 
 

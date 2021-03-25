@@ -1,11 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MarblePair } from 'src/app/Classes/boardParts/marblePair';
-import { Bit } from 'src/app/Classes/boardPieces/bit';
-import { Crossover } from 'src/app/Classes/boardPieces/crossover';
-import { Gear } from 'src/app/Classes/boardPieces/gear';
-import { GearBit } from 'src/app/Classes/boardPieces/gear-bit';
-import { Interceptor } from 'src/app/Classes/boardPieces/interceptor';
-import { Ramp } from 'src/app/Classes/boardPieces/ramp';
 import { Puzzle } from 'src/app/Classes/puzzle';
 import { PuzzleBoard } from 'src/app/Classes/puzzle-board';
 
@@ -114,7 +108,8 @@ const OPTION_DATA: any[] = [
 @Component({
   selector: 'app-tutorial',
   templateUrl: './tutorial.component.html',
-  styleUrls: ['./tutorial.component.scss']
+  styleUrls: ['./tutorial.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TutorialComponent implements OnInit {
   dataSource = ITEM_DATA;

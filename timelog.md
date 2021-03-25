@@ -411,4 +411,9 @@
 
 ### 24 Mar 2021
 * *2.5 hour* New piece gifs to aid understanding 
+* *0.5 hour* Fixing broken tests
+* *4.0 hour* Experimenting with on push immutable changes
+* *0.5 hour* Presentation re-recording
 
+### 25 Mar 2021
+* *1 hour* Cleanup of onpush changes

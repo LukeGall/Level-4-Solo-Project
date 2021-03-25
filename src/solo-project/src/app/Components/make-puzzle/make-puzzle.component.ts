@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Piece } from 'src/app/Classes/piece.enum';
@@ -8,7 +8,8 @@ import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
 @Component({
   selector: 'app-make-puzzle',
   templateUrl: './make-puzzle.component.html',
-  styleUrls: ['./make-puzzle.component.scss']
+  styleUrls: ['./make-puzzle.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MakePuzzleComponent implements OnInit {
   @Input() puzzleBoard: PuzzleBoard;
