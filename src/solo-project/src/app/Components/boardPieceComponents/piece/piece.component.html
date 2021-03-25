@@ -1,14 +1,28 @@
-<div *ngIf="piece" [ngClass]="isLocked ? 'centre locked' : 'centre'">
-    <div *ngIf="piece.ifMarble(marble); else def">
-        <div *ngIf="marble.colour == 'blue'; else red">
-            <img [ngClass]="needsFlip ? 'flip' : 'def'" alt="Piece with blue marble" [src]="blueImgLink">
+<div class="grid-container">
+    <div *ngIf="piece" [ngClass]="isLocked ? 'Image locked' : 'Image'">
+        <div *ngIf="piece.ifMarble(marble); else def">
+            <div *ngIf="marble.colour == 'blue'; else red">
+                <img [ngClass]="needsFlip ? 'flip' : 'def'" alt="Piece with blue marble" [src]="blueImgLink">
+            </div>
+            <ng-template #red>
+                <img [ngClass]="needsFlip ? 'flip' : 'def'" alt="Piece with red marble" [src]="redImgLink">
+            </ng-template>
+            
         </div>
-        <ng-template #red>
-            <img [ngClass]="needsFlip ? 'flip' : 'def'" alt="Piece with red marble" [src]="redImgLink">
+        <ng-template #def>
+            <img [ngClass]="needsFlip ? 'flip' : 'def'" alt="Piece with no marble" [src]="imgLink">
         </ng-template>
-
     </div>
-    <ng-template #def>
-        <img [ngClass]="needsFlip ? 'flip' : 'def'" alt="Piece with no marble" [src]="imgLink">
-    </ng-template>
+    <div class="leftArr" *ngIf="hasL">
+        &larr;
+    </div>
+    <div class="rightArr" *ngIf="hasR">
+        &rarr;
+    </div>
+    <div class="topArr" *ngIf="hasU">
+        &uarr;
+    </div>
+    <div class="botArr" *ngIf="hasD">
+        &darr;
+    </div>
 </div>

@@ -90,10 +90,10 @@ export class Board {
 
     decreaseMarble(colour: string) {
         if (colour == "blue") {
-            if(this.blueMarbles > 0)
-                this.blueMarbles--;  
+            if (this.blueMarbles > 0)
+                this.blueMarbles--;
         } else {
-            if(this.redMarbles > 0)
+            if (this.redMarbles > 0)
                 this.redMarbles--;
         }
     }
@@ -110,14 +110,14 @@ export class Board {
 
     private releaseMarble(colour: string) {
         if (colour == "blue") {
-            if(this.blueMarbles > 0) {
+            if (this.blueMarbles > 0) {
                 this.blueMarbles--;
                 this.inPlayMarble = new Marble("blue");
             } else {
                 this.inPlayMarble = null;
             }
         } else {
-            if(this.redMarbles > 0){
+            if (this.redMarbles > 0) {
                 this.redMarbles--;
                 this.inPlayMarble = new Marble("red");
             } else {
@@ -177,19 +177,19 @@ export class Board {
                     if (slot.piece && !(slot.piece.type == Piece.Gear)) {
                         let oldPos = new Pos(marble.position.x, marble.position.y);
                         let [newPiece, newMarble] = slot.piece.processMarble(marble);
-                        
-                        if(newPiece){
-                            slot.piece = newPiece;
+
+                        if (newPiece) {
+                            slot.piece = this.getNewPiece(newPiece.type, newPiece.direction, newPiece.position, newPiece.locked);
                         }
 
                         if (slot.piece.type == Piece.GearBit) {
                             this.gearSpin(oldPos);
                         }
 
-                        if(newMarble.position.y < 0){
+                        if (newMarble.position.y < 0) {
                             newMarble.position.y = 0;
 
-                        } else if(newMarble.position.y > 10){
+                        } else if (newMarble.position.y > 10) {
                             newMarble.position.y = 10;
                         }
                         this.inPlayMarble = newMarble;
@@ -225,7 +225,7 @@ export class Board {
         if (marble.position.x >= 10) {
             if (marble.position.x == 10 && marble.position.y == 5 && this.slots[10][5].piece) {
                 let [newPiece, newMarble] = this.slots[10][5].piece.processMarble(marble);
-                if(newPiece){
+                if (newPiece) {
                     this.slots[10][5].piece = newPiece;
                 }
                 this.inPlayMarble = newMarble;
@@ -294,13 +294,12 @@ export class Board {
             if (firstEle) {
                 firstEle = false;
                 dirForGbs = val.piece.direction;
-            } else {
-                if(val.piece instanceof GearBit){
-                    if(val.piece.direction != dirForGbs){
-                        val.piece = new GearBit(dirForGbs, val.piece.position);
-                    }
-                }
             }
+
+            if (val.piece instanceof GearBit) {
+                val.piece = this.getNewPiece(val.piece.type, dirForGbs, val.piece.position, val.piece.locked);
+            }
+
         }
     }
 
@@ -316,15 +315,15 @@ export class Board {
             this.inPlayMarble = null;
         }
 
-        if(slot.piece){
-            if(slot.piece.type == Piece.Bit || slot.piece.type == Piece.GearBit || slot.piece.type == Piece.Ramp){
+        if (slot.piece) {
+            if (slot.piece.type == Piece.Bit || slot.piece.type == Piece.GearBit || slot.piece.type == Piece.Ramp) {
                 oppDirection = slot.piece.direction == Direction.left ? Direction.right : Direction.left;
             }
         }
 
         let dir = oppDirection ? oppDirection : Direction.left
-        newPiece = this.getNewPiece(this.heldPiece,dir,pos);
-        
+        newPiece = this.getNewPiece(this.heldPiece, dir, pos);
+
 
         // Delete piece
         if (newPiece == null) {
@@ -351,7 +350,7 @@ export class Board {
         }
         // If just clicked
         if (!changed && slot.piece) {
-            if(slot.piece.locked){
+            if (slot.piece.locked) {
                 slot.piece.click();
                 slot.piece = this.getNewPiece(slot.piece.type, dir, pos, true);
             } else {
@@ -384,7 +383,7 @@ export class Board {
         this.slots = cloneDeep(example)
     }
 
-    protected getNewPiece(oldPiece: Piece, dir: Direction, pos: Pos, lock?: boolean): BoardPiece{
+    protected getNewPiece(oldPiece: Piece, dir: Direction, pos: Pos, lock?: boolean): BoardPiece {
         let newPiece: BoardPiece;
         switch (oldPiece) {
             case Piece.Ramp:
@@ -395,6 +394,22 @@ export class Board {
                 break;
             case Piece.GearBit:
                 newPiece = (new GearBit(dir, pos));
+                const joins: number[] = [];
+                const xPos = pos.x;
+                const yPos = pos.y;
+                let connections = [new Pos(xPos, yPos - 1), new Pos(xPos - 1, yPos), new Pos(xPos, yPos + 1), new Pos(xPos + 1, yPos)];
+                for (var i = 0; i < connections.length; i++) {
+                    const tempPos = connections[i];
+                    if (this.marbleInBounds(tempPos)) {
+                        if (this.slots[tempPos.x][tempPos.y] && this.slots[tempPos.x][tempPos.y].piece) {
+                            if (this.slots[tempPos.x][tempPos.y].piece.type == Piece.Gear) {
+                                joins.push(i + 1);
+                            }
+                        }
+                    }
+                };
+
+                if (newPiece instanceof GearBit) newPiece.joins = joins;
                 break;
             case Piece.Interceptor:
                 newPiece = (new Interceptor(pos));
@@ -408,7 +423,7 @@ export class Board {
             case Piece.Delete:
                 newPiece = null
         }
-        if(newPiece && lock) newPiece.lock();
+        if (newPiece && lock) newPiece.lock();
         return newPiece;
     }
 }

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleCha
 import { Direction } from 'src/app/Classes/boardParts/direction';
 import { Marble } from 'src/app/Classes/boardParts/marble';
 import { BoardPiece } from 'src/app/Classes/boardPieces/board-piece';
+import { GearBit } from 'src/app/Classes/boardPieces/gear-bit';
 import { Piece } from 'src/app/Classes/piece.enum';
 
 
@@ -20,6 +21,12 @@ export class PieceComponent implements OnChanges {
   needsFlip: boolean = this.getNeedsFlip();
   isLocked: boolean = this.getLocked();
 
+  private joins: number[] = this.getJoins();
+  hasL: boolean = false;
+  hasR: boolean = false;
+  hasU: boolean = false;
+  hasD: boolean = false;
+
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -29,6 +36,7 @@ export class PieceComponent implements OnChanges {
       this.redImgLink = this.getRedImg();
       this.needsFlip = this.getNeedsFlip();
       this.isLocked = this.getLocked();
+      this.joins = this.getJoins();
     }
   }
 
@@ -49,6 +57,20 @@ export class PieceComponent implements OnChanges {
     if(this.piece){
       if (this.piece.type == Piece.GearBit) return "assets/gear-bit.svg";
       return "assets/" + this.piece.type.toLowerCase() + ".svg";
+    }
+  }
+
+  getJoins(): number[]{
+    if(this.piece && this.piece instanceof GearBit){
+      console.log(this.piece.joins);
+      const joins = this.piece.joins;
+      if(joins.includes(1)) this.hasL = true;
+      if(joins.includes(2)) this.hasU = true;
+      if(joins.includes(3)) this.hasR = true;
+      if(joins.includes(4)) this.hasD = true;
+
+      console.log(this.hasL);
+      return joins;
     }
   }
 

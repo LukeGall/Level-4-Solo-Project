@@ -8,6 +8,7 @@ export class GearBit extends BoardPiece {
     direction: Direction;
     position: Pos;
     type = Piece.GearBit;
+    joins: number[] = [];
     
     constructor(direction: Direction, position: Pos) {
         super(position);
