@@ -126,12 +126,12 @@ export function parseSlotString(slotString: string): Slot[][] {
               slotRow.push(slot);
               break;
             case ('g'):
-              slot = (xPos + yPos % 2 != 0) ? new CompSlot() : new Pin();
+              slot = (xPos + yPos) % 2 != 0 ? new CompSlot() : new Pin();
               slot.piece = new Gear(new Pos(xPos, yPos));
               slotRow.push(slot);
               break;
             default:
-              slot = (xPos + yPos % 2 != 0) ? new CompSlot() : new Pin();
+              slot = (xPos + yPos) % 2 != 0 ? new CompSlot() : new Pin();
               slotRow.push(slot);
           }
         }

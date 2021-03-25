@@ -312,6 +312,8 @@ export class Board {
         // Will let users add new piece but make sure old marble is removed if caught by interceptor  
         if (this.intercepted) {
             this.intercepted = false;
+            // Sorts out onpush issue
+            this.inPlayMarble = new Marble();
             this.inPlayMarble = null;
         }
 

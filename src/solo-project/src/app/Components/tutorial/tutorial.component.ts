@@ -8,7 +8,7 @@ export interface tableData {
   imgLink: string;
   description: string;
   isLike: string;
-  gifLink:string;
+  gifLink: string;
 }
 
 const ITEM_DATA: tableData[] = [
@@ -65,7 +65,7 @@ const ITEM_DATA: tableData[] = [
     imgLink: "assets/gear.svg",
     description: `Gears are the only components that can be placed
       on Pins as well as Component Slots. Gears only connect GearBits 
-      so they can turn together. If a marble touches a Gear it will fall.`,
+      so they can turn together. If a marble touches a Gear it will fall. When a Gear Bit is connected to a Gear, a small arrow will be displayed`,
     isLike: 'Connectors in more complicated switch combinations',
     gifLink: "assets/gear-gif.gif",
   },
@@ -76,9 +76,9 @@ const ITEM_DATA: tableData[] = [
       state by pointing left or right and will send a ball in the
       opposite direction it is facing and then change direction.
       A Gear Bit not connected to a Gear will act and behave exactly 
-      like a normal Bit component. When a gear bit changes direction
+      like a normal Bit component. When a Gear Bit changes direction
       it will also turn any connecting gears this direction which can
-      then in turn change other gears and gear bits.`,
+      then in turn change other Gears and Gear Bits.`,
     isLike: 'Can be used to create set switches, latches, flip flops and more complicated components',
     gifLink: "assets/gear-bit-gif.gif"
   }
@@ -114,7 +114,7 @@ const OPTION_DATA: any[] = [
 export class TutorialComponent implements OnInit {
   dataSource = ITEM_DATA;
   optionData = OPTION_DATA;
-  displayColumns = ['name', 'description', 'isLike','gif'];
+  displayColumns = ['name', 'description', 'isLike', 'gif'];
   exampleMarbles: MarblePair[] = [];
   examplePuzzle: Puzzle;
 
