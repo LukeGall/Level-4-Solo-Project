@@ -53,8 +53,9 @@ export class PlainBoardComponent implements OnInit {
 
 
   changeSpeed(value: number) {
-    this.board.setSpeed(value);
+    this.board.setSpeed(3200-value);
   }
+
 
   increaseMarble(colour: string) {
     this.board.increaseMarble(colour);

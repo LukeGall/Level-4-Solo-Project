@@ -38,7 +38,7 @@
         <app-flipper [colour]="'red'" (clickedFlipper)="clickedFlipper($event)" [inPlay]="board.inPlay"></app-flipper>
       </mat-grid-tile>
       <mat-grid-tile>
-        <mat-slider #SpeedSliderMs invert min="100" max="3100" step="100" value="1500" id="mat-slider"
+        <mat-slider #SpeedSliderMs min="100" max="3100" step="100" value="1500" id="mat-slider"
           (input)="changeSpeed(SpeedSliderMs.value)" color="primary">
         </mat-slider>
       </mat-grid-tile>

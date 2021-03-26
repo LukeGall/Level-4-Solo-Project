@@ -23,7 +23,7 @@ export class MakePuzzleComponent implements OnInit {
   }
 
   changeSpeed(value: number) {
-    this.puzzleBoard.setSpeed(value);
+    this.puzzleBoard.setSpeed(3200-value);
   }
 
   notStarting(): boolean{

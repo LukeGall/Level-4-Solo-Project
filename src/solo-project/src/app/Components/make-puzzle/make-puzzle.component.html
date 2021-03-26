@@ -2,10 +2,11 @@
     <div *ngIf="!isDone(); else confirmation">
         <div id=selectionBar>
             <app-selection-bar [heldPart]="puzzleBoard.heldPiece" [partList]="puzzleBoard.boardPieces"
-                (clickHolding)="setHolding($event)" (clearMarbles)="puzzleBoard.clearMarbles()" (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()"
-                (reset)="clearBoard()" [isPuzzleBoard]="true" (confStartingPieces)="confirmStarting()"
-                [boardState]="puzzleBoard.boardState" (confPuzzleOutput)="confirmBoard(user.displayName)"
-                [inPlay]="puzzleBoard.inPlay" (goBack)="puzzleBoard.goBackToStarting()"></app-selection-bar>
+                (clickHolding)="setHolding($event)" (clearMarbles)="puzzleBoard.clearMarbles()"
+                (stepBoard)="boardStep()" (triggerPlay)="triggerPlay()" (reset)="clearBoard()" [isPuzzleBoard]="true"
+                (confStartingPieces)="confirmStarting()" [boardState]="puzzleBoard.boardState"
+                (confPuzzleOutput)="confirmBoard(user.displayName)" [inPlay]="puzzleBoard.inPlay"
+                (goBack)="puzzleBoard.goBackToStarting()"></app-selection-bar>
 
         </div>
         <div id="boardSide">
@@ -46,7 +47,7 @@
                         </app-flipper>
                     </mat-grid-tile>
                     <mat-grid-tile>
-                        <mat-slider #SpeedSliderMs invert min="100" max="3100" step="100" value="1500" id="mat-slider"
+                        <mat-slider #SpeedSliderMs min="100" max="3100" step="100" value="1500" id="mat-slider"
                             (input)="changeSpeed(SpeedSliderMs.value)" color="primary">
                         </mat-slider>
                     </mat-grid-tile>
@@ -56,7 +57,8 @@
     </div>
 
     <ng-template #confirmation>
-        <button mat-raised-button color="primary" style="margin: 3%;" (click)="puzzleBoard.goBackToSolution()">Previous Step</button>
+        <button mat-raised-button color="primary" style="margin: 3%;" (click)="puzzleBoard.goBackToSolution()">Previous
+            Step</button>
         <div id="confirm">
             <app-prompt-card class="prompt" [boardState]="this.puzzleBoard.boardState"></app-prompt-card>
             <div id="form">

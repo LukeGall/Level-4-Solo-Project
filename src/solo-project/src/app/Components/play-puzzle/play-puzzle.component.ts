@@ -21,7 +21,7 @@ export class PlayPuzzleComponent implements AfterContentChecked {
   }
 
   changeSpeed(value: number) {
-    this.board.setSpeed(value);
+    this.board.setSpeed(3200-value);
   }
 
   goHome() {

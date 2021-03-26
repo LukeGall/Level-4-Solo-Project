@@ -419,3 +419,6 @@
 * *1 hour* Cleanup of onpush changes
 * *3 hour* Adding indication when Gear Bits are connected
 * *1 hour* Fix up of tutorial gifs to match new Gear Bit interaction
+* *2 hour* Rewrite of presentation and record
+
+### 26 Mar 2021
