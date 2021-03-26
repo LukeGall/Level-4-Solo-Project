@@ -48,6 +48,14 @@ export class PuzzleListComponent implements OnInit {
         );
     }
 
+    pageSizeChange(val: any){
+        if(val <= 0){
+            val = 1;
+        }
+        this.pageSize = val;
+        this.puzzlePage = this.puzzles.slice(0,this.pageSize);
+    }
+
     setPuzzleTo(x: number) {
         this.puzzleId = x + this.pageSize * this.curIndex;
     }

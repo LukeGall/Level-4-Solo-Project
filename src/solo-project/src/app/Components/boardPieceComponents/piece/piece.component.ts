@@ -62,14 +62,11 @@ export class PieceComponent implements OnChanges {
 
   getJoins(): number[]{
     if(this.piece && this.piece instanceof GearBit){
-      console.log(this.piece.joins);
       const joins = this.piece.joins;
       if(joins.includes(1)) this.hasL = true;
       if(joins.includes(2)) this.hasU = true;
       if(joins.includes(3)) this.hasR = true;
       if(joins.includes(4)) this.hasD = true;
-
-      console.log(this.hasL);
       return joins;
     }
   }

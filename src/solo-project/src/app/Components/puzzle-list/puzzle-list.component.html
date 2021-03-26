@@ -7,26 +7,35 @@
     <ng-template #loaded>
         <div *ngIf="!checkPuzzleId(); else showPuzzle">
             <div id="list-content">
-                <div class="chip-list">
-                    <mat-form-field style="width: 100%;">
-                        <mat-chip-list #diffList aria-label="Difficulty Selection">
-                            <mat-chip *ngFor="let diff of difficultyList" (removed)="remove(diff)">
-                                {{diff}}
-                                <mat-icon matChipRemove>cancel</mat-icon>
-                            </mat-chip>
-                            <input placeholder="Difficulty filter" #diffInput [formControl]="frmControl"
-                                [matAutocomplete]="auto" [matChipInputFor]="diffList"
-                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                                (matChipInputTokenEnd)="addDiff($event)">
-                        </mat-chip-list>
-                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="addAutoCmpt($event)">
-                            <mat-option *ngFor="let diff of fullDiffList">
-                                {{diff}}
-                            </mat-option>
-                        </mat-autocomplete>
-                    </mat-form-field>
+                <div style="width:80%; margin:auto">
+                    <mat-grid-list cols="2" rowHeight="10vh">
+                        <mat-grid-tile>
+                                <mat-form-field class="chip-list">
+                                    <mat-chip-list #diffList aria-label="Difficulty Selection">
+                                        <mat-chip *ngFor="let diff of difficultyList" (removed)="remove(diff)">
+                                            {{diff}}
+                                            <mat-icon matChipRemove>cancel</mat-icon>
+                                        </mat-chip>
+                                        <input placeholder="Difficulty filter" #diffInput [formControl]="frmControl"
+                                            [matAutocomplete]="auto" [matChipInputFor]="diffList"
+                                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                            (matChipInputTokenEnd)="addDiff($event)">
+                                    </mat-chip-list>
+                                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="addAutoCmpt($event)">
+                                        <mat-option *ngFor="let diff of fullDiffList">
+                                            {{diff}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                            <mat-form-field appearance="standard" style="width:80%">
+                                <mat-label>Page Size</mat-label>
+                                <input matInput [value]="pageSize" (keyup.enter)="pageSizeChange($event.target.value)">
+                            </mat-form-field>
+                        </mat-grid-tile>
+                    </mat-grid-list>
                 </div>
-
                 <div *ngFor="let puzzle of puzzlePage; index as i" class="card">
                     <app-puzzle-card [puzzle]="puzzle" [index]=i (puzzleClicked)="setPuzzleTo($event)">
                     </app-puzzle-card>
@@ -40,7 +49,8 @@
         </div>
 
         <ng-template #showPuzzle>
-            <app-play-puzzle [puzzle]="this.puzzles[puzzleId]" (home)="goHome()" (nextPuzzle)="nextPuzzle()"></app-play-puzzle>
+            <app-play-puzzle [puzzle]="this.puzzles[puzzleId]" (home)="goHome()" (nextPuzzle)="nextPuzzle()">
+            </app-play-puzzle>
         </ng-template>
     </ng-template>
 </div>
