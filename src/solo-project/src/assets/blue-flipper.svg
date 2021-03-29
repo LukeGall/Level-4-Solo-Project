@@ -1,0 +1,34 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="402" height="402" id="canvas_background" fill="none"/>
+  <g id="canvasGrid" display="none">
+   <rect id="svg_2" width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <ellipse ry="66" rx="66" id="svg_1" cy="200" cx="200" opacity="undefined" stroke="#000" fill="#000000"/>
+  <g id="svg_25">
+   <g transform="rotate(-5.11937, 200, 200) matrix(0.333333, 0, 0, 0.333333, 0, 0)" id="svg_22">
+    <title>background</title>
+    <rect fill="none" id="svg_17" height="402" width="402" y="399.00064" x="399.00064" stroke-width="3"/>
+    <g display="none" id="svg_15">
+     <rect fill="url(#gridpattern)" stroke-width="3" y="400.00064" x="400.00064" height="400" width="400" id="svg_16"/>
+    </g>
+   </g>
+   <g transform="matrix(1.2807, 0, 0, 1.2807, -532.422, -604.422)" id="svg_24">
+    <title>Layer 1</title>
+    <ellipse ry="35" rx="35" id="svg_12" cy="628.11118" cx="571.89199" stroke-width="3" stroke="#000" fill="#2a51ed"/>
+   </g>
+  </g>
+  <rect stroke-width="0" transform="rotate(45, 276, 125.5)" id="svg_3" height="95" width="24" y="78" x="264" opacity="undefined" stroke="#000" fill="#000000"/>
+  <rect stroke-width="0" transform="rotate(45, 130, 271.5)" id="svg_4" height="95" width="24" y="224" x="118" opacity="undefined" stroke="#000" fill="#000000"/>
+  <rect stroke-width="0" transform="rotate(-45, 130, 125.5)" id="svg_5" height="95" width="24" y="78" x="118" opacity="undefined" stroke="#000" fill="#000000"/>
+  <rect stroke-width="0" transform="rotate(45, 274, 125.5)" id="svg_6" height="95" width="24" y="78" x="262" opacity="undefined" stroke="#000" fill="#000000"/>
+  <rect stroke-width="0" transform="rotate(-45, 274, 271.5)" id="svg_7" height="95" width="24" y="224" x="262" opacity="undefined" stroke="#000" fill="#000000"/>
+ </g>
+</svg>

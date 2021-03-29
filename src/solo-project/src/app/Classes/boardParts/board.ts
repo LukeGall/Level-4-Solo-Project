@@ -15,6 +15,8 @@ import { Example4 } from '../exampleBoards/example4';
 import { Piece } from '../piece.enum';
 import { CompSlot } from './comp-slot';
 import { Direction } from './direction';
+import { Dispenser } from './dispenser';
+import { Flipper } from './flipper';
 import { Marble } from './marble';
 import { MarblePair } from './marblePair';
 import { Pin } from './pin';
@@ -38,22 +40,28 @@ export class Board {
     constructor(numOfMarbles: number) {
         this.slots[0] = new Array<Slot>();
         this.slots[1] = new Array<Slot>();
+        this.slots[2] = new Array<Slot>();
 
+        this.slots[0].push(null, null, null, new Dispenser(new Pos(0, 3), 'blue'), null, null, null, new Dispenser(new Pos(0, 7), 'red'), null, null, null);
         // Add the 2 top unique rows
-        this.slots[0].push(null, null, new Pin(), new CompSlot(), new Pin(), null, new Pin(), new CompSlot(), new Pin(), null, null);
-        this.slots[1].push(null, new Pin(), new CompSlot(), new Pin(), new CompSlot(), new Pin(), new CompSlot(), new Pin(), new CompSlot(), new Pin(), null);
+        this.slots[1].push(null, null, new Pin(), new CompSlot(), new Pin(), null, new Pin(), new CompSlot(), new Pin(), null, null);
+        this.slots[2].push(null, new Pin(), new CompSlot(), new Pin(), new CompSlot(), new Pin(), new CompSlot(), new Pin(), new CompSlot(), new Pin(), null);
 
         // Adds the standard rows
-        for (var i = 2; i < 10; i++) {
+        for (var i = 3; i < 11; i++) {
             this.slots[i] = new Array<Slot>();
             for (var j = 0; j < 11; j++) {
-                this.slots[i].push(((j + i) % 2 == 0) ? new Pin() : new CompSlot());
+                this.slots[i].push(((j + i) % 2 != 0) ? new Pin() : new CompSlot());
             }
         }
 
         // Add the last unique row
-        this.slots[10] = new Array<Slot>();
-        this.slots[10].push(null, null, null, null, new Pin(), new CompSlot(), new Pin(), null, null, null, null);
+        const bluePos = new Pos(0, 3);
+        const redPos = new Pos(0, 7);
+        this.slots[11] = new Array<Slot>();
+        this.slots[11].push(null, new Flipper(bluePos, 'blue'), null, new Flipper(bluePos, 'blue'), new Pin(), new CompSlot(), new Pin(), new Flipper(redPos, 'red'), null, new Flipper(redPos, 'red'), null);
+        this.slots[12] = new Array<Slot>();
+        this.slots[12].push(null, null, null, null, new Flipper(bluePos, 'blue'), null, new Flipper(redPos, 'red'), null, null, null, null);
 
         // Add the marbles
         this.blueMarbles = numOfMarbles;
@@ -108,18 +116,32 @@ export class Board {
         }
     }
 
-    private releaseMarble(colour: string) {
+    private releaseMarble(colour: string, pos?: Pos) {
         if (colour == "blue") {
             if (this.blueMarbles > 0) {
                 this.blueMarbles--;
-                this.inPlayMarble = new Marble("blue");
+                if (pos) {
+                    const slot = this.slots[pos.x][pos.y] as Dispenser;
+                    this.inPlayMarble = slot.outputMarble();
+                } else if (this.slots[0][3] instanceof Dispenser) {
+                    this.inPlayMarble = (this.slots[0][3] as Dispenser).outputMarble();
+                } else {
+                    this.inPlayMarble = new Marble('blue');
+                }
             } else {
                 this.inPlayMarble = null;
             }
         } else {
             if (this.redMarbles > 0) {
                 this.redMarbles--;
-                this.inPlayMarble = new Marble("red");
+                if (pos) {
+                    const slot = this.slots[pos.x][pos.y] as Dispenser;
+                    this.inPlayMarble = slot.outputMarble();
+                } else if (this.slots[0][7] instanceof Dispenser) {
+                    this.inPlayMarble = (this.slots[0][7] as Dispenser).outputMarble();
+                } else {
+                    this.inPlayMarble = new Marble('red');
+                }
             } else {
                 this.inPlayMarble = null;
             }
@@ -170,10 +192,10 @@ export class Board {
     private dropMarble() {
         let marble = this.inPlayMarble;
         if (marble != undefined) {
-            if (this.marbleInBounds(marble.position) && marble.direction != Direction.stopped) {
+            if (marble.direction != Direction.stopped) {
                 let slot = this.slots[marble.position.x][marble.position.y];
 
-                if (slot.partName == 'CompSlot') {
+                if (slot && slot.partName == 'CompSlot') {
                     if (slot.piece && !(slot.piece.type == Piece.Gear)) {
                         let oldPos = new Pos(marble.position.x, marble.position.y);
                         let [newPiece, newMarble] = slot.piece.processMarble(marble);
@@ -189,21 +211,23 @@ export class Board {
                         if (newMarble.position.y < 0) {
                             newMarble.position.y = 0;
 
-                        } else if (newMarble.position.y > 10) {
-                            newMarble.position.y = 10;
+                        } else if (newMarble.position.y > this.slots[0].length - 1) {
+                            newMarble.position.y = this.slots[0].length - 1;
                         }
                         this.inPlayMarble = newMarble;
                     } else {
                         this.marbleFall();
                         return;
                     }
+                } else if (slot instanceof Flipper) {
+                    console.log("flip");
+                    const posOfDis = slot.getPosOfDis();
+                    this.updateList(marble);
+                    this.releaseMarble(slot.colour, posOfDis);
                 } else {
-                    this.marbleFall();
+                    this.workOutFlipperColour(marble);
                     return;
                 }
-            }
-            else if (marble.direction != Direction.stopped) {
-                this.workOutFlipperColour(marble);
             } else {
                 this.intercepted = true;
                 this.inPlay = false;
@@ -212,7 +236,7 @@ export class Board {
     }
 
     private marbleInBounds(position: Pos): boolean {
-        return (position.x >= 0 && position.x < 10 && position.y >= 0 && position.y <= 10)
+        return (position.x >= 0 && position.x < this.slots.length && position.y >= 0 && position.y <= this.slots[0].length)
     }
 
     private marbleFall() {
@@ -220,23 +244,25 @@ export class Board {
         this.inPlay = false;
     }
 
+    // Would need to change it so it is the last row that can just keep going or check if pin or compslot 
     workOutFlipperColour(marble: Marble) {
         // Makes sure any balls sent to the sides is only valid on the last 2 rows
-        if (marble.position.x >= 10) {
-            if (marble.position.x == 10 && marble.position.y == 5 && this.slots[10][5].piece) {
-                let [newPiece, newMarble] = this.slots[10][5].piece.processMarble(marble);
+        const lastRow = this.slots.length - 1;
+        if (marble.position.x >= lastRow) {
+            if (marble.position.x == lastRow && marble.position.y == 5 && this.slots[lastRow][5].piece) {
+                let [newPiece, newMarble] = this.slots[lastRow][5].piece.processMarble(marble);
                 if (newPiece) {
-                    this.slots[10][5].piece = newPiece;
+                    this.slots[lastRow][5].piece = newPiece;
                 }
                 this.inPlayMarble = newMarble;
                 marble = newMarble;
             }
 
             let posY = marble.position.y;
-            if (posY > -1 && posY < 5) {
+            if (posY > -1 && posY < this.slots[0].length) {
                 this.updateList(marble);
                 this.releaseMarble("blue");
-            } else if (posY > 5 && posY < 11) {
+            } else if (posY > 5 && posY < this.slots[0].length) {
                 this.updateList(marble);
                 this.releaseMarble("red");
             } else {

@@ -10,9 +10,8 @@
             </ng-template>
         </div>
         <ng-template #marbleFall>
-            <img *ngIf="marble.colour=='blue'; else redMarble" width="100%" height="100%"
-                src="assets/blue-marble-fall.svg" alt="Blue marble fall">
-            <ng-template #redMarble><img width="100%" height="100%" src="assets/red-marble-fall.svg" alt="Red marble fall"></ng-template>
+            <img width="100%" height="100%"
+                [src]="fallImg" alt="Marble fall">
         </ng-template>
     </ng-template>
 </div>
