@@ -21,6 +21,7 @@ export class Gear extends BoardPiece {
     }
 
     click() {
+        return false;
     }
 
 }

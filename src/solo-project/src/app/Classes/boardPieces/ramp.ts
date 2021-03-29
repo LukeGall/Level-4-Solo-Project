@@ -19,18 +19,17 @@ export class Ramp extends BoardPiece {
         marble.position.y += this.direction;
         marble.direction = this.direction;
 
-        let newPiece = new Ramp(null,null);
         let newMarble = new Marble();
         Object.assign(newMarble, marble);
-        Object.assign(newPiece, this);
 
-        return [newPiece, newMarble];
+        return [this, newMarble];
     }
 
 
 
     click() {
         this.switchDirection();
+        return true;
     }
 
 

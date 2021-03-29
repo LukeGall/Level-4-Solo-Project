@@ -8,7 +8,7 @@ import { parseSlotString, slotsToString } from 'src/app/Shared/convert-functions
 @Component({
   selector: 'app-plain-board',
   templateUrl: './plain-board.component.html',
-  styleUrls: ['./plain-board.component.scss']
+  styleUrls: ['./plain-board.component.scss'],
 })
 export class PlainBoardComponent implements OnInit {
   board: Board = null;
@@ -17,15 +17,18 @@ export class PlainBoardComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.board = new Board(18);
+    const newBoard = new Board(18);
     const number = this.route.snapshot.paramMap.get('example');
     if(number){
       this.setExample(Number(number));
     }
+    this.board = newBoard;
   }
 
   setExample(examNumber: number) {
-    this.board.setExample(examNumber);
+    const newBoard = new Board(18);
+    newBoard.setExample(examNumber);
+    this.board = newBoard;
   }
 
   saveBoard() {

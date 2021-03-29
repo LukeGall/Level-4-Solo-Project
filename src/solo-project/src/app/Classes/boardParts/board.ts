@@ -83,7 +83,7 @@ export class Board {
     increaseMarble(colour: string) {
         if (colour == "blue") {
             this.blueMarbles++;
-        } else {
+        } else if (colour == "red") {
             this.redMarbles++;
         }
     }
@@ -92,7 +92,7 @@ export class Board {
         if (colour == "blue") {
             if (this.blueMarbles > 0)
                 this.blueMarbles--;
-        } else {
+        } else if (colour == "red") {
             if (this.redMarbles > 0)
                 this.redMarbles--;
         }
@@ -116,7 +116,7 @@ export class Board {
             } else {
                 this.inPlayMarble = null;
             }
-        } else {
+        } else if (colour == "red") {
             if (this.redMarbles > 0) {
                 this.redMarbles--;
                 this.inPlayMarble = new Marble("red");
@@ -168,38 +168,34 @@ export class Board {
     }
 
     private dropMarble() {
-        let marble = this.inPlayMarble;
+        const marble = this.inPlayMarble;
         if (marble != undefined) {
             if (this.marbleInBounds(marble.position) && marble.direction != Direction.stopped) {
-                let slot = this.slots[marble.position.x][marble.position.y];
+                const slot = this.slots[marble.position.x][marble.position.y];
 
-                if (slot.partName == 'CompSlot') {
-                    if (slot.piece && !(slot.piece.type == Piece.Gear)) {
-                        let oldPos = new Pos(marble.position.x, marble.position.y);
-                        let [newPiece, newMarble] = slot.piece.processMarble(marble);
+                if (slot.partName == 'CompSlot' && slot.piece && slot.piece.type != Piece.Gear) {
+                    const oldPos = new Pos(marble.position.x, marble.position.y);
+                    const [newPiece, newMarble] = slot.piece.processMarble(marble);
 
-                        if (newPiece) {
-                            slot.piece = this.getNewPiece(newPiece.type, newPiece.direction, newPiece.position, newPiece.locked);
-                        }
-
-                        if (slot.piece.type == Piece.GearBit) {
-                            this.gearSpin(oldPos);
-                        }
-
-                        if (newMarble.position.y < 0) {
-                            newMarble.position.y = 0;
-
-                        } else if (newMarble.position.y > 10) {
-                            newMarble.position.y = 10;
-                        }
-                        this.inPlayMarble = newMarble;
-                    } else {
-                        this.marbleFall();
-                        return;
+                    if (newPiece) {
+                        slot.piece = this.getNewPiece(newPiece.type, newPiece.direction, newPiece.position, newPiece.locked);
                     }
+
+                    if (slot.piece.type == Piece.GearBit) {
+                        this.gearSpin(oldPos);
+                    }
+
+                    // When it hits a wall and falls down instead of out of bounds
+                    if (newMarble.position.y < 0) {
+                        newMarble.position.y = 0;
+
+                    } else if (newMarble.position.y > 10) {
+                        newMarble.position.y = 10;
+                    }
+
+                    this.inPlayMarble = newMarble;
                 } else {
                     this.marbleFall();
-                    return;
                 }
             }
             else if (marble.direction != Direction.stopped) {
@@ -212,7 +208,9 @@ export class Board {
     }
 
     private marbleInBounds(position: Pos): boolean {
-        return (position.x >= 0 && position.x < 10 && position.y >= 0 && position.y <= 10)
+        // The last 2 rows can allow a new marble to be released 
+        const len = this.slots.length - 1;
+        return (position.x >= 0 && position.x < len && position.y >= 0 && position.y <= len)
     }
 
     private marbleFall() {
@@ -221,19 +219,19 @@ export class Board {
     }
 
     workOutFlipperColour(marble: Marble) {
-        // Makes sure any balls sent to the sides is only valid on the last 2 rows
-        if (marble.position.x >= 10) {
-            if (marble.position.x == 10 && marble.position.y == 5 && this.slots[10][5].piece) {
-                let [newPiece, newMarble] = this.slots[10][5].piece.processMarble(marble);
+        const lastRow = this.slots.length - 1;
+        if (marble.position.x >= lastRow) {
+            if (marble.position.x == lastRow && marble.position.y == 5 && this.slots[lastRow][5].piece) {
+                const [newPiece, newMarble] = this.slots[lastRow][5].piece.processMarble(marble);
                 if (newPiece) {
-                    this.slots[10][5].piece = newPiece;
+                    this.slots[lastRow][5].piece = newPiece;
                 }
                 this.inPlayMarble = newMarble;
                 marble = newMarble;
             }
 
-            let posY = marble.position.y;
-            if (posY > -1 && posY < 5) {
+            const posY = marble.position.y;
+            if (posY >= 0 && posY < 5) {
                 this.updateList(marble);
                 this.releaseMarble("blue");
             } else if (posY > 5 && posY < 11) {
@@ -248,24 +246,24 @@ export class Board {
     }
 
     protected updateList(marble: Marble) {
-        let len = this.collectedMarbles.length;
+        const len = this.collectedMarbles.length;
         if (len > 0 && this.collectedMarbles[len - 1].colour == marble.colour) {
             this.collectedMarbles[len - 1].amount += 1;
         } else {
             this.collectedMarbles.push(new MarblePair(1, marble.colour));
         }
-        this.collectedMarbles = Object.assign(new Array<MarblePair>(), this.collectedMarbles)
+        this.collectedMarbles = Object.assign(new Array<MarblePair>(), this.collectedMarbles);
     }
 
     private getSetOfJoining(position: Pos, setVisited: Set<string>, setAccepted: Set<Slot>) {
         // Breadth first style search to get all the GearBits that are connected to each other
         setVisited.add(JSON.stringify(position));
 
-        let xPos = position.x;
-        let yPos = position.y;
+        const xPos = position.x;
+        const yPos = position.y;
 
-        let slot = this.slots[xPos][yPos]
-        let connections = [new Pos(xPos - 1, yPos), new Pos(xPos + 1, yPos), new Pos(xPos, yPos - 1), new Pos(xPos, yPos + 1)];
+        const slot = this.slots[xPos][yPos]
+        const connections = [new Pos(xPos - 1, yPos), new Pos(xPos + 1, yPos), new Pos(xPos, yPos - 1), new Pos(xPos, yPos + 1)];
         if (slot && slot.piece) {
             if (slot.piece.type == Piece.Gear || slot.piece.type == Piece.GearBit) {
                 if (slot.piece.type == Piece.GearBit) {
@@ -281,10 +279,10 @@ export class Board {
     }
 
 
-    gearSpin(position: Pos) {
+    gearSpin(position: Pos, gearClick? : boolean) {
         // Will check what neighboring gears will need to spin to match
-        let visitedPos = new Set<string>();
-        let acceptedPos = new Set<Slot>();
+        const visitedPos = new Set<string>();
+        const acceptedPos = new Set<Slot>();
         this.getSetOfJoining(position, visitedPos, acceptedPos);
 
         var firstEle: boolean = true;
@@ -294,22 +292,21 @@ export class Board {
             if (firstEle) {
                 firstEle = false;
                 dirForGbs = val.piece.direction;
+                if(gearClick)
+                    dirForGbs = val.piece.direction == Direction.left ? Direction.right : Direction.left;
             }
 
-            if (val.piece instanceof GearBit) {
-                val.piece = this.getNewPiece(val.piece.type, dirForGbs, val.piece.position, val.piece.locked);
-            }
-
+            val.piece = this.getNewPiece(val.piece.type, dirForGbs, val.piece.position, val.piece.locked);
         }
     }
 
     clickPiece(pos: Pos): boolean {
-        let changed = false;
-        let newPiece: BoardPiece;
-        let slot = this.slots[pos.x][pos.y];
-        let oppDirection: Direction = null;
+        var changed = false;
+        var newPiece: BoardPiece;
+        const slot = this.slots[pos.x][pos.y];
+        var oppDirection: Direction = null;
 
-        // Will let users add new piece but make sure old marble is removed if caught by interceptor  
+        // Will add new piece but make sure old marble is removed if caught by interceptor  
         if (this.intercepted) {
             this.intercepted = false;
             // Sorts out onpush issue
@@ -323,7 +320,7 @@ export class Board {
             }
         }
 
-        let dir = oppDirection ? oppDirection : Direction.left
+        const dir = oppDirection ? oppDirection : Direction.left
         newPiece = this.getNewPiece(this.heldPiece, dir, pos);
 
 
@@ -353,13 +350,13 @@ export class Board {
         // If just clicked
         if (!changed && slot.piece) {
             if (slot.piece.locked) {
-                slot.piece.click();
-                slot.piece = this.getNewPiece(slot.piece.type, dir, pos, true);
+                if(slot.piece.click())
+                    slot.piece = this.getNewPiece(slot.piece.type, dir, pos, true);
             } else {
                 slot.piece = newPiece;
             }
             if (slot.piece.type == Piece.Gear || slot.piece.type == Piece.GearBit) {
-                this.gearSpin(pos);
+                this.gearSpin(pos, slot.piece.type == Piece.Gear);
             }
         }
 
@@ -367,7 +364,7 @@ export class Board {
     }
 
     setExample(examNumber: number) {
-        let example: Slot[][];
+        var example: Slot[][];
         switch (examNumber) {
             case 1:
                 example = parseSlotString(Example1.example1);
@@ -386,7 +383,7 @@ export class Board {
     }
 
     protected getNewPiece(oldPiece: Piece, dir: Direction, pos: Pos, lock?: boolean): BoardPiece {
-        let newPiece: BoardPiece;
+        var newPiece: BoardPiece;
         switch (oldPiece) {
             case Piece.Ramp:
                 newPiece = (new Ramp(dir, pos));
@@ -399,7 +396,7 @@ export class Board {
                 const joins: number[] = [];
                 const xPos = pos.x;
                 const yPos = pos.y;
-                let connections = [new Pos(xPos, yPos - 1), new Pos(xPos - 1, yPos), new Pos(xPos, yPos + 1), new Pos(xPos + 1, yPos)];
+                const connections = [new Pos(xPos, yPos - 1), new Pos(xPos - 1, yPos), new Pos(xPos, yPos + 1), new Pos(xPos + 1, yPos)];
                 for (var i = 0; i < connections.length; i++) {
                     const tempPos = connections[i];
                     if (this.marbleInBounds(tempPos)) {

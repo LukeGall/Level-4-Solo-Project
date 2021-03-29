@@ -23,5 +23,6 @@ export class Crossover extends BoardPiece {
 
 
     click() {
+        return false;
     }
 }

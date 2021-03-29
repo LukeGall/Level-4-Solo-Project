@@ -6,6 +6,7 @@ import { boardState } from 'src/app/Classes/puzzle-board';
   selector: 'app-selection-bar',
   templateUrl: './selection-bar.component.html',
   styleUrls: ['./selection-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SelectionBarComponent implements OnChanges {
   @Input() partList: Map<Piece, number>;

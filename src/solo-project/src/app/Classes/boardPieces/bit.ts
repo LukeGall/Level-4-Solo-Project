@@ -15,8 +15,9 @@ export class Bit extends BoardPiece {
     }
 
 
-    click() {
+    click(): boolean {
         this.switchDirection();
+        return true;
     }
 
     private switchDirection() {
@@ -28,12 +29,10 @@ export class Bit extends BoardPiece {
         marble.position.y -= this.direction;
         this.switchDirection();
         marble.direction = this.direction;
-        
-        let newBit = new Bit(null,null);
+                
         let newMarble = new Marble();
         Object.assign(newMarble, marble);
-        Object.assign(newBit, this);
 
-        return [newBit, newMarble];
+        return [this, newMarble];
     }
 }

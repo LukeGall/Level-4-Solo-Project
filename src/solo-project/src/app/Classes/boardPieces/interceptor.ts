@@ -22,6 +22,7 @@ export class Interceptor extends BoardPiece {
     }
 
     click() {
+        return false;
     }
 
 }

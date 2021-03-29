@@ -23,9 +23,7 @@ export class PuzzleBoard extends Board {
 
     constructor() {
         super(0);
-        for (const pair of this.boardPieces) {
-            this.boardPieces.set(pair[0], 0);
-        }
+        this.resetPieceCount();
     }
 
     increaseMarble(colour: string) {
@@ -38,7 +36,7 @@ export class PuzzleBoard extends Board {
     private cloneMarbles(colour: string) {
         if (colour == "blue") {
             this.startingBlueMarbles = this.blueMarbles;
-        } else {
+        } else if (colour == "red") {
             this.startingRedMarbles = this.redMarbles;
         }
     }
@@ -73,16 +71,8 @@ export class PuzzleBoard extends Board {
             this.boardState = boardState.done;
 
             this.solutionSlot = slotsToString(this.slots);
-
-            // this.slots = parseSlotString(this.startingSlots);
-            // this.collectedMarbles = new Array<MarblePair>();
-            // this.heldPiece = Piece.Delete;
-
             this.startingPieces = cloneDeep(this.boardPieces);
-
             this.expectedResults = cloneDeep(this.collectedMarbles);
-            // this.blueMarbles = this.startingBlueMarbles;
-            // this.redMarbles = this.startingRedMarbles;
         }
     }
 
@@ -93,12 +83,10 @@ export class PuzzleBoard extends Board {
     goBackToStarting() {
         this.boardState = boardState.starting;
         this.slots = parseSlotString(this.startingSlots);
-        for (const pair of this.boardPieces) {
-            this.boardPieces.set(pair[0], 0);
-        }
+        this.resetPieceCount();
     }
 
-    goBackToSolution(){
+    goBackToSolution() {
         this.boardState = boardState.solutionMaking;
     }
 
@@ -116,9 +104,7 @@ export class PuzzleBoard extends Board {
                 })
             })
             if (this.boardState == boardState.solutionMaking) {
-                for (const pair of this.boardPieces) {
-                    this.boardPieces.set(pair[0], 0);
-                }
+                this.resetPieceCount();
             } else if (this.boardState == boardState.playing) {
                 this.boardPieces = cloneDeep(this.startingPieces);
                 this.blueMarbles = this.startingBlueMarbles;
@@ -131,6 +117,14 @@ export class PuzzleBoard extends Board {
         super.clearMarbles();
         this.blueMarbles = this.startingBlueMarbles;
         this.redMarbles = this.startingRedMarbles;
+    }
+
+    private resetPieceCount(): void {
+        const tempMap = this.boardPieces;
+        for (const pair of this.boardPieces) {
+            tempMap.set(pair[0], 0);
+        }
+        this.boardPieces = new Map(...tempMap);
     }
 
     clickPiece(pos: Pos): boolean {
@@ -186,8 +180,10 @@ export class PuzzleBoard extends Board {
     }
 
     private changePieceAmount(piece: Piece, amount: number) {
-        let curAmount = this.boardPieces.get(piece);
-        this.boardPieces.set(piece, curAmount + amount);
+        const curAmount = this.boardPieces.get(piece);
+        const tempMap = this.boardPieces;
+        tempMap.set(piece, curAmount + amount);
+        this.boardPieces = new Map(...tempMap);
     }
 }
 

@@ -18,7 +18,7 @@ export class BoardPiece {
 
     processMarble(marble: Marble): any[] { return null };
 
-    click() { };
+    click():boolean {return false};
 
     ifMarble(marble: Marble): boolean {
         if (marble) {

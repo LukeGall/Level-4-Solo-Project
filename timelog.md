@@ -422,3 +422,11 @@
 * *2 hour* Rewrite of presentation and record
 
 ### 26 Mar 2021
+* *1 hour* Fixing bugs and uploading site
+* *1 hour* Adding page size changer to puzzle list page
+* *3.5 hour* Trying custom dispensers, not working too well :(
+
+## Week 22
+### 29 Mon 2021
+* *2 hour* Refactoring and adding Flippers and Dispensers to board. Part of Possible custom board layouts, not taken any further, left in a separate branch for future work
+* *2 hour* Refactoring and attempted performance increase (didn't work)
