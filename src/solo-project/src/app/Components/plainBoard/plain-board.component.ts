@@ -20,7 +20,7 @@ export class PlainBoardComponent implements OnInit {
     const newBoard = new Board(18);
     const number = this.route.snapshot.paramMap.get('example');
     if(number){
-      this.setExample(Number(number));
+      newBoard.setExample(Number(number));
     }
     this.board = newBoard;
   }

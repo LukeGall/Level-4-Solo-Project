@@ -375,7 +375,7 @@ export class Board {
             case 3:
                 example = parseSlotString(Example3.example3);
                 break;
-            case 4:
+            default:
                 example = parseSlotString(Example4.example4);
                 break;
         }

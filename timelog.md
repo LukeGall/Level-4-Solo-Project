@@ -429,4 +429,4 @@
 ## Week 22
 ### 29 Mon 2021
 * *2 hour* Refactoring and adding Flippers and Dispensers to board. Part of Possible custom board layouts, not taken any further, left in a separate branch for future work
-* *2 hour* Refactoring and attempted performance increase (didn't work)
+* *3 hour* Refactoring and attempted performance increase 

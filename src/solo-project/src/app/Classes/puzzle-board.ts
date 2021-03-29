@@ -124,7 +124,7 @@ export class PuzzleBoard extends Board {
         for (const pair of this.boardPieces) {
             tempMap.set(pair[0], 0);
         }
-        this.boardPieces = new Map(...tempMap);
+        this.boardPieces = new Map([...tempMap]);
     }
 
     clickPiece(pos: Pos): boolean {
@@ -183,7 +183,7 @@ export class PuzzleBoard extends Board {
         const curAmount = this.boardPieces.get(piece);
         const tempMap = this.boardPieces;
         tempMap.set(piece, curAmount + amount);
-        this.boardPieces = new Map(...tempMap);
+        this.boardPieces = new Map([...tempMap]);
     }
 }
 

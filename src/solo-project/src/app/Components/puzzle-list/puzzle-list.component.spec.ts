@@ -13,7 +13,7 @@ describe('DefaultPuzzlesComponent', () => {
     getPuzzles: () => { return of([]) },
     collection: (name: string) => {
       doc: (_id: string) => ({
-        set: (_d: any) => new Promise((resolve, _reject) => resolve()),
+        set: (_d: any) => new Promise((resolve, _reject) => resolve(void)),
       })
     }
   }

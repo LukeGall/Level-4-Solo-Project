@@ -22,6 +22,7 @@ export class SlotComponent implements OnChanges {
   img: string = this.getImg();
   pieceImage: string = this.getPieceImage();
   marbleFall: boolean = this.isMarbleFall();
+  marbleImage: string = this.getMarbleFallImg();
 
   hover = false;
 
@@ -34,11 +35,22 @@ export class SlotComponent implements OnChanges {
 
     if(changes.marble){
       this.marbleFall = this.isMarbleFall();
+      this.marbleImage = this.getMarbleFallImg();
     }
 
     if(changes.heldPiece){
       this.shouldHover = this.getShouldHover();
       this.pieceImage = this.getPieceImage();
+    }
+  }
+
+  getMarbleFallImg(){
+    if(this.marble){
+      if(this.slot){
+        return "assets/"+this.marble.colour+"-marble-fall.svg";
+      } else {
+        return "assets/"+this.marble.colour+"-marble.svg";
+      }
     }
   }
 
