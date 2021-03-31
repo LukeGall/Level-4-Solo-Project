@@ -31,7 +31,7 @@ export class PuzzleListComponent implements OnInit {
     @ViewChild('auto') matAutocomplete: MatAutocomplete;
     @ViewChild('diffInput') diffInput: ElementRef<HTMLInputElement>;
 
-    constructor(private puzzleService: MakePuzzleService, public auth: AngularFireAuth) {
+    constructor(private puzzleService: MakePuzzleService) {
 
     }
 

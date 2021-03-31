@@ -26,6 +26,7 @@ describe('workspace-project App', () => {
     element(by.css('.menu-icon')).click();
 
     element(by.buttonText('Plain Board')).click();
+    element(by.css('.menu-icon')).click();
     element(by.buttonText('Ramp')).click();
   })
 
@@ -34,6 +35,7 @@ describe('workspace-project App', () => {
     element(by.css('.menu-icon')).click()
 
     element(by.buttonText('Tutorial')).click().then(() => {
+    element(by.css('.menu-icon')).click();
       browser.sleep(1000).then(() => {
         expect(element(by.css('.mat-display-3')).getText()).toContain('Tutorial', 'Should have tutorial heading');
       });
@@ -45,6 +47,7 @@ describe('workspace-project App', () => {
     element(by.css('.menu-icon')).click()
 
     element(by.buttonText('Tutorial')).click();
+    element(by.css('.menu-icon')).click();
     element.all((by.css('.mat-tab-label'))).get(1).click().then(() => { browser.sleep(1000) });
     expect(element(by.tagName('p')).getText()).toContain('All pieces', 'Should view next tab');
   })

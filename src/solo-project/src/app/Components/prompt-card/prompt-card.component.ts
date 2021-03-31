@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 import { boardState } from 'src/app/Classes/puzzle-board';
 
 @Component({
@@ -7,12 +7,14 @@ import { boardState } from 'src/app/Classes/puzzle-board';
   styleUrls: ['./prompt-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PromptCardComponent implements OnInit {
+export class PromptCardComponent implements OnChanges {
   @Input() boardState: boardState;
+  output: string = this.promptOutput();
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
+    this.output = this.promptOutput();
   }
 
   promptOutput(): string {

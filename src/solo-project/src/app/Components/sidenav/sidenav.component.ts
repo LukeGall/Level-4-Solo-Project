@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 
 @Component({
@@ -10,7 +11,7 @@ import firebase from 'firebase/app';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor(public auth: AngularFireAuth) { }
+  constructor(public auth: AngularFireAuth, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -30,4 +31,7 @@ export class SidenavComponent implements OnInit {
     this.auth.signOut();
   }
 
+  goToPuzzles(type: string){
+    this.router.navigate(['/puzzles', {path: type}]);
+  }
 }

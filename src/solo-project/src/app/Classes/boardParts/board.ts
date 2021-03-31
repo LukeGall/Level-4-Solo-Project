@@ -352,7 +352,7 @@ export class Board {
             if (slot.piece.locked) {
                 if(slot.piece.click())
                     slot.piece = this.getNewPiece(slot.piece.type, dir, pos, true);
-            } else {
+            } else if(slot.partName != "Pin") {
                 slot.piece = newPiece;
             }
             if (slot.piece.type == Piece.Gear || slot.piece.type == Piece.GearBit) {

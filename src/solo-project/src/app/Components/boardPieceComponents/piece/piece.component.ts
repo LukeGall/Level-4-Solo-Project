@@ -4,6 +4,7 @@ import { Marble } from 'src/app/Classes/boardParts/marble';
 import { BoardPiece } from 'src/app/Classes/boardPieces/board-piece';
 import { GearBit } from 'src/app/Classes/boardPieces/gear-bit';
 import { Piece } from 'src/app/Classes/piece.enum';
+import { AssetService } from 'src/app/Shared/asset.service';
 
 
 @Component({
@@ -16,8 +17,8 @@ export class PieceComponent implements OnChanges {
   @Input() piece: BoardPiece;
   @Input() marble: Marble;
   imgLink: string = this.getImg();
-  blueImgLink: string = this.getBlueImg();
-  redImgLink: string = this.getRedImg();
+  blueImgLink: string = this.getMarbleImg('blue');
+  redImgLink: string = this.getMarbleImg('red');
   needsFlip: boolean = this.getNeedsFlip();
   isLocked: boolean = this.getLocked();
 
@@ -27,13 +28,13 @@ export class PieceComponent implements OnChanges {
   hasU: boolean = false;
   hasD: boolean = false;
 
-  constructor() { }
+  constructor(private assets: AssetService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes.piece){
       this.imgLink = this.getImg()
-      this.blueImgLink =this.getBlueImg();
-      this.redImgLink = this.getRedImg();
+      this.blueImgLink =this.getMarbleImg('blue');
+      this.redImgLink = this.getMarbleImg('red');
       this.needsFlip = this.getNeedsFlip();
       this.isLocked = this.getLocked();
       this.joins = this.getJoins();
@@ -55,13 +56,13 @@ export class PieceComponent implements OnChanges {
 
   getImg(): string {
     if(this.piece){
-      if (this.piece.type == Piece.GearBit) return "assets/gear-bit.svg";
-      return "assets/" + this.piece.type.toLowerCase() + ".svg";
+      return this.assets.getPieceImg(this.piece.type);
     }
   }
 
   getJoins(): number[]{
     if(this.piece && this.piece instanceof GearBit){
+      this.hasL = this.hasU = this.hasD = this.hasR = false;
       const joins = this.piece.joins;
       if(joins.includes(1)) this.hasL = true;
       if(joins.includes(2)) this.hasU = true;
@@ -71,28 +72,14 @@ export class PieceComponent implements OnChanges {
     }
   }
 
-  getBlueImg() {
-    if(this.piece){
-
-      if (this.piece.type == Piece.GearBit) {
-        return "assets/gear-bit-blue.svg";
-      } else if (this.piece.type == Piece.Gear) {
-        return this.getImg();
-      }
-      else {
-        return "assets/" + this.piece.type.toLowerCase() + "-blue.svg";
-      }
-    }
-  }
-
-  getRedImg() {
+  getMarbleImg(colour:string) {
     if(this.piece){
       if (this.piece.type == Piece.GearBit) {
-        return "assets/gear-bit-red.svg";
+        return "assets/gear-bit-"+colour+".svg";
       } else if (this.piece.type == Piece.Gear) {
         return this.getImg();
       } else {
-        return "assets/" + this.piece.type.toLowerCase() + "-red.svg";
+        return "assets/" + this.piece.type.toLowerCase() + "-"+colour+".svg";
       }
     }
   }

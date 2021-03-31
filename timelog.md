@@ -260,7 +260,7 @@
 ### 17 Dec 2020
 * *3 hour* Lit review on wiki plus a write up of all the issues I faced during development
 
-# Semester 2 - 144.5
+# Semester 2 - 175.5
 ## Week 12 - 14 hours
 ### 12 Jan 2021
 * *1 hour* Reading of hall of fame project and note taking
@@ -400,7 +400,7 @@
 ### 19 Mar 2021
 * *2 hour* Final cleanup before proof read
 
-## Week 21
+## Week 21 - 31 hours
 ### 22 Mar 2021
 * *6 hour* Created presentation powerpoint 
 
@@ -427,6 +427,14 @@
 * *3.5 hour* Trying custom dispensers, not working too well :(
 
 ## Week 22
-### 29 Mon 2021
+### 29 Mar 2021
 * *2 hour* Refactoring and adding Flippers and Dispensers to board. Part of Possible custom board layouts, not taken any further, left in a separate branch for future work
-* *3 hour* Refactoring and attempted performance increase 
+* *2.5 hour* Refactoring and attempted performance increase 
+* *0.5 hour* Planning an interactive tutorial 
+* *2 hour* Start of interactive tutorial component
+
+### 30 Mar 2021
+* *7 hour* Adding interactive tutorial 
+
+### 31 Mar 2021
+* *2 hour* Code cleanup and routing experiments

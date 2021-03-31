@@ -6,6 +6,7 @@ import { OnlinePuzzlesComponent } from './Components/online-puzzles/online-puzzl
 import { DefaultPuzzlesComponent } from './Components/default-puzzles/default-puzzles.component';
 import { HomeComponent } from './Components/home/home.component';
 import { TutorialComponent } from './Components/tutorial/tutorial.component';
+import { InteractiveTutorialComponent } from './Components/interactive-tutorial/interactive-tutorial.component';
 
 
 export const routes: Routes = [
@@ -15,7 +16,9 @@ export const routes: Routes = [
   { path: 'make-puzzle', component: MakePuzzleComponent },
   { path: 'online-puzzle', component: OnlinePuzzlesComponent },
   { path: 'default-puzzles', component: DefaultPuzzlesComponent },
+  { path: 'interactive-tutorial', component: InteractiveTutorialComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home'}
 ];
 
 @NgModule({

@@ -1,0 +1,52 @@
+#board{
+    position: relative;
+    width: 45vh;
+    margin:1vh auto;
+    align-self: center;
+    justify-self: center;
+}
+
+#prompt{
+    width: 80%;
+    margin: auto;
+}
+
+
+#dispensers{
+    width:100%;
+}
+
+#SliderDiv{
+    width:10%;
+    margin: auto;
+}
+
+
+#boardSide{
+    width:70%;
+    margin: auto;
+    overflow: hidden;
+}
+
+#CardArea{
+    min-height: 25vh;
+}
+
+
+#gap{
+    min-height: 25px;
+}
+
+.wrapper{
+    min-width:160px;
+}
+
+button{
+    margin:5%;
+}
+
+.Highlight{
+    background-color: rgba(199, 221, 245, 0.925);
+}
+
+

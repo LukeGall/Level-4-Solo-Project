@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { Marble } from 'src/app/Classes/boardParts/marble';
 import { Pos } from 'src/app/Classes/boardParts/pos';
 import { Slot } from 'src/app/Classes/boardParts/slot';
 import { Piece } from 'src/app/Classes/piece.enum';
+import { AssetService } from 'src/app/Shared/asset.service';
 
 @Component({
   selector: 'app-slot',
@@ -26,7 +27,7 @@ export class SlotComponent implements OnChanges {
 
   hover = false;
 
-  constructor() { }
+  constructor(private assets: AssetService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes.slot){
@@ -79,10 +80,7 @@ export class SlotComponent implements OnChanges {
   }
 
   getPieceImage(): string{
-    if(this.heldPiece){
-      if(this.heldPiece == Piece.GearBit) return "assets/gear-bit.svg";
-      return "assets/"+this.heldPiece.toLowerCase()+".svg";
-    }
+    return this.assets.getPieceImg(this.heldPiece);
   }
 
   isMarbleFall(){

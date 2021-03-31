@@ -1,0 +1,318 @@
+<div id=selectionBar>
+    <mat-card class="wrapper">
+        <div class="piece" *ngFor="let part of board.boardPieces | keyvalue : sortByDiff">
+            <button class="pieceButtons" mat-raised-button [color]="part.key == board.heldPiece ? 'primary' : 'accent'"
+                (click)="setHolding(part.key)" [matTooltip]="getInfo(part.key)" [matTooltipPosition]="'right'"
+                aria-label="Piece button" [disabled]="!getPartArray(part.key).includes(state)">
+                {{part.key}}
+                <img style="width: 28%; float:right" alt="Piece icon" [src]="getPic(part.key)">
+            </button>
+        </div>
+        <button class="pieceButtons" mat-raised-button [color]="'DeletePiece'==board.heldPiece ? 'primary' : 'warn'"
+            (click)="setDelete()" [matTooltipPosition]="'right'" [matTooltip]="'Click to enter delete piece mode'">
+            Delete Piece
+        </button>
+        <button mat-raised-button color="warn" [disabled]="!stepButton.includes(state)" (click)="boardStep();"
+            [matTooltipPosition]="'right'" [matTooltip]="'Pause board execution then drop the marble one position'">Step
+            Forward</button>
+        <button mat-raised-button color="warn" [disabled]="!playButton.includes(state)" (click)="triggerPlay();"
+            [matTooltipPosition]="'right'" [matTooltip]="'Pause / Play execution'">{{ board.inPlay ? 'Pause' :
+            'Play'}}</button>
+        <button mat-raised-button color="warn" [disabled]="!resetBoardButton.includes(state)" (click)="clearBoard();"
+            [matTooltipPosition]="'right'" [matTooltip]="'Remove all pieces and collected marbles'">Reset Board</button>
+        <button mat-raised-button color="warn" [disabled]="!resetMarblesButton.includes(state)"
+            (click)="clearMarbles();" [matTooltipPosition]="'right'" [matTooltip]="'Remove the collected marbles'">Reset
+            Marbles</button>
+    </mat-card>
+</div>
+
+<div id="boardSide">
+    <div id="CardArea">
+        <mat-card class="prompt">
+            <mat-card-title>Instruction {{state+1}}<button mat-stroked-button style="margin:0%; margin-left:5%;"
+                    color="accent" (click)="goBack()">Previous Instruction</button>
+            </mat-card-title>
+            <mat-card-content>
+                <div *ngIf="state==0">
+                    <p>Hi there! Welcome to the Interactive Tutorial for Virtual Turing Tumble.
+                        This works best if you've already had a read at the main tutorial on the
+                        <b>Tutorial</b> page, and this page will walk through a couple of basic examples
+                        using the simulator.
+                    </p>
+                    <p>
+                        The Board below contains 'Pins' and 'Component Slots' where you will
+                        place various pieces to create a board configuration which will then
+                        output a certain marble pattern output.
+                    </p>
+                    <p>
+                        <b>Action: </b>To get started, click the <b>Ramp</b>
+                        piece on the <b>selection bar</b> to the left.
+                    </p>
+                </div>
+                <div *ngIf="state==1">
+                    <p>
+                        Now that you have a <b>Ramp</b> piece 'held' as indicated by the blue background of the Ramp
+                        button
+                        on the <b>selection bar</b> you can click a Component Slot to place it. You will see a 'Ghost
+                        image'
+                        when you hover over a valid slot to place this piece in. The blue and red arrows at the top of
+                        the
+                        board represent the place where the blue and red marbles will be dropped onto the board. If you
+                        were
+                        to drop a marble without placing a piece, the marble will 'fall'.
+                    </p>
+                    <p><b>Action: </b>Place a Ramp in the slot below the small blue arrow.</p>
+                </div>
+                <div *ngIf="state==2">
+                    <p>
+                        Now that a Ramp has been placed, you will see this piece on the board. This piece will direct a
+                        marble down and then to either the left or right, depending on the direction the curved end is
+                        facing. You can change the <b>direction</b> of a piece by clicking on the piece after placing
+                        it.
+                    </p>
+                    <p><b>Action: </b>Click on the ramp piece again to change its direction.</p>
+                </div>
+                <div *ngIf="state==3">
+                    <p>
+                        Once a piece has been placed a marble can be <b>Trigged</b> using the buttons at the bottom of
+                        the
+                        board. In this case a marble will reach the Ramp and fall to the right. Notice that the marble
+                        has a
+                        'falling' icon and stops travelling down the board. A marble must reach the bottom of the board
+                        via
+                        a path of pieces otherwise it will 'fall' and be removed from play.
+                    </p>
+                    <p><b>Action: </b>Trigger a blue marble and watch the marble fall.</p>
+                </div>
+                <div *ngIf="state==4">
+                    <p>
+                        When a
+                        marble reaches the bottom of the board, from the last 2 rows, it will spawn another marble based
+                        on the side of the
+                        board
+                        it falls into. Place <b>Ramps</b> in the highlighted spaces to create a path to the bottom. In
+                        this case it falls in the
+                        blue
+                        section as indicated by the blue line, this will spawn another <b>blue</b> marble. Make sure to
+                        change the direction of the ramps to direct the marble to the next Ramp.
+                    </p>
+                    <p><b>Action: </b>Place Ramps in the highlighted slots of the board and trigger a blue marble.</p>
+                </div>
+                <div *ngIf="state==5">
+                    <p>
+                        You should now see the blue marble reaching the bottom of the board, if it falls at any time,
+                        make sure the Ramps face the right direction. When it reaches the bottom of the board it will
+                        release a new marble bu also be collected by the board. The collected marbles are displayed at
+                        the bottom and list the last marbles collected form right to left. In this case just blue
+                        marbles. You can pause the board using the <b>Pause</b> option on the selection bar.
+                    </p>
+                    <p><b>Action: </b>Pause the board using the option on the selection bar after some marbles have been
+                        collected.</p>
+                </div>
+                <div *ngIf="state==6">
+                    <p>
+                        Other playback options exist, after pressing <b>Play</b> on the selection bar you can <b>Step
+                            Forward</b> or increase / decrease the speed the marble falls using the
+                        slider at the bottom.
+                        Have a play with these playback options. If at any time there is no more blue marbles, you can
+                        more using the '+' button next the marble number.
+                    </p>
+                    <p><b>Action: </b>Press the <b>Reset Board</b> option when you are ready to move on.</p>
+                </div>
+                <div *ngIf="state ==7">
+                    <p>
+                        Next we'll explore the <b>Crossover</b> piece. The Crossover continues the direction a marble is
+                        travelling and can have marbles enter from either side. The piece is useful for having multiple
+                        paths cross over each other. At any time if you place a piece in the wrong position, you can
+                        delete it by holding the <b>Delete Piece</b> and then clicking a piece you want to remove.
+                    </p>
+                    <p>Action: Place <b>Crossovers</b> in the highlighted slots below.</p>
+                </div>
+                <div *ngIf="state == 8">
+                    <p>
+                        Place <b>Ramps</b> in the highlight spaces below, making sure every ramp points towards the
+                        <b>Crossover</b>. After placing all the ramps, trigger the blue or red marble and watch how
+                        crossovers are used by both marbles.
+                    </p>
+                    <p><b>Action: </b>When ready to move on, click the 'Reset Board' button.</p>
+                </div>
+                <div *ngIf="state==9">
+                    <p>
+                        Next we'll look at the <b>Bit</b> piece. This piece sends marbles in the opposite direction it
+                        is facing and then changes its direction. This allows the piece to store state and can be used
+                        to count and add Binary numbers.
+                    </p>
+                    <p>
+                        <b>Action: </b>Place Bit pieces in the highlighted areas below.
+                    </p>
+                </div>
+                <div *ngIf="state==10">
+                    <p>
+                        Place a <b>Ramp</b> below the blue arrow and watch marbles enter the Bit pieces and notice how
+                        they change direction once they interact with a marble which changes the next marbles path.
+                        Trigger as many blue marbles as you'd like to get an understanding of this piece.
+                    </p>
+                    <p><b>Action: </b>Click 'Reset Board' to move onto the next piece.</p>
+                </div>
+                <div *ngIf="state==11">
+                    <p>
+
+                        The <b>Interceptor</b> piece catches a marble and stops it travelling down the board, this
+                        allows
+                        the board to stop its own execution and is used in different puzzles. When a marble is caught by
+                        an
+                        interceptor, it can be deleted by placing another piece down.
+                    </p>
+                    <p>
+                        <b>Action: </b>Place an Interceptor in the highlighted square
+                    </p>
+
+                </div>
+                <div *ngIf="state==12">
+                    <p>
+                        Now that an Interceptor has been placed, place a Ramp and watch the marble getting 'caught' by
+                        triggering a blue marble. Notice how you can't trigger another marble until you try to place
+                        another piece, deleting the current in play marble.
+                    </p>
+                    <p><b>Action: </b>Click 'Reset Board' to move on</p>
+                </div>
+                <div *ngIf="state==13">
+                    <p>
+                        The next two pieces, <b>Gear</b> and <b>Gear Bits</b>, in combination lead to the most complex
+                        behaviour in the game. When a Gear Bit is on its own, it acts in everyway like a Bit piece. When
+                        a <b>Gear</b> piece is placed in a Pin slot between two Gear Bits, these two pieces are now
+                        connected, as indicated by a small white arrow. When one Gear Bit changes direction, all Gear
+                        Bits connected to it via Gears also changes direction. This combination can be used to create
+                        complex piece components.
+                    </p>
+                    <p><b>Action: </b>Place Gear Bits in the highlighted area.</p>
+                </div>
+                <div *ngIf="state==14">
+                    <p>
+                        If you were to change the direction of any of Gear Bits, they would act just like Bits. Change
+                        some of the directions of the Gear Bits so they don't match their neighbours. When Gears are
+                        then placed between
+                        them the direction of all connected Gear Bits will be matched. This is to stay within the rules
+                        of
+                        the physical game.
+                    </p>
+                    <p><b>Action: </b>Place <b>Gear</b> pieces in the highlighted slots.</p>
+                </div>
+                <div *ngIf="state==15">
+                    <p>
+                        You will now see that all the Gear Bits are connected to each other via the Gears. If you were
+                        to turn either a Gear Bit or Gear, all the other Gear Bits will also turn. This also holds when
+                        a marble turns a Gear Bit, this always a Gear Bit lower down the board to interact with a marble
+                        and turn a Gear Bit further up the board.
+                    </p>
+                    <p>
+                        <b>Action: </b>Turn a <b>Gear Bit</b> 3 times.
+                    </p>
+                </div>
+                <div *ngIf="state==16">
+                    <p>
+                        Now we'll add some Ramps to see how the connected Gear Bits work with marbles. Add Ramps in the
+                        highlighted positions below and then launch the blue marble a few times to understand how the
+                        Gear Bits work with marbles. When one interacts with a marble it turns the other, updating the
+                        direction before they get a chance to interact with a marble.
+                    </p>
+                    <p>
+                        <b>Action: </b>Add Ramps and trigger a blue marble twice.
+                    </p>
+                </div>
+                <div *ngIf="state==17">
+                    <p>
+                        This simulator allows you to save any board configurations you make as a txt file. To try it out
+                        create a board configuration uses any of the pieces and click the <b>Save Board</b> button. The
+                        board is represented by a 11 line file with 11 space separated characters, each representing a
+                        Slot or Piece. For example a Ramp is represented by a 'R' followed by either 'l' or 'r' for its
+                        direction.
+                    </p>
+                    <p>
+                        <b>Action: </b> Use the save board button to save a board configuration.
+                    </p>
+                </div>
+                <div *ngIf="state==18">
+                    <p>
+                        This is the end of the interactive tutorial! Hopefully you've enjoyed it and feel more
+                        comfortable with the program. You can now try out your own configurations using the <b>Plain
+                            Board</b> page or start working through the puzzles found on the <b>Default Puzzles</b>
+                        page! We hope you enjoy the site and make some of your own puzzles for other to play.
+                    </p>
+                    <button mat-stroked-button style="margin:0%;" color="accent" (click)="state = 0">Start of
+                        Tutorial</button>
+                </div>
+
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+    <mat-grid-list cols="4" id="dispensers" [rowHeight]="'80px'">
+        <mat-grid-tile [colspan]="1">
+            <app-dispenser [marbles]="board.blueMarbles" [marbleColour]="'blue'"
+                (increaseMarble)="increaseMarble($event)" (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button mat-raised-button color="primary" (click)="saveBoard()"
+                [disabled]="!saveButton.includes(state)">Save Board</button>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button mat-raised-button color="primary" (click)="fileUpload.click()"
+                [disabled]="!saveButton.includes(state)">Upload Board</button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1">
+            <app-dispenser [marbles]="board.redMarbles" [marbleColour]="'red'" (increaseMarble)="increaseMarble($event)"
+                (decreaseMarble)="decreaseMarble($event)"></app-dispenser>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <input hidden="true" #fileUpload type="file" class="file-button" id="file" accept="text/plain"
+        (change)="uploadBoard($event.target.files)">
+    <div id="board">
+        <div id="boardBackground">
+            <mat-grid-list cols="11" rowHeight="2:1" style="margin-bottom: 2px;">
+                <mat-grid-tile [colspan]="3"></mat-grid-tile>
+                <mat-grid-tile [colspan]="1" style="color: blue; font-size:2vh;">&darr;</mat-grid-tile>
+                <mat-grid-tile [colspan]="3"></mat-grid-tile>
+                <mat-grid-tile [colspan]="1" style="color: red; font-size:2vh;">&darr;</mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list [cols]="this.board.slots[0].length" rowHeight="1:1">
+                <div *ngFor="let row of board.slots; index as x">
+                    <div *ngFor="let slot of row; index as y">
+                        <mat-grid-tile [colspan]="1" [rowspan]="1"
+                            [ngClass]="(state | slotBackground:x:y) ? 'Highlight' : ''">
+                            <app-slot *ngIf="slot" [slot]="slot" [x]="x" [y]="y" [marble]="board.inPlayMarble"
+                                (slotClicked)="slotClicked($event)" [heldPiece]="board.heldPiece"></app-slot>
+                            <app-slot *ngIf="!slot" [slot]="slot" [x]="x" [y]="y" [marble]="board.inPlayMarble">
+                            </app-slot>
+                        </mat-grid-tile>
+                    </div>
+                </div>
+            </mat-grid-list>
+            <mat-grid-list cols="12" rowHeight="8:1" [gutterSize]="'0px'" style="margin-bottom: 2px;">
+                <mat-grid-tile [colspan]="6" style="background-color: rgb(44, 117, 253);"></mat-grid-tile>
+                <mat-grid-tile [colspan]="6" style="background-color:  rgb(248, 83, 83);"></mat-grid-tile>
+            </mat-grid-list>
+            <div id="gap">
+                <app-collected-marbles [marbles]="this.board.collectedMarbles"></app-collected-marbles>
+            </div>
+        </div>
+    </div>
+    <div id="triggers" style="width: 100%; margin: auto;">
+        <mat-grid-list cols="3" rowHeight="25px">
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <app-flipper [colour]="'blue'" (clickedFlipper)="clickedFlipper($event)" [inPlay]="board.inPlay">
+                </app-flipper>
+            </mat-grid-tile>
+            <mat-grid-tile>Speed</mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <app-flipper [colour]="'red'" (clickedFlipper)="clickedFlipper($event)" [inPlay]="board.inPlay">
+                </app-flipper>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-slider #SpeedSliderMs min="100" max="3100" step="100" value="1500" id="mat-slider"
+                    (input)="changeSpeed(SpeedSliderMs.value)" color="primary">
+                </mat-slider>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>

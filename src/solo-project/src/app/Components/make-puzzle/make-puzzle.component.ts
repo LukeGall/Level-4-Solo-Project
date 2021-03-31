@@ -9,7 +9,6 @@ import { MakePuzzleService } from 'src/app/Shared/make-puzzle.service';
   selector: 'app-make-puzzle',
   templateUrl: './make-puzzle.component.html',
   styleUrls: ['./make-puzzle.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MakePuzzleComponent implements OnInit {
   @Input() puzzleBoard: PuzzleBoard;

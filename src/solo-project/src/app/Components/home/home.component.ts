@@ -26,5 +26,4 @@ export class HomeComponent implements OnInit {
   goToPlainBoard(num: number){
     this.router.navigate(['/plain-board', {example: num}]);
   }
-
 }

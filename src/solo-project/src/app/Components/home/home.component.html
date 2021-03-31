@@ -44,31 +44,27 @@
         </mat-grid-list>
     </div>
     <mat-divider></mat-divider>
-    <div id="FeaturedPuzzles">
-        <h2 style="margin-top: 2vh;">Featured Boards</h2>
-        <mat-grid-list [cols]="4" [rowHeight]="'35vh'" [gutterSize]="'2vw'">
-            <mat-grid-tile>
-                <div class="board" (click)="goToPlainBoard(1)">
-                    <app-board [board]="example1" [gapAtBottom]="false"></app-board>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="board" (click)="goToPlainBoard(2)">
-                    <app-board [board]="example2" [gapAtBottom]="false"></app-board>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="board" (click)="goToPlainBoard(3)">
-                    <app-board [board]="example3" [gapAtBottom]="false"></app-board>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="board" (click)="goToPlainBoard(4)">
-                    <app-board [board]="example4" [gapAtBottom]="false"></app-board>
-                </div>
-            </mat-grid-tile>
-        </mat-grid-list>
-    </div>
-
-
+    <h2 style="margin-top: 2vh;">Featured Boards</h2>
+    <mat-grid-list [cols]="4" [rowHeight]="'35vh'" [gutterSize]="'2vw'">
+        <mat-grid-tile>
+            <div class="board" (click)="goToPlainBoard(1)">
+                <app-board [board]="example1" [gapAtBottom]="false"></app-board>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="board" (click)="goToPlainBoard(2)">
+                <app-board [board]="example2" [gapAtBottom]="false"></app-board>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="board" (click)="goToPlainBoard(3)">
+                <app-board [board]="example3" [gapAtBottom]="false"></app-board>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="board" (click)="goToPlainBoard(4)">
+                <app-board [board]="example4" [gapAtBottom]="false"></app-board>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>

@@ -8,33 +8,38 @@
     </ng-template>
 </div>
 <mat-divider></mat-divider>
-<div id=home>
+<div>
     <a routerLink="/home" routerLinkActive="active">
         <button mat-raised-button color="accent">Home</button>
     </a>
 </div>
-<div id=tutorial>
+<div>
     <a routerLink="/tutorial" routerLinkActive="active">
         <button mat-raised-button color="accent">Tutorial</button>
     </a>
 </div>
-<div id=plainBoard>
+<div>
     <a routerLink="/plain-board" routerLinkActive="active">
         <button mat-raised-button color="accent">Plain Board</button>
     </a>
 </div>
-<div id=puzzles>
+<div>
     <a routerLink="/default-puzzles" routerLinkActive="active">
         <button mat-raised-button color="accent">Original Puzzles</button>
     </a>
 </div>
+<div>
+    <a routerLink="/interactive-tutorial" routerLinkActive="active">
+        <button mat-raised-button color="accent">Interactive Tutorial</button>
+    </a>
+</div>
 <div *ngIf="auth.user | async as user">
-    <div id=onlinePuzzles>
+    <div>
         <a routerLink="/online-puzzle" routerLinkActive="active">
             <button mat-raised-button color="accent">Online Puzzles</button>
         </a>
     </div>
-    <div id=makePuzzle>
+    <div>
         <a routerLink="/make-puzzle" routerLinkActive="active">
             <button mat-raised-button color="accent">Create Puzzle</button>
         </a>
