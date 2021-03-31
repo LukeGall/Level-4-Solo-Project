@@ -437,4 +437,5 @@
 * *7 hour* Adding interactive tutorial 
 
 ### 31 Mar 2021
-* *2 hour* Code cleanup and routing experiments
+* *2.5 hour* Code cleanup and routing experiments, upload of new site
+* *1 hour* Editing documentation to reflect recent changes 

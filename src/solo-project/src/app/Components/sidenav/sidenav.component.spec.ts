@@ -3,8 +3,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { By } from '@angular/platform-browser';
 import { BehaviorSubject, of } from 'rxjs';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { SidenavComponent } from './sidenav.component';
+import { routes } from '../../app-routing.module';
 
 describe('SidenavComponent', () => {
   let component: SidenavComponent;
@@ -21,6 +22,7 @@ describe('SidenavComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule.withRoutes(routes)],
       declarations: [ SidenavComponent ],
       providers: [{provide: AngularFireDatabase, useValue: stub},{provide: AngularFireAuth, useValue: stub}]
     })
