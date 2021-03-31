@@ -439,3 +439,4 @@
 ### 31 Mar 2021
 * *2.5 hour* Code cleanup and routing experiments, upload of new site
 * *1 hour* Editing documentation to reflect recent changes 
+* *3.5* More code documentation 

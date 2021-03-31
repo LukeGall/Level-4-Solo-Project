@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Piece } from 'src/app/Classes/piece.enum';
 import { boardState } from 'src/app/Classes/puzzle-board';
+import { AssetService } from 'src/app/Shared/asset.service';
 
 @Component({
   selector: 'app-selection-bar',
@@ -29,7 +30,7 @@ export class SelectionBarComponent implements OnChanges {
   notStarting: boolean = this.getNotStarting();
   isPlaying: boolean = this.getIsPlaying();
 
-  constructor() { }
+  constructor(private assets: AssetService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.boardState) {
@@ -77,20 +78,7 @@ export class SelectionBarComponent implements OnChanges {
   }
 
   getPic(piece: string): string {
-    switch (piece) {
-      case Piece.Ramp:
-        return "assets/ramp.svg";
-      case Piece.Gear:
-        return "assets/gear.svg";
-      case Piece.Crossover:
-        return "assets/crossover.svg";
-      case Piece.Bit:
-        return "assets/bit.svg";
-      case Piece.GearBit:
-        return "assets/gear-bit.svg";
-      case Piece.Interceptor:
-        return "assets/interceptor.svg";
-    }
+    return this.assets.getPieceImg(piece);
   }
 
   getIsPlaying() {
