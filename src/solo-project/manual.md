@@ -1,6 +1,6 @@
 # User manual
 
-To use the software, please visit the github pages to access the site or run the site on your localhost using `ng serve`. The site has multiple pages, including a tutorial page in which it gives more details in how to use the site.
+To use the software, please visit the github pages to access the site or run the site on your localhost using `ng serve`. The site has multiple pages, including a tutorial page in which it gives more details in how to use the site. This program is deployed as a website and be accessed at 'https://lukegall.github.io/Level-4-Solo-Project/home'. 
 
 What follows is a brief instruction on how to use the various parts of the site, please visit the Tutorial section of the site to gain more details.
 
@@ -14,8 +14,13 @@ This page provides a Turing Tumble board where pieces can be selected using the 
 This page lists the different puzzles that were created from the default set given in the Turing Tumble educator guide. Each item in the list can be clicked to give more details about that puzzle and also provides the play button to start the puzzle. When playing the puzzle it acts similarly to the plain board but some pieces have a different background colour meaning they can't be replaced or deleted from the board. The user will only have a certain number of pieces to complete the puzzle as given by the number next to the piece icon. After getting the correct expected output the user will be congratulated.
 
 ## Online Puzzles page
-This page can only be accessed after loging in to the site. It works exactly like the Orginal Puzzles page but shows the puzzles made by other users of the site.
+This page can only be accessed after logging in to the site, either via Google or Anonymously. It works exactly like the Original Puzzles page but shows the puzzles made by other users of the site.
 
 ## Create Puzzle page
 This page allows for the creation and upload of puzzles. To create a puzzle, the user first needs to use the selection bar to place all the pieces needed for the starting set up of the puzzle. The solution to this puzzle should next be added as well as the expected output which is added by running through the puzzle. After confirming the output a form will be presented to give details about the puzzle before upload 
 
+## Tutorial Page
+This page contains three tabs detailing different elements of the site as well how to play Turing Tumble. The first section gives details of the site and how the game works. The second section details the different pieces of the board and how they work. The last section details information on how to make and play puzzles.
+
+## Interactive Tutorial Page
+This tutorial works through different examples while providing tutorial information and actions for users to carry out to move to the next stage. For example one stage will display a board and ask you to place Ramp pieces, as described by the 'Action'. After working through the nineteen instructions you can start the tutorial again. 

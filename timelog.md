@@ -260,7 +260,7 @@
 ### 17 Dec 2020
 * *3 hour* Lit review on wiki plus a write up of all the issues I faced during development
 
-# Semester 2 - 175.5
+# Semester 2 - 203 hours
 ## Week 12 - 14 hours
 ### 12 Jan 2021
 * *1 hour* Reading of hall of fame project and note taking
@@ -426,7 +426,7 @@
 * *1 hour* Adding page size changer to puzzle list page
 * *3.5 hour* Trying custom dispensers, not working too well :(
 
-## Week 22
+## Week 22 - 29.5 hours
 ### 29 Mar 2021
 * *2 hour* Refactoring and adding Flippers and Dispensers to board. Part of Possible custom board layouts, not taken any further, left in a separate branch for future work
 * *2.5 hour* Refactoring and attempted performance increase 
@@ -440,3 +440,9 @@
 * *2.5 hour* Code cleanup and routing experiments, upload of new site
 * *1 hour* Editing documentation to reflect recent changes 
 * *3.5* More code documentation 
+
+### 1 Apr 2021
+* *6.5 hour* More Grammar and Spelling fixes for dissertation
+
+### 2 Apr 2021
+* *2 hour* Final cleanup and submission 
